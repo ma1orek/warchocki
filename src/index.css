@@ -1,0 +1,107 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Space Grotesk', sans-serif;
+  background: #000;
+  color: #fff;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Film grain overlay — disabled to prevent black bar glitches */
+
+@keyframes grain {
+  0%, 100% { transform: translate(0, 0); }
+  10% { transform: translate(-5%, -10%); }
+  20% { transform: translate(-15%, 5%); }
+  30% { transform: translate(7%, -25%); }
+  40% { transform: translate(-5%, 25%); }
+  50% { transform: translate(-15%, 10%); }
+  60% { transform: translate(15%, 0%); }
+  70% { transform: translate(0%, 15%); }
+  80% { transform: translate(3%, 35%); }
+  90% { transform: translate(-10%, 10%); }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: #000; }
+::-webkit-scrollbar-thumb { background: #333; border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: #555; }
+
+::selection {
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
+/* Timeline dot pulse */
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 8px rgba(255, 255, 255, 0.3); }
+  50% { box-shadow: 0 0 24px rgba(255, 255, 255, 0.7); }
+}
+
+/* TikTok embed responsive */
+.tiktok-embed-wrapper iframe {
+  border: none;
+  border-radius: 0;
+}
+
+/* Services section responsive */
+.services-section {
+  padding: 120px 0;
+}
+.services-section > div {
+  padding: 0 48px;
+}
+.services-contact-grid {
+  grid-template-columns: 1fr 1fr;
+}
+
+/* Timeline scroll hide */
+.timeline-scroll::-webkit-scrollbar { display: none; }
+
+@media (max-width: 768px) {
+  /* Disable film grain on mobile for perf */
+  body::after {
+    display: none;
+  }
+
+  .services-section {
+    padding: 80px 0;
+  }
+  .services-section > div {
+    padding: 0 20px;
+  }
+  .services-contact-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .services-cards-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Form name/email row */
+  .services-contact-grid form > div:first-child {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+@media (max-width: 1024px) and (min-width: 769px) {
+  .services-contact-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
