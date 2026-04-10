@@ -39,7 +39,7 @@ const services = [
     ),
     tag: 'Zasięgi, których nie kupisz',
     title: 'PROMOCJA W SOCIALACH',
-    desc: '350 milionów wyświetleń, człowieku. Chcesz żebym wziął Twój produkt i zrobił z niego virala? TikTok, Insta, YouTube — ja to ogarniam lepiej niż niejeden influencer z krwi i kości.',
+    desc: 'Ponad 500 milionów wyświetleń, człowieku. Chcesz żebym wziął Twój produkt i zrobił z niego virala? TikTok, Insta, YouTube — ja to ogarniam lepiej niż niejeden influencer z krwi i kości.',
     link: '/promocja-social-media',
   },
   {

@@ -9,7 +9,6 @@ headers = []
 publish = "c:\\Users\\idzik\\warchocki\\dist"
 publishOrigin = "ui"
 commandOrigin = "ui"
-base = "c:\\Users\\idzik\\warchocki"
 command = "npm run build"
 
 [build.environment]

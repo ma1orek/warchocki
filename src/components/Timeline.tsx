@@ -32,6 +32,7 @@ const events = [
   'Spotkanie z Ministrem Cyfryzacji',
   'Wizyta w Sejmie — konferencja prasowa',
   'Kibicowanie naszym i zbieranie autografów',
+  'Półfinał Mistrzostw Polski — kibicowałem wszystkim',
 ]
 
 export default function Timeline() {

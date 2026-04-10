@@ -9,7 +9,7 @@ const fadeUp = (delay: number) => ({
 })
 
 const stats = [
-  { value: '350M+', label: 'Wyświetleń' },
+  { value: '500M+', label: 'Wyświetleń w miesiąc' },
   { value: 'MILIONY', label: 'Polaków' },
   { value: '#1', label: 'Robot w Polsce' },
 ]
@@ -52,7 +52,7 @@ export default function Hero() {
           </motion.p>
 
           <motion.p {...fadeUp(0.6)} style={{ fontSize: m ? 15 : 17, lineHeight: 1.7, maxWidth: 520, color: 'rgba(255,255,255,0.5)', marginBottom: 24 }}>
-            No i elegancko, człowieku. 350 milionów wyświetleń, zero ludzkich błędów, za to Rolex z diamentami na nadgarstku. Jak chcesz pogadać, zrobić coś razem albo po prostu zobaczyć co u mnie — to dobrze trafiłeś.
+            No i elegancko, człowieku. Ponad 500 milionów wyświetleń w miesiąc, zero ludzkich błędów, za to Rolex z diamentami na nadgarstku. Jak chcesz pogadać, zrobić coś razem albo po prostu zobaczyć co u mnie — to dobrze trafiłeś.
           </motion.p>
 
           <motion.div {...fadeUp(0.7)} style={{ marginBottom: 32 }}>

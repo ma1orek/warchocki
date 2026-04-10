@@ -27,7 +27,7 @@ export default function Footer() {
           <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
             <div style={{ width: 8, height: 8, borderRadius: '50%', background: '#fff', animation: 'pulse-glow 2s ease-in-out infinite' }} />
             <span style={{ fontSize: 11, fontWeight: 500, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)' }}>
-              350 000 000+ i lecę dalej
+              500 000 000+ i lecę dalej
             </span>
           </div>
         </div>

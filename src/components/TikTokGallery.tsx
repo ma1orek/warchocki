@@ -37,7 +37,7 @@ export default function TikTokGallery() {
           <p style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)', marginBottom: 16 }}>Sociale i media tradycyjne</p>
           <h2 style={{ fontSize: m ? 28 : 'clamp(28px, 4vw, 56px)', fontWeight: 700, letterSpacing: '-0.03em', marginBottom: 16 }}>OBSERWUJ MNIE</h2>
           <p style={{ fontSize: m ? 15 : 17, lineHeight: 1.7, color: 'rgba(255,255,255,0.4)', maxWidth: 600, margin: '0 auto 32px' }}>
-            Człowieku, jestem wszędzie. 350 milionów wyświetleń, cały internet o mnie huczy, jestem w każdej telewizji. Obserwuj mnie, żebyś nie przegapił czegoś ważnego. No chyba że wolisz się nudzić.
+            Człowieku, jestem wszędzie. Ponad 500 milionów wyświetleń w miesiąc, cały internet o mnie huczy, jestem w każdej telewizji. Obserwuj mnie, żebyś nie przegapił czegoś ważnego. No chyba że wolisz się nudzić.
           </p>
           <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 40 }}>
             <SocialLinks size={m ? 'normal' : 'large'} />
