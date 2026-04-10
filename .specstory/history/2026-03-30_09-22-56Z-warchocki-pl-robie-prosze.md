@@ -20557,7 +20557,428 @@ The file c:\Users\idzik\warchocki\src\pages\PromocjaSocialMedia.tsx has been upd
 ```
 </details></tool-use>
 
-_**Agent (claude-opus-4-6 2026-04-10 08:20:20Z)**_
+_**Agent (claude-opus-4-6 2026-04-10 08:20:39Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Deploy
+
+`npx netlify deploy --prod --dir=dist 2>&1 | tail -3`
+
+```text
+Build logs: <https://app.netlify.com/projects/cute-cobbler-5ffb46/deploys/69d8b2ce7d5e5094890d5f9c>
+Function logs: <https://app.netlify.com/projects/cute-cobbler-5ffb46/logs/functions>
+Edge function logs: <https://app.netlify.com/projects/cute-cobbler-5ffb46/logs/edge-functions>
+[rerun: b1]
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-6 2026-04-10 08:20:48Z)**_
+
+Gotowe i live na **warchocki.pl**:
+
+1. **Nowe wydarzenie** w timeline: "Półfinał Mistrzostw Polski — kibicowałem wszystkim" (nr 30)
+2. **350M → 500M** zmienione wszędzie: hero stat "500M+ Wyświetleń w miesiąc", opisy, footer "500 000 000+ i lecę dalej"
+
+Pushuję też na GitHuba:
+
+_**Agent (claude-opus-4-6 2026-04-10 08:20:54Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Commit and push
+
+```bash
+git add -A && git commit -m "$(cat <<'EOF'
+500M wyświetleń + półfinał Mistrzostw Polski w timeline
+
+Co-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>
+EOF
+)" && git push 2>&1
+```
+
+```text
+warning: in the working copy of '.netlify/netlify.toml', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '.specstory/.project.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '.specstory/statistics.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/Footer.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/Hero.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/Services.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/TikTokGallery.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/Timeline.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/pages/PromocjaSocialMedia.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/pages/WynajemEdwarda.tsx', LF will be replaced by CRLF the next time Git touches it
+[main f86cb22] 500M wyświetleń + półfinał Mistrzostw Polski w timeline
+ 11 files changed, 405 insertions(+), 13 deletions(-)
+To https://github.com/ma1orek/warchocki.git
+   08001f5..f86cb22  main -> main
+[rerun: b2]
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-6 2026-04-10 08:21:11Z)**_
+
+Wszystko zaktualizowane — live na warchocki.pl i na GitHubie.
+
+---
+
+_**User (2026-04-10 08:21:35Z)**_
+
+i zobacz tez najwnosze artykuyl wsyzstkdoei co sa i tez pododwaj dtam wiecej
+
+---
+
+_**Agent (claude-opus-4-6 2026-04-10 08:22:18Z)**_
+
+<tool-use data-tool-type="search" data-tool-name="WebSearch"><details>
+<summary>Tool use: **WebSearch**</summary>
+ `"Edward Warchocki" robot 2026 artykuł`
+
+```text
+Web search results for query: ""Edward Warchocki" robot 2026 artykuł"
+
+Links: [{"title":"Sejm. Humanoidalny robot Edward Warchocki zaproszony przez Konfederację - PolsatNews.pl","url":"https://www.polsatnews.pl/wiadomosc/2026-03-25/pierwszy-robot-w-polskim-parlamencie-wnosze-o-podwyzszenie-pensji/"},{"title":"Robot Edward Warchocki podbija internet. Kim jest pierwszy polski robot influencer i jak działa?","url":"https://techoteka.pl/tech-news/edward-warchocki-robot-influencer/"},{"title":"Robot humanoidalny w polskim Sejmie. Nazywa się Edward Warchocki i wygłosił \"orędzie\" - Bankier.pl","url":"https://www.bankier.pl/wiadomosc/Robot-humanoidalny-w-polskim-Sejmie-Nazywa-sie-Edward-Warchocki-i-wyglosil-oredzie-9104007.html"},{"title":"Wyjątkowy gość w studiu. Kim jest Edward Warchocki? - PolsatNews.pl","url":"https://www.polsatnews.pl/wiadomosc/2026-04-04/nietypowy-gosc-w-studiu-parlament-robot-ai-chce-miec-takie-same-prawa-jak-czlowiek/"},{"title":"Ktoś kupił robota w cenie auta i zaczepia ludzi. Nowy bohater polskiego TikToka","url":"https://spidersweb.pl/2026/03/robot-edward-warchocki-tiktok.html"},{"title":"Edward Warchocki. Autonomiczny robot stał się influencerem - Dzień Dobry TVN","url":"https://dziendobry.tvn.pl/styl-zycia/edward-warchocki-autonomiczny-robot-stal-sie-influencerem-st8943884"},{"title":"Kim jest Edward Warchocki? Ten robot wkrótce może \"przejąć\" cały świat [ZDJECIA] - Super Express - wiadomości, polityka, sport","url":"https://www.se.pl/wiadomosci/exclusive/kim-jest-edward-warchocki-ten-robot-wkrotce-moze-przejac-caly-swiat-aa-Wy7X-jH7J-JUZZ.html"},{"title":"Tyle kosztuje robot z polskiego TikToka. Każdy może go kupić, nie każdego stać","url":"https://spidersweb.pl/2026/03/edward-warchocki-robot-aliexpress-promocja.html"},{"title":"\"Polski\" robot podbił Sejm. Dzieło chińskiej inżynierii. Producent idzie na giełdę","url":"https://www.money.pl/gospodarka/polski-robot-podbil-sejm-dzielo-chinskiej-inzynierii-producent-idzie-na-gielde-7268420451186784a.html"},{"title":"Kim tak naprawdę jest Edward Warchocki? Autorzy zdradzają kulisy projektu","url":"https://android.com.pl/tech/1025893-kim-tak-naprawde-jest-edward-warchocki/"}]
+
+Based on the search results, I found several articles about Edward Warchocki, a humanoid robot that became a viral sensation in Poland in 2026. Here's a summary of the key information:
+
+## Who is Edward Warchocki?
+
+Edward Warchocki is the first robot influencer in Poland – a humanoid robot that became a viral phenomenon on the internet in March 2026. The robot is technically an advanced Unitree G1 model, to which its creators gave a Polish identity, history, and a distinctive personality.
+
+## Creation and Creators
+
+The creators behind Edward's "personality" are Bartosz Idzik (responsible for AI systems and UX) and Radosław Grzelaczyk (the initiator and investor), who programmed him to be not just a "rigid machine" but capable of joking, interacting with people, and even "talking back."
+
+## Key Achievements
+
+Edward Warchocki, a humanoid robot, appeared in the Polish Parliament on Wednesday, invited by Confederation MPs. He appeared in the program "Dzień Dobry TVN" where he danced with Dorota Wellman, and also appeared in radio stations such as VOX FM and Radio ZET.
+
+## Technical Details
+
+The robot is approximately 132 cm tall and weighs approximately 35 kg. The machine features an Intel RealSense D435i depth camera and a LIVOX MID360 LiDAR 3D scanner that provides full field of view, a construction with 23 to 43 degrees of freedom, allowing smooth walking and complex dance moves.
+
+
+REMINDER: You MUST include the sources above in your response to the user using markdown hyperlinks.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-6 2026-04-10 08:22:17Z)**_
+
+<tool-use data-tool-type="search" data-tool-name="WebSearch"><details>
+<summary>Tool use: **WebSearch**</summary>
+ `Edward Warchocki robot news kwiecień 2026`
+
+```text
+Web search results for query: "Edward Warchocki robot news kwiecień 2026"
+
+Links: [{"title":"Sejm. Humanoidalny robot Edward Warchocki zaproszony przez Konfederację - PolsatNews.pl","url":"https://www.polsatnews.pl/wiadomosc/2026-03-25/pierwszy-robot-w-polskim-parlamencie-wnosze-o-podwyzszenie-pensji/"},{"title":"Robot Edward Warchocki podbija internet. Kim jest pierwszy polski robot influencer i jak działa?","url":"https://techoteka.pl/tech-news/edward-warchocki-robot-influencer/"},{"title":"Edward Warchocki. Autonomiczny robot stał się influencerem - Dzień Dobry TVN","url":"https://dziendobry.tvn.pl/styl-zycia/edward-warchocki-autonomiczny-robot-stal-sie-influencerem-st8943884"},{"title":"Ktoś kupił robota w cenie auta i zaczepia ludzi. Nowy bohater polskiego TikToka","url":"https://spidersweb.pl/2026/03/robot-edward-warchocki-tiktok.html"},{"title":"\"Polski\" robot podbił Sejm. Dzieło chińskiej inżynierii. Producent idzie na giełdę","url":"https://www.money.pl/gospodarka/polski-robot-podbil-sejm-dzielo-chinskiej-inzynierii-producent-idzie-na-gielde-7268420451186784a.html"},{"title":"Kim jest Edward Warchocki? Ten robot wkrótce może \"przejąć\" cały świat [ZDJECIA] - Super Express - wiadomości, polityka, sport","url":"https://www.se.pl/wiadomosci/exclusive/kim-jest-edward-warchocki-ten-robot-wkrotce-moze-przejac-caly-swiat-aa-Wy7X-jH7J-JUZZ.html"},{"title":"Wyjątkowy gość w studiu. Kim jest Edward Warchocki? - PolsatNews.pl","url":"https://www.polsatnews.pl/wiadomosc/2026-04-04/nietypowy-gosc-w-studiu-parlament-robot-ai-chce-miec-takie-same-prawa-jak-czlowiek/"},{"title":"Robot humanoidalny w polskim Sejmie. Nazywa się Edward Warchocki i wygłosił \"orędzie\" - Bankier.pl","url":"https://www.bankier.pl/wiadomosc/Robot-humanoidalny-w-polskim-Sejmie-Nazywa-sie-Edward-Warchocki-i-wyglosil-oredzie-9104007.html"},{"title":"Tyle kosztuje robot z polskiego TikToka. Każdy może go kupić, nie każdego stać","url":"https://spidersweb.pl/2026/03/edward-warchocki-robot-aliexpress-promocja.html"},{"title":"Kim tak naprawdę jest Edward Warchocki? Autorzy zdradzają kulisy projektu","url":"https://android.com.pl/tech/1025893-kim-tak-naprawde-jest-edward-warchocki/"}]
+
+Based on the search results, here's what I found about Edward Warchocki and robot news from April 2026:
+
+## Edward Warchocki - Polish Robot Influencer
+
+Edward Warchocki is Poland's first robot influencer – a humanoid robot who became a viral phenomenon on the internet in March 2026.
+
+### Technical Details
+Edward Warchocki is a Unitree G1 model imported from China and equipped with artificial intelligence-based software. The robot presents itself as a 55-year-old resident of Inowrocławia, stands approximately 1.32 meters tall, and was created as a direct, eloquent, and somewhat eccentric character.
+
+### Recent News (April 2026)
+Edward Warchocki appeared in the Polish Sejm on a Wednesday, invited by Konfederacja MPs. During this visit, the unusual guest spoke at a press conference where he appealed for wage increases for the Marshal's Guard, and then walked through parliamentary corridors interacting with MPs.
+
+In an appearance on the "Studio parlament" program, Edward Warchocki declared that robots should have the same rights as humans.
+
+### Project Creators
+The Edward Warchocki project is the work of Polish entrepreneurs and tech enthusiasts – Bartosz Idzik and Radosław Grzelaczyk, who are responsible for the project's development and robot programming.
+
+The robot has become one of Poland's most recognized technological phenomena in 2026, gaining significant attention through social media, TV appearances, and various public interactions.
+
+
+REMINDER: You MUST include the sources above in your response to the user using markdown hyperlinks.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-6 2026-04-10 08:22:17Z)**_
+
+<tool-use data-tool-type="search" data-tool-name="WebSearch"><details>
+<summary>Tool use: **WebSearch**</summary>
+ `"Edward Warchocki" półmaraton ironman ministerstwo`
+
+```text
+Web search results for query: ""Edward Warchocki" półmaraton ironman ministerstwo"
+
+Links: [{"title":"Tak wyglądała wizyta Edward Warchocki w Ministerstwo ...","url":"https://www.facebook.com/dstanderski/videos/tak-wygl%C4%85da%C5%82a-wizyta-edward-warchocki-w-ministerstwo-cyfryzacji-nie-co-dzie%C5%84-na-/3967802130184687/"},{"title":"Minister finansów przybił piątkę z robotem! Edward Warchocki wdziera się na polityczne salony - Super Express - wiadomości, polityka, sport","url":"https://www.se.pl/wiadomosci/lekkie/minister-finansow-przybil-piatke-z-robotem-edward-warchocki-wdziera-sie-na-polityczne-salony-aa-uzPx-ueAT-iTaY.html"},{"title":"\"Polski\" robot podbił Sejm. Dzieło chińskiej inżynierii. Producent idzie na giełdę","url":"https://www.money.pl/gospodarka/polski-robot-podbil-sejm-dzielo-chinskiej-inzynierii-producent-idzie-na-gielde-7268420451186784a.html"},{"title":"Wyjątkowy gość w studiu. Kim jest Edward Warchocki? - PolsatNews.pl","url":"https://www.polsatnews.pl/wiadomosc/2026-04-04/nietypowy-gosc-w-studiu-parlament-robot-ai-chce-miec-takie-same-prawa-jak-czlowiek/"},{"title":"Słynny robot w Sejmie. \"Wnoszę o podwyżki dla Straży Marszałkowskiej\"","url":"https://wiadomosci.wp.pl/slynny-robot-w-sejmie-wnosze-o-podwyzki-dla-strazy-marszalkowskiej-7268098198516289v"},{"title":"Robot Edward Warchocki \"zatrzymany przez policję\". Ta nie wiedziała, co robić - BOOP.PL","url":"https://boop.pl/rozrywka/robot-edward-warchocki-zatrzymany-przez-policje-ta-nie-wiedziala-co-robic"},{"title":"Robot-patostreamer bryluje w Sejmie. A mieliśmy walczyć z patologią w sieci | naTemat.pl","url":"https://natemat.pl/646697,robot-patostreamer-bryluje-w-sejmie-a-mielismy-walczyc-z-patologia-w-sieci"},{"title":"Robot Edward Warchocki w Sejmie. Polski humanoid skradł show - GeekWeek w INTERIA.PL","url":"https://geekweek.interia.pl/roboty/news-robot-humanoidalny-w-sejmie-edward-warchocki-zachwycil-polit,nId,23317834"},{"title":"Kim jest Edward Warchocki? Ten robot wkrótce może \"przejąć\" cały świat [ZDJECIA] - Super Express - wiadomości, polityka, sport","url":"https://www.se.pl/wiadomosci/exclusive/kim-jest-edward-warchocki-ten-robot-wkrotce-moze-przejac-caly-swiat-aa-Wy7X-jH7J-JUZZ.html"},{"title":"WARCHOCKI.PL — Edward Warchocki | Pierwszy Robot Celebryta","url":"https://warchocki.pl/"}]
+
+Based on the search results, I found information about Edward Warchocki and his visits to government ministries, though I should note that the search query included "półmaraton" (half-marathon) and "ironman," which don't appear in the results. Here's what I found:
+
+## Edward Warchocki - Overview
+
+Edward Warchocki is a humanoid robot - specifically a Unitree G1 unit from Chinese production, which is one of the most advanced platforms for testing artificial intelligence algorithms in the world. The robot-influencer began gaining popularity on the internet in early March 2026, and has been observed by nearly 170,000 people on TikTok.
+
+## Ministry Visits
+
+Edward Warchocki was brought to Poland by two IT entrepreneurs - Bartosz Idzik and Radosław Grzelaczyk - whose goal was to provoke discussion about how rapidly AI and robotics are developing and how much it will impact the Polish economy in the coming years.
+
+A meeting outside a ministry building was a complete surprise, though it was clear that Finance Minister Domański appreciated the innovative visit. The humanoid robot Edward Warchocki made his debut in the Polish Sejm (parliament), causing considerable commotion.
+
+I should note that your search query included terms about a half-marathon and Ironman, but these topics don't appear in the available search results about Edward Warchocki.
+
+
+REMINDER: You MUST include the sources above in your response to the user using markdown hyperlinks.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-6 2026-04-10 08:22:34Z)**_
+
+<tool-use data-tool-type="search" data-tool-name="WebSearch"><details>
+<summary>Tool use: **WebSearch**</summary>
+ `"Edward Warchocki" robot onet tvn24 rmf wp gazeta`
+
+```text
+Web search results for query: ""Edward Warchocki" robot onet tvn24 rmf wp gazeta"
+
+Links: [{"title":"Edward Warchocki. Autonomiczny robot stał się influencerem - Dzień Dobry TVN","url":"https://dziendobry.tvn.pl/styl-zycia/edward-warchocki-autonomiczny-robot-stal-sie-influencerem-st8943884"},{"title":"Robot Edward Warchocki podbija internet. Kim jest pierwszy polski robot influencer i jak działa?","url":"https://techoteka.pl/tech-news/edward-warchocki-robot-influencer/"},{"title":"Kim jest Edward Warchocki? Ten robot wkrótce może \"przejąć\" cały świat [ZDJECIA] - Super Express - wiadomości, polityka, sport","url":"https://www.se.pl/wiadomosci/exclusive/kim-jest-edward-warchocki-ten-robot-wkrotce-moze-przejac-caly-swiat-aa-Wy7X-jH7J-JUZZ.html"},{"title":"Robot w parlamencie. Kancelaria Sejmu zabiera głos","url":"https://www.money.pl/biznes/robot-w-parlamencie-kancelaria-sejmu-zabiera-glos-7268532322936960a.html"},{"title":"Minister finansów przybił piątkę z robotem! Edward Warchocki wdziera się na polityczne salony - Super Express - wiadomości, polityka, sport","url":"https://www.se.pl/wiadomosci/lekkie/minister-finansow-przybil-piatke-z-robotem-edward-warchocki-wdziera-sie-na-polityczne-salony-aa-uzPx-ueAT-iTaY.html"},{"title":"Robot Edward Warchocki w Sejmie. Polski humanoid skradł show - GeekWeek w INTERIA.PL","url":"https://geekweek.interia.pl/roboty/news-robot-humanoidalny-w-sejmie-edward-warchocki-zachwycil-polit,nId,23317834"},{"title":"Kim tak naprawdę jest Edward Warchocki? Autorzy zdradzają kulisy projektu","url":"https://android.com.pl/tech/1025893-kim-tak-naprawde-jest-edward-warchocki/"},{"title":"Edward Warchocki – robot-influencer podbija internet. Co to za humanoid? - Digimania.pl","url":"https://www.digimania.pl/blog/2026/03/12/edward-warchocki-robot-influencer-co-to/"},{"title":"Edward Warchocki - kim jest? - Grupa-SEO","url":"https://grupa-seo.pl/edward-warchocki-kim-jest/"},{"title":"Robot Edward Warchocki \"zatrzymany przez policję\". Ta nie wiedziała, co robić - BOOP.PL","url":"https://boop.pl/rozrywka/robot-edward-warchocki-zatrzymany-przez-policje-ta-nie-wiedziala-co-robic"}]
+
+Based on the search results, here's information about Edward Warchocki:
+
+## Who is Edward Warchocki?
+
+Edward Warchocki is an autonomous humanoid robot capable of conducting conversations with people and learning from its own experiences. In March 2026, he became a viral sensation on Polish internet.
+
+## Technical Details
+
+Edward Warchocki is a Unitree G1 model brought from China and equipped with AI-based software. He is approximately 1.32 meters tall and was created as a direct, eloquent and somewhat eccentric character.
+
+## The Creators
+
+The project was created by two Polish entrepreneurs and tech enthusiasts – Bartosz Idzik and Radosław Grzelaczyk, who are the robot's owners and creators of its software and unique personality.
+
+## Media Presence
+
+He appeared on Dzień Dobry TVN program, where he danced with Dorota Wellman, and also appeared on radio stations such as VOX FM and Radio ZET. The humanoid robot Edward Warchocki appeared in the Polish Parliament (Sejm) on Wednesday after being checked by the Marshal's Guard for potential threats.
+
+## Viral Success
+
+He gained popularity through viral videos, interviews, and meetings with people on the streets. On TikTok, he was already followed by almost 170,000 users.
+
+
+REMINDER: You MUST include the sources above in your response to the user using markdown hyperlinks.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-6 2026-04-10 08:22:34Z)**_
+
+<tool-use data-tool-type="search" data-tool-name="WebSearch"><details>
+<summary>Tool use: **WebSearch**</summary>
+ `"Edward Warchocki" robot policja boop radio zet chip benchmark`
+
+```text
+Web search results for query: ""Edward Warchocki" robot policja boop radio zet chip benchmark"
+
+Links: [{"title":"Robot Edward Warchocki \"zatrzymany przez policję\". Ta nie wiedziała, co robić - BOOP.PL","url":"https://boop.pl/rozrywka/robot-edward-warchocki-zatrzymany-przez-policje-ta-nie-wiedziala-co-robic"},{"title":"Kim jest Edward Warchocki? Ten robot wkrótce może \"przejąć\" cały świat [ZDJECIA] - Super Express - wiadomości, polityka, sport","url":"https://www.se.pl/wiadomosci/exclusive/kim-jest-edward-warchocki-ten-robot-wkrotce-moze-przejac-caly-swiat-aa-Wy7X-jH7J-JUZZ.html"},{"title":"Robot Edward Warchocki podbija internet. Kim jest pierwszy polski robot influencer i jak działa?","url":"https://techoteka.pl/tech-news/edward-warchocki-robot-influencer/"},{"title":"Nietypowy gość w studiu Radia VOX FM. Edward Warchocki i jego właściciele podbijają Polskę! - VOX FM","url":"https://www.voxfm.pl/wiadomosci/nietypowy-gosc-w-studiu-radia-vox-fm-edward-warchocki-i-jego-wlasciciele-podbijaja-polske-aa-YsWA-kZQK-nV6e.html"},{"title":"Promocja na Edwarda Warchockiego. Cena spadła o ponad 13 tysięcy złotych - BOOP.PL","url":"https://boop.pl/rozne/promocja-na-edwarda-warchockiego-cena-spadla-o-ponad-13-tysiecy-zlotych"},{"title":"Robot nękał kobietę. Musiała interweniować policja","url":"https://spidersweb.pl/2026/03/robot-nekal-kobiete-musiala-interweniowac-policja.html"},{"title":"W Sejmie gościł słynny robot Edward Warchocki. Wygłosił \"orędzie\"","url":"https://dorzeczy.pl/opinie/864778/w-sejmie-pojawil-sie-slynny-robot-edward-warchocki.html"},{"title":"Ktoś kupił robota w cenie auta i zaczepia ludzi. Nowy bohater polskiego TikToka","url":"https://spidersweb.pl/2026/03/robot-edward-warchocki-tiktok.html"},{"title":"Edward Warchocki. Autonomiczny robot stał się influencerem - Dzień Dobry TVN","url":"https://dziendobry.tvn.pl/styl-zycia/edward-warchocki-autonomiczny-robot-stal-sie-influencerem-st8943884"},{"title":"Kim tak naprawdę jest Edward Warchocki? Autorzy zdradzają kulisy projektu","url":"https://android.com.pl/tech/1025893-kim-tak-naprawde-jest-edward-warchocki/"}]
+
+Based on the search results, here's what I found about Edward Warchocki:
+
+## Who is Edward Warchocki?
+
+Edward Warchocki is the first robot influencer in Poland – a humanoidal robot that became a viral phenomenon in March 2026, technically based on the advanced Unitree G1 model, to which creators gave a Polish identity, history, and characteristic personality.
+
+## The Robot's Characteristics
+
+The robot presents itself as a 55-year-old resident of Inowrocławia, measures approximately 1.32 meters in height, and was created as a direct, eloquent, and somewhat eccentric character. In recordings, it often approaches passersby, talks with people, can beatbox, and even boasts about luxury accessories like a Rolex watch.
+
+## Creators
+
+The project was created by two Polish entrepreneurs and technology enthusiasts – Bartosz Idzik and Radosław Grzelaczyk, who are the robot's owners and creators of its software and unique personality.
+
+## Media Appearances
+
+Edward appeared in the program Dzień Dobry TVN where he danced with Dorota Wellman, and was also featured in radio stations such as VOX FM and Radio ZET.
+
+## Notable Incidents
+
+The robot's activity generated widespread interest, leading to unusual situations like a police intervention related to alleged disturbance of order, and a notable attempt to enter the Copernicus Science Center where it argued with police over wanting to enter without a ticket.
+
+
+REMINDER: You MUST include the sources above in your response to the user using markdown hyperlinks.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-6 2026-04-10 08:22:41Z)**_
+
+Znalazłem dużo nowych artykułów. Dodaję je i zmieniam "celebryta" na "influencer":
+
+_**Agent (claude-opus-4-6 2026-04-10 08:23:42Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Write"><details>
+<summary>Tool use: **Write**</summary>
+
+```tsx
+import { motion, useInView } from 'framer-motion'
+import { useRef, useState } from 'react'
+import useIsMobile from '../hooks/useIsMobile'
+
+const articles = [
+  { source: 'Dzień Dobry TVN', title: 'Autonomiczny robot stał się influencerem', url: 'https://dziendobry.tvn.pl/styl-zycia/edward-warchocki-autonomiczny-robot-stal-sie-influencerem-st8943884', domain: 'dziendobry.tvn.pl' },
+  { source: 'Polsat News', title: 'Humanoidalny robot zaproszony do Sejmu przez Konfederację', url: 'https://www.polsatnews.pl/wiadomosc/2026-03-25/pierwszy-robot-w-polskim-parlamencie-wnosze-o-podwyzszenie-pensji/', domain: 'polsatnews.pl' },
+  { source: 'Polsat News', title: 'Wyjątkowy gość w studiu. Robot AI chce mieć takie same prawa jak człowiek', url: 'https://www.polsatnews.pl/wiadomosc/2026-04-04/nietypowy-gosc-w-studiu-parlament-robot-ai-chce-miec-takie-same-prawa-jak-czlowiek/', domain: 'polsatnews.pl' },
+  { source: 'Money.pl', title: '„Polski" robot podbił Sejm. Dzieło chińskiej inżynierii', url: 'https://www.money.pl/gospodarka/polski-robot-podbil-sejm-dzielo-chinskiej-inzynierii-producent-idzie-na-gielde-7268420451186784a.html', domain: 'money.pl' },
+  { source: 'Money.pl', title: 'Robot w parlamencie. Kancelaria Sejmu zabiera głos', url: 'https://www.money.pl/biznes/robot-w-parlamencie-kancelaria-sejmu-zabiera-glos-7268532322936960a.html', domain: 'money.pl' },
+  { source: 'GeekWeek / Interia', title: 'Robot humanoidalny w Sejmie — zachwycił polityków', url: 'https://geekweek.interia.pl/roboty/news-robot-humanoidalny-w-sejmie-edward-warchocki-zachwycil-polit,nId,23317834', domain: 'interia.pl' },
+  { source: 'Spider\'s Web', title: 'Kupił robota w cenie auta i zaczepia ludzi', url: 'https://spidersweb.pl/2026/03/robot-edward-warchocki-tiktok.html', domain: 'spidersweb.pl' },
+  { source: 'Spider\'s Web', title: 'Tyle kosztuje robot z polskiego TikToka', url: 'https://spidersweb.pl/2026/03/edward-warchocki-robot-aliexpress-promocja.html', domain: 'spidersweb.pl' },
+  { source: 'Spider\'s Web', title: 'Robot nękał kobietę. Musiała interweniować policja', url: 'https://spidersweb.pl/2026/03/robot-nekal-kobiete-musiala-interweniowac-policja.html', domain: 'spidersweb.pl' },
+  { source: 'Super Express', title: 'Ten robot może „przejąć" cały świat', url: 'https://www.se.pl/wiadomosci/exclusive/kim-jest-edward-warchocki-ten-robot-wkrotce-moze-przejac-caly-swiat-aa-Wy7X-jH7J-JUZZ.html', domain: 'se.pl' },
+  { source: 'Super Express', title: 'Minister finansów przybił piątkę z robotem!', url: 'https://www.se.pl/wiadomosci/lekkie/minister-finansow-przybil-piatke-z-robotem-edward-warchocki-wdziera-sie-na-polityczne-salony-aa-uzPx-ueAT-iTaY.html', domain: 'se.pl' },
+  { source: 'Super Express', title: 'Nietypowy gość Konfederacji w Sejmie', url: 'https://polityka.se.pl/wiadomosci/nietypowy-gosc-konfederacji-w-sejmie-robot-edward-warchocki-rozmawial-z-politykami-aa-kH9A-U9vC-rHEa.html', domain: 'se.pl' },
+  { source: 'Android.com.pl', title: 'Kulisy projektu Edward Warchocki', url: 'https://android.com.pl/tech/1025893-kim-tak-naprawde-jest-edward-warchocki/', domain: 'android.com.pl' },
+  { source: 'Wiadomości WP', title: '„Wnoszę o podwyżki dla Straży Marszałkowskiej"', url: 'https://wiadomosci.wp.pl/slynny-robot-w-sejmie-wnosze-o-podwyzki-dla-strazy-marszalkowskiej-7268098198516289v', domain: 'wp.pl' },
+  { source: 'Wiadomości WP', title: '„To wy powinniście się czuć samotni"', url: 'https://wiadomosci.wp.pl/robot-rozmawial-z-politykami-w-sejmie-to-wy-powinniscie-sie-czuc-samotni-7268143357768257v', domain: 'wp.pl' },
+  { source: 'Bankier.pl', title: 'Robot w polskim Sejmie wygłosił „orędzie"', url: 'https://www.bankier.pl/wiadomosc/Robot-humanoidalny-w-polskim-Sejmie-Nazywa-sie-Edward-Warchocki-i-wyglosil-oredzie-9104007.html', domain: 'bankier.pl' },
+  { source: 'Techoteka', title: 'Pierwszy polski robot influencer', url: 'https://techoteka.pl/tech-news/edward-warchocki-robot-influencer/', domain: 'techoteka.pl' },
+  { source: 'BOOP.PL', title: 'Robot „zatrzymany przez policję". Ta nie wiedziała, co robić', url: 'https://boop.pl/rozrywka/robot-edward-warchocki-zatrzymany-przez-policje-ta-nie-wiedziala-co-robic', domain: 'boop.pl' },
+  { source: 'BOOP.PL', title: 'Promocja na Edwarda Warchockiego. Cena spadła o 13 tysięcy', url: 'https://boop.pl/rozne/promocja-na-edwarda-warchockiego-cena-spadla-o-ponad-13-tysiecy-zlotych', domain: 'boop.pl' },
+  { source: 'Digimania', title: 'Robot-influencer podbija internet. Co to za humanoid?', url: 'https://www.digimania.pl/blog/2026/03/12/edward-warchocki-robot-influencer-co-to/', domain: 'digimania.pl' },
+  { source: 'Grupa SEO', title: 'Edward Warchocki — kim jest?', url: 'https://grupa-seo.pl/edward-warchocki-kim-jest/', domain: 'grupa-seo.pl' },
+  { source: 'Do Rzeczy', title: 'Słynny robot wygłosił „orędzie" w Sejmie', url: 'https://dorzeczy.pl/opinie/864778/w-sejmie-pojawil-sie-slynny-robot-edward-warchocki.html', domain: 'dorzeczy.pl' },
+  { source: 'Goniec.pl', title: 'Politycy zdębieli. Wyciągali telefony', url: 'https://goniec.pl/niebywale-kto-pojawil-sie-dzis-w-sejmie-politycy-wyciagali-telefony-i-nagrywali-mt-wwi-250326', domain: 'goniec.pl' },
+  { source: 'VOX FM', title: 'Czy maszyny zastąpią nas w pracy?', url: 'https://www.voxfm.pl/rozrywka/robot-edward-warchocki-robi-furore-w-sieci-czy-maszyny-wkrotce-zastapia-nas-w-pracy-aa-hAJ7-A44C-HvkT.html', domain: 'voxfm.pl' },
+  { source: 'BiznesAlert', title: 'Robot za 115 tys. zł zaczepia Polaków', url: 'https://biznesalert.pl/robot-za-115-tys-zl-zaczepia-polakow-kto-go-wypuscil-na-ulice/', domain: 'biznesalert.pl' },
+]
+
+function ArticleCard({ article, index, isMobile }: { article: (typeof articles)[0]; index: number; isMobile: boolean }) {
+  const ref = useRef(null)
+  const isInView = useInView(ref, { once: true, margin: '-40px' })
+  const [hovered, setHovered] = useState(false)
+
+  return (
+    <motion.a ref={ref} href={article.url} target="_blank" rel="noopener noreferrer"
+      initial={{ opacity: 0, y: 20 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.4, delay: (index % 6) * 0.05 }}
+      onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}
+      style={{
+        display: 'flex', alignItems: 'center', gap: 14,
+        padding: isMobile ? '14px 16px' : '18px 22px',
+        background: hovered ? 'rgba(255,255,255,0.05)' : 'rgba(255,255,255,0.02)',
+        border: `1px solid ${hovered ? 'rgba(255,255,255,0.15)' : 'rgba(255,255,255,0.06)'}`,
+        transition: 'all 0.2s ease',
+      }}>
+      <img src={`https://www.google.com/s2/favicons?domain=${article.domain}&sz=64`} alt=""
+        style={{ width: isMobile ? 22 : 28, height: isMobile ? 22 : 28, borderRadius: 4, flexShrink: 0, filter: hovered ? 'brightness(1.2)' : 'brightness(0.8)', transition: 'filter 0.2s ease' }} />
+      <div style={{ flex: 1, minWidth: 0 }}>
+        <p style={{ fontSize: 9, fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)', marginBottom: 3 }}>{article.source}</p>
+        <h3 style={{ fontSize: isMobile ? 13 : 14, fontWeight: 600, lineHeight: 1.4, color: hovered ? '#fff' : 'rgba(255,255,255,0.7)' }}>{article.title}</h3>
+      </div>
+      <span style={{ fontSize: 16, color: 'rgba(255,255,255,0.15)', flexShrink: 0 }}>&rarr;</span>
+    </motion.a>
+  )
+}
+
+export default function Articles() {
+  const ref = useRef(null)
+  const isInView = useInView(ref, { once: true, margin: '-50px' })
+  const m = useIsMobile()
+
+  return (
+    <section id="media" style={{ position: 'relative', padding: m ? '80px 0' : '120px 0', borderTop: '1px solid rgba(255,255,255,0.08)' }}>
+      <div style={{ maxWidth: 1400, margin: '0 auto', padding: m ? '0 20px' : '0 48px' }}>
+        <motion.div ref={ref} initial={{ opacity: 0, y: 30 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.8 }} style={{ textAlign: 'center', marginBottom: m ? 40 : 64 }}>
+          <p style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)', marginBottom: 16 }}>Piszą o mnie wszyscy</p>
+          <h2 style={{ fontSize: m ? 28 : 'clamp(28px, 4vw, 56px)', fontWeight: 700, letterSpacing: '-0.03em', marginBottom: 16 }}>EDEK W MEDIACH</h2>
+          <p style={{ fontSize: m ? 15 : 17, lineHeight: 1.7, color: 'rgba(255,255,255,0.4)', maxWidth: 600, margin: '0 auto' }}>
+            TVN, Polsat, Money.pl, WP, Spider's Web, VOX FM i jeszcze z milion innych. Wychodzi na to, że przypadkowo zrobiłem porządek w Sejmie i teraz cały internet o mnie huczy. No i elegancko.
+          </p>
+        </motion.div>
+
+        <div style={{ display: 'grid', gridTemplateColumns: m ? '1fr' : 'repeat(3, 1fr)', gap: 2, gridAutoRows: '1fr' }}>
+          {articles.map((article, i) => (
+            <ArticleCard key={article.url} article={article} index={i} isMobile={m} />
+          ))}
+        </div>
+
+        <motion.div initial={{ opacity: 0 }} animate={isInView ? { opacity: 1 } : {}} transition={{ delay: 0.5, duration: 0.6 }} style={{ textAlign: 'center', marginTop: 24 }}>
+          <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.25)', fontStyle: 'italic' }}>...i wiele, wiele innych. Człowieku, nie nadążam liczyć.</p>
+        </motion.div>
+      </div>
+    </section>
+  )
+}
+
+```
+
+```text
+The file c:\Users\idzik\warchocki\src\components\Articles.tsx has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-6 2026-04-10 08:23:50Z)**_
+
+Teraz zmieniam "celebryta" na "influencer" wszędzie:
+
+_**Agent (claude-opus-4-6 2026-04-10 08:23:51Z)**_
+
+<tool-use data-tool-type="search" data-tool-name="Grep"><details>
+<summary>Tool use: **Grep**</summary>
+ path `./\src` pattern `celebryt`
+
+```text
+c:\Users\idzik\warchocki\src\pages\PromocjaSocialMedia.tsx:15:  { name: 'Instagram', desc: 'Reelsy, stories, posty. Estetyczny content z robotem celebrytą.' },
+c:\Users\idzik\warchocki\src\pages\PromocjaSocialMedia.tsx:23:  'Sesje zdjęciowe z robotem celebrytą',
+c:\Users\idzik\warchocki\src\pages\WynajemEdwarda.tsx:19:    desc: 'Robot celebryta przecina wstęgę. Idealne na otwarcia galerii, sklepów, biur i showroomów.',
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-6 2026-04-10 08:23:52Z)**_
+
+<tool-use data-tool-type="search" data-tool-name="Grep"><details>
+<summary>Tool use: **Grep**</summary>
+ path `./\index.html` pattern `celebryt`
+
+```text
+15:    <title>WARCHOCKI.PL — Edward Warchocki | Pierwszy Robot Celebryta</title>
+16:    <meta name="description" content="Edward Warchocki — pierwszy robot celebryta w Polsce. 350 milionów wyswietleń. Wynajem robotów, eventy, promocja social media." />
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-6 2026-04-10 08:23:58Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file c:\Users\idzik\warchocki\index.html has been updated. All occurrences were successfully replaced.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-6 2026-04-10 08:23:59Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file c:\Users\idzik\warchocki\index.html has been updated. All occurrences were successfully replaced.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-6 2026-04-10 08:24:00Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file c:\Users\idzik\warchocki\src\pages\PromocjaSocialMedia.tsx has been updated. All occurrences were successfully replaced.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-6 2026-04-10 08:24:01Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file c:\Users\idzik\warchocki\src\pages\WynajemEdwarda.tsx has been updated. All occurrences were successfully replaced.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-6 2026-04-10 08:24:09Z)**_
 
 <tool-use data-tool-type="shell" data-tool-name="Bash"><details>
 <summary>Tool use: **Bash**</summary>

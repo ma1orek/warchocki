@@ -16,7 +16,7 @@ const features = [
   },
   {
     title: 'Otwarcia i premiery',
-    desc: 'Robot celebryta przecina wstęgę. Idealne na otwarcia galerii, sklepów, biur i showroomów.',
+    desc: 'Robot influencer przecina wstęgę. Idealne na otwarcia galerii, sklepów, biur i showroomów.',
   },
   {
     title: 'Kampanie reklamowe',

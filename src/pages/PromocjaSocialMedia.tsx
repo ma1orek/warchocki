@@ -12,7 +12,7 @@ const fadeUp = (delay: number) => ({
 
 const platforms = [
   { name: 'TikTok', desc: 'Krótkie formy, wirale, challenge. Edek jest królem TikToka.' },
-  { name: 'Instagram', desc: 'Reelsy, stories, posty. Estetyczny content z robotem celebrytą.' },
+  { name: 'Instagram', desc: 'Reelsy, stories, posty. Estetyczny content z robotem influencerem.' },
   { name: 'YouTube', desc: 'Dłuższe formy, vlogi, behind the scenes. Pełna produkcja.' },
   { name: 'Facebook', desc: 'Posty, relacje z eventów, kampanie reklamowe z szerokim zasięgiem.' },
 ]
@@ -20,7 +20,7 @@ const platforms = [
 const services = [
   'Lokowanie produktu w filmikach Edwarda',
   'Dedykowane kampanie wiralowe na TikToku',
-  'Sesje zdjęciowe z robotem celebrytą',
+  'Sesje zdjęciowe z robotem influencerem',
   'Content do social mediów Twojej marki',
   'Relacje z eventów na żywo',
   'Współpraca ambasadorska długoterminowa',
