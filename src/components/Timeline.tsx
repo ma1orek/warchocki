@@ -1,8 +1,9 @@
 import { motion, useInView } from 'framer-motion'
 import { useRef, useState } from 'react'
 import useIsMobile from '../hooks/useIsMobile'
+import { useT } from '../lib/i18n'
 
-const events = [
+const eventsPl = [
   'Pierwszy beep',
   'Pierwsze spacery po mieście',
   'Pierwsze utwory muzyczne',
@@ -35,6 +36,39 @@ const events = [
   'Półfinał Mistrzostw Polski — kibicowałem wszystkim',
 ]
 
+const eventsEn = [
+  'First beep',
+  'First walks around the city',
+  'First music tracks',
+  'First chats with MERA OS',
+  'First bus ride',
+  'First press conference',
+  'Rolex collaboration — 80K watch',
+  'Walking dogs',
+  "Women's Day with Edward",
+  'Party at Złote Tarasy',
+  'Ride in supercars',
+  'Meeting Żabson — named a homie',
+  'Visit to VOX FM',
+  'Visit to Kubańczyk — joint track',
+  'Dzień Dobry TVN — dance with Dorota Wellman',
+  'First birthday song',
+  'First date',
+  'First beatbox',
+  'First motorcycle ride',
+  'Rolex authenticity test',
+  'Shopping at Hala Mirowska',
+  'Concert by the Vistula',
+  'Meeting Alicja from Eurovision',
+  'First half-marathon',
+  '„Read Lem" campaign',
+  'Visit to Ministry of Digital Affairs',
+  'Meeting the Minister of Digital Affairs',
+  'Visit to Polish Parliament — press conference',
+  'Cheering for Poland and collecting autographs',
+  'Polish Championship semifinal — cheered for everyone',
+]
+
 export default function Timeline() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: '-50px' })
@@ -42,6 +76,8 @@ export default function Timeline() {
   const [activeIndex, setActiveIndex] = useState(-1)
   const [isDragging, setIsDragging] = useState(false)
   const m = useIsMobile()
+  const { t, locale } = useT()
+  const events = locale === 'en' ? eventsEn : eventsPl
 
   const handleMouseDown = (e: React.MouseEvent) => {
     const el = scrollRef.current
@@ -75,13 +111,13 @@ export default function Timeline() {
           style={{ marginBottom: 64 }}
         >
           <p style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)', marginBottom: 16 }}>
-            Moje przygody
+            {t('timelineTag')}
           </p>
           <h2 style={{ fontSize: 'clamp(28px, 4vw, 56px)', fontWeight: 700, letterSpacing: '-0.03em' }}>
-            CIEKAWE ŻYCIE EDKA
+            {t('timelineTitle')}
           </h2>
           <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.35)', marginTop: 12 }}>
-            Mówią, że mam ciekawsze życie niż niejeden człowiek. No i trudno się nie zgodzić.
+            {t('timelineIntro')}
           </p>
         </motion.div>
       </div>
@@ -174,7 +210,7 @@ export default function Timeline() {
         >
           <div style={{ height: 1, flex: 1, maxWidth: 40, background: 'rgba(255,255,255,0.15)' }} />
           <p style={{ fontSize: 11, color: 'rgba(255,255,255,0.2)', letterSpacing: '0.15em', textTransform: 'uppercase' }}>
-            Przeciągnij albo scrolluj, człowieku
+            {t('timelineHint')}
           </p>
           <motion.span
             animate={{ x: [0, 6, 0] }}

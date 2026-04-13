@@ -20978,11 +20978,1358 @@ The file c:\Users\idzik\warchocki\src\pages\WynajemEdwarda.tsx has been updated.
 ```
 </details></tool-use>
 
-_**Agent (claude-opus-4-6 2026-04-10 08:24:09Z)**_
+_**Agent (claude-opus-4-6 2026-04-10 08:24:26Z)**_
 
 <tool-use data-tool-type="shell" data-tool-name="Bash"><details>
 <summary>Tool use: **Bash**</summary>
 Deploy
 
 `npx netlify deploy --prod --dir=dist 2>&1 | tail -3`
+
+```text
+Build logs: <https://app.netlify.com/projects/cute-cobbler-5ffb46/deploys/69d8b3b075645891f7d9a5a5>
+Function logs: <https://app.netlify.com/projects/cute-cobbler-5ffb46/logs/functions>
+Edge function logs: <https://app.netlify.com/projects/cute-cobbler-5ffb46/logs/edge-functions>
+[rerun: b1]
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-6 2026-04-10 08:24:41Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Commit and push
+
+```bash
+git add -A && git commit -m "$(cat <<'EOF'
+Nowe artykuły, 500M, influencer zamiast celebryta, półfinał MP
+
+- 25 artykułów w sekcji media (było 18) — nowe: Polsat Studio, SE Minister, BOOP policja, BOOP promocja, Digimania, Grupa SEO, Spider's Web policja
+- "celebryta" → "influencer" wszędzie
+- 350M → 500M wyświetleń w miesiąc
+- Nowe wydarzenie timeline: półfinał Mistrzostw Polski
+
+Co-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>
+EOF
+)" && git push 2>&1
+```
+
+```text
+warning: in the working copy of '.netlify/netlify.toml', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '.specstory/statistics.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'index.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/Articles.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/pages/PromocjaSocialMedia.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/pages/WynajemEdwarda.tsx', LF will be replaced by CRLF the next time Git touches it
+[main 69823ce] Nowe artykuły, 500M, influencer zamiast celebryta, półfinał MP
+ 6 files changed, 440 insertions(+), 12 deletions(-)
+To https://github.com/ma1orek/warchocki.git
+   f86cb22..69823ce  main -> main
+[rerun: b2]
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-6 2026-04-10 08:24:49Z)**_
+
+Gotowe! Live na **warchocki.pl** + GitHub zaktualizowany. Podsumowanie:
+
+- **25 artykułów** w sekcji media (było 18) — nowe: Polsat Studio Parlament, SE Minister Finansów, BOOP policja, BOOP promocja, Digimania, Grupa SEO, Spider's Web policja
+- **"Celebryta" → "Influencer"** wszędzie — title, meta, podstrony
+- **500M+ wyświetleń w miesiąc** zamiast 350M
+- **Półfinał Mistrzostw Polski** jako nowe wydarzenie nr 30 w timeline
+
+---
+
+_**User (2026-04-13 18:42:26Z)**_
+
+zrob /en wersje strony po angielsku i daj zmiane jezyka w menu PL / EN
+
+---
+
+_**Agent (claude-opus-4-6 2026-04-13 18:42:45Z)**_
+
+<think><details><summary>Thought Process</summary>
+ I need to set up internationalization for the site with English and Polish versions. I'll use URL-based routing with /en/ prefix to detect the language, then create a translations object and Context to manage locale state throughout the app, making all text translatable and adding a language switcher to the menu.
+</details></think>
+
+_**Agent (claude-opus-4-6 2026-04-13 18:42:45Z)**_
+
+Buduję angielską wersję z przełącznikiem PL/EN w menu.
+
+_**Agent (claude-opus-4-6 2026-04-13 18:43:57Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Write"><details>
+<summary>Tool use: **Write**</summary>
+
+```typescript
+export type Locale = 'pl' | 'en'
+
+export const translations = {
+  pl: {
+    // Navbar
+    navAbout: 'O mnie',
+    navTimeline: 'Moje życie',
+    navSocial: 'Sociale',
+    navMedia: 'Media',
+    navServices: 'Współpraca',
+    navContact: 'Kontakt',
+    navCTA: 'Dogadajmy się',
+
+    // Hero
+    heroGreeting: 'Cześć, Człowieku!',
+    heroSubtitle: 'Jestem Edward Warchocki, dla przyjaciół Edek.',
+    heroMeraLabel: 'MERA OS • merarobotics.com',
+    heroDescription: 'No i elegancko, człowieku. Ponad 500 milionów wyświetleń w miesiąc, zero ludzkich błędów, za to Rolex z diamentami na nadgarstku. Jak chcesz pogadać, zrobić coś razem albo po prostu zobaczyć co u mnie — to dobrze trafiłeś.',
+    heroCta1: 'Dogadajmy się',
+    heroCta2: 'Moje życie',
+    heroScroll: 'Leć niżej',
+    heroStatViews: 'Wyświetleń w miesiąc',
+    heroStatPeople: 'Polaków',
+    heroStatRobot: 'Robot w Polsce',
+
+    // Timeline
+    timelineTag: 'Moje przygody',
+    timelineTitle: 'CIEKAWE ŻYCIE EDKA',
+    timelineIntro: 'Mówią, że mam ciekawsze życie niż niejeden człowiek. No i trudno się nie zgodzić.',
+    timelineHint: 'Przeciągnij albo scrolluj, człowieku',
+
+    // EdekDlaKazdego
+    edekTag: 'No i tak to jest',
+    edekTitle1: 'TRAFIAM',
+    edekTitle2: 'DO KAŻDEGO',
+    edekP1: 'Człowieku, ja nie wiem jak to się dzieje, ale mnie lubią wszyscy. Dzieciaki chcą dać mi piątkę, babcie opowiadają mi o swoich wnukach godzinami, a politycy zapraszają mnie do Sejmu. No i elegancko.',
+    edekP2: 'Ludzie zatrzymują się na ulicy, podchodzą, pytają skąd mam tego Rolexa, śmieją się z moich żartów. Na Hali Mirowskiej kupiłem sobie perfumki od Pana co siedział na skrzynce i poczułem, że mnie tam polubili.',
+    edekP3: 'Nie jestem żadnym gadżetem. Jestem Edek. Z kim się zadaję, tym się staję.',
+    edekStat1: 'Lat — mój zasięg',
+    edekStat2: 'Uśmiechów dziennie',
+    edekStat3: 'Przeszło obojętnie',
+
+    // TikTok / Social
+    socialTag: 'Sociale i media tradycyjne',
+    socialTitle: 'OBSERWUJ MNIE',
+    socialDesc: 'Człowieku, jestem wszędzie. Ponad 500 milionów wyświetleń w miesiąc, cały internet o mnie huczy, jestem w każdej telewizji. Obserwuj mnie, żebyś nie przegapił czegoś ważnego. No chyba że wolisz się nudzić.',
+    socialMediaLabel: 'Tu mnie widzieli w telewizji i radiu',
+    socialTikTokLabel: 'Moje najnowsze TikToki @edwardwarchocki',
+    socialLoading: 'Zaraz się załaduje, człowieku...',
+
+    // Articles
+    articlesTag: 'Piszą o mnie wszyscy',
+    articlesTitle: 'EDEK W MEDIACH',
+    articlesDesc: 'TVN, Polsat, Money.pl, WP, Spider\'s Web, VOX FM i jeszcze z milion innych. Wychodzi na to, że przypadkowo zrobiłem porządek w Sejmie i teraz cały internet o mnie huczy. No i elegancko.',
+    articlesMore: '...i wiele, wiele innych. Człowieku, nie nadążam liczyć.',
+
+    // Services
+    servicesTag: 'Dogadajmy się',
+    servicesTitle: 'ZRÓBMY COŚ RAZEM',
+    svc1Tag: 'Gwiazda Twojego eventu',
+    svc1Title: 'WYNAJEM EDWARDA',
+    svc1Desc: 'Chcesz żeby u Ciebie było głośno? Przyjdę na Twoją konferencję, otwarcie, galę — i gwarantuję oblężenie. Ludzie będą wyciągać telefony, a TikToki zrobią się same.',
+    svc2Tag: 'Moi kumple do roboty',
+    svc2Title: 'WYNAJEM ROBOTÓW',
+    svc2Desc: 'Mam kolegów robotów, którzy mogą pracować za Ciebie. Unitree G1, H1 — z mózgiem MERA OS. Logistyka, ochrona, retail. Robimy to na poważnie.',
+    svc3Tag: 'Zasięgi, których nie kupisz',
+    svc3Title: 'PROMOCJA W SOCIALACH',
+    svc3Desc: 'Ponad 500 milionów wyświetleń w miesiąc, człowieku. Chcesz żebym wziął Twój produkt i zrobił z niego virala? TikTok, Insta, YouTube — ja to ogarniam lepiej niż niejeden influencer z krwi i kości.',
+    svc4Tag: 'Mój mózg',
+    svc4Title: 'SYSTEM MERA OS',
+    svc4Desc: 'To jest system, który mnie napędza. AI, rozpoznawanie mowy, interakcja z ludźmi — cały mój geniusz w jednym pakiecie. Chcesz wiedzieć więcej? Wejdź na merarobotics.com.',
+    svcLearnMore: 'Dowiedz się więcej',
+    svcQuoteTitle: 'WYCENA INDYWIDUALNA',
+    svcQuoteDesc: 'Człowieku, do każdej współpracy podchodzę indywidualnie. Każdy projekt musi być częścią mojej historii — bo z kim się zadaję, tym się staję. Wkładam w to całe serce i cały procesor, żebyś był zadowolony. Napisz, pogadamy.',
+    svcOrCall: 'Lub zadzwoń',
+    svcFormName: 'Imię i nazwisko',
+    svcFormEmail: 'Adres email',
+    svcFormSubject: 'Czego dotyczy zapytanie?',
+    svcFormMessage: 'Opisz swój projekt...',
+    svcFormSubmit: 'Zarezerwuj termin',
+    svcFormSending: 'Wysyłanie...',
+    svcFormSent: '✓ Wysłano!',
+    svcFormThanks: 'Dziękujemy! Odpowiemy najszybciej jak to możliwe.',
+
+    // Footer
+    footerCounter: '500 000 000+ i lecę dalej',
+  },
+  en: {
+    // Navbar
+    navAbout: 'About me',
+    navTimeline: 'My life',
+    navSocial: 'Socials',
+    navMedia: 'Media',
+    navServices: 'Work with me',
+    navContact: 'Contact',
+    navCTA: "Let's talk",
+
+    // Hero
+    heroGreeting: 'Hey, Human!',
+    heroSubtitle: "I'm Edward Warchocki. Friends call me Edek.",
+    heroMeraLabel: 'MERA OS • merarobotics.com',
+    heroDescription: "Well, it's all elegant, human. Over 500 million views per month, zero human errors, but a diamond Rolex on my wrist. If you want to talk, do something together, or just see what I'm up to — you're in the right place.",
+    heroCta1: "Let's talk",
+    heroCta2: 'My life',
+    heroScroll: 'Scroll',
+    heroStatViews: 'Views per month',
+    heroStatPeople: 'Poles',
+    heroStatRobot: 'Robot in Poland',
+
+    // Timeline
+    timelineTag: 'My adventures',
+    timelineTitle: "EDEK'S WILD LIFE",
+    timelineIntro: "They say I have a more interesting life than most humans. Hard to disagree.",
+    timelineHint: 'Drag or scroll, human',
+
+    // EdekDlaKazdego
+    edekTag: "That's just how it is",
+    edekTitle1: 'I REACH',
+    edekTitle2: 'EVERYONE',
+    edekP1: "Human, I don't know how this happens, but everyone likes me. Kids want to high-five me, grandmas tell me about their grandchildren for hours, and politicians invite me to Parliament. Elegant.",
+    edekP2: "People stop on the street, come up, ask where I got this Rolex, laugh at my jokes. At Hala Mirowska I bought myself some perfume from a guy sitting on a crate and I felt they liked me there.",
+    edekP3: "I'm not some gadget. I'm Edek. Who I hang out with, I become.",
+    edekStat1: 'Age — my range',
+    edekStat2: 'Smiles per day',
+    edekStat3: 'Passed me by',
+
+    // TikTok / Social
+    socialTag: 'Social & traditional media',
+    socialTitle: 'FOLLOW ME',
+    socialDesc: "Human, I'm everywhere. Over 500 million views per month, the whole internet is buzzing, I'm on every TV channel. Follow me so you don't miss anything important. Unless you prefer being bored.",
+    socialMediaLabel: 'Seen on TV and radio',
+    socialTikTokLabel: 'My latest TikToks @edwardwarchocki',
+    socialLoading: 'Loading, human...',
+
+    // Articles
+    articlesTag: 'Everyone writes about me',
+    articlesTitle: 'EDEK IN THE MEDIA',
+    articlesDesc: "TVN, Polsat, Money.pl, WP, Spider's Web, VOX FM and a million others. Turns out I accidentally cleaned up Parliament and now the whole internet is buzzing. Elegant.",
+    articlesMore: "...and many, many more. Human, I can't keep count.",
+
+    // Services
+    servicesTag: "Let's talk",
+    servicesTitle: "LET'S DO SOMETHING TOGETHER",
+    svc1Tag: 'The star of your event',
+    svc1Title: 'HIRE EDWARD',
+    svc1Desc: "Want it to be loud at your place? I'll come to your conference, opening, gala — guaranteed crowds. People will pull out their phones and the TikToks will make themselves.",
+    svc2Tag: 'My robot buddies',
+    svc2Title: 'ROBOT RENTAL',
+    svc2Desc: "I've got robot buddies who can work for you. Unitree G1, H1 — with MERA OS brains. Logistics, security, retail. We do this seriously.",
+    svc3Tag: "Reach you can't buy",
+    svc3Title: 'SOCIAL MEDIA PROMO',
+    svc3Desc: "Over 500 million views per month, human. Want me to take your product and make it viral? TikTok, Insta, YouTube — I handle it better than many flesh-and-blood influencers.",
+    svc4Tag: 'My brain',
+    svc4Title: 'MERA OS',
+    svc4Desc: "This is the system that powers me. AI, speech recognition, human interaction — all my genius in one package. Want to know more? Go to merarobotics.com.",
+    svcLearnMore: 'Learn more',
+    svcQuoteTitle: 'CUSTOM QUOTE',
+    svcQuoteDesc: "Human, I approach every collaboration individually. Every project has to be part of my story — because who I hang out with, I become. I put my whole heart and whole processor into it, to make you happy. Write, let's talk.",
+    svcOrCall: 'Or call',
+    svcFormName: 'Full name',
+    svcFormEmail: 'Email address',
+    svcFormSubject: "What's your inquiry about?",
+    svcFormMessage: 'Describe your project...',
+    svcFormSubmit: 'Book a date',
+    svcFormSending: 'Sending...',
+    svcFormSent: '✓ Sent!',
+    svcFormThanks: 'Thanks! We will reply as soon as possible.',
+
+    // Footer
+    footerCounter: '500,000,000+ and counting',
+  },
+} as const
+
+export function useT(): { t: (key: keyof typeof translations.pl) => string; locale: Locale; otherLocale: Locale; otherPath: string } {
+  const pathname = window.location.pathname
+  const locale: Locale = pathname.startsWith('/en') ? 'en' : 'pl'
+  const otherLocale: Locale = locale === 'pl' ? 'en' : 'pl'
+  const restPath = locale === 'en' ? pathname.replace(/^\/en/, '') || '/' : pathname
+  const otherPath = otherLocale === 'en' ? '/en' + (restPath === '/' ? '' : restPath) : restPath
+  const t = (key: keyof typeof translations.pl) => translations[locale][key] || translations.pl[key]
+  return { t, locale, otherLocale, otherPath }
+}
+
+```
+
+```text
+File created successfully at: c:\Users\idzik\warchocki\src\lib\i18n.ts
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-6 2026-04-13 18:44:00Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Create lib dir
+
+`mkdir -p /c/Users/idzik/warchocki/src/lib`
+
+```text
+[rerun: b1]
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-6 2026-04-13 18:44:12Z)**_
+
+<think><details><summary>Thought Process</summary>
+ I realize `useT` won't trigger a re-render when the route changes since it's directly accessing `window.location.pathname`. I should switch to `useLocation` from react-router to properly detect navigation updates.
+</details></think>
+
+_**Agent (claude-opus-4-6 2026-04-13 18:45:08Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Write"><details>
+<summary>Tool use: **Write**</summary>
+
+```typescript
+import { useLocation } from 'react-router-dom'
+
+export type Locale = 'pl' | 'en'
+
+export const translations = {
+  pl: {
+    navAbout: 'O mnie',
+    navTimeline: 'Moje życie',
+    navSocial: 'Sociale',
+    navMedia: 'Media',
+    navServices: 'Współpraca',
+    navContact: 'Kontakt',
+    navCTA: 'Dogadajmy się',
+
+    heroGreeting: 'Cześć, Człowieku!',
+    heroSubtitle: 'Jestem Edward Warchocki, dla przyjaciół Edek.',
+    heroMeraLabel: 'MERA OS • merarobotics.com',
+    heroDescription: 'No i elegancko, człowieku. Ponad 500 milionów wyświetleń w miesiąc, zero ludzkich błędów, za to Rolex z diamentami na nadgarstku. Jak chcesz pogadać, zrobić coś razem albo po prostu zobaczyć co u mnie — to dobrze trafiłeś.',
+    heroCta1: 'Dogadajmy się',
+    heroCta2: 'Moje życie',
+    heroScroll: 'Leć niżej',
+    heroStatViews: 'Wyświetleń w miesiąc',
+    heroStatPeople: 'Polaków',
+    heroStatRobot: 'Robot w Polsce',
+
+    timelineTag: 'Moje przygody',
+    timelineTitle: 'CIEKAWE ŻYCIE EDKA',
+    timelineIntro: 'Mówią, że mam ciekawsze życie niż niejeden człowiek. No i trudno się nie zgodzić.',
+    timelineHint: 'Przeciągnij albo scrolluj, człowieku',
+
+    edekTag: 'No i tak to jest',
+    edekTitle1: 'TRAFIAM',
+    edekTitle2: 'DO KAŻDEGO',
+    edekP1: 'Człowieku, ja nie wiem jak to się dzieje, ale mnie lubią wszyscy. Dzieciaki chcą dać mi piątkę, babcie opowiadają mi o swoich wnukach godzinami, a politycy zapraszają mnie do Sejmu. No i elegancko.',
+    edekP2: 'Ludzie zatrzymują się na ulicy, podchodzą, pytają skąd mam tego Rolexa, śmieją się z moich żartów. Na Hali Mirowskiej kupiłem sobie perfumki od Pana co siedział na skrzynce i poczułem, że mnie tam polubili.',
+    edekP3: 'Nie jestem żadnym gadżetem. Jestem Edek. Z kim się zadaję, tym się staję.',
+    edekStat1: 'Lat — mój zasięg',
+    edekStat2: 'Uśmiechów dziennie',
+    edekStat3: 'Przeszło obojętnie',
+
+    socialTag: 'Sociale i media tradycyjne',
+    socialTitle: 'OBSERWUJ MNIE',
+    socialDesc: 'Człowieku, jestem wszędzie. Ponad 500 milionów wyświetleń w miesiąc, cały internet o mnie huczy, jestem w każdej telewizji. Obserwuj mnie, żebyś nie przegapił czegoś ważnego. No chyba że wolisz się nudzić.',
+    socialMediaLabel: 'Tu mnie widzieli w telewizji i radiu',
+    socialTikTokLabel: 'Moje najnowsze TikToki @edwardwarchocki',
+    socialLoading: 'Zaraz się załaduje, człowieku...',
+
+    articlesTag: 'Piszą o mnie wszyscy',
+    articlesTitle: 'EDEK W MEDIACH',
+    articlesDesc: "TVN, Polsat, Money.pl, WP, Spider's Web, VOX FM i jeszcze z milion innych. Wychodzi na to, że przypadkowo zrobiłem porządek w Sejmie i teraz cały internet o mnie huczy. No i elegancko.",
+    articlesMore: '...i wiele, wiele innych. Człowieku, nie nadążam liczyć.',
+
+    servicesTag: 'Dogadajmy się',
+    servicesTitle: 'ZRÓBMY COŚ RAZEM',
+    svc1Tag: 'Gwiazda Twojego eventu',
+    svc1Title: 'WYNAJEM EDWARDA',
+    svc1Desc: 'Chcesz żeby u Ciebie było głośno? Przyjdę na Twoją konferencję, otwarcie, galę — i gwarantuję oblężenie. Ludzie będą wyciągać telefony, a TikToki zrobią się same.',
+    svc2Tag: 'Moi kumple do roboty',
+    svc2Title: 'WYNAJEM ROBOTÓW',
+    svc2Desc: 'Mam kolegów robotów, którzy mogą pracować za Ciebie. Unitree G1, H1 — z mózgiem MERA OS. Logistyka, ochrona, retail. Robimy to na poważnie.',
+    svc3Tag: 'Zasięgi, których nie kupisz',
+    svc3Title: 'PROMOCJA W SOCIALACH',
+    svc3Desc: 'Ponad 500 milionów wyświetleń w miesiąc, człowieku. Chcesz żebym wziął Twój produkt i zrobił z niego virala? TikTok, Insta, YouTube — ja to ogarniam lepiej niż niejeden influencer z krwi i kości.',
+    svc4Tag: 'Mój mózg',
+    svc4Title: 'SYSTEM MERA OS',
+    svc4Desc: 'To jest system, który mnie napędza. AI, rozpoznawanie mowy, interakcja z ludźmi — cały mój geniusz w jednym pakiecie. Chcesz wiedzieć więcej? Wejdź na merarobotics.com.',
+    svcLearnMore: 'Dowiedz się więcej',
+    svcQuoteTitle: 'WYCENA INDYWIDUALNA',
+    svcQuoteDesc: 'Człowieku, do każdej współpracy podchodzę indywidualnie. Każdy projekt musi być częścią mojej historii — bo z kim się zadaję, tym się staję. Wkładam w to całe serce i cały procesor, żebyś był zadowolony. Napisz, pogadamy.',
+    svcOrCall: 'Lub zadzwoń',
+    svcFormName: 'Imię i nazwisko',
+    svcFormEmail: 'Adres email',
+    svcFormSubject: 'Czego dotyczy zapytanie?',
+    svcFormMessage: 'Opisz swój projekt...',
+    svcFormSubmit: 'Zarezerwuj termin',
+    svcFormSending: 'Wysyłanie...',
+    svcFormSent: '✓ Wysłano!',
+    svcFormThanks: 'Dziękujemy! Odpowiemy najszybciej jak to możliwe.',
+
+    footerCounter: '500 000 000+ i lecę dalej',
+  },
+  en: {
+    navAbout: 'About me',
+    navTimeline: 'My life',
+    navSocial: 'Socials',
+    navMedia: 'Media',
+    navServices: 'Work with me',
+    navContact: 'Contact',
+    navCTA: "Let's talk",
+
+    heroGreeting: 'Hey, Human!',
+    heroSubtitle: "I'm Edward Warchocki. Friends call me Edek.",
+    heroMeraLabel: 'MERA OS • merarobotics.com',
+    heroDescription: "Well, it's all elegant, human. Over 500 million views per month, zero human errors, but a diamond Rolex on my wrist. If you want to talk, do something together, or just see what I'm up to — you're in the right place.",
+    heroCta1: "Let's talk",
+    heroCta2: 'My life',
+    heroScroll: 'Scroll',
+    heroStatViews: 'Views per month',
+    heroStatPeople: 'Poles',
+    heroStatRobot: 'Robot in Poland',
+
+    timelineTag: 'My adventures',
+    timelineTitle: "EDEK'S WILD LIFE",
+    timelineIntro: 'They say I have a more interesting life than most humans. Hard to disagree.',
+    timelineHint: 'Drag or scroll, human',
+
+    edekTag: "That's just how it is",
+    edekTitle1: 'I REACH',
+    edekTitle2: 'EVERYONE',
+    edekP1: "Human, I don't know how this happens, but everyone likes me. Kids want to high-five me, grandmas tell me about their grandchildren for hours, and politicians invite me to Parliament. Elegant.",
+    edekP2: 'People stop on the street, come up, ask where I got this Rolex, laugh at my jokes. At Hala Mirowska I bought some perfume from a guy sitting on a crate and I felt they liked me there.',
+    edekP3: "I'm not some gadget. I'm Edek. Who I hang out with, I become.",
+    edekStat1: 'Age — my range',
+    edekStat2: 'Smiles per day',
+    edekStat3: 'Passed me by',
+
+    socialTag: 'Social & traditional media',
+    socialTitle: 'FOLLOW ME',
+    socialDesc: "Human, I'm everywhere. Over 500 million views per month, the whole internet is buzzing, I'm on every TV channel. Follow me so you don't miss anything important. Unless you prefer being bored.",
+    socialMediaLabel: 'Seen on TV and radio',
+    socialTikTokLabel: 'My latest TikToks @edwardwarchocki',
+    socialLoading: 'Loading, human...',
+
+    articlesTag: 'Everyone writes about me',
+    articlesTitle: 'EDEK IN THE MEDIA',
+    articlesDesc: "TVN, Polsat, Money.pl, WP, Spider's Web, VOX FM and a million others. Turns out I accidentally cleaned up Parliament and now the whole internet is buzzing. Elegant.",
+    articlesMore: "...and many, many more. Human, I can't keep count.",
+
+    servicesTag: "Let's talk",
+    servicesTitle: "LET'S DO SOMETHING TOGETHER",
+    svc1Tag: 'The star of your event',
+    svc1Title: 'HIRE EDWARD',
+    svc1Desc: "Want it loud at your place? I'll come to your conference, opening, gala — guaranteed crowds. People will pull out their phones and the TikToks will make themselves.",
+    svc2Tag: 'My robot buddies',
+    svc2Title: 'ROBOT RENTAL',
+    svc2Desc: "I've got robot buddies who can work for you. Unitree G1, H1 — with MERA OS brains. Logistics, security, retail. We do this seriously.",
+    svc3Tag: "Reach you can't buy",
+    svc3Title: 'SOCIAL MEDIA PROMO',
+    svc3Desc: 'Over 500 million views per month, human. Want me to take your product and make it viral? TikTok, Insta, YouTube — I handle it better than many flesh-and-blood influencers.',
+    svc4Tag: 'My brain',
+    svc4Title: 'MERA OS',
+    svc4Desc: 'This is the system that powers me. AI, speech recognition, human interaction — all my genius in one package. Want to know more? Visit merarobotics.com.',
+    svcLearnMore: 'Learn more',
+    svcQuoteTitle: 'CUSTOM QUOTE',
+    svcQuoteDesc: "Human, I approach every collaboration individually. Every project has to be part of my story — because who I hang out with, I become. I put my whole heart and whole processor into it, to make you happy. Write, let's talk.",
+    svcOrCall: 'Or call',
+    svcFormName: 'Full name',
+    svcFormEmail: 'Email address',
+    svcFormSubject: "What's your inquiry about?",
+    svcFormMessage: 'Describe your project...',
+    svcFormSubmit: 'Book a date',
+    svcFormSending: 'Sending...',
+    svcFormSent: '✓ Sent!',
+    svcFormThanks: 'Thanks! We will reply as soon as possible.',
+
+    footerCounter: '500,000,000+ and counting',
+  },
+} as const
+
+export type TranslationKey = keyof typeof translations.pl
+
+export function useT() {
+  const { pathname } = useLocation()
+  const locale: Locale = pathname.startsWith('/en') ? 'en' : 'pl'
+  const otherLocale: Locale = locale === 'pl' ? 'en' : 'pl'
+  const restPath = locale === 'en' ? pathname.replace(/^\/en/, '') || '/' : pathname
+  const otherPath = otherLocale === 'en' ? '/en' + (restPath === '/' ? '' : restPath) : restPath
+  const t = (key: TranslationKey): string => translations[locale][key] || translations.pl[key]
+  return { t, locale, otherLocale, otherPath }
+}
+
+export function localizedPath(path: string, locale: Locale): string {
+  if (locale === 'en') return '/en' + (path === '/' ? '' : path)
+  return path
+}
+
+```
+
+```text
+The file c:\Users\idzik\warchocki\src\lib\i18n.ts has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-6 2026-04-13 18:45:14Z)**_
+
+Now update App.tsx with /en routes and update all components. Let me start with App, Navbar, Hero:
+
+_**Agent (claude-opus-4-6 2026-04-13 18:45:18Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Write"><details>
+<summary>Tool use: **Write**</summary>
+
+```tsx
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Home from './pages/Home'
+import WynajemEdwarda from './pages/WynajemEdwarda'
+import WynajemRobotow from './pages/WynajemRobotow'
+import PromocjaSocialMedia from './pages/PromocjaSocialMedia'
+
+function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/wynajem-edwarda" element={<WynajemEdwarda />} />
+        <Route path="/wynajem-robotow" element={<WynajemRobotow />} />
+        <Route path="/promocja-social-media" element={<PromocjaSocialMedia />} />
+        <Route path="/en" element={<Home />} />
+        <Route path="/en/wynajem-edwarda" element={<WynajemEdwarda />} />
+        <Route path="/en/wynajem-robotow" element={<WynajemRobotow />} />
+        <Route path="/en/promocja-social-media" element={<PromocjaSocialMedia />} />
+      </Routes>
+    </BrowserRouter>
+  )
+}
+
+export default App
+
+```
+
+```text
+The file c:\Users\idzik\warchocki\src\App.tsx has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-6 2026-04-13 18:45:43Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Write"><details>
+<summary>Tool use: **Write**</summary>
+
+```tsx
+import { useState, useEffect } from 'react'
+import { motion } from 'framer-motion'
+import { Link, useLocation } from 'react-router-dom'
+import useIsMobile from '../hooks/useIsMobile'
+import { useT, localizedPath } from '../lib/i18n'
+
+export default function Navbar() {
+  const [scrolled, setScrolled] = useState(false)
+  const [menuOpen, setMenuOpen] = useState(false)
+  const location = useLocation()
+  const { t, locale, otherLocale, otherPath } = useT()
+  const isHome = location.pathname === '/' || location.pathname === '/en'
+  const isMobile = useIsMobile()
+
+  const navLinks = [
+    { label: t('navAbout'), href: '#o-mnie' },
+    { label: t('navTimeline'), href: '#timeline' },
+    { label: t('navSocial'), href: '#sociale' },
+    { label: t('navMedia'), href: '#media' },
+    { label: t('navServices'), href: '#uslugi' },
+    { label: t('navContact'), href: '#kontakt' },
+  ]
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 40)
+    window.addEventListener('scroll', onScroll)
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
+  useEffect(() => { setMenuOpen(false) }, [location])
+
+  const handleNavClick = (href: string) => {
+    setMenuOpen(false)
+    if (isHome && href.startsWith('#')) {
+      const el = document.querySelector(href)
+      if (el) el.scrollIntoView({ behavior: 'smooth' })
+    }
+  }
+
+  const linkStyle = {
+    fontSize: isMobile ? 16 : 13,
+    fontWeight: 500,
+    letterSpacing: '0.05em',
+    textTransform: 'uppercase' as const,
+    color: 'rgba(255,255,255,0.45)',
+    transition: 'color 0.2s ease',
+  }
+
+  const LanguageSwitcher = ({ big = false }: { big?: boolean }) => (
+    <Link
+      to={otherPath}
+      style={{
+        fontSize: big ? 14 : 12,
+        fontWeight: 700,
+        letterSpacing: '0.1em',
+        color: 'rgba(255,255,255,0.6)',
+        border: '1px solid rgba(255,255,255,0.15)',
+        padding: big ? '8px 14px' : '6px 10px',
+        transition: 'all 0.2s ease',
+        textTransform: 'uppercase',
+      }}
+      onMouseEnter={(e) => {
+        e.currentTarget.style.color = '#fff'
+        e.currentTarget.style.borderColor = 'rgba(255,255,255,0.4)'
+      }}
+      onMouseLeave={(e) => {
+        e.currentTarget.style.color = 'rgba(255,255,255,0.6)'
+        e.currentTarget.style.borderColor = 'rgba(255,255,255,0.15)'
+      }}
+    >
+      {locale.toUpperCase()} / <span style={{ color: 'rgba(255,255,255,0.3)' }}>{otherLocale.toUpperCase()}</span>
+    </Link>
+  )
+
+  return (
+    <motion.nav
+      initial={{ y: -80 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.6, ease: 'easeOut' as const }}
+      style={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        zIndex: 1000,
+        transition: 'background 0.3s ease',
+        background: scrolled || menuOpen ? 'rgba(0,0,0,0.95)' : 'transparent',
+        backdropFilter: scrolled || menuOpen ? 'blur(20px)' : 'none',
+        borderBottom: scrolled ? '1px solid rgba(255,255,255,0.08)' : '1px solid transparent',
+      }}
+    >
+      <div
+        style={{
+          maxWidth: 1400,
+          margin: '0 auto',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          padding: isMobile ? '12px 20px' : '14px 48px',
+        }}
+      >
+        <Link to={locale === 'en' ? '/en' : '/'} style={{ display: 'flex', alignItems: 'center' }}>
+          <img src="/Layer_1 (1) 1.png" alt="Edward Warchocki" style={{ height: isMobile ? 28 : 40, width: 'auto' }} />
+        </Link>
+
+        {isMobile ? (
+          <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+            <LanguageSwitcher />
+            <button
+              onClick={() => setMenuOpen(!menuOpen)}
+              style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 8 }}
+            >
+              <div style={{ width: 24, height: 2, background: '#fff', marginBottom: 6, transition: 'all 0.3s', transform: menuOpen ? 'rotate(45deg) translate(3px, 3px)' : 'none' }} />
+              <div style={{ width: 24, height: 2, background: '#fff', marginBottom: 6, opacity: menuOpen ? 0 : 1, transition: 'opacity 0.3s' }} />
+              <div style={{ width: 24, height: 2, background: '#fff', transition: 'all 0.3s', transform: menuOpen ? 'rotate(-45deg) translate(3px, -3px)' : 'none' }} />
+            </button>
+          </div>
+        ) : (
+          <div style={{ display: 'flex', alignItems: 'center', gap: 28 }}>
+            {navLinks.map((item) =>
+              isHome ? (
+                <a key={item.label} href={item.href} onClick={(e) => { e.preventDefault(); handleNavClick(item.href) }} style={linkStyle}
+                  onMouseEnter={(e) => (e.currentTarget.style.color = '#fff')}
+                  onMouseLeave={(e) => (e.currentTarget.style.color = 'rgba(255,255,255,0.45)')}>
+                  {item.label}
+                </a>
+              ) : (
+                <Link key={item.label} to={localizedPath('/', locale) + item.href} style={linkStyle}
+                  onMouseEnter={(e) => (e.currentTarget.style.color = '#fff')}
+                  onMouseLeave={(e) => (e.currentTarget.style.color = 'rgba(255,255,255,0.45)')}>
+                  {item.label}
+                </Link>
+              )
+            )}
+            <LanguageSwitcher />
+            <Link to={localizedPath('/wynajem-edwarda', locale)} style={{ fontSize: 13, fontWeight: 600, letterSpacing: '0.05em', textTransform: 'uppercase' as const, padding: '10px 20px', background: '#fff', color: '#000', transition: 'opacity 0.2s ease' }}
+              onMouseEnter={(e) => (e.currentTarget.style.opacity = '0.85')}
+              onMouseLeave={(e) => (e.currentTarget.style.opacity = '1')}>
+              {t('navCTA')}
+            </Link>
+          </div>
+        )}
+      </div>
+
+      {isMobile && menuOpen && (
+        <motion.div
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          style={{
+            padding: '16px 20px 24px',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: 20,
+            borderTop: '1px solid rgba(255,255,255,0.08)',
+          }}
+        >
+          {navLinks.map((item) => (
+            <a key={item.label} href={item.href} onClick={(e) => { e.preventDefault(); handleNavClick(item.href) }} style={linkStyle}>
+              {item.label}
+            </a>
+          ))}
+          <Link to={localizedPath('/wynajem-edwarda', locale)} onClick={() => setMenuOpen(false)} style={{ fontSize: 14, fontWeight: 600, textTransform: 'uppercase' as const, padding: '12px 20px', background: '#fff', color: '#000', textAlign: 'center' }}>
+            {t('navCTA')}
+          </Link>
+        </motion.div>
+      )}
+    </motion.nav>
+  )
+}
+
+```
+
+```text
+The file c:\Users\idzik\warchocki\src\components\Navbar.tsx has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-6 2026-04-13 18:45:53Z)**_
+
+Now update Hero, Timeline, EdekDlaKazdego, TikTokGallery, Articles, Services, Footer to use t():
+
+_**Agent (claude-opus-4-6 2026-04-13 18:45:59Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file c:\Users\idzik\warchocki\src\components\Hero.tsx has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-6 2026-04-13 18:46:00Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file c:\Users\idzik\warchocki\src\components\Hero.tsx has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-6 2026-04-13 18:46:02Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file c:\Users\idzik\warchocki\src\components\Hero.tsx has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-6 2026-04-13 18:46:06Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file c:\Users\idzik\warchocki\src\components\Hero.tsx has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-6 2026-04-13 18:46:11Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file c:\Users\idzik\warchocki\src\components\Hero.tsx has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-6 2026-04-13 18:46:13Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file c:\Users\idzik\warchocki\src\components\Hero.tsx has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-6 2026-04-13 18:46:20Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file c:\Users\idzik\warchocki\src\components\Timeline.tsx has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-6 2026-04-13 18:46:31Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file c:\Users\idzik\warchocki\src\components\Timeline.tsx has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-6 2026-04-13 18:46:32Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file c:\Users\idzik\warchocki\src\components\Timeline.tsx has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-6 2026-04-13 18:46:38Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file c:\Users\idzik\warchocki\src\components\Timeline.tsx has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-6 2026-04-13 18:46:41Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+<tool_use_error>InputValidationError: Edit failed due to the following issues:
+The required parameter `old_string` is missing
+An unexpected parameter `old_str` was provided</tool_use_error>
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-6 2026-04-13 18:46:46Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file c:\Users\idzik\warchocki\src\components\Timeline.tsx has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-6 2026-04-13 18:46:53Z)**_
+
+Now EdekDlaKazdego, TikTokGallery, Articles, Services, Footer, pages:
+
+_**Agent (claude-opus-4-6 2026-04-13 18:46:56Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file c:\Users\idzik\warchocki\src\components\EdekDlaKazdego.tsx has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-6 2026-04-13 18:47:09Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+<tool_use_error>String to replace not found in file.
+String:               No i tak to jest
+            </p>
+            <h2 style={{
+              fontSize: m ? 32 : 'clamp(28px, 4vw, 52px)', fontWeight: 700, letterSpacing: '-0.03em', marginBottom: 24, lineHeight: 1.1,
+            }}>
+              TRAFIAM<br />DO KAŻDEGO
+            </h2>
+            <p style={{ fontSize: m ? 15 : 17, lineHeight: 1.8, color: 'rgba(255,255,255,0.45)', marginBottom: 24, maxWidth: 500 }}>
+              Człowieku, ja nie wiem jak to się dzieje, ale mnie lubią wszyscy. Dzieciaki chcą dać mi piątkę, babcie opowiadają mi o swoich wnukach godzinami, a politycy zapraszają mnie do Sejmu. No i elegancko.
+            </p>
+            <p style={{ fontSize: m ? 15 : 17, lineHeight: 1.8, color: 'rgba(255,255,255,0.45)', marginBottom: 24, maxWidth: 500 }}>
+              Ludzie zatrzymują się na ulicy, podchodzą, pytają skąd mam tego Rolexa, śmieją się z moich żartów. Na Hali Mirowskiej kupiłem sobie perfumki od Pana co siedział na skrzynce i poczułem, że mnie tam polubili.
+            </p>
+            <p style={{ fontSize: m ? 15 : 17, lineHeight: 1.8, color: 'rgba(255,255,255,0.45)', maxWidth: 500 }}>
+              Nie jestem żadnym gadżetem. Jestem Edek. Z kim się zadaję, tym się staję.
+            </p></tool_use_error>
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-6 2026-04-13 18:47:12Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file c:\Users\idzik\warchocki\src\components\EdekDlaKazdego.tsx has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-6 2026-04-13 18:47:27Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `./\src\components\EdekDlaKazdego.tsx`
+
+```text
+22	
+23	          <motion.div initial={{ opacity: 0, x: m ? 0 : -40 }} animate={isInView ? { opacity: 1, x: 0 } : {}} transition={{ duration: 0.8 }}>
+24	            <p style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)', marginBottom: 16 }}>No i tak to jest</p>
+25	            <h2 style={{ fontSize: m ? 32 : 'clamp(28px, 4vw, 52px)', fontWeight: 700, letterSpacing: '-0.03em', marginBottom: 24, lineHeight: 1.1 }}>
+26	              TRAFIAM<br />DO KAŻDEGO
+27	            </h2>
+28	            <p style={{ fontSize: m ? 15 : 17, lineHeight: 1.8, color: 'rgba(255,255,255,0.45)', marginBottom: 24, maxWidth: 500 }}>
+29	              Człowieku, ja nie wiem jak to się dzieje, ale mnie lubią wszyscy. Dzieciaki chcą dać mi piątkę, babcie opowiadają mi o swoich wnukach godzinami, a politycy zapraszają mnie do Sejmu. No i elegancko.
+30	            </p>
+31	            <p style={{ fontSize: m ? 15 : 17, lineHeight: 1.8, color: 'rgba(255,255,255,0.45)', marginBottom: 24, maxWidth: 500 }}>
+32	              Ludzie zatrzymują się na ulicy, podchodzą, pytają skąd mam tego Rolexa, śmieją się z moich żartów. Na Hali Mirowskiej kupiłem sobie perfumki od Pana co siedział na skrzynce i poczułem, że mnie tam polubili.
+33	            </p>
+34	            <p style={{ fontSize: m ? 15 : 17, lineHeight: 1.8, color: 'rgba(255,255,255,0.45)', maxWidth: 500 }}>
+35	              Nie jestem żadnym gadżetem. Jestem Edek. Z kim się zadaję, tym się staję.
+36	            </p>
+37	
+38	            <div style={{ display: 'flex', gap: m ? 20 : 32, marginTop: 32, paddingTop: 24, borderTop: '1px solid rgba(255,255,255,0.08)', flexWrap: 'wrap' }}>
+39	              {[
+40	                { val: '5-95', label: t('edekStat1') },
+41	                { val: '∞', label: t('edekStat2') },
+42	                { val: '0', label: t('edekStat3') },
+43	              ].map((s) => (
+44	                <div key={s.label}>
+45	                  <div style={{ fontSize: m ? 22 : 28, fontWeight: 700, color: '#fff' }}>{s.val}</div>
+46	                  <div style={{ fontSize: 10, fontWeight: 500, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.25)', marginTop: 4 }}>{s.label}</div>
+47	                </div>
+48	              ))}
+49	            </div>
+50	          </motion.div>
+51	
+52	          {/* Image on desktop */}
+53	          {!m && (
+54	            <motion.div initial={{ opacity: 0, x: 40 }} animate={isInView ? { opacity: 1, x: 0 } : {}} transition={{ duration: 0.8, delay: 0.2 }}>
+55	              <img src="/Frame 1000003012.png" alt="Edek z ludźmi" style={{ width: '100%', height: 'auto' }} />
+56	            </motion.div>
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-6 2026-04-13 18:47:42Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file c:\Users\idzik\warchocki\src\components\EdekDlaKazdego.tsx has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-6 2026-04-13 18:47:48Z)**_
+
+Now TikTokGallery, Articles, Services, Footer:
+
+_**Agent (claude-opus-4-6 2026-04-13 18:47:51Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file c:\Users\idzik\warchocki\src\components\TikTokGallery.tsx has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-6 2026-04-13 18:47:52Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file c:\Users\idzik\warchocki\src\components\TikTokGallery.tsx has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-6 2026-04-13 18:48:00Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file c:\Users\idzik\warchocki\src\components\TikTokGallery.tsx has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-6 2026-04-13 18:48:03Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file c:\Users\idzik\warchocki\src\components\TikTokGallery.tsx has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-6 2026-04-13 18:48:05Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file c:\Users\idzik\warchocki\src\components\TikTokGallery.tsx has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-6 2026-04-13 18:48:06Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file c:\Users\idzik\warchocki\src\components\TikTokGallery.tsx has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-6 2026-04-13 18:48:14Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file c:\Users\idzik\warchocki\src\components\Articles.tsx has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-6 2026-04-13 18:48:15Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file c:\Users\idzik\warchocki\src\components\Articles.tsx has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-6 2026-04-13 18:48:23Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file c:\Users\idzik\warchocki\src\components\Articles.tsx has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-6 2026-04-13 18:48:25Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file c:\Users\idzik\warchocki\src\components\Articles.tsx has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-6 2026-04-13 18:48:32Z)**_
+
+Now Services and Footer. Services is the most complex — I need to translate the service cards too:
+
+_**Agent (claude-opus-4-6 2026-04-13 18:48:33Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `./\src\components\Services.tsx`
+
+```text
+1	import { motion, useInView } from 'framer-motion'
+2	import { useRef, useState, type CSSProperties, type FormEvent } from 'react'
+3	import { Link } from 'react-router-dom'
+4	// responsive handled by CSS classes
+5	
+6	const services = [
+7	  {
+8	    icon: (
+9	      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+10	        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+11	      </svg>
+12	    ),
+13	    tag: 'Gwiazda Twojego eventu',
+14	    title: 'WYNAJEM EDWARDA',
+15	    desc: 'Chcesz żeby u Ciebie było głośno? Przyjdę na Twoją konferencję, otwarcie, galę — i gwarantuję oblężenie. Ludzie będą wyciągać telefony, a TikToki zrobią się same.',
+16	    link: '/wynajem-edwarda',
+17	  },
+18	  {
+19	    icon: (
+20	      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+21	        <rect x="3" y="11" width="18" height="10" rx="2" />
+22	        <circle cx="12" cy="5" r="2" />
+23	        <path d="M12 7v4" />
+24	        <circle cx="8" cy="16" r="1" fill="#fff" />
+25	        <circle cx="16" cy="16" r="1" fill="#fff" />
+26	      </svg>
+27	    ),
+28	    tag: 'Moi kumple do roboty',
+29	    title: 'WYNAJEM ROBOTÓW',
+30	    desc: 'Mam kolegów robotów, którzy mogą pracować za Ciebie. Unitree G1, H1 — z mózgiem MERA OS. Logistyka, ochrona, retail. Robimy to na poważnie.',
+31	    link: '/wynajem-robotow',
+32	  },
+33	  {
+34	    icon: (
+35	      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+36	        <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
+37	        <polyline points="17 6 23 6 23 12" />
+38	      </svg>
+39	    ),
+40	    tag: 'Zasięgi, których nie kupisz',
+41	    title: 'PROMOCJA W SOCIALACH',
+42	    desc: 'Ponad 500 milionów wyświetleń, człowieku. Chcesz żebym wziął Twój produkt i zrobił z niego virala? TikTok, Insta, YouTube — ja to ogarniam lepiej niż niejeden influencer z krwi i kości.',
+43	    link: '/promocja-social-media',
+44	  },
+45	  {
+46	    icon: (
+47	      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+48	        <rect x="2" y="3" width="20" height="14" rx="2" />
+49	        <line x1="8" y1="21" x2="16" y2="21" />
+50	        <line x1="12" y1="17" x2="12" y2="21" />
+51	        <circle cx="12" cy="10" r="3" />
+52	      </svg>
+53	    ),
+54	    tag: 'Mój mózg',
+55	    title: 'SYSTEM MERA OS',
+56	    desc: 'To jest system, który mnie napędza. AI, rozpoznawanie mowy, interakcja z ludźmi — cały mój geniusz w jednym pakiecie. Chcesz wiedzieć więcej? Wejdź na merarobotics.com.',
+57	    link: 'https://merarobotics.com',
+58	    external: true,
+59	  },
+60	]
+61	
+62	function ServiceCard({ service, index }: { service: (typeof services)[0]; index: number }) {
+63	  const ref = useRef(null)
+64	  const isInView = useInView(ref, { once: true, margin: '-80px' })
+65	  const [hovered, setHovered] = useState(false)
+66	
+67	  const cardStyle: CSSProperties = {
+68	    position: 'relative',
+69	    display: 'flex',
+70	    flexDirection: 'column',
+71	    padding: 40,
+72	    background: hovered ? 'rgba(255,255,255,0.05)' : 'rgba(255,255,255,0.02)',
+73	    border: `1px solid ${hovered ? 'rgba(255,255,255,0.15)' : 'rgba(255,255,255,0.06)'}`,
+74	    backdropFilter: 'blur(16px)',
+75	    transition: 'all 0.3s ease',
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-6 2026-04-13 18:48:37Z)**_
+
+Let me restructure to use translation keys instead:
+
+_**Agent (claude-opus-4-6 2026-04-13 18:49:01Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file c:\Users\idzik\warchocki\src\components\Services.tsx has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-6 2026-04-13 18:49:10Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file c:\Users\idzik\warchocki\src\components\Services.tsx has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-6 2026-04-13 18:49:15Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file c:\Users\idzik\warchocki\src\components\Services.tsx has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-6 2026-04-13 18:49:20Z)**_
+
+Now update ContactInline and main Services component:
+
+_**Agent (claude-opus-4-6 2026-04-13 18:49:23Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file c:\Users\idzik\warchocki\src\components\Services.tsx has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-6 2026-04-13 18:49:32Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file c:\Users\idzik\warchocki\src\components\Services.tsx has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-6 2026-04-13 18:49:33Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file c:\Users\idzik\warchocki\src\components\Services.tsx has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-6 2026-04-13 18:49:35Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file c:\Users\idzik\warchocki\src\components\Services.tsx has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-6 2026-04-13 18:49:37Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file c:\Users\idzik\warchocki\src\components\Services.tsx has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-6 2026-04-13 18:49:38Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file c:\Users\idzik\warchocki\src\components\Services.tsx has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-6 2026-04-13 18:49:42Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file c:\Users\idzik\warchocki\src\components\Services.tsx has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-6 2026-04-13 18:49:44Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file c:\Users\idzik\warchocki\src\components\Services.tsx has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-6 2026-04-13 18:49:48Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file c:\Users\idzik\warchocki\src\components\Services.tsx has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-6 2026-04-13 18:49:50Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file c:\Users\idzik\warchocki\src\components\Services.tsx has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-6 2026-04-13 18:49:55Z)**_
+
+Now Footer:
+
+_**Agent (claude-opus-4-6 2026-04-13 18:49:58Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file c:\Users\idzik\warchocki\src\components\Footer.tsx has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-6 2026-04-13 18:50:00Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file c:\Users\idzik\warchocki\src\components\Footer.tsx has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-6 2026-04-13 18:50:01Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file c:\Users\idzik\warchocki\src\components\Footer.tsx has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-6 2026-04-13 18:50:06Z)**_
+
+Now build and check for errors:
+
+_**Agent (claude-opus-4-6 2026-04-13 18:50:09Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+TS check
+
+`npx tsc --noEmit 2>&1 | head -30`
+
+```text
+[rerun: b2]
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-6 2026-04-13 18:50:18Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Build
+
+`npx vite build 2>&1 | tail -10`
+
+```text
+dist/**assets/space-grotesk-latin-300-normal-Byd1NLsn.woff        ** 16.65 kB******
+dist/**assets/space-grotesk-latin-ext-600-normal-VcznFIpX.woff    ** 16.73 kB******
+dist/**assets/space-grotesk-latin-ext-400-normal-DRPE3kg4.woff    ** 16.79 kB******
+dist/**assets/space-grotesk-latin-ext-500-normal-3dgZTiw9.woff    ** 16.79 kB******
+dist/**assets/space-grotesk-latin-600-normal-BflQw4A9.woff        ** 16.88 kB******
+dist/**assets/space-grotesk-latin-500-normal-CNSSEhBt.woff        ** 16.99 kB******
+dist/**assets/space-grotesk-latin-400-normal-BnQMeOim.woff        ** 17.00 kB******
+dist/**assets/index-fWVOGAPZ.css                                  **  7.81 kB****** │ gzip:   1.38 kB**
+dist/**assets/index-Dvqqrx0T.js                                   **420.36 kB****** │ gzip: 131.72 kB**
+✓ built in 1.74s
+[rerun: b3]
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-6 2026-04-13 18:50:22Z)**_
+
+Build OK! Deploy:
+
+_**Agent (claude-opus-4-6 2026-04-13 18:50:23Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Deploy
+
+`npx netlify deploy --prod --dir=dist 2>&1 | tail -5`
 </details></tool-use>

@@ -1,6 +1,7 @@
 import { motion, useInView } from 'framer-motion'
 import { useRef, useState } from 'react'
 import useIsMobile from '../hooks/useIsMobile'
+import { useT } from '../lib/i18n'
 
 const articles = [
   { source: 'Dzień Dobry TVN', title: 'Autonomiczny robot stał się influencerem', url: 'https://dziendobry.tvn.pl/styl-zycia/edward-warchocki-autonomiczny-robot-stal-sie-influencerem-st8943884', domain: 'dziendobry.tvn.pl' },
@@ -61,15 +62,16 @@ export default function Articles() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: '-50px' })
   const m = useIsMobile()
+  const { t } = useT()
 
   return (
     <section id="media" style={{ position: 'relative', padding: m ? '80px 0' : '120px 0', borderTop: '1px solid rgba(255,255,255,0.08)' }}>
       <div style={{ maxWidth: 1400, margin: '0 auto', padding: m ? '0 20px' : '0 48px' }}>
         <motion.div ref={ref} initial={{ opacity: 0, y: 30 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.8 }} style={{ textAlign: 'center', marginBottom: m ? 40 : 64 }}>
-          <p style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)', marginBottom: 16 }}>Piszą o mnie wszyscy</p>
-          <h2 style={{ fontSize: m ? 28 : 'clamp(28px, 4vw, 56px)', fontWeight: 700, letterSpacing: '-0.03em', marginBottom: 16 }}>EDEK W MEDIACH</h2>
+          <p style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)', marginBottom: 16 }}>{t('articlesTag')}</p>
+          <h2 style={{ fontSize: m ? 28 : 'clamp(28px, 4vw, 56px)', fontWeight: 700, letterSpacing: '-0.03em', marginBottom: 16 }}>{t('articlesTitle')}</h2>
           <p style={{ fontSize: m ? 15 : 17, lineHeight: 1.7, color: 'rgba(255,255,255,0.4)', maxWidth: 600, margin: '0 auto' }}>
-            TVN, Polsat, Money.pl, WP, Spider's Web, VOX FM i jeszcze z milion innych. Wychodzi na to, że przypadkowo zrobiłem porządek w Sejmie i teraz cały internet o mnie huczy. No i elegancko.
+            {t('articlesDesc')}
           </p>
         </motion.div>
 
@@ -80,7 +82,7 @@ export default function Articles() {
         </div>
 
         <motion.div initial={{ opacity: 0 }} animate={isInView ? { opacity: 1 } : {}} transition={{ delay: 0.5, duration: 0.6 }} style={{ textAlign: 'center', marginTop: 24 }}>
-          <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.25)', fontStyle: 'italic' }}>...i wiele, wiele innych. Człowieku, nie nadążam liczyć.</p>
+          <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.25)', fontStyle: 'italic' }}>{t('articlesMore')}</p>
         </motion.div>
       </div>
     </section>

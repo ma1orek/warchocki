@@ -12,6 +12,10 @@ function App() {
         <Route path="/wynajem-edwarda" element={<WynajemEdwarda />} />
         <Route path="/wynajem-robotow" element={<WynajemRobotow />} />
         <Route path="/promocja-social-media" element={<PromocjaSocialMedia />} />
+        <Route path="/en" element={<Home />} />
+        <Route path="/en/wynajem-edwarda" element={<WynajemEdwarda />} />
+        <Route path="/en/wynajem-robotow" element={<WynajemRobotow />} />
+        <Route path="/en/promocja-social-media" element={<PromocjaSocialMedia />} />
       </Routes>
     </BrowserRouter>
   )
