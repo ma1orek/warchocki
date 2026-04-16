@@ -20,7 +20,7 @@ export const translations = {
     heroCta2: 'Moje życie',
     heroScroll: 'Leć niżej',
     heroStatViews: 'Wyświetleń w miesiąc',
-    heroStatPeople: 'Polaków',
+    heroStatPeople: 'ludzi',
     heroStatRobot: 'Robot w Polsce',
 
     timelineTag: 'Moje przygody',
@@ -96,7 +96,7 @@ export const translations = {
     heroCta2: 'My life',
     heroScroll: 'Scroll',
     heroStatViews: 'Views per month',
-    heroStatPeople: 'Poles',
+    heroStatPeople: 'people',
     heroStatRobot: 'Robot in Poland',
 
     timelineTag: 'My adventures',

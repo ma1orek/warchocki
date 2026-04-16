@@ -22325,11 +22325,222 @@ _**Agent (claude-opus-4-6 2026-04-13 18:50:22Z)**_
 
 Build OK! Deploy:
 
-_**Agent (claude-opus-4-6 2026-04-13 18:50:23Z)**_
+_**Agent (claude-opus-4-6 2026-04-13 18:50:41Z)**_
 
 <tool-use data-tool-type="shell" data-tool-name="Bash"><details>
 <summary>Tool use: **Bash**</summary>
 Deploy
 
 `npx netlify deploy --prod --dir=dist 2>&1 | tail -5`
+
+```text
+Unique deploy URL: <https://69dd3af71ff5d85e621e2b5f--cute-cobbler-5ffb46.netlify.app>
+
+Build logs: <https://app.netlify.com/projects/cute-cobbler-5ffb46/deploys/69dd3af71ff5d85e621e2b5f>
+Function logs: <https://app.netlify.com/projects/cute-cobbler-5ffb46/logs/functions>
+Edge function logs: <https://app.netlify.com/projects/cute-cobbler-5ffb46/logs/edge-functions>
+[rerun: b4]
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-6 2026-04-13 18:50:56Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Commit and push
+
+```bash
+git add -A && git commit -m "$(cat <<'EOF'
+Wersja angielska /en + przelacznik PL/EN w menu
+
+- Nowy lib/i18n.ts z tlumaczeniami i useT() hookiem
+- Routes /en, /en/wynajem-edwarda, /en/wynajem-robotow, /en/promocja-social-media
+- Wszystkie komponenty (Navbar, Hero, Timeline, EdekDlaKazdego, TikTokGallery, Articles, Services, Footer) uzywaja useT()
+- Przelacznik PL/EN w navbarze (desktop + mobile)
+- Timeline ma osobne tablice eventow PL/EN
+- localizedPath() helper do generowania linkow z prefixem /en
+
+Co-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>
+EOF
+)" && git push 2>&1 | tail -3
+```
+
+```text
+warning: in the working copy of '.netlify/netlify.toml', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '.specstory/statistics.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/App.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/Articles.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/EdekDlaKazdego.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/Footer.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/Hero.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/Navbar.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/Services.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/TikTokGallery.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/Timeline.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/lib/i18n.ts', LF will be replaced by CRLF the next time Git touches it
+[main 96b53f4] Wersja angielska /en + przelacznik PL/EN w menu
+ 13 files changed, 1705 insertions(+), 109 deletions(-)
+ create mode 100644 src/lib/i18n.ts
+To https://github.com/ma1orek/warchocki.git
+   69823ce..96b53f4  main -> main
+[rerun: b5]
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-6 2026-04-13 18:51:09Z)**_
+
+Gotowe! Live na **warchocki.pl**:
+
+### Wersja angielska + przełącznik PL/EN
+
+- **Routes**: `/` (PL) i `/en` (EN) + wszystkie podstrony też mają wersje `/en/wynajem-edwarda`, `/en/wynajem-robotow`, `/en/promocja-social-media`
+- **Przełącznik PL/EN** w navbarze — desktop i mobile, w ramce po prawej obok linków
+- **Wszystkie sekcje przetłumaczone**: Hero, Timeline (29 wydarzeń ma osobne tłumaczenia EN), Edek trafia do każdego, Sociale, Media, Współpraca, formularz, Footer
+- **Edek po angielsku** zachowuje ten sam luźny ton: "Hey, Human!", "Well, it's all elegant, human...", "Who I hang out with, I become"
+- **Klikanie EN/PL** zachowuje ścieżkę — jeśli jesteś na `/wynajem-edwarda`, kliknięcie EN przeniesie do `/en/wynajem-edwarda`
+
+Sprawdź na **warchocki.pl** i **warchocki.pl/en**
+
+---
+
+_**User (2026-04-16 20:32:39Z)**_
+
+all X as anothewr our social platfom https://x.com/edwardwarchocki
+
+---
+
+_**Agent (claude-opus-4-7 2026-04-16 20:32:52Z)**_
+
+_**Agent (claude-opus-4-7 2026-04-16 20:32:54Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `./\src\components\SocialLinks.tsx`
+
+```text
+1	const socials = [
+2	  {
+3	    name: 'TikTok',
+4	    url: 'https://www.tiktok.com/@edwardwarchocki',
+5	    icon: (
+6	      <svg width="20" height="20" viewBox="0 0 24 24" fill="#fff">
+7	        <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 00-.79-.05A6.34 6.34 0 003.15 15.2a6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.34-6.34V8.98a8.21 8.21 0 004.76 1.52V7.05a4.84 4.84 0 01-1-.36z" />
+8	      </svg>
+9	    ),
+10	  },
+11	  {
+12	    name: 'Instagram',
+13	    url: 'https://www.instagram.com/edwardwarchocki',
+14	    icon: (
+15	      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+16	        <rect x="2" y="2" width="20" height="20" rx="5" />
+17	        <circle cx="12" cy="12" r="5" />
+18	        <circle cx="17.5" cy="6.5" r="1.5" fill="#fff" stroke="none" />
+19	      </svg>
+20	    ),
+21	  },
+22	  {
+23	    name: 'Facebook',
+24	    url: 'https://www.facebook.com/edwardwarchocki',
+25	    icon: (
+26	      <svg width="20" height="20" viewBox="0 0 24 24" fill="#fff">
+27	        <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" />
+28	      </svg>
+29	    ),
+30	  },
+31	  {
+32	    name: 'YouTube',
+33	    url: 'https://www.youtube.com/@EdwardWarchocki',
+34	    icon: (
+35	      <svg width="20" height="20" viewBox="0 0 24 24" fill="#fff">
+36	        <path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+37	      </svg>
+38	    ),
+39	  },
+40	]
+41	
+42	export default function SocialLinks({ size = 'normal' }: { size?: 'normal' | 'large' }) {
+43	  const iconSize = size === 'large' ? 48 : 36
+44	
+45	  return (
+46	    <div style={{ display: 'flex', alignItems: 'center', gap: size === 'large' ? 16 : 12 }}>
+47	      {socials.map((s) => (
+48	        <a
+49	          key={s.name}
+50	          href={s.url}
+51	          target="_blank"
+52	          rel="noopener noreferrer"
+53	          title={s.name}
+54	          style={{
+55	            display: 'flex',
+56	            alignItems: 'center',
+57	            justifyContent: 'center',
+58	            width: iconSize,
+59	            height: iconSize,
+60	            border: '1px solid rgba(255,255,255,0.12)',
+61	            background: 'rgba(255,255,255,0.03)',
+62	            transition: 'all 0.2s ease',
+63	          }}
+64	          onMouseEnter={(e) => {
+65	            e.currentTarget.style.background = 'rgba(255,255,255,0.1)'
+66	            e.currentTarget.style.borderColor = 'rgba(255,255,255,0.3)'
+67	            e.currentTarget.style.transform = 'translateY(-2px)'
+68	          }}
+69	          onMouseLeave={(e) => {
+70	            e.currentTarget.style.background = 'rgba(255,255,255,0.03)'
+71	            e.currentTarget.style.borderColor = 'rgba(255,255,255,0.12)'
+72	            e.currentTarget.style.transform = 'translateY(0)'
+73	          }}
+74	        >
+75	          {s.icon}
+76	        </a>
+77	      ))}
+78	    </div>
+79	  )
+80	}
+81
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-7 2026-04-16 20:33:08Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file c:\Users\idzik\warchocki\src\components\SocialLinks.tsx has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-7 2026-04-16 20:33:16Z)**_
+
+Dodaję X i zmieniam "MILIONY Polaków" → "MILIONY ludzi":
+
+_**Agent (claude-opus-4-7 2026-04-16 20:33:18Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file c:\Users\idzik\warchocki\src\lib\i18n.ts has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-7 2026-04-16 20:33:19Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file c:\Users\idzik\warchocki\src\lib\i18n.ts has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-7 2026-04-16 20:33:26Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Deploy
+
+`npx netlify deploy --prod --dir=dist 2>&1 | tail -3`
 </details></tool-use>
