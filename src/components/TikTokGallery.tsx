@@ -6,7 +6,7 @@ import { useT } from '../lib/i18n'
 
 const tiktokVideos = [
   '7613540882662296854',
-  '7618486441160527137',
+  '7627845549282118945',
   '7614906652290043158',
 ]
 
@@ -27,9 +27,16 @@ export default function TikTokGallery() {
   }, [])
 
   const mediaPresence = [
+    'BBC News', 'CNN', 'Reuters', 'Fox News', 'NBC News', 'ABC News',
+    'CTV News', 'Euronews', 'Yahoo', 'The Print (India)',
+    'The Standard (Hong Kong)', 'Business Today', 'Asianet Newsable',
+    'Modern Ghana', 'Euro Weekly News', 'Futurism',
+    'Interesting Engineering', "Men's Journal", 'GreenMe',
     'Dzień Dobry TVN', 'Polsat News', 'Radio VOX FM', 'Radio ZET',
     'Money.pl', 'Wiadomości WP', 'Interia', 'Spider\'s Web',
     'Super Express', 'Bankier.pl', 'BiznesAlert', 'Do Rzeczy',
+    'Techoteka', 'Android.com.pl', 'Goniec.pl', 'BOOP.PL',
+    'Digimania', 'Grupa SEO', '...i wiele innych',
   ]
 
   return (

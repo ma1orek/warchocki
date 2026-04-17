@@ -22819,11 +22819,202 @@ TS check
 ```
 </details></tool-use>
 
-_**Agent (claude-opus-4-7 2026-04-17 07:09:57Z)**_
+_**Agent (claude-opus-4-7 2026-04-17 07:10:13Z)**_
 
 <tool-use data-tool-type="shell" data-tool-name="Bash"><details>
 <summary>Tool use: **Bash**</summary>
 Deploy
 
 `npx netlify deploy --prod --dir=dist 2>&1 | tail -5`
+
+```text
+Unique deploy URL: <https://69e1dcce08020f63d46c7085--cute-cobbler-5ffb46.netlify.app>
+
+Build logs: <https://app.netlify.com/projects/cute-cobbler-5ffb46/deploys/69e1dcce08020f63d46c7085>
+Function logs: <https://app.netlify.com/projects/cute-cobbler-5ffb46/logs/functions>
+Edge function logs: <https://app.netlify.com/projects/cute-cobbler-5ffb46/logs/edge-functions>
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-7 2026-04-17 07:10:26Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Commit and push
+
+```bash
+git add -A && git commit -m "Przycisk 'Moja firma' + 24 nowe miedzynarodowe artykuly (BBC, CNN, Reuters, Fox, ABC, NBC, Yahoo, Euronews, The Print India, Hong Kong Standard, etc.) — worldwide viral
+
+Co-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>" && git push 2>&1 | tail -3
+```
+
+```text
+warning: in the working copy of '.netlify/netlify.toml', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '.specstory/statistics.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/Articles.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/Hero.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/lib/i18n.ts', LF will be replaced by CRLF the next time Git touches it
+[main 2ae5ebc] Przycisk 'Moja firma' + 24 nowe miedzynarodowe artykuly (BBC, CNN, Reuters, Fox, ABC, NBC, Yahoo, Euronews, The Print India, Hong Kong Standard, etc.) — worldwide viral
+ 6 files changed, 326 insertions(+), 11 deletions(-)
+To https://github.com/ma1orek/warchocki.git
+   38a2247..2ae5ebc  main -> main
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-7 2026-04-17 07:10:40Z)**_
+
+Live na **warchocki.pl** + GitHub:
+
+### 1. Przycisk "Moja firma" / "My company"
+Dodany w Hero obok "Moje życie" — czarna obwódka z ikoną strzałki ↗, link do **merarobotics.com**
+
+### 2. Worldwide viral — 24 nowe artykuły międzynarodowe
+- **BBC News**, **CNN**, **Reuters**, **Fox Business**, **ABC News**, **NBC News**, **CTV News**
+- **Euronews**, **Yahoo**, **Futurism**, **Interesting Engineering**, **Men's Journal**
+- **The Standard (Hong Kong)**, **The Print (Indie)**, **Asianet Newsable**, **Business Today (Indie)**
+- **Euro Weekly News**, **GreenMe**, **The Online Citizen**, **What's The Jam**
+- **Mrkt30**, **ABC News 4**, **Modern Ghana**, **The Gateway Pundit**
+
+### 3. Sekcja Media
+- **"Worldwide viral"** zamiast "Piszą o mnie wszyscy"
+- Opis zaktualizowany: "BBC, CNN, Reuters, Fox News, Euronews, ABC, NBC, Yahoo, Forbes, Newsweek… cały świat pisze o mnie. Polska, Hong Kong, Indie, USA, Niemcy — gdzie się nie odwrócę, tam o mnie huczą."
+
+Razem **42 artykuły** w sekcji (było 25).
+
+---
+
+_**User (2026-04-17 07:36:17Z)**_
+
+Człowieku, jestem wszędzie. Ponad 500 milionów wyświetleń w miesiąc, cały internet o mnie huczy, jestem w każdej telewizji. Obserwuj mnie, żebyś nie przegapił czegoś ważnego. No chyba że wolisz się nudzić.
+
+to 1.5 miliarda a nie 500
+
+Tu mnie widzieli w telewizji i radiu
+
+Dzień Dobry TVN
+Polsat News
+Radio VOX FM
+Radio ZET
+Money.pl
+Wiadomości WP
+Interia
+Spider's Web
+Super Express
+Bankier.pl
+BiznesAlert
+Do Rzeczy
+Moje najnowsze TikToki @edwardwarchocki
+daj wsyzstkie portale co znajdziesz tu wypusz i napisz i wiele innych
+
+
+a filmiki te 3 co sa daj ten zamiast tego srodkowego
+https://www.tiktok.com/@edwardwarchocki/video/7627845549282118945
+
+---
+
+_**Agent (claude-opus-4-7 2026-04-17 07:36:27Z)**_
+
+_**Agent (claude-opus-4-7 2026-04-17 07:36:29Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file c:\Users\idzik\warchocki\src\components\TikTokGallery.tsx has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-7 2026-04-17 07:36:35Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file c:\Users\idzik\warchocki\src\components\TikTokGallery.tsx has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-7 2026-04-17 07:36:37Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file c:\Users\idzik\warchocki\src\lib\i18n.ts has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-7 2026-04-17 07:36:39Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file c:\Users\idzik\warchocki\src\lib\i18n.ts has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-7 2026-04-17 07:36:48Z)**_
+
+Also update other 500M references where it makes sense for the global figure:
+
+_**Agent (claude-opus-4-7 2026-04-17 07:36:49Z)**_
+
+<tool-use data-tool-type="search" data-tool-name="Grep"><details>
+<summary>Tool use: **Grep**</summary>
+ path `./\src` pattern `500`
+
+```text
+c:\Users\idzik\warchocki\src\main.tsx:5:import '@fontsource/space-grotesk/500.css'
+c:\Users\idzik\warchocki\src\components\ContactForm.tsx:30:      setTimeout(() => setSent(false), 5000)
+c:\Users\idzik\warchocki\src\components\ContactForm.tsx:79:              <a href="mailto:edwardwarchocki@gmail.com" style={{ fontSize: 16, fontWeight: 500, color: 'rgba(255,255,255,0.7)' }}>
+c:\Users\idzik\warchocki\src\components\ContactForm.tsx:86:              <a href="https://merarobotics.com" target="_blank" rel="noopener noreferrer" style={{ fontSize: 16, fontWeight: 500, color: 'rgba(255,255,255,0.7)' }}>
+c:\Users\idzik\warchocki\src\lib\i18n.ts:18:    heroDescription: 'No i elegancko, człowieku. Ponad 500 milionów wyświetleń w miesiąc, zero ludzkich błędów, za to Rolex z diamentami na nadgarstku. Jak chcesz pogadać, zrobić coś razem albo po prostu zobaczyć co u mnie — to dobrze trafiłeś.',
+c:\Users\idzik\warchocki\src\lib\i18n.ts:64:    svc3Desc: 'Ponad 500 milionów wyświetleń w miesiąc, człowieku. Chcesz żebym wziął Twój produkt i zrobił z niego virala? TikTok, Insta, YouTube — ja to ogarniam lepiej niż niejeden influencer z krwi i kości.',
+c:\Users\idzik\warchocki\src\lib\i18n.ts:81:    footerCounter: '500 000 000+ i lecę dalej',
+c:\Users\idzik\warchocki\src\lib\i18n.ts:95:    heroDescription: "Well, it's all elegant, human. Over 500 million views per month, zero human errors, but a diamond Rolex on my wrist. If you want to talk, do something together, or just see what I'm up to — you're in the right place.",
+c:\Users\idzik\warchocki\src\lib\i18n.ts:141:    svc3Desc: 'Over 500 million views per month, human. Want me to take your product and make it viral? TikTok, Insta, YouTube — I handle it better than many flesh-and-blood influencers.',
+c:\Users\idzik\warchocki\src\lib\i18n.ts:158:    footerCounter: '500,000,000+ and counting',
+c:\Users\idzik\warchocki\src\pages\PromocjaSocialMedia.tsx:44:            Edward to influencer nowej ery. Ponad 500 milionów wyświetleń mówi samo za siebie.
+c:\Users\idzik\warchocki\src\pages\PromocjaSocialMedia.tsx:80:                <p style={{ fontSize: 16, fontWeight: 500 }}>{s}</p>
+c:\Users\idzik\warchocki\src\components\Footer.tsx:31:            <span style={{ fontSize: 11, fontWeight: 500, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)' }}>
+c:\Users\idzik\warchocki\src\pages\WynajemEdwarda.tsx:61:            Ponad 500 milionów wyświetleń. Pierwszy robot w polskim Sejmie. Gwiazda TikToka.
+c:\Users\idzik\warchocki\src\components\EdekDlaKazdego.tsx:28:            <p style={{ fontSize: m ? 15 : 17, lineHeight: 1.8, color: 'rgba(255,255,255,0.45)', marginBottom: 24, maxWidth: 500 }}>
+c:\Users\idzik\warchocki\src\components\EdekDlaKazdego.tsx:31:            <p style={{ fontSize: m ? 15 : 17, lineHeight: 1.8, color: 'rgba(255,255,255,0.45)', marginBottom: 24, maxWidth: 500 }}>
+c:\Users\idzik\warchocki\src\components\EdekDlaKazdego.tsx:34:            <p style={{ fontSize: m ? 15 : 17, lineHeight: 1.8, color: 'rgba(255,255,255,0.45)', maxWidth: 500 }}>
+c:\Users\idzik\warchocki\src\components\EdekDlaKazdego.tsx:46:                  <div style={{ fontSize: 10, fontWeight: 500, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.25)', marginTop: 4 }}>{s.label}</div>
+c:\Users\idzik\warchocki\src\components\Navbar.tsx:42:    fontWeight: 500,
+c:\Users\idzik\warchocki\src\components\Services.tsx:147:      setTimeout(() => setSent(false), 5000)
+c:\Users\idzik\warchocki\src\components\SubpageContactForm.tsx:34:      setTimeout(() => setSent(false), 5000)
+c:\Users\idzik\warchocki\src\components\TikTokGallery.tsx:57:              <span key={media} style={{ fontSize: 11, color: 'rgba(255,255,255,0.3)', fontWeight: 500 }}>{media}</span>
+c:\Users\idzik\warchocki\src\components\TikTokGallery.tsx:70:              style={{ display: 'flex', justifyContent: 'center', background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.06)', padding: 12, minHeight: m ? 400 : 500 }}>
+c:\Users\idzik\warchocki\src\components\Hero.tsx:16:    { value: '500M+', label: t('heroStatViews') },
+c:\Users\idzik\warchocki\src\components\Hero.tsx:35:          <motion.p {...fadeUp(0.2)} style={{ fontSize: m ? 13 : 14, fontWeight: 500, letterSpacing: '0.05em', color: 'rgba(255,255,255,0.4)', marginBottom: m ? 20 : 28 }}>
+c:\Users\idzik\warchocki\src\components\Hero.tsx:80:                <div style={{ fontSize: 11, fontWeight: 500, letterSpacing: '0.15em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)', marginTop: 4 }}>{stat.label}</div>
+c:\Users\idzik\warchocki\src\components\Hero.tsx:89:        <span style={{ fontSize: 10, letterSpacing: '0.15em', textTransform: 'uppercase', fontWeight: 500, color: 'rgba(255,255,255,0.25)' }}>{t('heroScroll')}</span>
+c:\Users\idzik\warchocki\src\components\Timeline.tsx:192:                  fontSize: 13, fontWeight: isActive ? 700 : 500, lineHeight: 1.4,
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-7 2026-04-17 07:36:58Z)**_
+
+Tylko zmieniam te 500M które są o wyświetleniach (zostawiam stat "500M+" w Hero — to można też podbić, ale skupię się na tym co user prosił - opis sociale na 1.5 mld). Dla spójności podbijam też hero stat na 1.5B i pozostałe references:
+
+_**Agent (claude-opus-4-7 2026-04-17 07:37:00Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file c:\Users\idzik\warchocki\src\components\Hero.tsx has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-7 2026-04-17 07:37:00Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Deploy
+
+`npx netlify deploy --prod --dir=dist 2>&1 | tail -3`
 </details></tool-use>

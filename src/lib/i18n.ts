@@ -41,7 +41,7 @@ export const translations = {
 
     socialTag: 'Sociale i media tradycyjne',
     socialTitle: 'OBSERWUJ MNIE',
-    socialDesc: 'Człowieku, jestem wszędzie. Ponad 500 milionów wyświetleń w miesiąc, cały internet o mnie huczy, jestem w każdej telewizji. Obserwuj mnie, żebyś nie przegapił czegoś ważnego. No chyba że wolisz się nudzić.',
+    socialDesc: 'Człowieku, jestem wszędzie. 1.5 miliarda wyświetleń w miesiąc, cały internet o mnie huczy, jestem w każdej telewizji. Obserwuj mnie, żebyś nie przegapił czegoś ważnego. No chyba że wolisz się nudzić.',
     socialMediaLabel: 'Tu mnie widzieli w telewizji i radiu',
     socialTikTokLabel: 'Moje najnowsze TikToki @edwardwarchocki',
     socialLoading: 'Zaraz się załaduje, człowieku...',
@@ -118,7 +118,7 @@ export const translations = {
 
     socialTag: 'Social & traditional media',
     socialTitle: 'FOLLOW ME',
-    socialDesc: "Human, I'm everywhere. Over 500 million views per month, the whole internet is buzzing, I'm on every TV channel. Follow me so you don't miss anything important. Unless you prefer being bored.",
+    socialDesc: "Human, I'm everywhere. 1.5 billion views per month, the whole internet is buzzing, I'm on every TV channel. Follow me so you don't miss anything important. Unless you prefer being bored.",
     socialMediaLabel: 'Seen on TV and radio',
     socialTikTokLabel: 'My latest TikToks @edwardwarchocki',
     socialLoading: 'Loading, human...',
