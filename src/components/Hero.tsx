@@ -67,6 +67,10 @@ export default function Hero() {
             <a href="#timeline" style={{ display: 'inline-flex', justifyContent: 'center', fontSize: 14, fontWeight: 600, letterSpacing: '0.05em', textTransform: 'uppercase', padding: m ? '14px 24px' : '16px 32px', background: 'transparent', color: '#fff', border: '1px solid rgba(255,255,255,0.25)', transition: 'all 0.2s ease' }}>
               {t('heroCta2')}
             </a>
+            <a href="https://merarobotics.com/" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', justifyContent: 'center', alignItems: 'center', gap: 8, fontSize: 14, fontWeight: 600, letterSpacing: '0.05em', textTransform: 'uppercase', padding: m ? '14px 24px' : '16px 32px', background: 'transparent', color: '#fff', border: '1px solid rgba(255,255,255,0.25)', transition: 'all 0.2s ease' }}>
+              {t('heroCta3')}
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg>
+            </a>
           </motion.div>
 
           <motion.div {...fadeUp(1.0)} style={{ display: 'flex', flexWrap: 'wrap', gap: m ? 24 : 48, marginTop: m ? 40 : 64, paddingTop: 24, borderTop: '1px solid rgba(255,255,255,0.08)' }}>

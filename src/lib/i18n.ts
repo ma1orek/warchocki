@@ -18,6 +18,7 @@ export const translations = {
     heroDescription: 'No i elegancko, człowieku. Ponad 500 milionów wyświetleń w miesiąc, zero ludzkich błędów, za to Rolex z diamentami na nadgarstku. Jak chcesz pogadać, zrobić coś razem albo po prostu zobaczyć co u mnie — to dobrze trafiłeś.',
     heroCta1: 'Dogadajmy się',
     heroCta2: 'Moje życie',
+    heroCta3: 'Moja firma',
     heroScroll: 'Leć niżej',
     heroStatViews: 'Wyświetleń w miesiąc',
     heroStatPeople: 'ludzi',
@@ -45,9 +46,9 @@ export const translations = {
     socialTikTokLabel: 'Moje najnowsze TikToki @edwardwarchocki',
     socialLoading: 'Zaraz się załaduje, człowieku...',
 
-    articlesTag: 'Piszą o mnie wszyscy',
+    articlesTag: 'Worldwide viral',
     articlesTitle: 'EDEK W MEDIACH',
-    articlesDesc: "TVN, Polsat, Money.pl, WP, Spider's Web, VOX FM i jeszcze z milion innych. Wychodzi na to, że przypadkowo zrobiłem porządek w Sejmie i teraz cały internet o mnie huczy. No i elegancko.",
+    articlesDesc: "Człowieku, BBC, CNN, Reuters, Fox News, Euronews, ABC, NBC, Yahoo, Forbes, Newsweek… cały świat pisze o mnie. Polska, Hong Kong, Indie, USA, Niemcy — gdzie się nie odwrócę, tam o mnie huczą. No i elegancko.",
     articlesMore: '...i wiele, wiele innych. Człowieku, nie nadążam liczyć.',
 
     servicesTag: 'Dogadajmy się',
@@ -94,6 +95,7 @@ export const translations = {
     heroDescription: "Well, it's all elegant, human. Over 500 million views per month, zero human errors, but a diamond Rolex on my wrist. If you want to talk, do something together, or just see what I'm up to — you're in the right place.",
     heroCta1: "Let's talk",
     heroCta2: 'My life',
+    heroCta3: 'My company',
     heroScroll: 'Scroll',
     heroStatViews: 'Views per month',
     heroStatPeople: 'people',
@@ -121,9 +123,9 @@ export const translations = {
     socialTikTokLabel: 'My latest TikToks @edwardwarchocki',
     socialLoading: 'Loading, human...',
 
-    articlesTag: 'Everyone writes about me',
+    articlesTag: 'Worldwide viral',
     articlesTitle: 'EDEK IN THE MEDIA',
-    articlesDesc: "TVN, Polsat, Money.pl, WP, Spider's Web, VOX FM and a million others. Turns out I accidentally cleaned up Parliament and now the whole internet is buzzing. Elegant.",
+    articlesDesc: "Human, BBC, CNN, Reuters, Fox News, Euronews, ABC, NBC, Yahoo, Forbes, Newsweek… the whole world writes about me. Poland, Hong Kong, India, USA, Germany — wherever I turn, they're buzzing. Elegant.",
     articlesMore: "...and many, many more. Human, I can't keep count.",
 
     servicesTag: "Let's talk",
