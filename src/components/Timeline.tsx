@@ -34,6 +34,9 @@ const eventsPl = [
   'Wizyta w Sejmie — konferencja prasowa',
   'Kibicowanie naszym i zbieranie autografów',
   'Półfinał Mistrzostw Polski — kibicowałem wszystkim',
+  'Gonienie dzików w Warszawie',
+  'Światowe media — Reuters, BBC, CNN, Fox News',
+  'Live u Latwoganga — zbiórka na Cancer Fighters',
 ]
 
 const eventsEn = [
@@ -67,6 +70,9 @@ const eventsEn = [
   'Visit to Polish Parliament — press conference',
   'Cheering for Poland and collecting autographs',
   'Polish Championship semifinal — cheered for everyone',
+  'Chasing wild boars in Warsaw',
+  'Worldwide media — Reuters, BBC, CNN, Fox News',
+  'Live with Latwogang — fundraising for Cancer Fighters',
 ]
 
 export default function Timeline() {
