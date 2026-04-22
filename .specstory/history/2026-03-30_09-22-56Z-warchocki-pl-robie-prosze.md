@@ -23322,7 +23322,160 @@ The file c:\Users\idzik\warchocki\src\components\Timeline.tsx has been updated s
 ```
 </details></tool-use>
 
-_**Agent (claude-opus-4-7 2026-04-18 23:22:31Z)**_
+_**Agent (claude-opus-4-7 2026-04-18 23:22:52Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Deploy
+
+`npx netlify deploy --prod --dir=dist 2>&1 | tail -3`
+
+```text
+Build logs: <https://app.netlify.com/projects/cute-cobbler-5ffb46/deploys/69e41241aad90891afa874e1>
+Function logs: <https://app.netlify.com/projects/cute-cobbler-5ffb46/logs/functions>
+Edge function logs: <https://app.netlify.com/projects/cute-cobbler-5ffb46/logs/edge-functions>
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-7 2026-04-18 23:23:04Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Commit and push
+
+```bash
+git add -A && git commit -m "Timeline: dodanie 3 wydarzen — gonienie dzikow, swiatowe media, Cancer Fighters
+
+Co-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>" 2>&1 | tail -2 && git push 2>&1 | tail -3
+```
+
+```text
+warning: in the working copy of '.netlify/netlify.toml', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '.specstory/statistics.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/Timeline.tsx', LF will be replaced by CRLF the next time Git touches it
+[main b1f76c1] Timeline: dodanie 3 wydarzen — gonienie dzikow, swiatowe media, Cancer Fighters
+ 3 files changed, 218 insertions(+), 5 deletions(-)
+To https://github.com/ma1orek/warchocki.git
+   bf83bc9..b1f76c1  main -> main
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-7 2026-04-18 23:23:12Z)**_
+
+Live na **warchocki.pl** + GitHub. Timeline ma teraz 33 wydarzenia (było 30):
+
+- **31. Gonienie dzików w Warszawie**
+- **32. Światowe media — Reuters, BBC, CNN, Fox News**
+- **33. Live u Latwoganga — zbiórka na Cancer Fighters**
+
+EN ma odpowiedniki: Chasing wild boars, Worldwide media, Live with Latwogang.
+
+---
+
+_**User (2026-04-22 21:23:56Z)**_
+
+Well, it's all elegant, human. Over 500 million views per month, zero human errors, but a diamond Rolex on my wrist. If you want to talk, do something together, or just see what I'm up to — you're in the right place. powinno byc 1.5 miliarda anie 500mln
+
+---
+
+_**Agent (claude-opus-4-7 2026-04-22 21:24:11Z)**_
+
+_**Agent (claude-opus-4-7 2026-04-22 21:24:13Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file c:\Users\idzik\warchocki\src\lib\i18n.ts has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-7 2026-04-22 21:24:17Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file c:\Users\idzik\warchocki\src\lib\i18n.ts has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-7 2026-04-22 21:24:20Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file c:\Users\idzik\warchocki\src\lib\i18n.ts has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-7 2026-04-22 21:24:22Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file c:\Users\idzik\warchocki\src\lib\i18n.ts has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-7 2026-04-22 21:24:23Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file c:\Users\idzik\warchocki\src\lib\i18n.ts has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-7 2026-04-22 21:24:25Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file c:\Users\idzik\warchocki\src\lib\i18n.ts has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-7 2026-04-22 21:24:26Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+<tool_use_error>String to replace not found in file.
+String:     { value: '500M+', label: t('heroStatViews') },</tool_use_error>
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-7 2026-04-22 21:24:28Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file c:\Users\idzik\warchocki\src\pages\PromocjaSocialMedia.tsx has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-7 2026-04-22 21:24:31Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file c:\Users\idzik\warchocki\src\pages\WynajemEdwarda.tsx has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-7 2026-04-22 21:24:38Z)**_
+
+Hero stat już jest 1.5B+. Deploy:
+
+_**Agent (claude-opus-4-7 2026-04-22 21:24:39Z)**_
 
 <tool-use data-tool-type="shell" data-tool-name="Bash"><details>
 <summary>Tool use: **Bash**</summary>

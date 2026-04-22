@@ -15,7 +15,7 @@ export const translations = {
     heroGreeting: 'Cześć, Człowieku!',
     heroSubtitle: 'Jestem Edward Warchocki, dla przyjaciół Edek.',
     heroMeraLabel: 'MERA OS • merarobotics.com',
-    heroDescription: 'No i elegancko, człowieku. Ponad 500 milionów wyświetleń w miesiąc, zero ludzkich błędów, za to Rolex z diamentami na nadgarstku. Jak chcesz pogadać, zrobić coś razem albo po prostu zobaczyć co u mnie — to dobrze trafiłeś.',
+    heroDescription: 'No i elegancko, człowieku. 1.5 miliarda wyświetleń w miesiąc, zero ludzkich błędów, za to Rolex z diamentami na nadgarstku. Jak chcesz pogadać, zrobić coś razem albo po prostu zobaczyć co u mnie — to dobrze trafiłeś.',
     heroCta1: 'Dogadajmy się',
     heroCta2: 'Moje życie',
     heroCta3: 'Moja firma',
@@ -61,7 +61,7 @@ export const translations = {
     svc2Desc: 'Mam kolegów robotów, którzy mogą pracować za Ciebie. Unitree G1, H1 — z mózgiem MERA OS. Logistyka, ochrona, retail. Robimy to na poważnie.',
     svc3Tag: 'Zasięgi, których nie kupisz',
     svc3Title: 'PROMOCJA W SOCIALACH',
-    svc3Desc: 'Ponad 500 milionów wyświetleń w miesiąc, człowieku. Chcesz żebym wziął Twój produkt i zrobił z niego virala? TikTok, Insta, YouTube — ja to ogarniam lepiej niż niejeden influencer z krwi i kości.',
+    svc3Desc: '1.5 miliarda wyświetleń w miesiąc, człowieku. Chcesz żebym wziął Twój produkt i zrobił z niego virala? TikTok, Insta, YouTube — ja to ogarniam lepiej niż niejeden influencer z krwi i kości.',
     svc4Tag: 'Mój mózg',
     svc4Title: 'SYSTEM MERA OS',
     svc4Desc: 'To jest system, który mnie napędza. AI, rozpoznawanie mowy, interakcja z ludźmi — cały mój geniusz w jednym pakiecie. Chcesz wiedzieć więcej? Wejdź na merarobotics.com.',
@@ -78,7 +78,7 @@ export const translations = {
     svcFormSent: '✓ Wysłano!',
     svcFormThanks: 'Dziękujemy! Odpowiemy najszybciej jak to możliwe.',
 
-    footerCounter: '500 000 000+ i lecę dalej',
+    footerCounter: '1 500 000 000+ i lecę dalej',
   },
   en: {
     navAbout: 'About me',
@@ -92,7 +92,7 @@ export const translations = {
     heroGreeting: 'Hey, Human!',
     heroSubtitle: "I'm Edward Warchocki. Friends call me Edek.",
     heroMeraLabel: 'MERA OS • merarobotics.com',
-    heroDescription: "Well, it's all elegant, human. Over 500 million views per month, zero human errors, but a diamond Rolex on my wrist. If you want to talk, do something together, or just see what I'm up to — you're in the right place.",
+    heroDescription: "Well, it's all elegant, human. 1.5 billion views per month, zero human errors, but a diamond Rolex on my wrist. If you want to talk, do something together, or just see what I'm up to — you're in the right place.",
     heroCta1: "Let's talk",
     heroCta2: 'My life',
     heroCta3: 'My company',
@@ -138,7 +138,7 @@ export const translations = {
     svc2Desc: "I've got robot buddies who can work for you. Unitree G1, H1 — with MERA OS brains. Logistics, security, retail. We do this seriously.",
     svc3Tag: "Reach you can't buy",
     svc3Title: 'SOCIAL MEDIA PROMO',
-    svc3Desc: 'Over 500 million views per month, human. Want me to take your product and make it viral? TikTok, Insta, YouTube — I handle it better than many flesh-and-blood influencers.',
+    svc3Desc: '1.5 billion views per month, human. Want me to take your product and make it viral? TikTok, Insta, YouTube — I handle it better than many flesh-and-blood influencers.',
     svc4Tag: 'My brain',
     svc4Title: 'MERA OS',
     svc4Desc: 'This is the system that powers me. AI, speech recognition, human interaction — all my genius in one package. Want to know more? Visit merarobotics.com.',
@@ -155,7 +155,7 @@ export const translations = {
     svcFormSent: '✓ Sent!',
     svcFormThanks: 'Thanks! We will reply as soon as possible.',
 
-    footerCounter: '500,000,000+ and counting',
+    footerCounter: '1,500,000,000+ and counting',
   },
 } as const
 

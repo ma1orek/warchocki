@@ -58,7 +58,7 @@ export default function WynajemEdwarda() {
             {...fadeUp(0.3)}
             style={{ fontSize: 18, lineHeight: 1.7, color: 'rgba(255,255,255,0.45)', maxWidth: 600 }}
           >
-            Ponad 500 milionów wyświetleń. Pierwszy robot w polskim Sejmie. Gwiazda TikToka.
+            1.5 miliarda wyświetleń. Pierwszy robot w polskim Sejmie. Gwiazda TikToka.
             Teraz Edward może pojawić się na Twoim evencie.
           </motion.p>
         </div>

@@ -41,7 +41,7 @@ export default function PromocjaSocialMedia() {
             PROMOCJA SOCIAL MEDIA
           </motion.h1>
           <motion.p {...fadeUp(0.3)} style={{ fontSize: 18, lineHeight: 1.7, color: 'rgba(255,255,255,0.45)', maxWidth: 600, marginBottom: 32 }}>
-            Edward to influencer nowej ery. Ponad 500 milionów wyświetleń mówi samo za siebie.
+            Edward to influencer nowej ery. 1.5 miliarda wyświetleń mówi samo za siebie.
             Zasięgi, których nie da się kupić — ale można wynająć.
           </motion.p>
           <motion.div {...fadeUp(0.4)}>
