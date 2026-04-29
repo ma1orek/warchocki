@@ -133,11 +133,20 @@ export default function Navbar() {
               )
             )}
             <LanguageSwitcher />
-            <Link to={localizedPath('/wynajem-edwarda', locale)} style={{ fontSize: 13, fontWeight: 600, letterSpacing: '0.05em', textTransform: 'uppercase' as const, padding: '10px 20px', background: '#fff', color: '#000', transition: 'opacity 0.2s ease' }}
-              onMouseEnter={(e) => (e.currentTarget.style.opacity = '0.85')}
-              onMouseLeave={(e) => (e.currentTarget.style.opacity = '1')}>
-              {t('navCTA')}
-            </Link>
+            {isHome ? (
+              <a href="#kontakt" onClick={(e) => { e.preventDefault(); handleNavClick('#kontakt') }}
+                style={{ fontSize: 13, fontWeight: 600, letterSpacing: '0.05em', textTransform: 'uppercase' as const, padding: '10px 20px', background: '#fff', color: '#000', transition: 'opacity 0.2s ease' }}
+                onMouseEnter={(e) => (e.currentTarget.style.opacity = '0.85')}
+                onMouseLeave={(e) => (e.currentTarget.style.opacity = '1')}>
+                {t('navCTA')}
+              </a>
+            ) : (
+              <Link to={localizedPath('/', locale) + '#kontakt'} style={{ fontSize: 13, fontWeight: 600, letterSpacing: '0.05em', textTransform: 'uppercase' as const, padding: '10px 20px', background: '#fff', color: '#000', transition: 'opacity 0.2s ease' }}
+                onMouseEnter={(e) => (e.currentTarget.style.opacity = '0.85')}
+                onMouseLeave={(e) => (e.currentTarget.style.opacity = '1')}>
+                {t('navCTA')}
+              </Link>
+            )}
           </div>
         )}
       </div>
@@ -159,9 +168,9 @@ export default function Navbar() {
               {item.label}
             </a>
           ))}
-          <Link to={localizedPath('/wynajem-edwarda', locale)} onClick={() => setMenuOpen(false)} style={{ fontSize: 14, fontWeight: 600, textTransform: 'uppercase' as const, padding: '12px 20px', background: '#fff', color: '#000', textAlign: 'center' }}>
+          <a href="#kontakt" onClick={(e) => { e.preventDefault(); handleNavClick('#kontakt') }} style={{ fontSize: 14, fontWeight: 600, textTransform: 'uppercase' as const, padding: '12px 20px', background: '#fff', color: '#000', textAlign: 'center' }}>
             {t('navCTA')}
-          </Link>
+          </a>
         </motion.div>
       )}
     </motion.nav>

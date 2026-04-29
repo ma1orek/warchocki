@@ -1,5 +1,5 @@
 import { motion, useInView } from 'framer-motion'
-import { useRef, useState, type CSSProperties, type FormEvent } from 'react'
+import { useRef, useState, type CSSProperties } from 'react'
 import { Link } from 'react-router-dom'
 import { useT, localizedPath, type TranslationKey, type Locale } from '../lib/i18n'
 
@@ -120,49 +120,15 @@ function ServiceCard({ service, index, learnMore }: { service: Service; index: n
 function ContactInline() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: '-50px' })
-  const [sending, setSending] = useState(false)
-  const [sent, setSent] = useState(false)
-  const { t } = useT()
+  const { locale } = useT()
 
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    setSending(true)
-    const form = e.currentTarget
-    const data = new FormData(form)
-
-    try {
-      await fetch('https://formsubmit.co/ajax/edwardwarchocki@gmail.com', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify({
-          name: data.get('name'),
-          email: data.get('email'),
-          subject: data.get('subject'),
-          message: data.get('message'),
-          _subject: 'Nowe zapytanie ze strony warchocki.pl',
-        }),
-      })
-      setSent(true)
-      form.reset()
-      setTimeout(() => setSent(false), 5000)
-    } catch {
-      // Fallback to mailto
-      const name = data.get('name') as string
-      const email = data.get('email') as string
-      const message = data.get('message') as string
-      const body = `Imię: ${name}\nEmail: ${email}\n\n${message}`
-      window.location.href = `mailto:edwardwarchocki@gmail.com?subject=${encodeURIComponent('Zapytanie — ' + name)}&body=${encodeURIComponent(body)}`
-    } finally {
-      setSending(false)
-    }
-  }
-
-  const inputStyle: CSSProperties = {
-    width: '100%', padding: '14px 16px',
-    background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.1)',
-    color: '#fff', fontSize: 15, fontFamily: "'Space Grotesk', sans-serif", outline: 'none',
-    transition: 'border-color 0.2s ease',
-  }
+  const isEn = locale === 'en'
+  const fanLabel = isEn ? 'For fans' : 'Dla fanów'
+  const fanCta = isEn ? 'Write to Edward' : 'Napisz do Edwarda'
+  const fanDesc = isEn ? 'Got something to say? Want to chat? Edward reads every message.' : 'Masz coś do powiedzenia? Chcesz pogadać? Edek czyta każdą wiadomość.'
+  const bizLabel = isEn ? 'For business' : 'Dla biznesu'
+  const bizCta = isEn ? 'Business inquiry' : 'Zapytaj o współpracę'
+  const bizDesc = isEn ? 'Events, campaigns, sponsorships, ambassadorships — let\'s do something big together.' : 'Eventy, kampanie, sponsoringi, ambasadorstwa — zróbmy coś dużego razem.'
 
   return (
     <motion.div
@@ -170,79 +136,140 @@ function ContactInline() {
       initial={{ opacity: 0, y: 30 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.8, delay: 0.2 }}
-      style={{ marginTop: 80 }}
+      id="kontakt"
+      style={{ marginTop: 80, scrollMarginTop: 100 }}
     >
-      <div className="services-contact-grid" style={{ display: 'grid', gap: 48, alignItems: 'start' }}>
-        {/* Left - info */}
-        <div>
-          <h3 style={{ fontSize: 'clamp(24px, 3vw, 36px)', fontWeight: 700, letterSpacing: '-0.03em', marginBottom: 20, lineHeight: 1.15 }}>
-            {t('svcQuoteTitle')}
-          </h3>
-          <p style={{ fontSize: 16, lineHeight: 1.8, color: 'rgba(255,255,255,0.45)', marginBottom: 24 }}>
-            {t('svcQuoteDesc')}
-          </p>
-          <div style={{ padding: '24px 0', borderTop: '1px solid rgba(255,255,255,0.08)' }}>
-            <p style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.25)', marginBottom: 10 }}>
-              {t('svcOrCall')}
-            </p>
-            <a
-              href="tel:+48666666245"
-              style={{ fontSize: 24, fontWeight: 700, color: '#fff', transition: 'opacity 0.2s' }}
-              onMouseEnter={(e) => (e.currentTarget.style.opacity = '0.7')}
-              onMouseLeave={(e) => (e.currentTarget.style.opacity = '1')}
-            >
-              +48 666 666 245
-            </a>
-          </div>
-        </div>
+      <div style={{ textAlign: 'center', marginBottom: 48 }}>
+        <h3 style={{ fontSize: 'clamp(28px, 4vw, 48px)', fontWeight: 700, letterSpacing: '-0.03em', marginBottom: 16, lineHeight: 1.1 }}>
+          {isEn ? 'CONTACT EDWARD' : 'KONTAKT Z EDWARDEM'}
+        </h3>
+        <p style={{ fontSize: 16, lineHeight: 1.7, color: 'rgba(255,255,255,0.45)', maxWidth: 600, margin: '0 auto' }}>
+          {isEn
+            ? "Choose your path: a quick hello as a fan, or serious business talk."
+            : "Wybierz swoją ścieżkę: szybkie cześć od fana, albo poważna gadka biznesowa."}
+        </p>
+      </div>
 
-        {/* Right - form */}
-        <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14 }}>
-            <input name="name" type="text" placeholder={t('svcFormName')} required style={inputStyle}
-              onFocus={(e) => (e.currentTarget.style.borderColor = 'rgba(255,255,255,0.3)')}
-              onBlur={(e) => (e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)')} />
-            <input name="email" type="email" placeholder={t('svcFormEmail')} required style={inputStyle}
-              onFocus={(e) => (e.currentTarget.style.borderColor = 'rgba(255,255,255,0.3)')}
-              onBlur={(e) => (e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)')} />
-          </div>
-          <select name="subject" required style={{ ...inputStyle, appearance: 'none', cursor: 'pointer' }} defaultValue=""
-            onFocus={(e) => (e.currentTarget.style.borderColor = 'rgba(255,255,255,0.3)')}
-            onBlur={(e) => (e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)')}>
-            <option value="" disabled style={{ background: '#111', color: '#888' }}>{t('svcFormSubject')}</option>
-            <option value="Wynajem Edwarda" style={{ background: '#111' }}>Wynajem Edwarda</option>
-            <option value="Wynajem robotów" style={{ background: '#111' }}>Wynajem robotów</option>
-            <option value="Promocja Social Media" style={{ background: '#111' }}>Promocja Social Media</option>
-            <option value="System MERA OS" style={{ background: '#111' }}>System MERA OS</option>
-            <option value="Współpraca" style={{ background: '#111' }}>Współpraca</option>
-            <option value="Media / Prasa" style={{ background: '#111' }}>Media / Prasa</option>
-            <option value="Inne" style={{ background: '#111' }}>Inne</option>
-          </select>
-          <textarea name="message" placeholder={t('svcFormMessage')} required rows={4} style={{ ...inputStyle, resize: 'vertical', minHeight: 100 }}
-            onFocus={(e) => (e.currentTarget.style.borderColor = 'rgba(255,255,255,0.3)')}
-            onBlur={(e) => (e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)')} />
-          <button
-            type="submit"
-            disabled={sending}
-            style={{
-              padding: '16px 40px', background: sent ? '#4ade80' : '#fff', color: '#000',
-              fontSize: 14, fontWeight: 600, letterSpacing: '0.05em', textTransform: 'uppercase',
-              border: 'none', cursor: sending ? 'wait' : 'pointer', fontFamily: "'Space Grotesk', sans-serif",
-              transition: 'all 0.2s ease', opacity: sending ? 0.6 : 1,
-            }}
-            onMouseEnter={(e) => { if (!sending) { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 8px 32px rgba(255,255,255,0.15)' } }}
-            onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = 'none' }}
-          >
-            {sending ? t('svcFormSending') : sent ? t('svcFormSent') : t('svcFormSubmit')}
-          </button>
-          {sent && (
-            <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.5)', textAlign: 'center', marginTop: 8 }}>
-              {t('svcFormThanks')}
-            </p>
-          )}
-        </form>
+      <div className="contact-cta-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 24 }}>
+        <ContactCard
+          href="https://contactform.bitrix24.site/Napiszdoedwarda/"
+          label={fanLabel}
+          cta={fanCta}
+          desc={fanDesc}
+          icon={
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" />
+            </svg>
+          }
+        />
+        <ContactCard
+          href="https://contactform.bitrix24.site/EdwardBiznes/"
+          label={bizLabel}
+          cta={bizCta}
+          desc={bizDesc}
+          dark
+          icon={
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#000" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+              <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
+              <path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16" />
+            </svg>
+          }
+        />
+      </div>
+
+      <div style={{ marginTop: 40, textAlign: 'center' }}>
+        <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.25)', marginBottom: 10 }}>
+          {isEn ? 'Or call' : 'Lub zadzwoń'}
+        </p>
+        <a
+          href="tel:+48666666245"
+          style={{ fontSize: 22, fontWeight: 700, color: '#fff', transition: 'opacity 0.2s' }}
+          onMouseEnter={(e) => (e.currentTarget.style.opacity = '0.7')}
+          onMouseLeave={(e) => (e.currentTarget.style.opacity = '1')}
+        >
+          +48 666 666 245
+        </a>
       </div>
     </motion.div>
+  )
+}
+
+function ContactCard({ href, label, cta, desc, icon, dark = false }: { href: string; label: string; cta: string; desc: string; icon: React.ReactNode; dark?: boolean }) {
+  const [hovered, setHovered] = useState(false)
+
+  return (
+    <motion.a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      whileHover={{ y: -6 }}
+      transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+      style={{
+        position: 'relative',
+        display: 'flex',
+        flexDirection: 'column',
+        gap: 24,
+        padding: '40px 36px',
+        background: dark ? '#fff' : 'rgba(255,255,255,0.03)',
+        color: dark ? '#000' : '#fff',
+        border: dark ? '1px solid #fff' : '1px solid rgba(255,255,255,0.12)',
+        overflow: 'hidden',
+        transition: 'background 0.3s ease, border-color 0.3s ease',
+        minHeight: 240,
+      }}
+    >
+      {/* Animated shimmer */}
+      <motion.div
+        animate={hovered ? { x: ['-120%', '120%'] } : { x: '-120%' }}
+        transition={{ duration: 1.2, ease: 'easeInOut' as const }}
+        style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '60%',
+          height: '100%',
+          background: dark
+            ? 'linear-gradient(120deg, transparent 0%, rgba(0,0,0,0.06) 50%, transparent 100%)'
+            : 'linear-gradient(120deg, transparent 0%, rgba(255,255,255,0.08) 50%, transparent 100%)',
+          pointerEvents: 'none',
+        }}
+      />
+
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
+          <motion.div
+            animate={hovered ? { rotate: [0, -8, 8, 0], scale: 1.1 } : { rotate: 0, scale: 1 }}
+            transition={{ duration: 0.5 }}
+          >
+            {icon}
+          </motion.div>
+          <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: dark ? 'rgba(0,0,0,0.5)' : 'rgba(255,255,255,0.35)' }}>
+            {label}
+          </p>
+        </div>
+      </div>
+
+      <h3 style={{ fontSize: 'clamp(24px, 3vw, 32px)', fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.1, position: 'relative', zIndex: 2 }}>
+        {cta}
+      </h3>
+
+      <p style={{ fontSize: 15, lineHeight: 1.6, color: dark ? 'rgba(0,0,0,0.6)' : 'rgba(255,255,255,0.5)', flex: 1, position: 'relative', zIndex: 2 }}>
+        {desc}
+      </p>
+
+      <div style={{ display: 'flex', alignItems: 'center', gap: 10, fontSize: 13, fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', position: 'relative', zIndex: 2 }}>
+        <span>{cta}</span>
+        <motion.span
+          animate={hovered ? { x: 6 } : { x: 0 }}
+          transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+          style={{ display: 'inline-block', fontSize: 18 }}
+        >
+          →
+        </motion.span>
+      </div>
+    </motion.a>
   )
 }
 

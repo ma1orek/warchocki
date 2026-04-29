@@ -1,89 +1,131 @@
-import { useState, type FormEvent, type CSSProperties } from 'react'
+import { motion } from 'framer-motion'
+import { useState } from 'react'
+import { useT } from '../lib/i18n'
 
-const inputStyle: CSSProperties = {
-  width: '100%', padding: '14px 16px',
-  background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.1)',
-  color: '#fff', fontSize: 15, fontFamily: "'Space Grotesk', sans-serif", outline: 'none',
-  transition: 'border-color 0.2s ease',
-}
-
-export default function SubpageContactForm({ defaultSubject }: { defaultSubject: string }) {
-  const [sending, setSending] = useState(false)
-  const [sent, setSent] = useState(false)
-
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    setSending(true)
-    const form = e.currentTarget
-    const data = new FormData(form)
-
-    try {
-      await fetch('https://formsubmit.co/ajax/edwardwarchocki@gmail.com', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify({
-          name: data.get('name'),
-          email: data.get('email'),
-          subject: defaultSubject,
-          message: data.get('message'),
-          _subject: `Zapytanie: ${defaultSubject} — warchocki.pl`,
-        }),
-      })
-      setSent(true)
-      form.reset()
-      setTimeout(() => setSent(false), 5000)
-    } catch {
-      const name = data.get('name') as string
-      const email = data.get('email') as string
-      const message = data.get('message') as string
-      window.location.href = `mailto:edwardwarchocki@gmail.com?subject=${encodeURIComponent(defaultSubject + ' — ' + name)}&body=${encodeURIComponent(`Imię: ${name}\nEmail: ${email}\n\n${message}`)}`
-    } finally {
-      setSending(false)
-    }
-  }
+function ContactCard({ href, label, cta, desc, icon, dark = false }: { href: string; label: string; cta: string; desc: string; icon: React.ReactNode; dark?: boolean }) {
+  const [hovered, setHovered] = useState(false)
 
   return (
-    <div style={{ marginTop: 64, padding: '48px 0', borderTop: '1px solid rgba(255,255,255,0.08)' }}>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 48, alignItems: 'start' }}>
-        <div>
-          <h3 style={{ fontSize: 24, fontWeight: 700, letterSpacing: '-0.02em', marginBottom: 16 }}>
-            Napisz do mnie
-          </h3>
-          <p style={{ fontSize: 15, lineHeight: 1.7, color: 'rgba(255,255,255,0.4)', marginBottom: 24 }}>
-            Człowieku, napisz czego potrzebujesz. Odpiszę najszybciej jak się da.
-          </p>
-          <div style={{ paddingTop: 20, borderTop: '1px solid rgba(255,255,255,0.08)' }}>
-            <p style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.25)', marginBottom: 8 }}>
-              Lub zadzwoń
-            </p>
-            <a href="tel:+48666666245" style={{ fontSize: 22, fontWeight: 700, color: '#fff' }}>
-              +48 666 666 245
-            </a>
-          </div>
-        </div>
+    <motion.a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      whileHover={{ y: -6 }}
+      transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+      style={{
+        position: 'relative',
+        display: 'flex',
+        flexDirection: 'column',
+        gap: 24,
+        padding: '40px 36px',
+        background: dark ? '#fff' : 'rgba(255,255,255,0.03)',
+        color: dark ? '#000' : '#fff',
+        border: dark ? '1px solid #fff' : '1px solid rgba(255,255,255,0.12)',
+        overflow: 'hidden',
+        transition: 'background 0.3s ease, border-color 0.3s ease',
+        minHeight: 240,
+      }}
+    >
+      <motion.div
+        animate={hovered ? { x: ['-120%', '120%'] } : { x: '-120%' }}
+        transition={{ duration: 1.2, ease: 'easeInOut' as const }}
+        style={{
+          position: 'absolute',
+          top: 0, left: 0,
+          width: '60%', height: '100%',
+          background: dark
+            ? 'linear-gradient(120deg, transparent 0%, rgba(0,0,0,0.06) 50%, transparent 100%)'
+            : 'linear-gradient(120deg, transparent 0%, rgba(255,255,255,0.08) 50%, transparent 100%)',
+          pointerEvents: 'none',
+        }}
+      />
+      <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
+        <motion.div
+          animate={hovered ? { rotate: [0, -8, 8, 0], scale: 1.1 } : { rotate: 0, scale: 1 }}
+          transition={{ duration: 0.5 }}
+        >
+          {icon}
+        </motion.div>
+        <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: dark ? 'rgba(0,0,0,0.5)' : 'rgba(255,255,255,0.35)' }}>
+          {label}
+        </p>
+      </div>
+      <h3 style={{ fontSize: 'clamp(24px, 3vw, 32px)', fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.1, position: 'relative', zIndex: 2 }}>
+        {cta}
+      </h3>
+      <p style={{ fontSize: 15, lineHeight: 1.6, color: dark ? 'rgba(0,0,0,0.6)' : 'rgba(255,255,255,0.5)', flex: 1, position: 'relative', zIndex: 2 }}>
+        {desc}
+      </p>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 10, fontSize: 13, fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', position: 'relative', zIndex: 2 }}>
+        <span>{cta}</span>
+        <motion.span
+          animate={hovered ? { x: 6 } : { x: 0 }}
+          transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+          style={{ display: 'inline-block', fontSize: 18 }}
+        >→</motion.span>
+      </div>
+    </motion.a>
+  )
+}
 
-        <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 12 }}>
-            <input name="name" type="text" placeholder="Imię i nazwisko" required style={inputStyle}
-              onFocus={(e) => (e.currentTarget.style.borderColor = 'rgba(255,255,255,0.3)')}
-              onBlur={(e) => (e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)')} />
-            <input name="email" type="email" placeholder="Adres email" required style={inputStyle}
-              onFocus={(e) => (e.currentTarget.style.borderColor = 'rgba(255,255,255,0.3)')}
-              onBlur={(e) => (e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)')} />
-          </div>
-          <textarea name="message" placeholder="Opisz czego potrzebujesz..." required rows={4} style={{ ...inputStyle, resize: 'vertical' as const, minHeight: 100 }}
-            onFocus={(e) => (e.currentTarget.style.borderColor = 'rgba(255,255,255,0.3)')}
-            onBlur={(e) => (e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)')} />
-          <button type="submit" disabled={sending} style={{
-            padding: '16px 40px', background: sent ? '#4ade80' : '#fff', color: '#000',
-            fontSize: 14, fontWeight: 600, letterSpacing: '0.05em', textTransform: 'uppercase' as const,
-            border: 'none', cursor: sending ? 'wait' : 'pointer', fontFamily: "'Space Grotesk', sans-serif",
-            transition: 'all 0.2s ease', opacity: sending ? 0.6 : 1,
-          }}>
-            {sending ? 'Wysyłanie...' : sent ? 'Wysłano!' : 'Wyślij zapytanie'}
-          </button>
-          {sent && <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.5)', textAlign: 'center' }}>Dzięki! Odezwę się najszybciej jak mogę.</p>}
-        </form>
+export default function SubpageContactForm({ defaultSubject: _ }: { defaultSubject?: string }) {
+  const { locale } = useT()
+  const isEn = locale === 'en'
+
+  const fanLabel = isEn ? 'For fans' : 'Dla fanów'
+  const fanCta = isEn ? 'Write to Edward' : 'Napisz do Edwarda'
+  const fanDesc = isEn ? 'Got something to say? Want to chat? Edward reads every message.' : 'Masz coś do powiedzenia? Chcesz pogadać? Edek czyta każdą wiadomość.'
+  const bizLabel = isEn ? 'For business' : 'Dla biznesu'
+  const bizCta = isEn ? 'Business inquiry' : 'Zapytaj o współpracę'
+  const bizDesc = isEn ? "Events, campaigns, sponsorships, ambassadorships — let's do something big together." : 'Eventy, kampanie, sponsoringi, ambasadorstwa — zróbmy coś dużego razem.'
+
+  return (
+    <div id="kontakt" style={{ marginTop: 64, paddingTop: 48, borderTop: '1px solid rgba(255,255,255,0.08)', scrollMarginTop: 100 }}>
+      <div style={{ textAlign: 'center', marginBottom: 40 }}>
+        <h3 style={{ fontSize: 'clamp(24px, 3vw, 36px)', fontWeight: 700, letterSpacing: '-0.03em', marginBottom: 14, lineHeight: 1.15 }}>
+          {isEn ? 'CONTACT EDWARD' : 'KONTAKT Z EDWARDEM'}
+        </h3>
+        <p style={{ fontSize: 15, lineHeight: 1.7, color: 'rgba(255,255,255,0.45)', maxWidth: 520, margin: '0 auto' }}>
+          {isEn ? 'Choose your path: a quick hello as a fan, or serious business talk.' : 'Wybierz swoją ścieżkę: szybkie cześć od fana, albo poważna gadka biznesowa.'}
+        </p>
+      </div>
+
+      <div className="contact-cta-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 20 }}>
+        <ContactCard
+          href="https://contactform.bitrix24.site/Napiszdoedwarda/"
+          label={fanLabel}
+          cta={fanCta}
+          desc={fanDesc}
+          icon={
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" />
+            </svg>
+          }
+        />
+        <ContactCard
+          href="https://contactform.bitrix24.site/EdwardBiznes/"
+          label={bizLabel}
+          cta={bizCta}
+          desc={bizDesc}
+          dark
+          icon={
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#000" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+              <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
+              <path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16" />
+            </svg>
+          }
+        />
+      </div>
+
+      <div style={{ marginTop: 32, textAlign: 'center' }}>
+        <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.25)', marginBottom: 8 }}>
+          {isEn ? 'Or call' : 'Lub zadzwoń'}
+        </p>
+        <a href="tel:+48666666245" style={{ fontSize: 20, fontWeight: 700, color: '#fff' }}>
+          +48 666 666 245
+        </a>
       </div>
     </div>
   )

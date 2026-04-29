@@ -94,6 +94,10 @@ a {
     grid-template-columns: 1fr !important;
   }
 
+  .contact-cta-grid {
+    grid-template-columns: 1fr !important;
+  }
+
   /* Form name/email row */
   .services-contact-grid form > div:first-child {
     grid-template-columns: 1fr !important;
