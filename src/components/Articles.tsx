@@ -158,6 +158,23 @@ const articles = [
   { source: 'López Dóriga (MX)', title: 'El robot humanoide que asombra a Polonia con sus interacciones', url: 'https://lopezdoriga.com/ciencia-tecnologia/edward-warchocki-robot-humanoide-asombra-polonia-interacciones/', domain: 'lopezdoriga.com' },
   { source: 'El Venezolano (Houston)', title: 'El robot humanoide que asombra a Polonia con sus interacciones', url: 'https://www.elvenezolanohouston.com/edward-warchocki-el-robot-humanoide-que-asombra-a-polonia-con-sus-interacciones', domain: 'elvenezolanohouston.com' },
   { source: 'Pravda Slovensko', title: 'Robot Edward Warchocki naháňal diviaky vo Varšave', url: 'https://slovakia.news-pravda.com/eu/2026/04/14/301868.html', domain: 'slovakia.news-pravda.com' },
+  // Wave 4 — sports & niche
+  { source: 'WP SportoweFakty', title: 'Robot Edward pod hotelem kadry. Wiadomo, od kogo dostał autograf', url: 'https://sportowefakty.wp.pl/sportowybar/1242349/robot-edward-pod-hotelem-kadry-wiadomo-od-kogo-dostal-autograf', domain: 'sportowefakty.wp.pl' },
+  { source: 'WP SportoweFakty', title: 'Robot-celebryta na meczu w Bydgoszczy. „Sterował" dopingiem', url: 'https://sportowefakty.wp.pl/pilka-nozna/1244196/robot-celebryta-na-meczu-w-bydgoszczy-sterowal-dopingiem', domain: 'sportowefakty.wp.pl' },
+  { source: 'o2 Sport', title: 'Robot zaczepił reprezentanta Polski i zażartował ze Szwedów', url: 'https://www.o2.pl/sport/robot-zaczepil-reprezentanta-polski-i-zazartowal-ze-szwedow-mial-jedna-prosbe-7269535974455392a', domain: 'o2.pl' },
+  { source: 'Gol24', title: 'Górnik zapoznał się z PGE Narodowym. Obserwował go robot Edward', url: 'https://gol24.pl/gornik-zapoznal-sie-z-pge-narodowym-obserwowal-go-robot-edward-warchocki/ar/c2-19134517', domain: 'gol24.pl' },
+  { source: 'Radio ESKA Warszawa', title: 'Robot przeganiał dziki w Warszawie. „Sio, sio". Hit sieci', url: 'https://warszawa.eska.pl/sio-sio-robot-przegonil-dziki-w-warszawie-to-nagranie-jest-hitem-sieci-aa-15SH-zYUC-ZFbD.html', domain: 'eska.pl' },
+  { source: 'Wykop.pl', title: 'Polski robot Edward gonił dziki i trafił do Reutersa', url: 'https://wykop.pl/link/7929005/polski-robot-edward-warchocki-gonil-dziki-i-trafil-do-reutersa', domain: 'wykop.pl' },
+  { source: 'Wykop.pl', title: 'Kim tak naprawdę jest Edward Warchocki? Autorzy zdradzają kulisy', url: 'https://wykop.pl/link/7906003/kim-tak-naprawde-jest-edward-warchocki-autorzy-zdradzaja-kulisy-projektu', domain: 'wykop.pl' },
+  { source: 'Wykop.pl', title: 'Edward Warchocki u Latwogang — sam początek live\'a', url: 'https://wykop.pl/link/7935089/edward-warchocki-u-latwogang-czyli-sam-poczatek-livea', domain: 'wykop.pl' },
+  { source: 'TVP3 Bydgoszcz', title: 'Edward Warchocki to popularny robot', url: 'https://bydgoszcz.tvp.pl/92540908/edward-warchocki-to-popularny-robot', domain: 'tvp.pl' },
+  { source: 'TVP3 Bydgoszcz', title: 'Edward w Bydgoszczy. Niezwykły gość spotkał się z pacjentami', url: 'https://bydgoszcz.tvp.pl/wizyta-edwarda-warchockiego-tvp3-bydgoszcz,92537734', domain: 'tvp.pl' },
+  { source: 'eWarszawa', title: 'Ochrona nie chciała wpuścić robota do Centrum Nauki Kopernik. Przybyła policja', url: 'https://ewarszawa.pl/news-news-4784-ochrona_nie_chciala_wpuscic_robota_edwarda_warchockiego_do_centrum_nauki_kopernik_na_miejsce_musiala_az_przybyc_policja', domain: 'ewarszawa.pl' },
+  { source: 'wPolityce', title: 'Polski robot zagonił dziki do lasu i zrobił furorę na świecie', url: 'https://wpolityce.pl/polityka/758064-polski-robot-zagonil-dziki-do-lasu-i-zrobil-furore-na-swiecie', domain: 'wpolityce.pl' },
+  { source: 'Pecetowicz', title: 'Edward Warchocki — robot, który podbił polski internet', url: 'https://www.pecetowicz.pl/blog/tech/forum-pclab-zamkniecie/', domain: 'pecetowicz.pl' },
+  { source: 'OncoDaily', title: '$70M Guinness World Record Livestream: How Łatwogang Changed Cancer Philanthropy', url: 'https://oncodaily.com/stories/celebrities/latwogang-70-million-livestream', domain: 'oncodaily.com' },
+  { source: 'Deník.cz', title: 'Nosí rolexky s diamanty a honí divočáky. Robot Edward pobláznil polský internet', url: 'https://www.denik.cz/staty-eu/robot-edward-warchocki-polsko-divocaci-video.html', domain: 'denik.cz' },
+  { source: 'Party.pl', title: 'Edward wywrócił się za kulisami TzG — co robiły gwiazdy po odcinku', url: 'https://party.pl/newsy/edward-wywrocil-sie-za-kulisami-tzg-wyszlo-co-robily-gwiazdy-po-odcinku/', domain: 'party.pl' },
 ]
 
 function ArticleCard({ article, index, isMobile }: { article: (typeof articles)[0]; index: number; isMobile: boolean }) {
