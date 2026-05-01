@@ -175,6 +175,31 @@ const articles = [
   { source: 'OncoDaily', title: '$70M Guinness World Record Livestream: How Łatwogang Changed Cancer Philanthropy', url: 'https://oncodaily.com/stories/celebrities/latwogang-70-million-livestream', domain: 'oncodaily.com' },
   { source: 'Deník.cz', title: 'Nosí rolexky s diamanty a honí divočáky. Robot Edward pobláznil polský internet', url: 'https://www.denik.cz/staty-eu/robot-edward-warchocki-polsko-divocaci-video.html', domain: 'denik.cz' },
   { source: 'Party.pl', title: 'Edward wywrócił się za kulisami TzG — co robiły gwiazdy po odcinku', url: 'https://party.pl/newsy/edward-wywrocil-sie-za-kulisami-tzg-wyszlo-co-robily-gwiazdy-po-odcinku/', domain: 'party.pl' },
+  // Wave 5 — final worldwide hunt
+  { source: 'Vice', title: 'Humanoid Robot Filmed Chasing a Pack of Wild Boars', url: 'https://www.vice.com/en/article/humanoid-robot-filmed-chasing-a-pack-of-wild-boars-and-it-looks-as-weird-as-it-sounds/', domain: 'vice.com' },
+  { source: 'Fox News', title: 'Robot chases off a group of wild boar in Poland', url: 'https://www.foxnews.com/video/6393106205112', domain: 'foxnews.com' },
+  { source: 'IndexBox', title: 'Humanoid Robot Disperses Wild Boars in Warsaw — 2026 Incident', url: 'https://www.indexbox.io/blog/humanoid-robot-edward-warchocki-disperses-wild-boars-in-warsaw/', domain: 'indexbox.io' },
+  // Romania (5)
+  { source: 'Digi24 (RO)', title: 'Robot umanoid fugărește o turmă de mistreți printr-un parc', url: 'https://www.digi24.ro/stiri/externe/ue/clipul-care-a-devenit-viral-un-robot-umanoid-fugareste-o-turma-de-mistreti-printr-un-parc-3730927', domain: 'digi24.ro' },
+  { source: 'ProTV Stirile (RO)', title: 'Robot umanoid care a urmărit o turmă de mistreți în Varșovia', url: 'https://stirileprotv.ro/divers/video-un-robot-umanoid-care-a-urmarit-o-turma-de-mistreti-in-varsovia-noua-vedeta-pe-internetului-momentul-viral.html', domain: 'stirileprotv.ro' },
+  { source: 'Adevarul (RO)', title: 'Imagini virale cu un robot care alungă mistreți pe stradă', url: 'https://adevarul.ro/stiri-externe/europa/imagini-virale-cu-un-robot-umanoid-care-alunga-2522755.html', domain: 'adevarul.ro' },
+  { source: 'Cancan (RO)', title: 'Un robot umanoid a alergat porci mistreți într-o parcare', url: 'https://www.cancan.ro/un-robot-umanoid-a-alergat-porci-mistreti-intr-o-parcare-din-polonia-nu-este-un-banc-ci-un-clip-viral-pe-internet-21409452', domain: 'cancan.ro' },
+  { source: 'Antena 3 CNN (RO)', title: 'Robot umanoid alungă mistreții de pe o stradă din Polonia', url: 'https://www.antena3.ro/videos-antena3-cnn/un-robot-umanoid-surprins-in-timp-ce-alunga-mistretii-de-pe-o-strada-din-polonia-784502.html', domain: 'antena3.ro' },
+  // Asia
+  { source: 'VnExpress (VN)', title: 'Unitree humanoid robot goes viral chasing wild boars in Warsaw', url: 'https://e.vnexpress.net/news/tech/tech-news/unitree-humanoid-robot-goes-viral-after-chasing-wild-boars-on-warsaw-street-5063982.html', domain: 'vnexpress.net' },
+  { source: 'Calcutta News (IN)', title: 'Chinese humanoid robots gain popularity: Polish expert', url: 'https://www.calcuttanews.net/news/278987441/chinese-humanoid-robots-gain-popularity-among-global-partners-polish-expert', domain: 'calcuttanews.net' },
+  // French-language
+  { source: 'La Presse (CA)', title: 'Pologne — Un robot fait fuir des sangliers', url: 'https://www.lapresse.ca/actualites/insolite/2026-04-14/pologne/un-robot-fait-fuir-des-sangliers.php', domain: 'lapresse.ca' },
+  { source: "L'essentiel (LU)", title: 'Edward Warchocki, le robot humanoïde qui chasse des sangliers à Varsovie', url: 'https://www.lessentiel.lu/fr/video/pologne-des-sangliers-poursuivis-par-un-robot-dans-les-rues-de-varsovie-103547480', domain: 'lessentiel.lu' },
+  { source: '20 Minutes (CH FR)', title: 'Pologne: Des sangliers poursuivis par un robot dans les rues de Varsovie', url: 'https://www.20min.ch/fr/video/pologne-des-sangliers-poursuivis-par-un-robot-dans-les-rues-de-varsovie-103546871', domain: '20min.ch' },
+  { source: '1001infos (FR)', title: 'Edward le robot influenceur traque des sangliers à Varsovie', url: 'https://1001infos.net/high-tech/edward-le-robot-influenceur-traque-des-sangliers-a-varsovie/', domain: '1001infos.net' },
+  { source: 'JHM-blogs (FR)', title: "Le robot humanoïde qui chasse les sangliers du centre-ville de Varsovie", url: 'https://jhm-blogs.fr/quelle-est-cette-histoire-du-robot-humanoide-qui-chasse-les-sangliers-du-centre-ville-lexperience-de-varsovie-devient-virale/', domain: 'jhm-blogs.fr' },
+  { source: 'Top 80 Radio (FR)', title: "Le robot-influenceur qui s'est mis à poursuivre des sangliers", url: 'https://www.top80radio.com/varsovie-le-robot-influenceur-qui-sest-mis-a-poursuivre-des-sangliers/', domain: 'top80radio.com' },
+  // Latin America (extra)
+  { source: 'CaraotaDigital (VE)', title: 'De perseguir jabalíes a reunirse con políticos: el robot influencer', url: 'https://caraotadigital.net/mundo/de-perseguir-jabalies-a-reunirse-con-politicos-el-robot-influencer-que-esta-causando-sensacion-en-las-redes/', domain: 'caraotadigital.net' },
+  // Polish (still missing)
+  { source: 'Glamrap', title: 'Edward Warchocki wchodzi do rapu. Nawija z Kubańczykiem w studiu', url: 'https://glamrap.pl/edward-warchocki-wchodzi-do-rapu-nawija-z-kubanczykiem-w-studiu/', domain: 'glamrap.pl' },
+  { source: 'i.pl', title: 'Robot Edward goni dziki. Nagranie hitem internetu', url: 'https://i.pl/humanoidalny-robot-edward-warchocki-przegonil-dziki-w-warszawie-hit-internetu-na-swiecie-wideo/ar/c1p2-28919145', domain: 'i.pl' },
 ]
 
 function ArticleCard({ article, index, isMobile }: { article: (typeof articles)[0]; index: number; isMobile: boolean }) {
