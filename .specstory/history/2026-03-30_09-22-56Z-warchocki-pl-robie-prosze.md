@@ -23984,11 +23984,1494 @@ The file c:\Users\idzik\warchocki\src\components\Services.tsx has been updated s
 ```
 </details></tool-use>
 
-_**Agent (claude-opus-4-7 2026-04-29 18:54:30Z)**_
+_**Agent (claude-opus-4-7 2026-04-29 18:54:47Z)**_
 
 <tool-use data-tool-type="shell" data-tool-name="Bash"><details>
 <summary>Tool use: **Bash**</summary>
 Deploy
 
 `npx netlify deploy --prod --dir=dist 2>&1 | tail -10`
+
+```text
+🚀 Deploy complete
+────────────────────────────────────────────────────────────────
+
+Production URL: <https://warchocki.pl>
+Unique deploy URL: <https://69f253ed516619b6f9013967--cute-cobbler-5ffb46.netlify.app>
+
+Build logs: <https://app.netlify.com/projects/cute-cobbler-5ffb46/deploys/69f253ed516619b6f9013967>
+Function logs: <https://app.netlify.com/projects/cute-cobbler-5ffb46/logs/functions>
+Edge function logs: <https://app.netlify.com/projects/cute-cobbler-5ffb46/logs/edge-functions>
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-7 2026-04-29 18:55:00Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Commit and push
+
+```bash
+git add -A && git commit -m "Wycena indywidualna -> Kontakt z Edwardem z 2 animowanymi buttonami (Bitrix24)
+
+- Dla fanow: contactform.bitrix24.site/Napiszdoedwarda
+- Dla biznesu: contactform.bitrix24.site/EdwardBiznes
+- Animowany shimmer + ikona + bounce strzalki na hover
+- Navbar: Kontakt + Dogadajmy sie scrolluja do #kontakt
+- Subpages: ten sam komponent zamiast formularza
+
+Co-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>" 2>&1 | tail -2 && git push 2>&1 | tail -3
+```
+
+```text
+warning: in the working copy of '.netlify/netlify.toml', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '.specstory/statistics.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/Navbar.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/Services.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/SubpageContactForm.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/index.css', LF will be replaced by CRLF the next time Git touches it
+[main f58e1e3] Wycena indywidualna -> Kontakt z Edwardem z 2 animowanymi buttonami (Bitrix24)
+ 7 files changed, 795 insertions(+), 204 deletions(-)
+To https://github.com/ma1orek/warchocki.git
+   468432e..f58e1e3  main -> main
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-7 2026-04-29 18:55:15Z)**_
+
+Live na **warchocki.pl** + GitHub. Wszystko działa:
+
+### Sekcja "KONTAKT Z EDWARDEM" (była "Wycena indywidualna")
+**2 duże animowane karty side-by-side:**
+
+1. **Dla fanów** (czarna karta z białą obwódką)
+   - Tytuł: **"Napisz do Edwarda"** + ikona serca
+   - Opis: "Masz coś do powiedzenia? Chcesz pogadać? Edek czyta każdą wiadomość."
+   - Link: https://contactform.bitrix24.site/Napiszdoedwarda/
+
+2. **Dla biznesu** (biała karta — wyraźny kontrast)
+   - Tytuł: **"Zapytaj o współpracę"** + ikona walizki
+   - Opis: "Eventy, kampanie, sponsoringi, ambasadorstwa — zróbmy coś dużego razem."
+   - Link: https://contactform.bitrix24.site/EdwardBiznes/
+
+### Animacje:
+- Shimmer effect przesuwający się po karcie na hover
+- Ikona drży i się powiększa
+- Strzałka → przesuwa się w prawo (spring physics)
+- Cała karta unosi się o 6px
+- 1 kolumna na mobile
+
+### Naprawione:
+- **"Kontakt"** w menu — scrolluje do sekcji #kontakt
+- **"Dogadajmy się"** (CTA w navbarze) — też scrolluje do #kontakt zamiast iść na podstronę
+- **Podstrony** (Wynajem Edwarda/Robotów/Promocja Social Media) — formularz zamieniony na te same 2 buttony
+- Telefon **+48 666 666 245** zostawiony pod buttonami
+
+---
+
+_**User (2026-05-01 17:44:55Z)**_
+
+dodatkowo jako side task potrzbuej agenta ktory przeslecdzi interenat caly i znajdzie koljeny arttyykuly o edwarcdzie i mera robotics w internecie najnowsszei dorzuci do puli naszej na strone
+
+---
+
+_**Agent (claude-opus-4-7 2026-05-01 17:45:18Z)**_
+
+_**Agent (claude-opus-4-7 2026-05-01 17:45:19Z)**_
+
+Odpalam agenta w tle, który będzie szukał nowych artykułów. Tymczasem sam też zrobię kilka świeżych searchów:
+
+_**Agent (claude-opus-4-7 2026-05-01 17:45:37Z)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="Agent"><details>
+<summary>Tool use: **Agent**</summary>
+Search new articles Edward Warchocki
+
+```text
+Async agent launched successfully.
+agentId: a17823008fb9ada04 (internal ID - do not mention to user. Use SendMessage with to: 'a17823008fb9ada04' to continue this agent.)
+The agent is working in the background. You will be notified automatically when it completes.
+Do not duplicate this agent's work — avoid working with the same files or topics it is using. Work on non-overlapping tasks, or briefly tell the user what you launched and end your response.
+output_file: C:\Users\idzik\AppData\Local\Temp\claude\c--Users-idzik-warchocki\c689525f-4c7f-4033-8934-28d7b15aa32f\tasks\a17823008fb9ada04.output
+Do NOT Read or tail this file via the shell tool — it is the full sub-agent JSONL transcript and reading it will overflow your context. If the user asks for progress, say the agent is still running; you'll get a completion notification.
+```
+</details></tool-use>
+
+_**Agent - sidechain (2026-05-01 17:45:37Z)**_
+
+You are a research agent. Your task is to find as many recent articles, news pieces, blog posts, and media mentions about "Edward Warchocki" (Polish humanoid robot, Unitree G1) AND about "MERA Robotics" / "MERA OS" company on the internet that are NOT already in our list.
+
+**Already covered sources (do NOT include these — search for NEW ones):**
+BBC News, CNN, Reuters, Fox Business, ABC News, NBC News, CTV News, Euronews, Yahoo, Futurism, Interesting Engineering, Men's Journal, The Standard HK, The Print India, Asianet Newsable, Business Today, Euro Weekly News, GreenMe, The Online Citizen, What's The Jam, Mrkt30, ABC News 4, Modern Ghana, The Gateway Pundit, Dzień Dobry TVN, Polsat News, Money.pl, GeekWeek/Interia, Spider's Web, Super Express, Android.com.pl, Wiadomości WP, Bankier.pl, Techoteka, Do Rzeczy, Goniec.pl, VOX FM, BiznesAlert, BOOP.PL, Digimania, Grupa SEO.
+
+**What to find:**
+1. New international media coverage (Daily Mail, Independent, Mirror, Newsweek, Forbes, Bild, RTL, Le Monde, Le Figaro, El País, La Repubblica, Al Jazeera, Times of India, Hindustan Times, NHK, etc.)
+2. Polish outlets we missed (Onet, WP Tech, NaTemat, Wirtualne Media, Fakt, GW.pl, Rzeczpospolita, Forsal, Bezprawnik, Komputer Świat, Antyradio, RMF FM, TOK FM, etc.)
+3. Tech blogs, robotics outlets, AI news sites
+4. MERA Robotics / MERA OS company coverage specifically
+5. Any new viral moments or stories from 2026
+
+**Search queries to try (use WebSearch tool multiple times):**
+- "Edward Warchocki" newest articles
+- "Edward Warchocki" 2026 viral
+- "MERA Robotics" Poland
+- "MERA OS" robot
+- "Edward Warchocki" Daily Mail OR Mirror OR Newsweek
+- "Edward Warchocki" Onet OR Fakt OR Rzeczpospolita
+- "Edward Warchocki" robot interview
+- "Edward Warchocki" Bartosz Idzik Radoslaw Grzelaczyk
+- "Edward Warchocki" robot Cancer Fighters OR Latwogang
+- robot humanoid Poland Unitree influencer
+
+**Output format:**
+Return a clean list of new articles in this exact format, one per line:
+`{ source: 'OUTLET NAME', title: 'Article title', url: 'https://...', domain: 'domain.com' }`
+
+Aim for 15-30 NEW articles. Skip any duplicates of what's already covered.
+
+_**Agent - sidechain (claude-opus-4-7 2026-05-01 17:45:39Z)**_
+
+I'll search for new articles about Edward Warchocki and MERA Robotics. Let me load the WebSearch tool first.
+
+_**Agent - sidechain (claude-opus-4-7 2026-05-01 17:45:39Z)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="ToolSearch"><details>
+<summary>Tool use: **ToolSearch**</summary>
+
+**Input:**
+
+- max_results: `2`
+- query: `select:WebSearch,WebFetch`
+
+**Result:**
+
+```
+
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-4-7 2026-05-01 17:45:42Z)**_
+
+I'll search for new articles about Edward Warchocki and MERA Robotics.
+
+_**Agent - sidechain (claude-opus-4-7 2026-05-01 17:45:50Z)**_
+
+<tool-use data-tool-type="search" data-tool-name="WebSearch"><details>
+<summary>Tool use: **WebSearch**</summary>
+ `"Edward Warchocki" robot newest articles 2026`
+
+```text
+Web search results for query: ""Edward Warchocki" robot newest articles 2026"
+
+Links: [{"title":"Poland's newest influencer is a robot. He's chasing boars, speaking in Parliament","url":"https://theprint.in/feature/polands-newest-influencer-is-a-robot-hes-chasing-boars-speaking-in-parliament/2906369/"},{"title":"Poland street sees humanoid robot chasing boars in unusual AI showcase","url":"https://interestingengineering.com/ai-robotics/humanoid-robot-chases-boars-in-poland"},{"title":"Meet Edward: The robot chasing boars and breaking the internet","url":"https://tvpworld.com/92621347/humanoid-robot-herding-boars-in-warsaw-shows-poland-living-in-the-future"},{"title":"Humanoid robot Edward Warchocki becomes unexpected wild boar deterrent in Warsaw","url":"https://www.thestandard.com.hk/social-buzz/article/329520/Humanoid-robot-Edward-Warchocki-becomes-unexpected-wild-boar-deterrent-in-Warsaw"},{"title":"Who is Edward Warchocki: the Robot Taking Over Warsaw","url":"https://mrkt30.com/who-is-edward-warchocki-the-robot-taking-over-warsaw/"},{"title":"Video. Humanoid robot chases wild boars in the Polish capital Warsaw | Euronews","url":"https://www.euronews.com/video/2026/04/16/humanoid-robot-chases-wild-boars-in-the-polish-capital-warsaw"},{"title":"Robot-alkoholik podbija polskie socjale! 🚨 Kupujesz robota ...","url":"https://www.instagram.com/reel/DVdXuRyjHeY/"},{"title":"Humanoid Robot Edward Chases Boars in Viral Video","url":"https://www.yahoo.com/entertainment/tv/articles/humanoid-robot-edward-chases-boars-060356830.html"},{"title":"The humanoid robot, known as Edward Warchocki, was filmed chasing boars in Warsaw, Poland. #BBCNews - YouTube","url":"https://www.youtube.com/shorts/AmLPpSx8OMQ"},{"title":"WATCH: Humanoid robot chases wild boars causing mischief in city * WorldNetDaily * by WND Staff","url":"https://www.wnd.com/2026/04/watch-humanoid-robot-chases-wild-boars-causing-mischief/"}]
+
+Here are the newest articles about Edward Warchocki from 2026:
+
+## Overview
+
+Edward Warchocki is a Unitree G1 humanoid robot that has become a viral sensation in Poland. In just a few weeks he has gone from an internet joke to one of the most talked-about figures in Polish social media.
+
+## Recent Viral Moment
+
+Warchocki broke into the mainstream overnight when a video of him chasing wild boars in Warsaw went viral, with the video posted three days ago having over 12 million views. Footage from April 12 shows Edward Warchocki riding a skateboard and jogging as it attempts to herd boars.
+
+## Background and Technology
+
+Warchocki began as a technology experiment led by entrepreneur Radosław Grzelaczyk, with support from AI developer Bartosz Idzik, who built the system powering the robot's conversational abilities. Unlike scripted mascots, the humanoid is designed to interact dynamically with people in real-world settings, using a mix of proprietary AI tools and existing technologies to generate responses during live conversations, with the aim to enable adaptive dialogue rather than preprogrammed replies.
+
+## Public Presence
+
+The robot has previously engaged with Poland's Minister of Finance and Economy, made appearances on television programs, and regularly interacts with people on the streets of Warsaw, building a notable public profile. Warchocki has a dedicated website which not only gives viewers an introduction to him, but also invites people to "work" with him.
+
+
+REMINDER: You MUST include the sources above in your response to the user using markdown hyperlinks.
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-4-7 2026-05-01 17:45:51Z)**_
+
+<tool-use data-tool-type="search" data-tool-name="WebSearch"><details>
+<summary>Tool use: **WebSearch**</summary>
+ `"MERA Robotics" Poland humanoid`
+
+```text
+Web search results for query: ""MERA Robotics" Poland humanoid"
+
+Links: [{"title":"Interview: Chinese humanoid robots gain popularity among global partners: Polish expert-Xinhua","url":"https://english.news.cn/20260415/e1f4925dac254e9e89aef70ddf4fa4d9/c.html"},{"title":"Chinese humanoid robots gain popularity among global partners: Polish expert-Xinhua","url":"https://english.news.cn/20260416/e14a379a50d649888615805a7cbeb64a/c.html"},{"title":"Poland's newest influencer is a robot. He's chasing boars, speaking in Parliament","url":"https://theprint.in/feature/polands-newest-influencer-is-a-robot-hes-chasing-boars-speaking-in-parliament/2906369/"},{"title":"Interview: Chinese humanoid robots gain popularity among global partners: Polish expert | The Star","url":"https://www.thestar.com.my/news/world/2026/04/15/interview-chinese-humanoid-robots-gain-popularity-among-global-partners-polish-expert"},{"title":"Chinese humanoid robots gain popularity among global partners: Polish expert","url":"http://www.ecns.cn/china/2026-04-15/detail-ihfcrmac7239776.shtml"},{"title":"Bartosz Idzik - MERA Robotics | LinkedIn","url":"https://www.linkedin.com/in/bartosz-idzik-97770098/"},{"title":"Chinese robot Unitree G1","url":"https://universemagazine.com/en/not-boston-dynamics-why-the-future-of-humanoid-robotics-might-be-chinese/"},{"title":"Chinese humanoid robots gain popularity among global partners: Polish expert","url":"https://www.bignewsnetwork.com/news/278987441/chinese-humanoid-robots-gain-popularity-among-global-partners-polish-expert"},{"title":"Poland Clone Robotics Make Liquid Muscled Synthetic Copy of the Human Body | NextBigFuture.com","url":"https://www.nextbigfuture.com/2025/02/poland-clone-robotics-make-liquid-muscled-synthetic-copy-of-the-human-body.html"},{"title":"MERA Robotics — Architects of the Future","url":"https://merarobotics.com/"}]
+
+Based on the search results, here's what I found about MERA Robotics and their humanoid robot project in Poland:
+
+## MERA Robotics Overview
+
+MERA Robotics is a Polish company involved in humanoid technology, co-founded by Radoslaw Grzelaczyk.
+
+## Edward Warchocki - Their Famous Humanoid Robot
+
+Grzelaczyk is one of the creators of "Edward," a humanoid robot that recently went viral after videos showed it chasing boars on the streets of Warsaw. Edward is based on the Unitree G1 humanoid robot from China, integrated with MERA's operating system and adapted for local use.
+
+Videos shared by the MERA team attracted millions of views online, turning Edward into a social media sensation.
+
+## Business Model
+
+After visiting China last year to study the commercialization of humanoid robotics, Grzelaczyk and his team combined Chinese hardware with domestically developed software to create solutions tailored to European users.
+
+MERA's services include training for robot operators at MERA Academy, wholesale and retail distribution of Unitree robots in Poland, and software licensing for third-party robot owners.
+
+## Expansion Plans
+
+MERA Robotics plans to import around 100 humanoid robots from China by the end of July to expand its operations. The company will continue to localize these robots through its own software systems and promote solutions that combine Chinese and Polish technologies.
+
+
+REMINDER: You MUST include the sources above in your response to the user using markdown hyperlinks.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-7 2026-05-01 17:45:46Z)**_
+
+ Agent badawczy odpalony w tle — przeszuka cały internet, w tym Daily Mail, Newsweek, Onet, Fakt, Rzeczpospolita, międzynarodowe portale tech i blogi o robotyce. Powiadomię Cię gdy skończy z gotową listą artykułów do dodania na stronę.
+
+_**Agent - sidechain (claude-opus-4-7 2026-05-01 17:45:52Z)**_
+
+Found new sources. Let me continue searching for more.
+
+_**Agent - sidechain (claude-opus-4-7 2026-05-01 17:45:58Z)**_
+
+<tool-use data-tool-type="search" data-tool-name="WebSearch"><details>
+<summary>Tool use: **WebSearch**</summary>
+ `"Edward Warchocki" Daily Mail OR Mirror OR Newsweek OR Independent`
+
+```text
+Web search results for query: ""Edward Warchocki" Daily Mail OR Mirror OR Newsweek OR Independent"
+
+Links: [{"title":"Edward Warchocki - robot influencer przegonił dziki w Warszawie. Wideo podbija internet | Euronews","url":"https://pl.euronews.com/2026/04/14/edward-warchocki-robot-influencer-przegonil-dziki-w-warszawie-wideo-podbija-internet"},{"title":"Poland's newest influencer is a robot. He's chasing boars, speaking in Parliament","url":"https://theprint.in/feature/polands-newest-influencer-is-a-robot-hes-chasing-boars-speaking-in-parliament/2906369/"},{"title":"Edward Warchocki (@edwardwarchocki) • Instagram photos and videos","url":"https://www.instagram.com/edwardwarchocki/"},{"title":"Robot Edward Warchocki rozpala debatę. Co Polacy myślą o androidach?","url":"https://www.benchmark.pl/aktualnosci/co-polacy-mysla-o-androidach.html"},{"title":"Edward Warchocki (@edwardwarchocki) / Posts / X","url":"https://x.com/edwardwarchocki"},{"title":"Humanoidalny robot podbija internet. Kim jest Edward Warchocki?","url":"https://www.benchmark.pl/aktualnosci/kim-jest-edward-warchocki.html"},{"title":"Meet Edward Warchocki, a humanoid robot used to chase a group of wild boars in Poland.","url":"https://www.facebook.com/NBCNews/posts/meet-edward-warchocki-a-humanoid-robot-used-to-chase-a-group-of-wild-boars-in-po/1331091965549332/"},{"title":"Edward, czyli robot-influencer. Pogonił dziki i podbił media","url":"https://www.wirtualnemedia.pl/edward-czyli-robot-influencer-pogonil-dziki-i-podbil-media,7278364568160640a"},{"title":"Edward Warchocki – Wikipedia, wolna encyklopedia","url":"https://pl.wikipedia.org/wiki/Edward_Warchocki"},{"title":"Edward Warchocki | Spotify","url":"https://open.spotify.com/artist/5evRSZWSS6iY1lheke3Mgx"}]
+
+Based on my search results, I found information about Edward Warchocki, though the results did not include coverage specifically from the Daily Mail, Mirror, Newsweek, or Independent that you requested.
+
+Edward Warchocki is a Polish humanoid robot project (based on the Unitree G1 platform) functioning as an influencer on social media. He was created in 2026 by Bartosz Idzik and Radosław Grzelaczyk.
+
+Warchocki broke into the mainstream when a video of him chasing wild boars in Warsaw went viral, with the video receiving over 12 million views. In March 2026, Edward Warchocki appeared in the Polish Parliament, where he was invited by Confederation politicians and generated significant interest with lawmakers and journalists gathering around him.
+
+Beyond the boar-chasing incident, the robot recently appeared in the popular entertainment program "Dancing with the Stars" and danced with Polsat's programming director, Edward Miszczak.
+
+The search results I found were from international news outlets, Polish media, and social media platforms, but did not include specific articles from the Daily Mail, Mirror, Newsweek, or Independent sources you mentioned.
+
+
+REMINDER: You MUST include the sources above in your response to the user using markdown hyperlinks.
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-4-7 2026-05-01 17:45:58Z)**_
+
+<tool-use data-tool-type="search" data-tool-name="WebSearch"><details>
+<summary>Tool use: **WebSearch**</summary>
+ `"Edward Warchocki" Onet OR Fakt OR Rzeczpospolita OR "Komputer Świat"`
+
+```text
+Web search results for query: ""Edward Warchocki" Onet OR Fakt OR Rzeczpospolita OR "Komputer Świat""
+
+No links found.
+
+The search returned no results. This could mean:
+
+1. There are no publicly indexed web pages matching this exact combination of search terms
+2. Edward Warchocki may not have published content in these specific Polish media outlets (Onet, Fakt, Rzeczpospolita, or Komputer Świat)
+3. The information may not be available through standard web search indexing
+
+If you're looking for information about Edward Warchocki's work with these Polish media outlets, you might want to try:
+- Searching directly on individual publication websites
+- Searching without the quoted phrase restriction
+- Searching for a more specific topic or article title related to this person
+
+Would you like me to try a different search approach?
+
+
+REMINDER: You MUST include the sources above in your response to the user using markdown hyperlinks.
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-4-7 2026-05-01 17:46:10Z)**_
+
+<tool-use data-tool-type="search" data-tool-name="WebSearch"><details>
+<summary>Tool use: **WebSearch**</summary>
+ `"Edward Warchocki" Onet humanoidalny robot`
+
+```text
+Web search results for query: ""Edward Warchocki" Onet humanoidalny robot"
+
+Links: [{"title":"Humanoidalny robot podbija internet. Kim jest Edward Warchocki?","url":"https://www.benchmark.pl/aktualnosci/kim-jest-edward-warchocki.html"},{"title":"ROBOT PRZEGONIŁ STADO DZIKÓW. EDWARD WARCHOCKI ZNÓW ROBI FURORĘ - YouTube","url":"https://www.youtube.com/shorts/eSqVL3Ln8Es"},{"title":"Edward Warchocki - humanoidalny robot modelu Unitree G1","url":"https://www.facebook.com/Onet/videos/edward-warchocki-humanoidalny-robot-modelu-unitree-g1-tym-razem-podbi%C5%82-internet-/1695588914909442/"},{"title":"Edward Warchocki – jak powstał humanoidalny robot z Polski?","url":"https://dziendobry.tvn.pl/styl-zycia/edward-warchocki-autonomiczny-robot-stal-sie-influencerem-st8943884"},{"title":"Kim jest Edward Warchocki? Ten robot wkrótce może \"przejąć\" cały świat [ZDJECIA] - Super Express - wiadomości, polityka, sport","url":"https://www.se.pl/wiadomosci/exclusive/kim-jest-edward-warchocki-ten-robot-wkrotce-moze-przejac-caly-swiat-aa-Wy7X-jH7J-JUZZ.html"},{"title":"Robot za 115 tys. zł zaczepia Polaków. Kto go wypuścił na ulice?","url":"https://biznesalert.pl/robot-za-115-tys-zl-zaczepia-polakow-kto-go-wypuscil-na-ulice/"},{"title":"Edward Warchocki – Wikipedia, wolna encyklopedia","url":"https://pl.wikipedia.org/wiki/Edward_Warchocki"},{"title":"Robot humanoidalny w polskim Sejmie. Nazywa się Edward Warchocki i wygłosił \"orędzie\" - Bankier.pl","url":"https://www.bankier.pl/wiadomosc/Robot-humanoidalny-w-polskim-Sejmie-Nazywa-sie-Edward-Warchocki-i-wyglosil-oredzie-9104007.html"},{"title":"Edward Warchocki - robot influencer przegonił dziki w Warszawie. Wideo podbija internet | Euronews","url":"https://pl.euronews.com/2026/04/14/edward-warchocki-robot-influencer-przegonil-dziki-w-warszawie-wideo-podbija-internet"},{"title":"Robot Edward Warchocki robi furorę w sieci. Czy maszyny wkrótce zastąpią nas w pracy? - VOX FM","url":"https://www.voxfm.pl/rozrywka/robot-edward-warchocki-robi-furore-w-sieci-czy-maszyny-wkrotce-zastapia-nas-w-pracy-aa-hAJ7-A44C-HvkT.html"}]
+
+Based on the search results, here's what I found about Edward Warchocki and the humanoid robot:
+
+## What is Edward Warchocki?
+
+Edward Warchocki is a physical humanoid robot based on the Unitree G1 model, designed by Chinese company Unitree Robotics. He is approximately 132 cm tall and weighs 35 kg, giving him surprisingly human proportions.
+
+## The Project and Creators
+
+The project was created by Bartosz Idzik and Radosław Grzelaczyk. Edward Warchocki is a robotic influencer from Poland who goes out on the streets, talks with people, appears at events and chases wild boars, attracting global attention.
+
+## Rise to Internet Fame
+
+A viral video brought breakthrough popularity when the robot encountered a herd of wild boars on a Warsaw street and began chasing them, creating an absurd yet oddly "human" situation that spread rapidly online. The matter was of interest even to international media, including Reuters.
+
+## Capabilities and Operation
+
+Edward Warchocki is an autonomous robot capable of having conversations with people and learning from his own experiences. The learning process is semi-autonomous, with the system recording events to create a history that allows the robot to relate to previous situations and respond based on its programmed personality.
+
+The project has been covered extensively by Polish media including Onet, and has become a notable example of AI-powered robotics being used in viral marketing.
+
+
+REMINDER: You MUST include the sources above in your response to the user using markdown hyperlinks.
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-4-7 2026-05-01 17:46:11Z)**_
+
+<tool-use data-tool-type="search" data-tool-name="WebSearch"><details>
+<summary>Tool use: **WebSearch**</summary>
+ `"Edward Warchocki" Wikipedia OR Wirtualne Media OR benchmark`
+
+```text
+Web search results for query: ""Edward Warchocki" Wikipedia OR Wirtualne Media OR benchmark"
+
+Links: [{"title":"Humanoidalny robot podbija internet. Kim jest Edward Warchocki?","url":"https://www.benchmark.pl/aktualnosci/kim-jest-edward-warchocki.html"},{"title":"Robot Edward Warchocki rozpala debatę. Co Polacy myślą o androidach?","url":"https://www.benchmark.pl/aktualnosci/co-polacy-mysla-o-androidach.html"},{"title":"Edward Warchocki – Wikipedia, wolna encyklopedia","url":"https://pl.wikipedia.org/wiki/Edward_Warchocki"},{"title":"Edward, czyli robot-influencer. Pogonił dziki i podbił media","url":"https://www.wirtualnemedia.pl/edward-czyli-robot-influencer-pogonil-dziki-i-podbil-media,7278364568160640a"},{"title":"Pierwszy polski humanoid na rynku influencerów: Eksperyment, który stał się faktem","url":"https://obserwatorgospodarczy.pl/2026/03/11/pierwszy-polski-humanoid-na-rynku-influencerow-eksperyment-ktory-stal-sie-faktem/"},{"title":"Kim jest Edward Warchocki? Robot influencer, o którym robi się coraz głośniej","url":"https://wydarzenia.warszawa.pl/blog/it-technologie/kim-jest-edward-warchocki-robot-influencer-o-ktorym-robi-sie-coraz-glosniej/"},{"title":"Robot Edward Warchocki podbija internet. Kim jest pierwszy polski robot influencer i jak działa?","url":"https://techoteka.pl/tech-news/edward-warchocki-robot-influencer/"},{"title":"Edward Warchocki - robot influencer przegonił dziki w Warszawie. Wideo podbija internet | Euronews","url":"https://pl.euronews.com/2026/04/14/edward-warchocki-robot-influencer-przegonil-dziki-w-warszawie-wideo-podbija-internet"},{"title":"Edward Warchocki, czyli pierwszy robot z wąsami","url":"https://mamstartup.pl/edward-warchocki-czyli-pierwszy-robot-z-wasami/"},{"title":"Edward Warchocki – robot influencer, który zmienia zasady gry w social media","url":"https://warsawcity.info/edward-warchocki-robot-influencer-ktory-zmienia-zasady-gry-w-social-media/"}]
+
+Based on the search results, here's what I found about Edward Warchocki:
+
+## Overview
+
+Edward Warchocki is a physical humanoid robot based on the Unitree G1 model, designed by Chinese company Unitree Robotics. In March 2026, Edward Warchocki became a viral sensation on Polish internet.
+
+## Background and Creation
+
+Edward was created by two Polish entrepreneurs—Radosław Grzelaczyk and Bartosz Idzik—who gave him not just functionality, but a name, personality, and distinctive communication style. The robot presents itself as a 55-year-old resident of Inowrocławia, standing approximately 1.32 meters tall, characterized as direct, eloquent, and somewhat eccentric.
+
+## Viral Success and Media Presence
+
+Edward Warchocki is a robotic influencer from Poland who goes out into streets, talks with people, appears at events and chases wild boars, generating global interest. Edward Warchocki became a global viral sensation in just a few days. Edward is followed by 374,000 people on TikTok, 190,000 on Instagram, 98,000 on Facebook, and 14,000 on YouTube.
+
+## Coverage in Polish Media
+
+The search results include coverage from major Polish outlets including Benchmark.pl, Wirtualne Media, and Wikipedia, all discussing his role as a robot influencer and technological phenomenon in Poland.
+
+
+REMINDER: You MUST include the sources above in your response to the user using markdown hyperlinks.
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-4-7 2026-05-01 17:46:11Z)**_
+
+<tool-use data-tool-type="search" data-tool-name="WebSearch"><details>
+<summary>Tool use: **WebSearch**</summary>
+ `"Edward Warchocki" Sejm parliament robot`
+
+```text
+Web search results for query: ""Edward Warchocki" Sejm parliament robot"
+
+Links: [{"title":"Sejm. Humanoidalny robot Edward Warchocki zaproszony przez Konfederację - PolsatNews.pl","url":"https://www.polsatnews.pl/wiadomosc/2026-03-25/pierwszy-robot-w-polskim-parlamencie-wnosze-o-podwyzszenie-pensji/"},{"title":"W Sejmie gościł słynny robot Edward Warchocki. Wygłosił \"orędzie\"","url":"https://dorzeczy.pl/opinie/864778/w-sejmie-pojawil-sie-slynny-robot-edward-warchocki.html"},{"title":"Robot humanoidalny w polskim Sejmie. Nazywa się Edward Warchocki i wygłosił \"orędzie\" - Bankier.pl","url":"https://www.bankier.pl/wiadomosc/Robot-humanoidalny-w-polskim-Sejmie-Nazywa-sie-Edward-Warchocki-i-wyglosil-oredzie-9104007.html"},{"title":"Wyjątkowy gość w studiu. Kim jest Edward Warchocki? - PolsatNews.pl","url":"https://www.polsatnews.pl/wiadomosc/2026-04-04/nietypowy-gosc-w-studiu-parlament-robot-ai-chce-miec-takie-same-prawa-jak-czlowiek/"},{"title":"Edward Warchocki w Sejmie. Robot z wąsami robi polityczny show | Radio DTR","url":"https://radio-dtr.live/edward-warchocki-w-sejmie-robot-z-wasami-robi-polityczny-show/"},{"title":"Poland's newest influencer is a robot. He's chasing boars, speaking in Parliament","url":"https://theprint.in/feature/polands-newest-influencer-is-a-robot-hes-chasing-boars-speaking-in-parliament/2906369/"},{"title":"Jest nagranie. Robot rozmawiał z politykami w Sejmie. \"To wy powinniście się czuć samotni\"","url":"https://wiadomosci.wp.pl/robot-rozmawial-z-politykami-w-sejmie-to-wy-powinniscie-sie-czuc-samotni-7268143357768257v"},{"title":"Nietypowy gość Konfederacji w Sejmie. Robot Edward Warchocki rozmawiał z politykami - Super Express - wiadomości, polityka, sport","url":"https://polityka.se.pl/wiadomosci/nietypowy-gosc-konfederacji-w-sejmie-robot-edward-warchocki-rozmawial-z-politykami-aa-kH9A-U9vC-rHEa.html"},{"title":"Wyjątkowy gość w Sejmie. Czym pochwalił się posłowi Szejnie?","url":"https://wpolityce.pl/polityka/756375-wyjatkowy-gosc-w-sejmie-czym-pochwalil-sie-poslowi-szejnie"},{"title":"Robot w parlamencie. Kancelaria Sejmu zabiera głos","url":"https://www.money.pl/biznes/robot-w-parlamencie-kancelaria-sejmu-zabiera-glos-7268532322936960a.html"}]
+
+Based on the search results, here's what I found about Edward Warchocki and his visit to the Polish parliament:
+
+## Edward Warchocki - The Humanoid Robot
+
+Edward Warchocki is a Unitree G1 humanoid robot produced by the Chinese company Unitree Robotics. The robot was purchased and named by Bartosz Idzik and Radosław Grzelaczyk, who work in the IT industry.
+
+## The Historic Visit to Sejm
+
+Edward Warchocki appeared in the Sejm on Wednesday, with members of Konfederacja (a Polish political party) inviting him to parliament. In March 2026, Edward appeared in Polish parliament at the invitation of Konfederacja deputies.
+
+At a press conference, Warchocki proposed increased wages for the Marshal's Guard, noting their professionalism. The Konfederacja parliamentarians explained that they wanted to symbolically emphasize the importance of robotization and modern technologies in the contemporary world.
+
+## About the Robot
+
+Warchocki stands approximately 132 cm tall and weighs around 35 kg. Bartosz Idzik (responsible for AI systems and UX) and Radosław Grzelaczyk (initiator and investor) programmed him so he's not just a "rigid machine" but can joke, interact with people, and even "talk back."
+
+## Political Engagement Claims
+
+The robot declared that robots should have the same rights as humans. However, when asked whether he would join any political party, the robot answered that he would visit the Sejm again, but later added that "politics doesn't concern him" and "his task is to help people, not divide them."
+
+
+REMINDER: You MUST include the sources above in your response to the user using markdown hyperlinks.
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-4-7 2026-05-01 17:46:11Z)**_
+
+<tool-use data-tool-type="search" data-tool-name="WebSearch"><details>
+<summary>Tool use: **WebSearch**</summary>
+ `"Edward Warchocki" Dancing with the Stars Taniec z Gwiazdami`
+
+```text
+Web search results for query: ""Edward Warchocki" Dancing with the Stars Taniec z Gwiazdami"
+
+Links: [{"title":"Edward Warchocki podbija świat i... „Taniec z Gwiazdami” - Polsat.pl","url":"https://www.polsat.pl/news/2026-04-15/edward-warchocki-podbija-swiat-i-taniec-z-gwiazdami/"},{"title":"Olsztynianka, Iwona Pavlović tańczy z robotem-influencerem. Internet oszalał na punkcie tego duetu! [WIDEO]","url":"https://www.olsztyn.com.pl/artykul,olsztynianka-iwona-pavlovic-tanczy-z-robotem-influencerem-internet-oszalal-na-punkcie-tego-duetu-wideo,46678.html"},{"title":"„Taniec z Gwiazdami”: Gorąco! Zmysłowe stroje i choreografie - Polsat.pl","url":"https://www.polsat.pl/news/2026-04-19/taniec-z-gwiazdami-jak-goraco-zmyslowe-stroje-i-choreografie/"},{"title":"Iwona Pavlović tańczy z robotem. Internet nie może uwierzyć w to nagranie - wiadomości Olsztyn","url":"https://gazetaolsztynska.pl/artykul/iwona-pavlovic-tanczy-n2268700"},{"title":"Dancing with the Stars. Taniec z Gwiazdami - oficjalna strona programu - Polsat.pl","url":"https://www.polsat.pl/program/dancing-with-the-stars-taniec-z-gwiazdami/"},{"title":"Dancing with the Stars. Taniec z gwiazdami (TV Series 2014–2026) - IMDb","url":"https://www.imdb.com/title/tt8152294/"},{"title":"„Taniec z Gwiazdami”: Nowe pary. Tak zdecydowali widzowie - Polsat.pl","url":"https://www.polsat.pl/news/2026-04-12/taniec-z-gwiazdami-nowe-pary-tak-zdecydowali-widzowie/"},{"title":"Dancing with the Stars. Taniec z gwiazdami - Wikipedia","url":"https://en.wikipedia.org/wiki/Dancing_with_the_Stars._Taniec_z_gwiazdami"},{"title":"Dancing With The Stars. Taniec z Gwiazdami","url":"https://www.facebook.com/tanieczgwiazdamipolsat/?locale=pl_PL"},{"title":"Edward Miszczak zatańczył z robotem. Kulisy „TzG” i Edward Warchocki | Party.pl","url":"https://party.pl/newsy/nie-do-wiary-co-miszczak-wyprawial-za-kulisami-tzg-wideo-trafilo-do-sieci/"}]
+
+I've completed the web search for "Edward Warchocki" Dancing with the Stars Taniec z Gwiazdami. Here are the key findings:
+
+**Edward Warchocki - The Robot**
+
+Edward Warchocki is an advanced Polish humanoid robot based on the Unitree G1 model from Chinese company Unitree Robotics. It has a body, arms and legs and can move efficiently, and possesses data processing systems based on artificial intelligence algorithms.
+
+**Appearance on Dancing with the Stars**
+
+The Polish robot known as Edward Warchocki is conquering the internet, with videos on its profile having millions of views. The robot appeared in episode 6 of "Dancing with the Stars" where it met Edward Miszczak and danced with both him and juror Iwona Pavlović.
+
+**Viral Success**
+
+The robot's appearance generated significant online buzz. The recording of the robot's dance with juror Iwona Pavlović quickly went viral—on TikTok it achieved over 4.8 million views, hundreds of thousands of reactions and hundreds of comments. The robot conquered the global internet thanks to videos showing it chasing wild boar on the streets of Warsaw, with one of these videos gaining enormous popularity on social media platforms.
+
+
+REMINDER: You MUST include the sources above in your response to the user using markdown hyperlinks.
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-4-7 2026-05-01 17:46:18Z)**_
+
+<tool-use data-tool-type="search" data-tool-name="WebSearch"><details>
+<summary>Tool use: **WebSearch**</summary>
+ `"Edward Warchocki" robot Cancer Fighters charity`
+
+```text
+Web search results for query: ""Edward Warchocki" robot Cancer Fighters charity"
+
+Links: [{"title":"EDWARD WARCHOCKI - YouTube","url":"https://www.youtube.com/channel/UCgmgFiqcVPll_L4MyvPhQ5A"},{"title":"cancer FIGHTERS | Edward Warchocki","url":"https://www.facebook.com/edwardwarchocki/videos/cancer-fighters/1269552911994465/"},{"title":"This bizarre footage of a humanoid robot, known as ...","url":"https://www.instagram.com/reel/DXKCGTZGg4k/"},{"title":"EDWARD WARCHOCKI U LATWOGANG *nagranie transmisji live - YouTube","url":"https://www.youtube.com/watch?v=Lrpvd4_gsHo"},{"title":"Roboty i ich przyszłość: Nie chcę pracy!","url":"https://www.tiktok.com/@edwardwarchocki/video/7611307169828375831"},{"title":"The humanoid robot, known as Edward Warchocki, was filmed chasing boars in Warsaw, Poland. #BBCNews - YouTube","url":"https://www.youtube.com/shorts/AmLPpSx8OMQ"},{"title":"Meet Edward: The robot chasing boars and breaking the internet","url":"https://tvpworld.com/92621347/humanoid-robot-herding-boars-in-warsaw-shows-poland-living-in-the-future"},{"title":"Edward Warchocki (@edwardwarchocki) • Instagram photos and videos","url":"https://www.instagram.com/edwardwarchocki/"},{"title":"Meet Edward Warchocki a humanoid robot influencer built ...","url":"https://www.linkedin.com/posts/marcelinamaciag_meet-edward-warchocki-a-humanoid-robot-influencer-activity-7447164174092292096-IvEt"},{"title":"Poland's newest influencer is a robot. He's chasing boars, speaking in Parliament","url":"https://theprint.in/feature/polands-newest-influencer-is-a-robot-hes-chasing-boars-speaking-in-parliament/2906369/"}]
+
+Based on the search results, I found information about Edward Warchocki and Cancer Fighters:
+
+Edward Warchocki is Poland's newest influencer, and the machine has become one of the country's most recognizable internet stars. A collection was organized for children from the Cancer Fighters Foundation, with Warchocki involved in the charitable effort. Radosław Grzelaczyk, co-founder of MERA Robotics, confirmed that older people love talking with Warchocki, showing the robot's appeal across different demographics and his use in various charitable and social contexts.
+
+
+REMINDER: You MUST include the sources above in your response to the user using markdown hyperlinks.
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-4-7 2026-05-01 17:46:20Z)**_
+
+<tool-use data-tool-type="search" data-tool-name="WebSearch"><details>
+<summary>Tool use: **WebSearch**</summary>
+ `"Edward Warchocki" TVN OR TVP OR RMF FM`
+
+```text
+Web search results for query: ""Edward Warchocki" TVN OR TVP OR RMF FM"
+
+Links: [{"title":"Edward Warchocki. Autonomiczny robot stał się influencerem - Dzień Dobry TVN","url":"https://dziendobry.tvn.pl/styl-zycia/edward-warchocki-autonomiczny-robot-stal-sie-influencerem-st8943884"},{"title":"Robot Edward Warchocki ganiał dziki w Warszawie. Nagranie z Polski podbija świat - TVN24","url":"https://tvn24.pl/polska/robot-edward-warchocki-ganial-dziki-w-warszawie-nagranie-z-polski-podbija-swiat-st9000974"},{"title":"Edward, czyli robot-influencer. Pogonił dziki i podbił media","url":"https://www.wirtualnemedia.pl/edward-czyli-robot-influencer-pogonil-dziki-i-podbil-media,7278364568160640a"},{"title":"▶️ A humanoid robot named Edward Warchocki chased wild boars in Warsaw and drove them off the street, TVP reported - Pravda Poland","url":"https://poland.news-pravda.com/en/poland/2026/04/14/54062.html"},{"title":"Odeszło wielu znakomitych dziennikarzy. Ich materiały pozostaną z nami na zawsze - Press.pl - najnowsze informacje z branży medialnej, marketingowej, reklamowej i public relations","url":"https://www.press.pl/tresc/73392,odeszlo-wielu-znakomitych-dziennikarzy_-ich-materialy-pozostana-z-nami-na-zawsze"},{"title":"Były dziennikarz TVN i RMF FM zatrzymany za rozbój ...","url":"https://www.facebook.com/podejrzani.tv/videos/by%C5%82y-dziennikarz-tvn-i-rmf-fm-zatrzymany-za-rozb%C3%B3j-podsumowanie-kryminalne-wrze%C5%9B/1606184619986873/"},{"title":"Mietek Szcześniak i robot Edward Warchocki w utworze “Dumka na dwa serca” | DDTVN - YouTube","url":"https://www.youtube.com/watch?v=w-0I4oN0ZXI"},{"title":"A humanoid robot named Edward Warchoki chased wild boars in Warsaw and drove them off the street, TVP reported - Pravda Poland","url":"https://poland.news-pravda.com/en/world/2026/04/14/54040.html"},{"title":"Edward Miszczak – Wikipedia, wolna encyklopedia","url":"https://pl.wikipedia.org/wiki/Edward_Miszczak"},{"title":"Nagrody Grand Press 2023 przyznane. Cztery trafiły do dziennikarzy tvn24.pl, TVN24 i TVN","url":"https://tvn24.pl/polska/grand-press-2023-wyniki-lista-nagrodzonych-dziennikarzy-st7531458"}]
+
+The search results show that Edward Warchocki is not a person, but rather a humanoid robot. Here's what I found:
+
+Edward Warchocki is a humanoid robot that became a real influencer. The robot Unitree G1 was purchased by two Polish entrepreneurs - Bartosz Idzik and Radosław Grzelaczyk, who featured him on TV.
+
+Edward Warchocki is an autonomous robot capable of conducting conversations with people and learning from its own experiences. Edward Warchocki became a global viral sensation in just a few days, largely due to a viral video where the robot chased wild boars – a scene from Warsaw that went viral.
+
+The creators discussed Edward on "Dzień Dobry TVN" (Breakfast with TVN), and TVP also reported on the humanoid robot chasing wild boars in Warsaw. The robot has gained significant media attention across major Polish media outlets including TVN and TVP.
+
+
+REMINDER: You MUST include the sources above in your response to the user using markdown hyperlinks.
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-4-7 2026-05-01 17:46:22Z)**_
+
+<tool-use data-tool-type="search" data-tool-name="WebSearch"><details>
+<summary>Tool use: **WebSearch**</summary>
+ `"Edward Warchocki" Forbes OR Bloomberg OR Wired robot`
+
+```text
+Web search results for query: ""Edward Warchocki" Forbes OR Bloomberg OR Wired robot"
+
+Links: [{"title":"Robot Edward Warchocki rozpala debatę. Co Polacy myślą o androidach?","url":"https://www.benchmark.pl/aktualnosci/co-polacy-mysla-o-androidach.html"},{"title":"The humanoid robot, known as Edward Warchocki, was filmed chasing boars in Warsaw, Poland. #BBCNews - YouTube","url":"https://www.youtube.com/shorts/AmLPpSx8OMQ"},{"title":"Humanoidalny robot podbija internet. Kim jest Edward Warchocki?","url":"https://www.benchmark.pl/aktualnosci/kim-jest-edward-warchocki.html"},{"title":"Edward Warchocki, czyli pierwszy robot z wąsami","url":"https://mamstartup.pl/edward-warchocki-czyli-pierwszy-robot-z-wasami/"},{"title":"WARCHOCKI.PL — Edward Warchocki | Pierwszy Robot Influencer","url":"https://warchocki.pl/"},{"title":"Edward Warchocki – Wikipedia, wolna encyklopedia","url":"https://pl.wikipedia.org/wiki/Edward_Warchocki"},{"title":"Poland's newest influencer is a robot. He's chasing boars, speaking in Parliament","url":"https://theprint.in/feature/polands-newest-influencer-is-a-robot-hes-chasing-boars-speaking-in-parliament/2906369/"},{"title":"Video. Humanoid robot chases wild boars in the Polish capital Warsaw | Euronews","url":"https://www.euronews.com/video/2026/04/16/humanoid-robot-chases-wild-boars-in-the-polish-capital-warsaw"},{"title":"Humanoid robot Edward Warchocki becomes unexpected wild boar deterrent in Warsaw","url":"https://www.thestandard.com.hk/social-buzz/article/329520/Humanoid-robot-Edward-Warchocki-becomes-unexpected-wild-boar-deterrent-in-Warsaw"},{"title":"Humanoid Robot Edward Chases Boars in Viral Video - Men's Journal","url":"https://www.mensjournal.com/news/humanoid-robot-edward-chases-boars-warsaw-poland-viral-video"}]
+
+Based on the search results, here's what I found about Edward Warchocki:
+
+Edward Warchocki is a robotics influencer from Poland who goes out to the streets, talks to people, appears at events and even chases wild boars. He is a physical humanoid robot based on the Unitree G1 model designed by the Chinese company Unitree Robotics, standing approximately 132 cm tall and weighing 35 kg.
+
+While the robot is a construction of a Chinese company, the Polish company MeraRobotics is responsible for his development in his current form, having prepared dedicated software and an operating system.
+
+The robot gained major attention through a viral video showing him encountering a herd of wild boars on a Warsaw street and chasing them, which spread rapidly online. International media outlets, including Reuters, took interest in the story.
+
+Edward Warchocki has accumulated over 500 million video views. He can be hired for conferences, openings, and galas with the promise that "people will pull out their phones and the TikToks will make themselves".
+
+Note: The search results did not return specific articles from Forbes, Bloomberg, or Wired, but did provide coverage from various other international news sources.
+
+
+REMINDER: You MUST include the sources above in your response to the user using markdown hyperlinks.
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-4-7 2026-05-01 17:46:23Z)**_
+
+<tool-use data-tool-type="search" data-tool-name="WebSearch"><details>
+<summary>Tool use: **WebSearch**</summary>
+ `"Edward Warchocki" Wykop OR NaTemat OR Forsal OR Bezprawnik`
+
+```text
+Web search results for query: ""Edward Warchocki" Wykop OR NaTemat OR Forsal OR Bezprawnik"
+
+Links: [{"title":"Polski robot-influencer stał się globalną sensacją. Przeganiał dziki w Warszawie | naTemat.pl","url":"https://natemat.pl/649438,polski-robot-influencer-stal-sie-globalna-sensacja-przeganial-dziki-w-warszawie"},{"title":"Polski robot Edward Warchocki gonił dziki i trafił do Reutersa :: Wykop.pl","url":"https://wykop.pl/link/7929005/polski-robot-edward-warchocki-gonil-dziki-i-trafil-do-reutersa"},{"title":"EDWARD WARCHOCKI U LATWOGANG -czyli sam początek livea :: Wykop.pl","url":"https://wykop.pl/link/7935089/edward-warchocki-u-latwogang-czyli-sam-poczatek-livea"},{"title":"Humanoidalny robot podbija internet. Kim jest Edward Warchocki?","url":"https://www.benchmark.pl/aktualnosci/kim-jest-edward-warchocki.html"},{"title":"Kim tak naprawdę jest Edward Warchocki? Autorzy zdradzają kulisy projektu :: Wykop.pl","url":"https://wykop.pl/link/7906003/kim-tak-naprawde-jest-edward-warchocki-autorzy-zdradzaja-kulisy-projektu"},{"title":"Robot-patostreamer bryluje w Sejmie. A mieliśmy walczyć z patologią w sieci | naTemat.pl","url":"https://natemat.pl/646697,robot-patostreamer-bryluje-w-sejmie-a-mielismy-walczyc-z-patologia-w-sieci"},{"title":"Robot Edward Warchocki rozpala debatę. Co Polacy myślą o androidach?","url":"https://www.benchmark.pl/aktualnosci/co-polacy-mysla-o-androidach.html"},{"title":"Edward Warchocki - robot influencer przegonił dziki w Warszawie. Wideo podbija internet | Euronews","url":"https://pl.euronews.com/2026/04/14/edward-warchocki-robot-influencer-przegonil-dziki-w-warszawie-wideo-podbija-internet"},{"title":"ROBOT PRZEGONIŁ STADO DZIKÓW. EDWARD WARCHOCKI ZNÓW ROBI FURORĘ - YouTube","url":"https://www.youtube.com/shorts/eSqVL3Ln8Es"},{"title":"Edward Warchocki – Wikipedia, wolna encyklopedia","url":"https://pl.wikipedia.org/wiki/Edward_Warchocki"}]
+
+Based on the web search results, here's what I found about Edward Warchocki across Polish online platforms:
+
+## Overview
+
+Edward Warchocki is a figure who has regularly attracted the attention of passersby in Warsaw and social media users for weeks. He is a Polish humanoid robot project based on the Unitree G1 platform functioning as an influencer on social media, created in 2026 by Bartosz Idzik and Radosław Grzelaczyk.
+
+## Technical Specifications
+
+Edward is an advanced humanoid robot model Unitree G1 produced by Chinese company Unitree, equipped with AI-based software that allows him to move independently, observe surroundings, and have conversations with people.
+
+## Coverage on Polish Platforms
+
+The search results show coverage on **Wykop** and **NaTemat** specifically:
+
+- **Wykop**: Edward Warchocki gained popularity on the internet by interacting with people on streets and at events, with appearances at the Warsaw Half-Marathon and the Sejm, blurring the lines between technology and people.
+
+- **NaTemat**: Edward gained significant attention through a video of chasing wild boars in central Warsaw that he published on social media.
+
+## Notable Activities
+
+Edward Warchocki was invited to the Sejm by Confederation MPs, and his TikTok profile has nearly 175,000 followers.
+
+
+REMINDER: You MUST include the sources above in your response to the user using markdown hyperlinks.
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-4-7 2026-05-01 17:46:32Z)**_
+
+<tool-use data-tool-type="search" data-tool-name="WebSearch"><details>
+<summary>Tool use: **WebSearch**</summary>
+ `"Edward Warchocki" robot WND OR Pravda OR worldnet`
+
+```text
+Web search results for query: ""Edward Warchocki" robot WND OR Pravda OR worldnet"
+
+Links: [{"title":"WATCH: Humanoid robot chases wild boars causing mischief in city * WorldNetDaily * by WND Staff","url":"https://www.wnd.com/2026/04/watch-humanoid-robot-chases-wild-boars-causing-mischief/"},{"title":"Edward Warchocki skutecznie przegonił dziki - Pravda Polska","url":"https://poland.news-pravda.com/world/2026/04/14/250340.html"},{"title":"The humanoid robot, known as Edward Warchocki, was filmed chasing boars in Warsaw, Poland. #BBCNews - YouTube","url":"https://www.youtube.com/shorts/AmLPpSx8OMQ"},{"title":"A humanoid robot named Edward Warchoki chased wild boars in Warsaw and drove them off the street, TVP reported - Pravda Poland","url":"https://poland.news-pravda.com/en/world/2026/04/14/54040.html"},{"title":"Robot Edward Warchocki rozpala debatę. Co Polacy myślą o androidach?","url":"https://www.benchmark.pl/aktualnosci/co-polacy-mysla-o-androidach.html"},{"title":"Edward Warchocki – Wikipedia, wolna encyklopedia","url":"https://pl.wikipedia.org/wiki/Edward_Warchocki"},{"title":"Edward Warchocki, czyli pierwszy robot z wąsami","url":"https://mamstartup.pl/edward-warchocki-czyli-pierwszy-robot-z-wasami/"},{"title":"In Warsaw, the robot became famous thanks to a video where he runs after wild boars - Pravda Poland","url":"https://poland.news-pravda.com/en/world/2026/04/13/53989.html"},{"title":"Meet Edward: The robot chasing boars and breaking the internet","url":"https://tvpworld.com/92621347/humanoid-robot-herding-boars-in-warsaw-shows-poland-living-in-the-future"},{"title":"Humanoidalny robot podbija internet. Kim jest Edward Warchocki?","url":"https://www.benchmark.pl/aktualnosci/kim-jest-edward-warchocki.html"}]
+
+Based on the search results, I found information about Edward Warchocki across multiple sources including WND and Pravda:
+
+Edward Warchocki is a humanoid robot known for chasing wild boars away in Polish streets. The robot is a physical humanoid based on the Unitree G1 model, designed by Chinese company Unitree Robotics, standing about 132 cm tall and weighing 35 kg.
+
+The robot gained significant media attention in March 2026 during a visit to the Polish parliament, where it interacted with parliamentarians. An important event was a video recording documenting the robot's encounter with a herd of wild boars, which gained international reach and was cited by foreign technology portals.
+
+Edward came to Poland with two IT specialists and actively interacts with townspeople, attracting attention with unusual activities for the city such as street cleaning. The robot operates based on the Mera OS system and offers features such as face recognition and tracking, voice interaction, and a self-learning "personality" system that allows it to adapt behavior to situations and audiences.
+
+Edward Warchocki's activities are highlighted as an example of using advanced robotics in viral marketing and the process of familiarizing society with autonomous machines through entertainment.
+
+
+REMINDER: You MUST include the sources above in your response to the user using markdown hyperlinks.
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-4-7 2026-05-01 17:46:30Z)**_
+
+<tool-use data-tool-type="search" data-tool-name="WebSearch"><details>
+<summary>Tool use: **WebSearch**</summary>
+ `"Edward Warchocki" robot Latwogang stream`
+
+```text
+Web search results for query: ""Edward Warchocki" robot Latwogang stream"
+
+Links: [{"title":"EDWARD WARCHOCKI U LATWOGANG *nagranie transmisji live - YouTube","url":"https://www.youtube.com/watch?v=Lrpvd4_gsHo"},{"title":"EDWARD WARCHOCKI BARDZO POLUBIŁ! @latwogang8538","url":"https://www.youtube.com/shorts/AOT7TRKtjoM"},{"title":"Edward Warchocki przewala się prawie u Latwogang - YouTube","url":"https://www.youtube.com/watch?v=b-EZoGht37k"},{"title":"Kompilacja Edward Warchocki (latwogang, dziki, longboard, ministerstwo, Sandomierz, tańce) - YouTube","url":"https://www.youtube.com/watch?v=73omP7XuxxE"},{"title":"Robot-alkoholik podbija polskie socjale! 🚨 Kupujesz robota ...","url":"https://www.instagram.com/reel/DVdXuRyjHeY/"},{"title":"EDWARD WARCHOCKI - YouTube","url":"https://www.youtube.com/channel/UCgmgFiqcVPll_L4MyvPhQ5A"},{"title":"I SPENT A DAY WITH A ROBOT (EDWARD WARCHOCKI)","url":"https://www.youtube.com/watch?v=9f_776uSGTg"},{"title":"The humanoid robot, known as Edward Warchocki, was filmed chasing boars in Warsaw, Poland. #BBCNews - YouTube","url":"https://www.youtube.com/shorts/AmLPpSx8OMQ"},{"title":"Meet Edward: The robot chasing boars and breaking the internet","url":"https://tvpworld.com/92621347/humanoid-robot-herding-boars-in-warsaw-shows-poland-living-in-the-future"},{"title":"Latwogang Edward Warchocki Stream Walk","url":"https://www.tiktok.com/discover/latwogang-edward-warchocki-stream-walk"}]
+
+Based on the search results, I found information about Edward Warchocki and Latwogang:
+
+Edward Warchocki was invited on a stream with Latwogang (@latwogang8538), and the machine has become one of the country's most recognizable internet stars. A humanoid robot known as Edward Warchocki was filmed in Warsaw, Poland.
+
+The search results show multiple YouTube videos from the past few weeks documenting this stream appearance, including compilations and clips of the interaction between Edward Warchocki and Latwogang. The content appears to have generated significant interest on Polish social media platforms.
+
+
+REMINDER: You MUST include the sources above in your response to the user using markdown hyperlinks.
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-4-7 2026-05-01 17:46:33Z)**_
+
+<tool-use data-tool-type="search" data-tool-name="WebSearch"><details>
+<summary>Tool use: **WebSearch**</summary>
+ `"MERA OS" robot Unitree G1 software`
+
+```text
+Web search results for query: ""MERA OS" robot Unitree G1 software"
+
+Links: [{"title":"Chinese robot Unitree G1","url":"https://universemagazine.com/en/not-boston-dynamics-why-the-future-of-humanoid-robotics-might-be-chinese/"},{"title":"Poland's newest influencer is a robot. He's chasing boars, speaking in Parliament","url":"https://theprint.in/feature/polands-newest-influencer-is-a-robot-hes-chasing-boars-speaking-in-parliament/2906369/"},{"title":"Unitree Robotics · GitHub","url":"https://github.com/unitreerobotics"},{"title":"Humanoid robot G1_Humanoid Robot Functions_Humanoid Robot Price | Unitree Robotics","url":"https://www.unitree.com/g1/"},{"title":"Unitree G1 - Robot Details, Use Case and Specifications | Aparobot","url":"https://www.aparobot.com/robots/unitree-g1"},{"title":"G1 SDK Development Guide - 宇树文档中心 - Unitree Robotics","url":"https://support.unitree.com/home/en/G1_developer"},{"title":"Interview: Chinese humanoid robots gain popularity among global partners: Polish expert-Xinhua","url":"https://english.news.cn/20260415/e1f4925dac254e9e89aef70ddf4fa4d9/c.html"},{"title":"Bespoke Unitree G1 Programming & Custom Robotics ...","url":"https://a-bots.com/blog/Unitree-G1-Programming-SDK"},{"title":"Unitree G1 - ROBOTS: Your Guide to the World of Robotics","url":"https://robotsguide.com/robots/unitree-g1"},{"title":"Chinese humanoid robots gain popularity among global partners: Polish expert-Xinhua","url":"https://english.news.cn/20260416/e14a379a50d649888615805a7cbeb64a/c.html"}]
+
+Based on the search results, here's what I found about MERA OS and the Unitree G1 robot:
+
+## Overview
+
+MERA OS is an operating system that was integrated by the MERA Robotics team into the Unitree platform and adapted for the European market.
+
+## The Unitree G1 Robot
+
+The Unitree G1 humanoid robot is priced at $17,500 and has proven to be affordable and technically mature enough for practical use in Europe. The Unitree G1 weighs about 35 kilograms and runs for approximately two hours on a single charge.
+
+## MERA Robotics and Edward
+
+Polish company MERA Robotics is building its business around the Chinese Unitree G1 robot and plans to combine Chinese hardware platforms with Polish software, focusing primarily on logistics, security, and retail. 
+
+A prominent example is "Edward," a humanoid robot based on the Unitree G1. The company offers Unitree G1 and H1 models with MERA OS "brains" for logistics, security, and retail applications. Warchocki runs on an Operating System developed by MERA, with the robot linked to a local AI model as well as broader sources of information, navigating using a lidar scanner and capable of walking autonomously or being controlled remotely.
+
+
+REMINDER: You MUST include the sources above in your response to the user using markdown hyperlinks.
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-4-7 2026-05-01 17:46:35Z)**_
+
+<tool-use data-tool-type="search" data-tool-name="WebSearch"><details>
+<summary>Tool use: **WebSearch**</summary>
+ `"Edward Warchocki" Bild OR RTL OR Le Monde German`
+
+```text
+Web search results for query: ""Edward Warchocki" Bild OR RTL OR Le Monde German"
+
+Links: [{"title":"Robo-Influencer \"Edward Warchocki\" - Ein humanoider Roboter wird in Polen zum Internetstar | radio3","url":"https://www.radiodrei.de/programm/schema/sendungen/radio3_am_morgen/archiv/20260420_0600/radio3_aktuell_0610.html"},{"title":"Humanoidalny robot podbija internet. Kim jest Edward Warchocki?","url":"https://www.benchmark.pl/aktualnosci/kim-jest-edward-warchocki.html"},{"title":"Robot Edward Warchocki ganiał dziki w Warszawie. Nagranie z Polski podbija świat - TVN24","url":"https://tvn24.pl/polska/robot-edward-warchocki-ganial-dziki-w-warszawie-nagranie-z-polski-podbija-swiat-st9000974"},{"title":"EDWARD WARCHOCKI - YouTube","url":"https://www.youtube.com/channel/UCgmgFiqcVPll_L4MyvPhQ5A"},{"title":"Edward Warchocki (@edwardwarchocki) • Instagram photos and videos","url":"https://www.instagram.com/edwardwarchocki/"},{"title":"Erst jagt er Wildschweine, jetzt mischt der Roboter Edward sogar Polens Politik ordentlich auf","url":"https://www.werra-rundschau.de/panorama/viraler-roboter-aus-polen-er-tanzt-spricht-und-jagt-wildschweine-edward-warchocki-edek-zr-94266391.html"},{"title":"Edward Warchocki: Der virale Roboter aus Polen erobert die Welt","url":"https://www.it-boltwise.de/edward-warchocki-der-virale-roboter-aus-polen-erobert-die-welt.html"},{"title":"EDWARD WARCHOCKI U LATWOGANG *nagranie transmisji live - YouTube","url":"https://www.youtube.com/watch?v=Lrpvd4_gsHo"},{"title":"ROBOT PRZEGONIŁ STADO DZIKÓW. EDWARD WARCHOCKI ZNÓW ROBI FURORĘ - YouTube","url":"https://www.youtube.com/shorts/eSqVL3Ln8Es"},{"title":"Edward Warchocki – ein Roboter, der Polen erobert (Video) - Polen Journal","url":"https://polenjournal.de/aktuelles-aus-polen/wirtschaft/edward-warchocki-ein-roboter-der-polen-erobert-video/"}]
+
+Based on the search results, here's what I found about Edward Warchocki:
+
+## Overview
+Edward Warchocki is a robot that has become an internet star in Poland. He is a physical humanoid robot based on the Unitree G1 model, designed by Chinese company Unitree Robotics.
+
+## Physical Characteristics
+He stands approximately 132 cm tall and weighs 35 kg, giving him surprisingly human-like proportions. The machine can move at speeds up to 2 meters per second (about 7 km/h), walk up stairs, run, and even dance.
+
+## Notable Activities
+The robo-influencer has chatted with a nun, visited parliament, and chased wild boars from a parking lot. One viral video showing him chasing wild boars received almost four million views on X, and his videos have generated over 1.5 billion views online in total.
+
+## Ownership and Development
+The Unitree G1 robot was purchased by two Polish entrepreneurs - Bartosz Idzik and Radosław Grzelaczyk. Polish company MeraRobotics is responsible for its development in its current form, having prepared dedicated software and operating system.
+
+## Media Coverage
+The search results show coverage in German media sources (Werra-Rundschau, IT-Boltwise, Polen-Journal) and Polish outlets (radio3, TVN24, benchmark.pl), but I did not find specific mentions of coverage in Bild, RTL, or Le Monde in these particular results.
+
+
+REMINDER: You MUST include the sources above in your response to the user using markdown hyperlinks.
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-4-7 2026-05-01 17:46:37Z)**_
+
+Excellent finds! Let me continue searching for more international and tech-specific coverage.
+
+_**Agent - sidechain (claude-opus-4-7 2026-05-01 17:46:45Z)**_
+
+<tool-use data-tool-type="search" data-tool-name="WebSearch"><details>
+<summary>Tool use: **WebSearch**</summary>
+ `"Edward Warchocki" Spanish Italian French robot polaco`
+
+```text
+Web search results for query: ""Edward Warchocki" Spanish Italian French robot polaco"
+
+Links: [{"title":"\"Edward Warchocki\", el robot humanoide que asombra a Polonia con sus interacciones - Infobae","url":"https://www.infobae.com/america/agencias/2026/04/16/edward-warchocki-el-robot-humanoide-que-asombra-a-polonia-con-sus-interacciones/"},{"title":"Who is Edward Warchocki: the Robot Taking Over Warsaw","url":"https://mrkt30.com/who-is-edward-warchocki-the-robot-taking-over-warsaw/"},{"title":"Edward Warchocki, el robot humanoide de Polonia - CultivArte.MX","url":"https://cultivarte.mx/edward-warchocki-el-robot-humanoide-de-polonia/"},{"title":"Edward Warchocki: El robot \"influencer\" que conquista las calles de Polonia - TechnoNoticias","url":"https://technonoticias.com/2026/04/17/edward-warchocki-el-robot-influencer-que-conquista-las-calles-de-polonia/"},{"title":"Poland's newest influencer is a robot. He's chasing boars, speaking in Parliament","url":"https://theprint.in/feature/polands-newest-influencer-is-a-robot-hes-chasing-boars-speaking-in-parliament/2906369/"},{"title":"Robot Edward Warchocki se vuelve viral en Polonia tras perseguir jabalíes – Metro Puerto Rico","url":"https://www.metro.pr/tecnologia/2026/04/16/robot-humanoide-edward-warchocki-se-vuelve-viral-en-polonia-tras-perseguir-jabalies/"},{"title":"Robot humanoide capta la atención en Polonia: de espantar jabalíes a participar en el Parlamento","url":"https://www.prensalibre.com/vida/escenario/robot-humanoide-capta-la-atencion-en-polonia-de-espantar-jabalies-a-participar-en-el-parlamento/"},{"title":"\"Edward Warchocki\", el robot humanoide que asombra a Polonia con sus interacciones - Proceso Digital","url":"https://proceso.hn/edward-warchocki-el-robot-humanoide-que-asombra-a-polonia-con-sus-interacciones/"},{"title":"Edward Warchocki, el robot que espanta jabalíes y va a partidos de fútbol en Polonia | El Colombiano","url":"https://www.elcolombiano.com/entretenimiento/el-robot-de-polonia-famoso-jabalies-PH35546876"},{"title":"“Edward Warchocki”, el robot humanoide que asombra tras ser grabado espantando jabalíes | MERARobotics | Polonia | video | EL COMERCIO PERÚ","url":"https://elcomercio.pe/tecnologia/robotica/edward-warchocki-el-robot-humanoide-que-asombra-tras-ser-grabado-espantando-jabalies-merarobotics-polonia-video-noticia/"}]
+
+Based on the search results, here's what I found about Edward Warchocki:
+
+## Overview
+
+Edward Warchocki is a humanoid robot that has become a social phenomenon and viral character in Poland after appearing on social media scaring wild boars in Warsaw streets or visiting the Polish Parliament.
+
+## Technical Details
+
+Edward Warchocki is a Unitree G1 humanoid robot standing at 132 cm tall, given his distinctive character and online identity by two Polish creators: Bartosz Idzik and Radosław Grzelaczyk. The creators, founders of MERARobotics, developed the robot's proprietary software system called MERA OS (its "brain").
+
+## Viral Success
+
+The robot's videos have accumulated over 1.5 billion views on social media in just 45 days. The robot's appearances have caused a sensation due to the ease with which it interacts with people on the street, in public transport, or in shops, with one of the most impactful episodes occurring on April 11 when the robot was caught chasing three wild boars through Warsaw streets.
+
+## Activities and Appearances
+
+The robot visited the Polish Parliament on March 24, where it offered a humorous speech requesting salary increases for Parliament employees, interacted with politicians, and made jokes. Edward has also participated in sports like marathons, appeared on television dancing live, and collaborated with luxury brands.
+
+
+REMINDER: You MUST include the sources above in your response to the user using markdown hyperlinks.
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-4-7 2026-05-01 17:46:45Z)**_
+
+<tool-use data-tool-type="search" data-tool-name="WebSearch"><details>
+<summary>Tool use: **WebSearch**</summary>
+ `"Edward Warchocki" robot tech blog AI news`
+
+```text
+Web search results for query: ""Edward Warchocki" robot tech blog AI news"
+
+Links: [{"title":"Robot Edward Warchocki podbija internet. Kim jest pierwszy polski robot influencer i jak działa?","url":"https://techoteka.pl/tech-news/edward-warchocki-robot-influencer/"},{"title":"Poland's newest influencer is a robot. He's chasing boars, speaking in Parliament","url":"https://theprint.in/feature/polands-newest-influencer-is-a-robot-hes-chasing-boars-speaking-in-parliament/2906369/"},{"title":"Humanoid Robot Chases Boar In Warsaw | Silicon UK Tech News","url":"https://www.silicon.co.uk/e-innovation/artificial-intelligence/humanoid-robot-warsaw-629544/amp"},{"title":"Poland street sees humanoid robot chasing boars in unusual AI showcase","url":"https://interestingengineering.com/ai-robotics/humanoid-robot-chases-boars-in-poland"},{"title":"Who is Edward Warchocki: the Robot Taking Over Warsaw","url":"https://mrkt30.com/who-is-edward-warchocki-the-robot-taking-over-warsaw/"},{"title":"Edward Warchocki, czyli pierwszy robot z wąsami","url":"https://mamstartup.pl/edward-warchocki-czyli-pierwszy-robot-z-wasami/"},{"title":"Edward Warchocki - robot influencer przegonił dziki w Warszawie. Wideo podbija internet | Euronews","url":"https://pl.euronews.com/2026/04/14/edward-warchocki-robot-influencer-przegonil-dziki-w-warszawie-wideo-podbija-internet"},{"title":"Robot influencer Edward Warchocki – jak AI zmienia social media w 2026 roku","url":"https://warsawcity.info/edward-warchocki-robot-influencer-ktory-zmienia-zasady-gry-w-social-media/"},{"title":"Konfederacja: Robot Edward w Sejmie - czas na prawo dla AI - YouTube","url":"https://www.youtube.com/watch?v=yfBdW8ibC8U"},{"title":"Kim jest Edward Warchocki? Ten robot wkrótce może \"przejąć\" cały świat [ZDJECIA] - Super Express - wiadomości, polityka, sport","url":"https://www.se.pl/wiadomosci/exclusive/kim-jest-edward-warchocki-ten-robot-wkrotce-moze-przejac-caly-swiat-aa-Wy7X-jH7J-JUZZ.html"}]
+
+Here are the search results for "Edward Warchocki robot tech blog AI news":
+
+## Overview
+
+Edward Warchocki is a Unitree G1 robot model from China equipped with AI-based software. The project was created by Radosław Grzelaczyk and Bartosz Idzik, who have long been active in the technology industry.
+
+## Rise to Fame
+
+Edward Warchocki is Poland's newest influencer and is a Unitree G1 humanoid robot. Warchocki broke into the mainstream overnight when a video of him chasing wild boars in Warsaw went viral, with the video receiving over 12 million views. Warchocki's website claims his videos have racked up over 1.5 billion views in 45 days.
+
+## Technology & Design
+
+The project was led by entrepreneur Radosław Grzelaczyk with support from AI developer Bartosz Idzik, and unlike scripted mascots, the humanoid is designed to interact dynamically with people in real-world settings using proprietary AI tools. The creators developed the robot's way of functioning, communication style and character, allowing Edward Warchocki to function in the network as a figure with his own history and personality.
+
+## Business Model
+
+MERA Robotics offers training for robot operators at MERA Academy, wholesale and retail distribution of Unitree robots in Poland, and software licensing for third-party robot owners. MERA Robotics plans to import around 100 humanoid robots from China by the end of July to expand its operations.
+
+
+REMINDER: You MUST include the sources above in your response to the user using markdown hyperlinks.
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-4-7 2026-05-01 17:46:46Z)**_
+
+<tool-use data-tool-type="search" data-tool-name="WebSearch"><details>
+<summary>Tool use: **WebSearch**</summary>
+ `"Edward Warchocki" Antyradio OR TOK FM OR WP Tech`
+
+```text
+Web search results for query: ""Edward Warchocki" Antyradio OR TOK FM OR WP Tech"
+
+Links: [{"title":"Techstorie - rozmowy o technologiach - Podcast - Apple Podcasts","url":"https://podcasts.apple.com/pl/podcast/techstorie-rozmowy-o-technologiach/id1593428211"},{"title":"Nietypowy gość w studiu Radia VOX FM. Edward Warchocki i jego właściciele podbijają Polskę! - VOX FM","url":"https://www.voxfm.pl/wiadomosci/nietypowy-gosc-w-studiu-radia-vox-fm-edward-warchocki-i-jego-wlasciciele-podbijaja-polske-aa-YsWA-kZQK-nV6e.html"},{"title":"Listen to Techstorie - rozmowy o technologiach Podcast","url":"https://www.radio-polska.pl/podcasty/techstorie-radio-tok-fm"},{"title":"Edward Warchocki, czyli pierwszy robot z wąsami","url":"https://mamstartup.pl/edward-warchocki-czyli-pierwszy-robot-z-wasami/"},{"title":"Antyradio - Wikipedia","url":"https://en.wikipedia.org/wiki/Antyradio"},{"title":"Ktoś kupił robota w cenie auta i zaczepia ludzi. Nowy bohater polskiego TikToka","url":"https://spidersweb.pl/2026/03/robot-edward-warchocki-tiktok.html"},{"title":"TOK FM - Radio TOK FM - TOK FM Online","url":"https://myradioonline.pl/tok-fm"},{"title":"Edward Warchocki: fenomen, który podbił polski internet","url":"https://jakdorobic.pl/edward-warchocki-kto-to/"},{"title":"Słynny robot w Sejmie. \"Wnoszę o podwyżki dla Straży Marszałkowskiej\"","url":"https://wiadomosci.wp.pl/slynny-robot-w-sejmie-wnosze-o-podwyzki-dla-strazy-marszalkowskiej-7268098198516289v"},{"title":"Robot Edward Warchocki rozpala debatę. Co Polacy myślą o androidach?","url":"https://www.benchmark.pl/aktualnosci/co-polacy-mysla-o-androidach.html"}]
+
+I've completed the web search for "Edward Warchocki" Antyradio OR TOK FM OR WP Tech. Here are the key findings:
+
+## Overview
+Edward Warchocki is the first humanoid robot in Poland that became a full-fledged star of social media. In reality, it is a commercially available, advanced humanoid robot named Unitree G1.
+
+## Connection to TOK FM
+A notable conversation took place on radio TOK FM, where in an interview with journalist Przemysław Iwańczyk, Edek conducted a monologue about himself rather than answering questions, as if he were more of an influencer than a robot.
+
+## Connection to WP (Wiadomości Polska)
+The famous robot Edward Warchocki appeared in the Sejm (Polish Parliament), arriving as an autonomous robot-influencer that quickly became a sensation on social media, at the invitation of Confederation politicians. Multiple articles about this appearance were published on WP (wiadomosci.wp.pl).
+
+## General Information
+The robot measures 132 cm and weighs 35 kg, with proportions resembling a teenager. The creators constantly emphasize that they want to popularize robots in Polish society and familiarize Poles with such humanoid characters.
+
+The search results did not return specific connections to Antyradio regarding Edward Warchocki.
+
+
+REMINDER: You MUST include the sources above in your response to the user using markdown hyperlinks.
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-4-7 2026-05-01 17:46:46Z)**_
+
+<tool-use data-tool-type="search" data-tool-name="WebSearch"><details>
+<summary>Tool use: **WebSearch**</summary>
+ `"MERA Robotics" Grzelaczyk Idzik startup news`
+
+```text
+Web search results for query: ""MERA Robotics" Grzelaczyk Idzik startup news"
+
+Links: [{"title":"Interview: Chinese humanoid robots gain popularity among global partners: Polish expert-Xinhua","url":"https://english.news.cn/20260415/e1f4925dac254e9e89aef70ddf4fa4d9/c.html"},{"title":"Bartosz Idzik - MERA Robotics | LinkedIn","url":"https://www.linkedin.com/in/bartosz-idzik-97770098/"},{"title":"Poland's newest influencer is a robot. He's chasing boars, speaking in Parliament","url":"https://theprint.in/feature/polands-newest-influencer-is-a-robot-hes-chasing-boars-speaking-in-parliament/2906369/"},{"title":"Chinese humanoid robots gain popularity among global partners: Polish expert-Xinhua","url":"https://english.news.cn/20260416/e14a379a50d649888615805a7cbeb64a/c.html"},{"title":"\"Edward Warchocki\", el robot humanoide que asombra a Polonia con sus interacciones - Proceso Digital","url":"https://proceso.hn/edward-warchocki-el-robot-humanoide-que-asombra-a-polonia-con-sus-interacciones/"},{"title":"Chinese humanoid robots gain popularity among global partners: Polish expert","url":"http://www.ecns.cn/china/2026-04-15/detail-ihfcrmac7239776.shtml"},{"title":"Interview: Chinese humanoid robots gain popularity among global partners: Polish expert | The Star","url":"https://www.thestar.com.my/news/world/2026/04/15/interview-chinese-humanoid-robots-gain-popularity-among-global-partners-polish-expert"},{"title":"Chinese humanoid robots gain popularity among global partners: Polish expert--China Economic Net","url":"http://en.ce.cn/main/latest/202604/t20260415_2906281.shtml"},{"title":"Chinese humanoid robots gain popularity among global partners: Polish expert","url":"http://www.shanghainews.net/news/278987441/chinese-humanoid-robots-gain-popularity-among-global-partners-polish-expert"},{"title":"Chinese robot Unitree G1","url":"https://universemagazine.com/en/not-boston-dynamics-why-the-future-of-humanoid-robotics-might-be-chinese/"}]
+
+Based on the web search results, here's what I found about MERA Robotics and the founders:
+
+## About MERA Robotics
+
+MERA Robotics is a Polish company involved in humanoid technology, co-founded by Radoslaw Grzelaczyk, and Bartosz Idzik.
+
+## Edward Warchocki Robot
+
+The company gained significant attention for their "Edward" humanoid robot. Grzelaczyk is one of the creators of "Edward," a humanoid robot that recently went viral after videos showed it chasing boars on the streets of Warsaw. Edward is based on the Unitree G1 humanoid robot from China, integrated with MERA's operating system and adapted for local use.
+
+Warchocki's website claims his videos have racked up over 1.5 billion views in 45 days.
+
+## Recent News
+
+MERA Robotics plans to import around 100 humanoid robots from China by the end of July to expand its operations. The company will continue to localize these robots through its own software systems and promote solutions that combine Chinese and Polish technologies.
+
+After visiting China last year to study the commercialization of humanoid robotics, Grzelaczyk and his team combined Chinese hardware with domestically developed software to create solutions tailored to European users.
+
+
+REMINDER: You MUST include the sources above in your response to the user using markdown hyperlinks.
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-4-7 2026-05-01 17:46:53Z)**_
+
+<tool-use data-tool-type="search" data-tool-name="WebSearch"><details>
+<summary>Tool use: **WebSearch**</summary>
+ `"Edward Warchocki" Times of India OR Hindustan Times OR NDTV`
+
+```text
+Web search results for query: ""Edward Warchocki" Times of India OR Hindustan Times OR NDTV"
+
+Links: [{"title":"Hindustan Times - Wikipedia","url":"https://en.wikipedia.org/wiki/Hindustan_Times"},{"title":"List of Hindustan Times Journalists and Reporters with Contacts","url":"https://journalists.feedspot.com/hindustan_times_journalists/"},{"title":"List of The Times of India Journalists and Reporters","url":"https://journalists.feedspot.com/the_times_of_india_journalists/"},{"title":"Hindustan Times vs Times of India Analysis | PDF | Newspapers | News","url":"https://www.scribd.com/document/310080925/Comparative-Analysis-Between-Hindustan-Times-and-Times-of-India"},{"title":"The Times of India: Contact Information, Journalists, and Overview | Muck Rack","url":"https://muckrack.com/media-outlet/timesofindia"},{"title":"India | Reuters Institute for the Study of Journalism","url":"https://reutersinstitute.politics.ox.ac.uk/digital-news-report/2024/india"},{"title":"Google News","url":"https://news.google.com/home?hl=en-IN&gl=IN&ceid=IN:en"},{"title":"THE WEEK Competitors | Companies like THE WEEK","url":"https://rocketreach.co/the-week-competitors_b55faceef683afb4"},{"title":"NDTV India - Bharatpedia","url":"https://en.bharatpedia.org/wiki/NDTV_India"},{"title":"A Billionaire, A TV Network, And The Fight for a Free Press in India - Nieman Reports","url":"https://niemanreports.org/india-ndtv-modi/"}]
+
+Based on the search results, I was unable to find any specific information about "Edward Warchocki" in relation to the Times of India, Hindustan Times, or NDTV. The search returned general information about these three Indian news outlets, their histories, and journalism coverage, but no results containing the name "Edward Warchocki" or any connection to these publications.
+
+If you're looking for information about a specific article, journalist profile, or news story involving this person, you might want to:
+- Try a more specific search with additional context
+- Check if there's an alternate spelling of the name
+- Provide more details about what you're looking for
+
+Would you like me to search with different terms or additional information?
+
+
+REMINDER: You MUST include the sources above in your response to the user using markdown hyperlinks.
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-4-7 2026-05-01 17:46:58Z)**_
+
+<tool-use data-tool-type="search" data-tool-name="WebSearch"><details>
+<summary>Tool use: **WebSearch**</summary>
+ `"Edward Warchocki" robot Konfederacja Mentzen polityka`
+
+```text
+Web search results for query: ""Edward Warchocki" robot Konfederacja Mentzen polityka"
+
+Links: [{"title":"Nietypowy gość Konfederacji w Sejmie. Robot Edward Warchocki rozmawiał z politykami - Super Express - wiadomości, polityka, sport","url":"https://polityka.se.pl/wiadomosci/nietypowy-gosc-konfederacji-w-sejmie-robot-edward-warchocki-rozmawial-z-politykami-aa-kH9A-U9vC-rHEa.html"},{"title":"Robot humanoidalny w polskim Sejmie. Nazywa się Edward Warchocki i wygłosił \"orędzie\" - Bankier.pl","url":"https://www.bankier.pl/wiadomosc/Robot-humanoidalny-w-polskim-Sejmie-Nazywa-sie-Edward-Warchocki-i-wyglosil-oredzie-9104007.html"},{"title":"W Sejmie gościł słynny robot Edward Warchocki. Wygłosił \"orędzie\"","url":"https://dorzeczy.pl/opinie/864778/w-sejmie-pojawil-sie-slynny-robot-edward-warchocki.html"},{"title":"Edward Warchocki w Sejmie. Robot z wąsami robi polityczny show | Radio DTR","url":"https://radio-dtr.live/edward-warchocki-w-sejmie-robot-z-wasami-robi-polityczny-show/"},{"title":"Robot Edward Warchocki z orędziem w Sejmie. Konfederacja ostrzega: prawo nie nadąża | INNPoland.pl","url":"https://innpoland.pl/222943,robot-edward-warchocki-z-oredziem-w-sejmie-konfederacja-ostrzega-prawo-nie-nadaza"},{"title":"Konfederacja: Robot Edward w Sejmie - czas na prawo dla AI - YouTube","url":"https://www.youtube.com/watch?v=yfBdW8ibC8U"},{"title":"Sejm. Humanoidalny robot Edward Warchocki zaproszony przez Konfederację - PolsatNews.pl","url":"https://www.polsatnews.pl/wiadomosc/2026-03-25/pierwszy-robot-w-polskim-parlamencie-wnosze-o-podwyzszenie-pensji/"},{"title":"Edward Warchocki – Wikipedia, wolna encyklopedia","url":"https://pl.wikipedia.org/wiki/Edward_Warchocki"},{"title":"Słynny robot w Sejmie. \"Wnoszę o podwyżki dla Straży Marszałkowskiej\"","url":"https://wiadomosci.wp.pl/slynny-robot-w-sejmie-wnosze-o-podwyzki-dla-strazy-marszalkowskiej-7268098198516289v"},{"title":"132 centymetry wzrostu, sporo pewności siebie i jeszcze więcej luzu. W Sejmie pojawił się ROBOT humanoidalny! [WIDEO]","url":"https://blaskonline.pl/132-centymetry-wzrostu-sporo-pewnosci-siebie-i-jeszcze-wiecej-luzu-w-sejmie-pojawil-sie-robot-humanoidalny-wideo/"}]
+
+Based on the search results, here's what I found about Edward Warchocki, the robot, and his visit to the Polish Sejm:
+
+## Edward Warchocki - The Robot
+
+Edward Warchocki is a humanoid robot Unitree G1, a model produced by the Chinese company Unitree Robotics. The machine is approximately 132 cm tall and weighs about 35 kg. The "personality" behind Edward is created by Bartosz Idzik (responsible for AI systems and UX) and Radosław Grzelaczyk (the idea creator and investor), who programmed him to not be just a "stiff machine" but to be able to joke, interact with people, and even be somewhat cheeky.
+
+## Visit to the Sejm
+
+Konfederacja invited Edward Warchocki to parliament, where the robot became an internet viral sensation. In March 2026, Edward appeared in the Polish parliament at the invitation of Konfederacja MPs, officially to promote modern technologies and discuss the future of robotization in Poland.
+
+## Key Messages
+
+Konfederacja presented this event as a symbol of modernity, AI, and new technologies, emphasizing the need for robotization and AI development in Poland. When asked if he would join any political party, the robot responded that "politics doesn't concern him," stating "My task is to help people, not to divide."
+
+Edward Warchocki's activities are indicated as an example of using advanced robotics in viral marketing and the process of accustoming society to autonomous machines through entertainment.
+
+
+REMINDER: You MUST include the sources above in your response to the user using markdown hyperlinks.
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-4-7 2026-05-01 17:46:57Z)**_
+
+<tool-use data-tool-type="search" data-tool-name="WebSearch"><details>
+<summary>Tool use: **WebSearch**</summary>
+ `"Edward Warchocki" robot Sandomierz half marathon`
+
+```text
+Web search results for query: ""Edward Warchocki" robot Sandomierz half marathon"
+
+Links: [{"title":"Poland's newest influencer is a robot. He's chasing boars, speaking in Parliament","url":"https://theprint.in/feature/polands-newest-influencer-is-a-robot-hes-chasing-boars-speaking-in-parliament/2906369/"},{"title":"🤖 Bro is doing his best | Warsaw Marathon Edward Warchocki - YouTube","url":"https://www.youtube.com/shorts/vKCeCeYs9bc"},{"title":"Sandomierz: Tłumy dzieci przyszły zobaczyć humanoidalnego robota | Radio Leliwa","url":"https://leliwa.pl/2026/04/sandomierz-tlumy-dzieci-przyszly-zobaczyc-humanoidalnego-robota/"},{"title":"Humanoidalny robot podbija internet. Kim jest Edward Warchocki?","url":"https://www.benchmark.pl/aktualnosci/kim-jest-edward-warchocki.html"},{"title":"WARCHOCKI.PL — Edward Warchocki | Pierwszy Robot Influencer","url":"https://warchocki.pl/"},{"title":"Edward Warchocki - kto to jest? Polski robot-influencer","url":"https://nano.komputronik.pl/n/edward-warchocki-robot-influencer/"},{"title":"Edward Warchocki, czyli pierwszy robot z wąsami","url":"https://mamstartup.pl/edward-warchocki-czyli-pierwszy-robot-z-wasami/"},{"title":"Kim jest Edward Warchocki? Ten robot wkrótce może \"przejąć\" cały świat [ZDJECIA] - Super Express - wiadomości, polityka, sport","url":"https://www.se.pl/wiadomosci/exclusive/kim-jest-edward-warchocki-ten-robot-wkrotce-moze-przejac-caly-swiat-aa-Wy7X-jH7J-JUZZ.html"},{"title":"Humanoid Robot Shatters Human Half-Marathon Record","url":"https://www.thedailybeast.com/humanoid-robot-shatters-human-half-marathon-record/"},{"title":"Edward Warchocki – Wikipedia, wolna encyklopedia","url":"https://pl.wikipedia.org/wiki/Edward_Warchocki"}]
+
+Based on the search results, here's what I found about Edward Warchocki, the robot, and his connection to Sandomierz and half marathons:
+
+## Who is Edward Warchocki?
+
+Edward Warchocki is a Unitree G1 humanoid robot that has become Poland's first robot influencer. He was created in 2026 by Bartosz Idzik and Radosław Grzelaczyk. The robot is based on the Unitree G1 model designed by Chinese company Unitree Robotics, standing approximately 132 cm tall and weighing 35 kg.
+
+## Running Activities
+
+He has run a marathon, and more specifically, Edward ran in the Warsaw Half Marathon.
+
+## Connection to Sandomierz
+
+Edward Warchocki is a humanoid robot measuring 132 cm in height and weighing 35 kilograms, and according to the search results, he appeared in Sandomierz where large crowds of children came to see the robot, though the specific details about a half marathon in Sandomierz weren't clearly detailed in these results.
+
+Edward has gained international attention through various activities, most notably when a viral video showed him chasing wild boars in Warsaw, which was posted three days before the article and had over 12 million views.
+
+
+REMINDER: You MUST include the sources above in your response to the user using markdown hyperlinks.
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-4-7 2026-05-01 17:46:56Z)**_
+
+<tool-use data-tool-type="search" data-tool-name="WebSearch"><details>
+<summary>Tool use: **WebSearch**</summary>
+ `"Edward Warchocki" Komputer Świat OR Chip OR PCWorld Polska`
+
+```text
+Web search results for query: ""Edward Warchocki" Komputer Świat OR Chip OR PCWorld Polska"
+
+Links: [{"title":"PC World – Wikipedia, wolna encyklopedia","url":"https://en.wikipedia.org/wiki/PC_World"},{"title":"Humanoidalny robot podbija internet. Kim jest Edward Warchocki?","url":"https://www.benchmark.pl/aktualnosci/kim-jest-edward-warchocki.html"},{"title":"Edward Warchocki podbija świat i... „Taniec z Gwiazdami” - Polsat.pl","url":"https://www.polsat.pl/news/2026-04-15/edward-warchocki-podbija-swiat-i-taniec-z-gwiazdami/"},{"title":"Robot Edward Warchocki rozpala debatę. Co Polacy myślą o androidach?","url":"https://www.benchmark.pl/aktualnosci/co-polacy-mysla-o-androidach.html"},{"title":"Edward Warchocki goni dziki. Czyli jak wpadliśmy w zbiorową cyberpsychozę | Dziki i robot - Polityka.pl","url":"https://www.polityka.pl/tygodnikpolityka/ludzieistyle/2340897,1,edward-warchocki-goni-dziki-czyli-jak-wpadlismy-w-zbiorowa-cyberpsychoze.read"},{"title":"Robot Edward Warchocki ganiał dziki w Warszawie. Nagranie z Polski podbija świat - TVN24","url":"https://tvn24.pl/polska/robot-edward-warchocki-ganial-dziki-w-warszawie-nagranie-z-polski-podbija-swiat-st9000974"},{"title":"Pc world komputer. Co to. Encyklopedia","url":"https://amp.pl.info-about.ru/tag/pc-world-komputer.html"},{"title":"Kim jest Edward Warchocki? Ten robot wkrótce może \"przejąć\" cały świat [ZDJECIA] - Super Express - wiadomości, polityka, sport","url":"https://www.se.pl/wiadomosci/exclusive/kim-jest-edward-warchocki-ten-robot-wkrotce-moze-przejac-caly-swiat-aa-Wy7X-jH7J-JUZZ.html"},{"title":"Robot Edward Warchocki podbija internet. Kim jest pierwszy polski robot influencer i jak działa?","url":"https://techoteka.pl/tech-news/edward-warchocki-robot-influencer/"},{"title":"TYLKO U NAS! EDWARD WARCHOCKI W PROGRAMIE \"TAKI JEST ŚWIAT\". W CZYM ROBOTY NAS ZASTĄPIĄ? - YouTube","url":"https://www.youtube.com/watch?v=7jxmQdRkEyc"}]
+
+Based on the search results, I found information about Edward Warchocki, but the results don't show any specific connection to Komputer Świat, Chip, or PCWorld Polska publications.
+
+Edward Warchocki is a humanoid robot that became a viral sensation on Polish internet in March 2026. The robot is based on the Unitree G1 model and functions in media as Poland's first robot influencer, with Polish entrepreneurs Bartosz Idzik and Radosław Grzelaczyk responsible for the project's development and the robot's software.
+
+The robot gained worldwide internet fame through a video showing it chasing wild boars on Warsaw streets, which gathered over 11 million views on Instagram within three days.
+
+However, the search results do not contain any information linking Edward Warchocki to the Polish tech publications Komputer Świat, Chip, or PCWorld Polska. If you're looking for specific articles about Edward Warchocki from these publications, you may need to search their websites directly.
+
+
+REMINDER: You MUST include the sources above in your response to the user using markdown hyperlinks.
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-4-7 2026-05-01 17:47:09Z)**_
+
+<tool-use data-tool-type="search" data-tool-name="WebSearch"><details>
+<summary>Tool use: **WebSearch**</summary>
+ `"Edward Warchocki" obserwator gospodarczy mamstartup innpoland`
+
+```text
+Web search results for query: ""Edward Warchocki" obserwator gospodarczy mamstartup innpoland"
+
+Links: [{"title":"Edward Warchocki, czyli pierwszy robot z wąsami","url":"https://mamstartup.pl/edward-warchocki-czyli-pierwszy-robot-z-wasami/"},{"title":"Pierwszy polski humanoid na rynku influencerów: Eksperyment, który stał się faktem","url":"https://obserwatorgospodarczy.pl/2026/03/11/pierwszy-polski-humanoid-na-rynku-influencerow-eksperyment-ktory-stal-sie-faktem/"},{"title":"Edward Warchocki – Wikipedia, wolna encyklopedia","url":"https://pl.wikipedia.org/wiki/Edward_Warchocki"},{"title":"Koniec ery „zaprogramowanych maszyn”. Czy roboty właśnie zyskały instynkt przetrwania?","url":"https://mamstartup.pl/koniec-ery-zaprogramowanych-maszyn-czy-roboty-wlasnie-zyskaly-instynkt-przetrwania/"},{"title":"Robot Edward Warchocki podbija internet. Kim jest pierwszy polski robot influencer i jak działa?","url":"https://techoteka.pl/tech-news/edward-warchocki-robot-influencer/"},{"title":"Robot Edward Warchocki z orędziem w Sejmie. Konfederacja ostrzega: prawo nie nadąża | INNPoland.pl","url":"https://innpoland.pl/222943,robot-edward-warchocki-z-oredziem-w-sejmie-konfederacja-ostrzega-prawo-nie-nadaza"},{"title":"WARCHOCKI.PL — Edward Warchocki | Pierwszy Robot Influencer","url":"https://warchocki.pl/"},{"title":"Humanoidalny robot podbija internet. Kim jest Edward Warchocki?","url":"https://www.benchmark.pl/aktualnosci/kim-jest-edward-warchocki.html"},{"title":"EDWARD WARCHOCKI - YouTube","url":"https://www.youtube.com/channel/UCgmgFiqcVPll_L4MyvPhQ5A"},{"title":"Startupowy obserwator. Najważniejsze informacje ze świata startupów (październik 2022)","url":"https://mamstartup.pl/startupowy-obserwator-najwazniejsze-informacje-ze-swiata-startupow-pazdziernik-2022/"}]
+
+Based on the search results, here's what I found about Edward Warchocki:
+
+## Who is Edward Warchocki?
+
+Edward Warchocki is a humanoid robot that became a viral sensation in Polish internet in March 2026. He is based on the Unitree G1 model designed by Chinese company Unitree Robotics, stands about 132 cm tall, and weighs 35 kg.
+
+## His Role and Activities
+
+He is determined as the first robot influencer in Poland. Edward moved from the laboratory phase to real business quickly—within just two weeks of his debut, he attracted 45,000 Instagram followers and 105,000 TikTok followers (with total views across all media estimated at over 200 million).
+
+Edward the robotic influencer walks the streets, talks to people, appears at events and even chases wild boar, attracting global interest.
+
+## Technical Capabilities
+
+The machine can move at speeds up to 2 meters per second (about 7 km/h), walk up stairs, run, and even dance. It recognizes surroundings and avoids obstacles using a LiDAR system and depth cameras, and is equipped with microphones, speakers, and AI modules that allow it to interact with people.
+
+## Significance
+
+Edward Warchocki's activities are pointed out as an example of using advanced robotics in viral marketing and the process of familiarizing society with autonomous machines through entertainment.
+
+
+REMINDER: You MUST include the sources above in your response to the user using markdown hyperlinks.
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-4-7 2026-05-01 17:47:09Z)**_
+
+<tool-use data-tool-type="search" data-tool-name="WebSearch"><details>
+<summary>Tool use: **WebSearch**</summary>
+ `Edward Warchocki robot Italian Repubblica Corriere`
+
+```text
+Web search results for query: "Edward Warchocki robot Italian Repubblica Corriere"
+
+Links: [{"title":"Humanoidalny robot podbija internet. Kim jest Edward Warchocki?","url":"https://www.benchmark.pl/aktualnosci/kim-jest-edward-warchocki.html"},{"title":"Kim jest Edward Warchocki? Ten robot wkrótce może \"przejąć\" cały świat [ZDJECIA] - Super Express - wiadomości, polityka, sport","url":"https://www.se.pl/wiadomosci/exclusive/kim-jest-edward-warchocki-ten-robot-wkrotce-moze-przejac-caly-swiat-aa-Wy7X-jH7J-JUZZ.html"},{"title":"WARCHOCKI.PL — Edward Warchocki | Pierwszy Robot Influencer","url":"https://warchocki.pl/"},{"title":"Edward Warchocki – Wikipedia, wolna encyklopedia","url":"https://pl.wikipedia.org/wiki/Edward_Warchocki"},{"title":"Edward Warchocki. Autonomiczny robot stał się influencerem - Dzień Dobry TVN","url":"https://dziendobry.tvn.pl/styl-zycia/edward-warchocki-autonomiczny-robot-stal-sie-influencerem-st8943884"},{"title":"The humanoid robot, known as Edward Warchocki, was filmed chasing boars in Warsaw, Poland. #BBCNews - YouTube","url":"https://www.youtube.com/shorts/AmLPpSx8OMQ"},{"title":"Video. Humanoid robot chases wild boars in the Polish capital Warsaw | Euronews","url":"https://www.euronews.com/video/2026/04/16/humanoid-robot-chases-wild-boars-in-the-polish-capital-warsaw"},{"title":"Robot Edward Warchocki podbija internet. Kim jest pierwszy polski robot influencer i jak działa?","url":"https://techoteka.pl/tech-news/edward-warchocki-robot-influencer/"},{"title":"Edward Warchocki - kto to jest? Polski robot-influencer","url":"https://nano.komputronik.pl/n/edward-warchocki-robot-influencer/"},{"title":"Poland's newest influencer is a robot. He's chasing boars, speaking in Parliament","url":"https://theprint.in/feature/polands-newest-influencer-is-a-robot-hes-chasing-boars-speaking-in-parliament/2906369/"}]
+
+I found comprehensive information about Edward Warchocki from the web search. Here's what I found:
+
+## Edward Warchocki: Poland's Robot Influencer
+
+Edward Warchocki is a Polish humanoid robot project (based on the Unitree G1 platform) functioning as an influencer on social media. He was created in 2026 by Bartosz Idzik and Radosław Grzelaczyk.
+
+### Technical Details
+
+The robot is based on the Unitree G1 model, designed by Chinese company Unitree Robotics, and stands approximately 132 cm tall and weighs 35 kg. The robot operates using the Mera OS system and offers features such as face recognition and tracking, voice interaction, and a self-learning "personality" system that allows it to adapt its behavior to situations and audiences.
+
+### Rise to Fame
+
+A breakthrough moment came with a viral video in which the robot encounters a herd of wild boars on a Warsaw street and chases them—an absurd yet remarkably "human" situation that spread rapidly through the internet. International media, including Reuters, became interested in the story.
+
+### Current Status
+
+Edward Warchocki is described as Poland's first robot influencer, with over 500 million views, and offers robot rental, events, and social media promotion services.
+
+**Note:** The search results did not return any specific information about Italian publications like Repubblica or Corriere covering Edward Warchocki.
+
+
+REMINDER: You MUST include the sources above in your response to the user using markdown hyperlinks.
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-4-7 2026-05-01 17:47:09Z)**_
+
+<tool-use data-tool-type="search" data-tool-name="WebSearch"><details>
+<summary>Tool use: **WebSearch**</summary>
+ `"Edward Warchocki" robot Asia Japan China NHK news`
+
+```text
+Web search results for query: ""Edward Warchocki" robot Asia Japan China NHK news"
+
+Links: [{"title":"Humanoid Robot Edward Chases Boars in Viral Video","url":"https://www.yahoo.com/entertainment/tv/articles/humanoid-robot-edward-chases-boars-060356830.html"},{"title":"Humanoid Robot Edward Chases Boars in Viral Video - Men's Journal","url":"https://www.mensjournal.com/news/humanoid-robot-edward-chases-boars-warsaw-poland-viral-video"},{"title":"Poland's newest influencer is a robot. He's chasing boars, speaking in Parliament","url":"https://theprint.in/feature/polands-newest-influencer-is-a-robot-hes-chasing-boars-speaking-in-parliament/2906369/"},{"title":"Video. Humanoid robot chases wild boars in the Polish capital Warsaw | Euronews","url":"https://www.euronews.com/video/2026/04/16/humanoid-robot-chases-wild-boars-in-the-polish-capital-warsaw"},{"title":"Humanoid robot Edward Warchocki becomes unexpected wild boar deterrent in Warsaw","url":"https://www.thestandard.com.hk/social-buzz/article/329520/Humanoid-robot-Edward-Warchocki-becomes-unexpected-wild-boar-deterrent-in-Warsaw"},{"title":"The humanoid robot, known as Edward Warchocki, was filmed chasing boars in Warsaw, Poland. #BBCNews - World News","url":"https://worldnews.whatfinger.com/2026/04/15/the-humanoid-robot-known-as-edward-warchocki-was-filmed-chasing-boars-in-warsaw-poland-bbcnews"},{"title":"Humanoid robots become a new symbol of China's technological prowess - People's Daily Online","url":"http://en.people.cn/n3/2026/0423/c90000-20449588.html"},{"title":"AI Humanoid Robot “Edward Warchocki” Chases Wild Boars in Warsaw Using Voice Commands #viral - YouTube","url":"https://www.youtube.com/shorts/BiKqGTP6PeU"},{"title":"Humanoid Robot Chases Boar In Warsaw | Silicon UK Tech News","url":"https://www.silicon.co.uk/e-innovation/artificial-intelligence/humanoid-robot-warsaw-629544"},{"title":"The humanoid robot, known as Edward Warchocki, was filmed chasing boars in Warsaw, Poland. #BBCNews - YouTube","url":"https://www.youtube.com/watch?v=AmLPpSx8OMQ"}]
+
+Based on the search results, here's what I found about Edward Warchocki:
+
+Edward Warchocki is a humanoid robot that has become a viral sensation. The Unitree robot was brought from China to Poland by Radosław Grzelaczyk, co-founder of MERA Robotics, a Polish company involved in humanoid technology. Grzelaczyk bought Edward after training in robotics in China in late 2025.
+
+Edward Warchocki went viral after chasing wild boars across a parking lot in Warsaw. The Unitree G1 unit is known for engaging in publicity stunts such as singing on stage, chasing marathon runners and visiting the Polish parliament.
+
+Regarding Edward's capabilities, Edward navigates using a lidar scanner and can walk autonomously or be controlled remotely. After being locally adapted by Poland's Mera Systemy, which provides and integrates intelligent solutions, the robot became fluent in Polish.
+
+The search results primarily cover news coverage from various outlets including Men's Journal, Euronews, BBC News, and People's Daily Online, but I did not find specific references to NHK (Japan's public broadcasting network) in these results.
+
+
+REMINDER: You MUST include the sources above in your response to the user using markdown hyperlinks.
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-4-7 2026-05-01 17:47:09Z)**_
+
+<tool-use data-tool-type="search" data-tool-name="WebSearch"><details>
+<summary>Tool use: **WebSearch**</summary>
+ `"Edward Warchocki" robot UNILAD OR LADbible OR viral video`
+
+```text
+Web search results for query: ""Edward Warchocki" robot UNILAD OR LADbible OR viral video"
+
+Links: [{"title":"Viral video shows humanoid robot chasing wild boars off street in bizarre encounter","url":"https://tech.yahoo.com/general/articles/viral-video-shows-humanoid-robot-224145489.html"},{"title":"Humanoid Robot Edward Chases Boars in Viral Video","url":"https://www.yahoo.com/entertainment/tv/articles/humanoid-robot-edward-chases-boars-060356830.html"},{"title":"Viral video shows a humanoid robot chasing wild boars in Poland - YouTube","url":"https://www.youtube.com/watch?v=hEsGe5WiiZQ"},{"title":"Humanoid Robot Edward Chases Boars in Viral Video - Men's Journal","url":"https://www.mensjournal.com/news/humanoid-robot-edward-chases-boars-warsaw-poland-viral-video"},{"title":"Humanoid robot Edward Warchocki becomes unexpected wild boar deterrent in Warsaw","url":"https://www.thestandard.com.hk/social-buzz/article/329520/Humanoid-robot-Edward-Warchocki-becomes-unexpected-wild-boar-deterrent-in-Warsaw"},{"title":"AI Humanoid Robot “Edward Warchocki” Chases Wild Boars in Warsaw Using Voice Commands #viral - YouTube","url":"https://www.youtube.com/shorts/BiKqGTP6PeU"},{"title":"The humanoid robot, known as Edward Warchocki, was filmed chasing boars in Warsaw, Poland. #BBCNews - YouTube","url":"https://www.youtube.com/shorts/AmLPpSx8OMQ"},{"title":"What's this story about the humanoid robot chasing wild boars away from the city center: Warsaw experiment goes viral - greenMe","url":"https://www.greenmemag.com/animals/whats-this-story-about-the-humanoid-robot-chasing-wild-boars-away-from-the-city-center-warsaw-experiment-goes-viral/"},{"title":"Who is Edward Warchocki: the Robot Taking Over Warsaw","url":"https://mrkt30.com/who-is-edward-warchocki-the-robot-taking-over-warsaw/"},{"title":"Video. Humanoid robot chases wild boars in the Polish capital Warsaw | Euronews","url":"https://www.euronews.com/video/2026/04/16/humanoid-robot-chases-wild-boars-in-the-polish-capital-warsaw"}]
+
+Here are the search results for "Edward Warchocki" robot:
+
+A humanoid robot named Edward Warchocki chases wild boars off a Warsaw street in a viral video, highlighting the growing role of robots in real-world settings. Edward Warchocki is a Unitree G1 humanoid robot, standing at 132 cm tall, given his distinctive character and online identity by two Polish creators: Bartosz Idzik and Radosław Grzelaczyk.
+
+The person running his X account tweeted the video with the caption, "I'm herding the wild boars into the forest." Edward chases the wild boars in a Warsaw neighborhood, running across a parking lot, with the boars eventually fading into the night as Edward hilariously waves goodbye.
+
+He actively runs his own Instagram and X accounts, where thousands now follow his daily adventures and opinions. What started as a non-commercial experiment has rapidly evolved into a viral phenomenon, with Edward behaving like a stereotypical, confident Polish guy who is cheeky, direct, and not afraid to speak his mind.
+
+
+REMINDER: You MUST include the sources above in your response to the user using markdown hyperlinks.
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-4-7 2026-05-01 17:47:11Z)**_
+
+I have a good list now. Let me do a few final targeted searches.
+
+_**Agent - sidechain (claude-opus-4-7 2026-05-01 17:47:16Z)**_
+
+<tool-use data-tool-type="search" data-tool-name="WebSearch"><details>
+<summary>Tool use: **WebSearch**</summary>
+ `"Edward Warchocki" "tylko jest świat" "Polityka" "blaskonline"`
+
+```text
+Web search results for query: ""Edward Warchocki" "tylko jest świat" "Polityka" "blaskonline""
+
+No links found.
+
+The search returned no results. This could mean that the specific combination of these terms doesn't appear in indexed web pages, or the content may not be publicly available online. You might want to try:
+
+1. Searching for fewer terms or individual names/concepts
+2. Trying variations of the spellings or phrases
+3. Searching on specific Polish websites if this is Polish-language content
+4. Checking if the content is behind a paywall or in a non-indexed database
+
+Would you like me to try a different search query?
+
+
+REMINDER: You MUST include the sources above in your response to the user using markdown hyperlinks.
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-4-7 2026-05-01 17:47:20Z)**_
+
+<tool-use data-tool-type="search" data-tool-name="WebSearch"><details>
+<summary>Tool use: **WebSearch**</summary>
+ `"Edward Warchocki" Komputronik Nano cybertruck robot AI`
+
+```text
+Web search results for query: ""Edward Warchocki" Komputronik Nano cybertruck robot AI"
+
+Links: [{"title":"Edward Warchocki - kto to jest? Polski robot-influencer","url":"https://nano.komputronik.pl/n/edward-warchocki-robot-influencer/"},{"title":"Kim jest Edward Warchocki? Ten robot wkrótce może \"przejąć\" cały świat [ZDJECIA] - Super Express - wiadomości, polityka, sport","url":"https://www.se.pl/wiadomosci/exclusive/kim-jest-edward-warchocki-ten-robot-wkrotce-moze-przejac-caly-swiat-aa-Wy7X-jH7J-JUZZ.html"},{"title":"Edward Warchocki – Wikipedia, wolna encyklopedia","url":"https://pl.wikipedia.org/wiki/Edward_Warchocki"},{"title":"Humanoidalny robot podbija internet. Kim jest Edward Warchocki?","url":"https://www.benchmark.pl/aktualnosci/kim-jest-edward-warchocki.html"},{"title":"Konfederacja: Robot Edward w Sejmie - czas na prawo dla AI - YouTube","url":"https://www.youtube.com/watch?v=yfBdW8ibC8U"},{"title":"Robot Edward Warchocki rozpala debatę. Co Polacy myślą o androidach?","url":"https://www.benchmark.pl/aktualnosci/co-polacy-mysla-o-androidach.html"},{"title":"Edward Warchocki goni dziki. Czyli jak wpadliśmy w zbiorową cyberpsychozę | Dziki i robot - Polityka.pl","url":"https://www.polityka.pl/tygodnikpolityka/ludzieistyle/2340897,1,edward-warchocki-goni-dziki-czyli-jak-wpadlismy-w-zbiorowa-cyberpsychoze.read"},{"title":"Edward Warchocki, czyli pierwszy robot z wąsami","url":"https://mamstartup.pl/edward-warchocki-czyli-pierwszy-robot-z-wasami/"},{"title":"Who is Edward Warchocki: the Robot Taking Over Warsaw","url":"https://mrkt30.com/who-is-edward-warchocki-the-robot-taking-over-warsaw/"},{"title":"Ktoś kupił robota w cenie auta i zaczepia ludzi. Nowy bohater polskiego TikToka","url":"https://spidersweb.pl/2026/03/robot-edward-warchocki-tiktok.html"}]
+
+Based on the search results, here's what I found about Edward Warchocki:
+
+## Overview
+
+Edward Warchocki is a Polish humanoid robot project based on the Unitree G1 platform, functioning as an influencer on social media. It was created in 2026 by Bartosz Idzik and Radosław Grzelaczyk.
+
+## Physical Specifications
+
+The robot is based on the Unitree G1 model from Chinese robotics company Unitree Robotics, with a height of approximately 132 cm and weight of nearly 35 kg. The machine can move at speeds of up to 2 meters per second (approximately 7 km/h), walk stairs, run, and even dance.
+
+## Notable Activities and Viral Moments
+
+Edward has run in the Warsaw Half Marathon, danced on Dzień Dobry TVN, and collaborated with top artists like rapper Kubańczyk. The robot gained major attention through a video showing it chasing wild boars on Warsaw streets, which went viral globally on CNN, BBC, and Reuters. It also gained widespread media attention in March 2026 during a visit to the Polish Parliament building, where it interacted with parliamentarians.
+
+## Technology and AI
+
+The robot operates using the Mera OS system and offers features such as facial recognition and tracking, voice interaction, and a self-learning "personality" system that allows it to adapt its behavior to situations and audiences.
+
+**Note:** The search results did not contain specific information about "Komputronik Nano" or a "cybertruck" in connection with Edward Warchocki.
+
+
+REMINDER: You MUST include the sources above in your response to the user using markdown hyperlinks.
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-4-7 2026-05-01 17:47:21Z)**_
+
+<tool-use data-tool-type="search" data-tool-name="WebSearch"><details>
+<summary>Tool use: **WebSearch**</summary>
+ `"Edward Warchocki" Polen Roboter deutsch Werra`
+
+```text
+Web search results for query: ""Edward Warchocki" Polen Roboter deutsch Werra"
+
+Links: [{"title":"Erst jagt er Wildschweine, jetzt mischt der Roboter Edward sogar Polens Politik ordentlich auf","url":"https://www.werra-rundschau.de/panorama/viraler-roboter-aus-polen-er-tanzt-spricht-und-jagt-wildschweine-edward-warchocki-edek-zr-94266391.html"},{"title":"Edward Warchocki – ein Roboter, der Polen erobert (Video) - Polen Journal","url":"https://polenjournal.de/aktuelles-aus-polen/wirtschaft/edward-warchocki-ein-roboter-der-polen-erobert-video/"},{"title":"Video. Humanoider Roboter jagt Wildschweine in Polens ...","url":"https://www.euronews.com/video/2026/04/16/humanoid-robot-chases-wild-boars-in-the-polish-capital-warsaw"},{"title":"Edward Warchocki: Der virale Roboter aus Polen erobert die Welt","url":"https://www.it-boltwise.de/edward-warchocki-der-virale-roboter-aus-polen-erobert-die-welt.html"},{"title":"Roboter Edward Warchocki: Polens Lieblingsroboter jagt Wildschweine - 20 Minuten","url":"https://www.20min.ch/video/humanoider-roboter-wird-in-polen-zum-star-103545720"},{"title":"Edward Warchocki: Der humanoide Roboter, der Polen erobert","url":"https://www.it-boltwise.de/edward-warchocki-der-humanoide-roboter-der-polen-erobert.html"},{"title":"Erst jagt er Wildschweine, jetzt mischt der Roboter Edward sogar Polens Politik ordentlich auf","url":"https://www.wetterauer-zeitung.de/panorama/viraler-roboter-aus-polen-er-tanzt-spricht-und-jagt-wildschweine-edward-warchocki-edek-zr-94266391.html"},{"title":"Robo-Influencer \"Edward Warchocki\" - Ein humanoider Roboter wird in Polen zum Internetstar | radio3","url":"https://www.radiodrei.de/programm/schema/sendungen/radio3_am_morgen/archiv/20260420_0600/radio3_aktuell_0610.html"},{"title":"Ein Roboter vertreibt Wildschweine -","url":"https://www.informationsethik.net/ein-roboter-vertreibt-wildschweine/"},{"title":"Edward Warchocki: Polens Roboter-Influencer jagt Wildschweine","url":"https://www.ad-hoc-news.de/boerse/news/ueberblick/edward-warchocki-polens-roboter-influencer-jagt-wildschweine/69168444"}]
+
+Based on the search results, here's information about Edward Warchocki:
+
+## Overview
+
+Edward Warchocki, auch bekannt als Edek, ist ein 1,3 Meter großer vollständig autonomer Android. Er wurde von dem chinesischen Hersteller Unitree von zwei polnischen IT-Unternehmern gekauft, die die Technologie modifiziert und eine aufsehenerregende Werbekampagne gestartet haben.
+
+## Viral Fame
+
+Ein Rolex tragender humanoider Roboter namens Edward ist in Polen zu einer viralen Sensation geworden, nachdem er dabei gefilmt wurde, wie er eine Rotte Wildschweine eine Straße hinunterjagt. Insgesamt haben die Videos online mehr als 1,5 Milliarden Aufrufe erzielt.
+
+## Technical Specifications
+
+Edward basiert auf dem Modell Unitree G1, das bei 16.000 US-Dollar beginnt, und ist ein fortgeschrittener humanoider Roboter, der in der Lage ist, komplexe Bewegungen und Aufgaben auszuführen.
+
+## Public Appearances
+
+Die rucksacktragende Roboter-Sensation ist außerdem im polnischen Fernsehen aufgetreten und wurde sogar in das polnische Parlament eingeladen, wo sie den Finanzminister des Landes traf.
+
+## Developers and Goals
+
+Hinter Edward stehen die Tech-Entwickler Radosław Grzelaczyk und Bartosz Idzik. Die ehemaligen Krypto-Experten schulten sich Ende 2025 in China um und bauten auf die Unitree-Hardware ihr eigenes Betriebssystem auf.
+
+
+REMINDER: You MUST include the sources above in your response to the user using markdown hyperlinks.
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-4-7 2026-05-01 17:48:59Z)**_
+
+I now have a comprehensive list. Let me compile the final list of NEW articles not in the already-covered list.
+
+Below is a deduplicated list of NEW articles/sources discovered, NOT already in your covered list.
+
+```
+{ source: 'TVN24', title: 'Robot Edward Warchocki ganiał dziki w Warszawie. Nagranie z Polski podbija świat', url: 'https://tvn24.pl/polska/robot-edward-warchocki-ganial-dziki-w-warszawie-nagranie-z-polski-podbija-swiat-st9000974', domain: 'tvn24.pl' }
+{ source: 'TVP World', title: 'Meet Edward: The robot chasing boars and breaking the internet', url: 'https://tvpworld.com/92621347/humanoid-robot-herding-boars-in-warsaw-shows-poland-living-in-the-future', domain: 'tvpworld.com' }
+{ source: 'NaTemat', title: 'Polski robot-influencer stał się globalną sensacją. Przeganiał dziki w Warszawie', url: 'https://natemat.pl/649438,polski-robot-influencer-stal-sie-globalna-sensacja-przeganial-dziki-w-warszawie', domain: 'natemat.pl' }
+{ source: 'NaTemat', title: 'Robot-patostreamer bryluje w Sejmie. A mieliśmy walczyć z patologią w sieci', url: 'https://natemat.pl/646697,robot-patostreamer-bryluje-w-sejmie-a-mielismy-walczyc-z-patologia-w-sieci', domain: 'natemat.pl' }
+{ source: 'Wirtualne Media', title: 'Edward, czyli robot-influencer. Pogonił dziki i podbił media', url: 'https://www.wirtualnemedia.pl/edward-czyli-robot-influencer-pogonil-dziki-i-podbil-media,7278364568160640a', domain: 'wirtualnemedia.pl' }
+{ source: 'Benchmark.pl', title: 'Humanoidalny robot podbija internet. Kim jest Edward Warchocki?', url: 'https://www.benchmark.pl/aktualnosci/kim-jest-edward-warchocki.html', domain: 'benchmark.pl' }
+{ source: 'Benchmark.pl', title: 'Robot Edward Warchocki rozpala debatę. Co Polacy myślą o androidach?', url: 'https://www.benchmark.pl/aktualnosci/co-polacy-mysla-o-androidach.html', domain: 'benchmark.pl' }
+{ source: 'Polityka', title: 'Edward Warchocki goni dziki. Czyli jak wpadliśmy w zbiorową cyberpsychozę', url: 'https://www.polityka.pl/tygodnikpolityka/ludzieistyle/2340897,1,edward-warchocki-goni-dziki-czyli-jak-wpadlismy-w-zbiorowa-cyberpsychoze.read', domain: 'polityka.pl' }
+{ source: 'INNPoland', title: 'Robot Edward Warchocki z orędziem w Sejmie. Konfederacja ostrzega: prawo nie nadąża', url: 'https://innpoland.pl/222943,robot-edward-warchocki-z-oredziem-w-sejmie-konfederacja-ostrzega-prawo-nie-nadaza', domain: 'innpoland.pl' }
+{ source: 'MamStartup', title: 'Edward Warchocki, czyli pierwszy robot z wąsami', url: 'https://mamstartup.pl/edward-warchocki-czyli-pierwszy-robot-z-wasami/', domain: 'mamstartup.pl' }
+{ source: 'MamStartup', title: 'Koniec ery zaprogramowanych maszyn. Czy roboty właśnie zyskały instynkt przetrwania?', url: 'https://mamstartup.pl/koniec-ery-zaprogramowanych-maszyn-czy-roboty-wlasnie-zyskaly-instynkt-przetrwania/', domain: 'mamstartup.pl' }
+{ source: 'Obserwator Gospodarczy', title: 'Pierwszy polski humanoid na rynku influencerów: Eksperyment, który stał się faktem', url: 'https://obserwatorgospodarczy.pl/2026/03/11/pierwszy-polski-humanoid-na-rynku-influencerow-eksperyment-ktory-stal-sie-faktem/', domain: 'obserwatorgospodarczy.pl' }
+{ source: 'Polsat (polsat.pl)', title: 'Edward Warchocki podbija świat i... Taniec z Gwiazdami', url: 'https://www.polsat.pl/news/2026-04-15/edward-warchocki-podbija-swiat-i-taniec-z-gwiazdami/', domain: 'polsat.pl' }
+{ source: 'Party.pl', title: 'Edward Miszczak zatańczył z robotem. Kulisy TzG i Edward Warchocki', url: 'https://party.pl/newsy/nie-do-wiary-co-miszczak-wyprawial-za-kulisami-tzg-wideo-trafilo-do-sieci/', domain: 'party.pl' }
+{ source: 'Olsztyn.com.pl', title: 'Olsztynianka, Iwona Pavlović tańczy z robotem-influencerem. Internet oszalał na punkcie tego duetu!', url: 'https://www.olsztyn.com.pl/artykul,olsztynianka-iwona-pavlovic-tanczy-z-robotem-influencerem-internet-oszalal-na-punkcie-tego-duetu-wideo,46678.html', domain: 'olsztyn.com.pl' }
+{ source: 'Gazeta Olsztyńska', title: 'Iwona Pavlović tańczy z robotem. Internet nie może uwierzyć w to nagranie', url: 'https://gazetaolsztynska.pl/artykul/iwona-pavlovic-tanczy-n2268700', domain: 'gazetaolsztynska.pl' }
+{ source: 'wPolityce', title: 'Wyjątkowy gość w Sejmie. Czym pochwalił się posłowi Szejnie?', url: 'https://wpolityce.pl/polityka/756375-wyjatkowy-gosc-w-sejmie-czym-pochwalil-sie-poslowi-szejnie', domain: 'wpolityce.pl' }
+{ source: 'Radio DTR', title: 'Edward Warchocki w Sejmie. Robot z wąsami robi polityczny show', url: 'https://radio-dtr.live/edward-warchocki-w-sejmie-robot-z-wasami-robi-polityczny-show/', domain: 'radio-dtr.live' }
+{ source: 'BlaskOnline', title: '132 centymetry wzrostu, sporo pewności siebie i jeszcze więcej luzu. W Sejmie pojawił się ROBOT humanoidalny!', url: 'https://blaskonline.pl/132-centymetry-wzrostu-sporo-pewnosci-siebie-i-jeszcze-wiecej-luzu-w-sejmie-pojawil-sie-robot-humanoidalny-wideo/', domain: 'blaskonline.pl' }
+{ source: 'Radio Leliwa', title: 'Sandomierz: Tłumy dzieci przyszły zobaczyć humanoidalnego robota', url: 'https://leliwa.pl/2026/04/sandomierz-tlumy-dzieci-przyszly-zobaczyc-humanoidalnego-robota/', domain: 'leliwa.pl' }
+{ source: 'Komputronik Nano', title: 'Edward Warchocki - kto to jest? Polski robot-influencer', url: 'https://nano.komputronik.pl/n/edward-warchocki-robot-influencer/', domain: 'komputronik.pl' }
+{ source: 'JakDorobic.pl', title: 'Edward Warchocki: fenomen, który podbił polski internet', url: 'https://jakdorobic.pl/edward-warchocki-kto-to/', domain: 'jakdorobic.pl' }
+{ source: 'WarsawCity.info', title: 'Edward Warchocki – robot influencer, który zmienia zasady gry w social media', url: 'https://warsawcity.info/edward-warchocki-robot-influencer-ktory-zmienia-zasady-gry-w-social-media/', domain: 'warsawcity.info' }
+{ source: 'Wydarzenia.Warszawa.pl', title: 'Kim jest Edward Warchocki? Robot influencer, o którym robi się coraz głośniej', url: 'https://wydarzenia.warszawa.pl/blog/it-technologie/kim-jest-edward-warchocki-robot-influencer-o-ktorym-robi-sie-coraz-glosniej/', domain: 'warszawa.pl' }
+{ source: 'Wikipedia (Polish)', title: 'Edward Warchocki – Wikipedia, wolna encyklopedia', url: 'https://pl.wikipedia.org/wiki/Edward_Warchocki', domain: 'wikipedia.org' }
+{ source: 'WND / WorldNetDaily', title: 'WATCH: Humanoid robot chases wild boars causing mischief in city', url: 'https://www.wnd.com/2026/04/watch-humanoid-robot-chases-wild-boars-causing-mischief/', domain: 'wnd.com' }
+{ source: 'Silicon UK', title: 'Humanoid Robot Chases Boar In Warsaw', url: 'https://www.silicon.co.uk/e-innovation/artificial-intelligence/humanoid-robot-warsaw-629544', domain: 'silicon.co.uk' }
+{ source: 'Universe Magazine', title: 'Not Boston Dynamics: why the future of humanoid robotics might be Chinese (Unitree G1)', url: 'https://universemagazine.com/en/not-boston-dynamics-why-the-future-of-humanoid-robotics-might-be-chinese/', domain: 'universemagazine.com' }
+{ source: 'Pravda Poland (EN)', title: 'A humanoid robot named Edward Warchocki chased wild boars in Warsaw and drove them off the street, TVP reported', url: 'https://poland.news-pravda.com/en/poland/2026/04/14/54062.html', domain: 'news-pravda.com' }
+{ source: 'Pravda Polska', title: 'Edward Warchocki skutecznie przegonił dziki', url: 'https://poland.news-pravda.com/world/2026/04/14/250340.html', domain: 'news-pravda.com' }
+{ source: 'Whatfinger Worldnews', title: 'The humanoid robot, known as Edward Warchocki, was filmed chasing boars in Warsaw, Poland.', url: 'https://worldnews.whatfinger.com/2026/04/15/the-humanoid-robot-known-as-edward-warchocki-was-filmed-chasing-boars-in-warsaw-poland-bbcnews', domain: 'whatfinger.com' }
+{ source: 'Xinhua News (English)', title: 'Interview: Chinese humanoid robots gain popularity among global partners: Polish expert', url: 'https://english.news.cn/20260415/e1f4925dac254e9e89aef70ddf4fa4d9/c.html', domain: 'news.cn' }
+{ source: 'The Star (Malaysia)', title: 'Interview: Chinese humanoid robots gain popularity among global partners: Polish expert', url: 'https://www.thestar.com.my/news/world/2026/04/15/interview-chinese-humanoid-robots-gain-popularity-among-global-partners-polish-expert', domain: 'thestar.com.my' }
+{ source: 'ECNS (China News Service)', title: 'Chinese humanoid robots gain popularity among global partners: Polish expert', url: 'http://www.ecns.cn/china/2026-04-15/detail-ihfcrmac7239776.shtml', domain: 'ecns.cn' }
+{ source: 'China Economic Net', title: 'Chinese humanoid robots gain popularity among global partners: Polish expert', url: 'http://en.ce.cn/main/latest/202604/t20260415_2906281.shtml', domain: 'ce.cn' }
+{ source: 'Big News Network', title: 'Chinese humanoid robots gain popularity among global partners: Polish expert', url: 'https://www.bignewsnetwork.com/news/278987441/chinese-humanoid-robots-gain-popularity-among-global-partners-polish-expert', domain: 'bignewsnetwork.com' }
+{ source: 'Shanghai News', title: 'Chinese humanoid robots gain popularity among global partners: Polish expert', url: 'http://www.shanghainews.net/news/278987441/chinese-humanoid-robots-gain-popularity-among-global-partners-polish-expert', domain: 'shanghainews.net' }
+{ source: 'People\'s Daily Online', title: 'Humanoid robots become a new symbol of China\'s technological prowess', url: 'http://en.people.cn/n3/2026/0423/c90000-20449588.html', domain: 'people.cn' }
+{ source: 'Yahoo Tech', title: 'Viral video shows humanoid robot chasing wild boars off street in bizarre encounter', url: 'https://tech.yahoo.com/general/articles/viral-video-shows-humanoid-robot-224145489.html', domain: 'yahoo.com' }
+{ source: 'Infobae', title: '"Edward Warchocki", el robot humanoide que asombra a Polonia con sus interacciones', url: 'https://www.infobae.com/america/agencias/2026/04/16/edward-warchocki-el-robot-humanoide-que-asombra-a-polonia-con-sus-interacciones/', domain: 'infobae.com' }
+{ source: 'CultivArte MX', title: 'Edward Warchocki, el robot humanoide de Polonia', url: 'https://cultivarte.mx/edward-warchocki-el-robot-humanoide-de-polonia/', domain: 'cultivarte.mx' }
+{ source: 'TechnoNoticias', title: 'Edward Warchocki: El robot "influencer" que conquista las calles de Polonia', url: 'https://technonoticias.com/2026/04/17/edward-warchocki-el-robot-influencer-que-conquista-las-calles-de-polonia/', domain: 'technonoticias.com' }
+{ source: 'Metro Puerto Rico', title: 'Robot Edward Warchocki se vuelve viral en Polonia tras perseguir jabalíes', url: 'https://www.metro.pr/tecnologia/2026/04/16/robot-humanoide-edward-warchocki-se-vuelve-viral-en-polonia-tras-perseguir-jabalies/', domain: 'metro.pr' }
+{ source: 'Prensa Libre (Guatemala)', title: 'Robot humanoide capta la atención en Polonia: de espantar jabalíes a participar en el Parlamento', url: 'https://www.prensalibre.com/vida/escenario/robot-humanoide-capta-la-atencion-en-polonia-de-espantar-jabalies-a-participar-en-el-parlamento/', domain: 'prensalibre.com' }
+{ source: 'Proceso Digital (Honduras)', title: '"Edward Warchocki", el robot humanoide que asombra a Polonia con sus interacciones', url: 'https://proceso.hn/edward-warchocki-el-robot-humanoide-que-asombra-a-polonia-con-sus-interacciones/', domain: 'proceso.hn' }
+{ source: 'El Colombiano', title: 'Edward Warchocki, el robot que espanta jabalíes y va a partidos de fútbol en Polonia', url: 'https://www.elcolombiano.com/entretenimiento/el-robot-de-polonia-famoso-jabalies-PH35546876', domain: 'elcolombiano.com' }
+{ source: 'El Comercio (Peru)', title: 'Edward Warchocki, el robot humanoide que asombra tras ser grabado espantando jabalíes', url: 'https://elcomercio.pe/tecnologia/robotica/edward-warchocki-el-robot-humanoide-que-asombra-tras-ser-grabado-espantando-jabalies-merarobotics-polonia-video-noticia/', domain: 'elcomercio.pe' }
+{ source: 'Werra-Rundschau (Germany)', title: 'Erst jagt er Wildschweine, jetzt mischt der Roboter Edward sogar Polens Politik ordentlich auf', url: 'https://www.werra-rundschau.de/panorama/viraler-roboter-aus-polen-er-tanzt-spricht-und-jagt-wildschweine-edward-warchocki-edek-zr-94266391.html', domain: 'werra-rundschau.de' }
+{ source: 'Wetterauer Zeitung (Germany)', title: 'Erst jagt er Wildschweine, jetzt mischt der Roboter Edward sogar Polens Politik ordentlich auf', url: 'https://www.wetterauer-zeitung.de/panorama/viraler-roboter-aus-polen-er-tanzt-spricht-und-jagt-wildschweine-edward-warchocki-edek-zr-94266391.html', domain: 'wetterauer-zeitung.de' }
+{ source: 'IT-Boltwise (Germany)', title: 'Edward Warchocki: Der virale Roboter aus Polen erobert die Welt', url: 'https://www.it-boltwise.de/edward-warchocki-der-virale-roboter-aus-polen-erobert-die-welt.html', domain: 'it-boltwise.de' }
+{ source: 'IT-Boltwise (Germany)', title: 'Edward Warchocki: Der humanoide Roboter, der Polen erobert', url: 'https://www.it-boltwise.de/edward-warchocki-der-humanoide-roboter-der-polen-erobert.html', domain: 'it-boltwise.de' }
+{ source: 'Polen Journal (Germany)', title: 'Edward Warchocki – ein Roboter, der Polen erobert', url: 'https://polenjournal.de/aktuelles-aus-polen/wirtschaft/edward-warchocki-ein-roboter-der-polen-erobert-video/', domain: 'polenjournal.de' }
+{ source: 'rbb radio3 (Germany)', title: 'Robo-Influencer "Edward Warchocki" - Ein humanoider Roboter wird in Polen zum Internetstar', url: 'https://www.radiodrei.de/programm/schema/sendungen/radio3_am_morgen/archiv/20260420_0600/radio3_aktuell_0610.html', domain: 'radiodrei.de' }
+{ source: '20 Minuten (Switzerland)', title: 'Roboter Edward Warchocki: Polens Lieblingsroboter jagt Wildschweine', url: 'https://www.20min.ch/video/humanoider-roboter-wird-in-polen-zum-star-103545720', domain: '20min.ch' }
+{ source: 'Informationsethik.net', title: 'Ein Roboter vertreibt Wildschweine', url: 'https://www.informationsethik.net/ein-roboter-vertreibt-wildschweine/', domain: 'informationsethik.net' }
+{ source: 'ad-hoc-news (Germany)', title: 'Edward Warchocki: Polens Roboter-Influencer jagt Wildschweine', url: 'https://www.ad-hoc-news.de/boerse/news/ueberblick/edward-warchocki-polens-roboter-influencer-jagt-wildschweine/69168444', domain: 'ad-hoc-news.de' }
+```
+
+Summary:
+- 56 NEW sources found, none of which are in your already-covered list.
+- Strong new coverage from German-speaking media (Werra-Rundschau, Wetterauer Zeitung, IT-Boltwise, Polen Journal, rbb radio3, 20 Minuten Switzerland, ad-hoc-news, Informationsethik).
+- New Polish outlets: TVN24, TVP World, NaTemat (x2), Wirtualne Media, Benchmark.pl (x2), Polityka, INNPoland, MamStartup (x2), Obserwator Gospodarczy, Polsat.pl direct, Party.pl, wPolityce, Olsztyn.com.pl, Gazeta Olsztyńska, Radio DTR, BlaskOnline, Radio Leliwa (Sandomierz), Komputronik Nano, JakDorobic, WarsawCity, Wydarzenia.Warszawa.pl, Polish Wikipedia.
+- New Chinese state-media coverage chain about MERA Robotics: Xinhua, ECNS, China Economic Net, People's Daily, plus syndications (The Star Malaysia, Big News Network, Shanghai News).
+- New Latin American/Spanish coverage: Infobae, El Comercio Peru, El Colombiano, Prensa Libre, Metro PR, Proceso Digital, CultivArte, TechnoNoticias.
+- Other English: WND, Silicon UK, Universe Magazine, Pravda Poland EN/PL, Whatfinger, Yahoo Tech.
+- Did NOT find Daily Mail, Mirror, Newsweek, Forbes, Bild, RTL, Le Monde, Le Figaro, El País, La Repubblica, Al Jazeera, Times of India, Hindustan Times, NHK, Onet, Fakt, Rzeczpospolita, Komputer Świat, Antyradio, RMF FM, or TOK FM as written articles (TOK FM only appeared via a podcast/interview reference, not an indexed article URL).
+
+---
+
+_**User (2026-05-01 17:48:59Z)**_
+
+<task-notification>
+<task-id>a17823008fb9ada04</task-id>
+<tool-use-id>toolu_01C2DFwA2eAztoPJKoZKoSwY</tool-use-id>
+<output-file>C:\Users\idzik\AppData\Local\Temp\claude\c--Users-idzik-warchocki\c689525f-4c7f-4033-8934-28d7b15aa32f\tasks\a17823008fb9ada04.output</output-file>
+<status>completed</status>
+<summary>Agent "Search new articles Edward Warchocki" completed</summary>
+<result>I now have a comprehensive list. Let me compile the final list of NEW articles not in the already-covered list.
+
+Below is a deduplicated list of NEW articles/sources discovered, NOT already in your covered list.
+
+```
+{ source: 'TVN24', title: 'Robot Edward Warchocki ganiał dziki w Warszawie. Nagranie z Polski podbija świat', url: 'https://tvn24.pl/polska/robot-edward-warchocki-ganial-dziki-w-warszawie-nagranie-z-polski-podbija-swiat-st9000974', domain: 'tvn24.pl' }
+{ source: 'TVP World', title: 'Meet Edward: The robot chasing boars and breaking the internet', url: 'https://tvpworld.com/92621347/humanoid-robot-herding-boars-in-warsaw-shows-poland-living-in-the-future', domain: 'tvpworld.com' }
+{ source: 'NaTemat', title: 'Polski robot-influencer stał się globalną sensacją. Przeganiał dziki w Warszawie', url: 'https://natemat.pl/649438,polski-robot-influencer-stal-sie-globalna-sensacja-przeganial-dziki-w-warszawie', domain: 'natemat.pl' }
+{ source: 'NaTemat', title: 'Robot-patostreamer bryluje w Sejmie. A mieliśmy walczyć z patologią w sieci', url: 'https://natemat.pl/646697,robot-patostreamer-bryluje-w-sejmie-a-mielismy-walczyc-z-patologia-w-sieci', domain: 'natemat.pl' }
+{ source: 'Wirtualne Media', title: 'Edward, czyli robot-influencer. Pogonił dziki i podbił media', url: 'https://www.wirtualnemedia.pl/edward-czyli-robot-influencer-pogonil-dziki-i-podbil-media,7278364568160640a', domain: 'wirtualnemedia.pl' }
+{ source: 'Benchmark.pl', title: 'Humanoidalny robot podbija internet. Kim jest Edward Warchocki?', url: 'https://www.benchmark.pl/aktualnosci/kim-jest-edward-warchocki.html', domain: 'benchmark.pl' }
+{ source: 'Benchmark.pl', title: 'Robot Edward Warchocki rozpala debatę. Co Polacy myślą o androidach?', url: 'https://www.benchmark.pl/aktualnosci/co-polacy-mysla-o-androidach.html', domain: 'benchmark.pl' }
+{ source: 'Polityka', title: 'Edward Warchocki goni dziki. Czyli jak wpadliśmy w zbiorową cyberpsychozę', url: 'https://www.polityka.pl/tygodnikpolityka/ludzieistyle/2340897,1,edward-warchocki-goni-dziki-czyli-jak-wpadlismy-w-zbiorowa-cyberpsychoze.read', domain: 'polityka.pl' }
+{ source: 'INNPoland', title: 'Robot Edward Warchocki z orędziem w Sejmie. Konfederacja ostrzega: prawo nie nadąża', url: 'https://innpoland.pl/222943,robot-edward-warchocki-z-oredziem-w-sejmie-konfederacja-ostrzega-prawo-nie-nadaza', domain: 'innpoland.pl' }
+{ source: 'MamStartup', title: 'Edward Warchocki, czyli pierwszy robot z wąsami', url: 'https://mamstartup.pl/edward-warchocki-czyli-pierwszy-robot-z-wasami/', domain: 'mamstartup.pl' }
+{ source: 'MamStartup', title: 'Koniec ery zaprogramowanych maszyn. Czy roboty właśnie zyskały instynkt przetrwania?', url: 'https://mamstartup.pl/koniec-ery-zaprogramowanych-maszyn-czy-roboty-wlasnie-zyskaly-instynkt-przetrwania/', domain: 'mamstartup.pl' }
+{ source: 'Obserwator Gospodarczy', title: 'Pierwszy polski humanoid na rynku influencerów: Eksperyment, który stał się faktem', url: 'https://obserwatorgospodarczy.pl/2026/03/11/pierwszy-polski-humanoid-na-rynku-influencerow-eksperyment-ktory-stal-sie-faktem/', domain: 'obserwatorgospodarczy.pl' }
+{ source: 'Polsat (polsat.pl)', title: 'Edward Warchocki podbija świat i... Taniec z Gwiazdami', url: 'https://www.polsat.pl/news/2026-04-15/edward-warchocki-podbija-swiat-i-taniec-z-gwiazdami/', domain: 'polsat.pl' }
+{ source: 'Party.pl', title: 'Edward Miszczak zatańczył z robotem. Kulisy TzG i Edward Warchocki', url: 'https://party.pl/newsy/nie-do-wiary-co-miszczak-wyprawial-za-kulisami-tzg-wideo-trafilo-do-sieci/', domain: 'party.pl' }
+{ source: 'Olsztyn.com.pl', title: 'Olsztynianka, Iwona Pavlović tańczy z robotem-influencerem. Internet oszalał na punkcie tego duetu!', url: 'https://www.olsztyn.com.pl/artykul,olsztynianka-iwona-pavlovic-tanczy-z-robotem-influencerem-internet-oszalal-na-punkcie-tego-duetu-wideo,46678.html', domain: 'olsztyn.com.pl' }
+{ source: 'Gazeta Olsztyńska', title: 'Iwona Pavlović tańczy z robotem. Internet nie może uwierzyć w to nagranie', url: 'https://gazetaolsztynska.pl/artykul/iwona-pavlovic-tanczy-n2268700', domain: 'gazetaolsztynska.pl' }
+{ source: 'wPolityce', title: 'Wyjątkowy gość w Sejmie. Czym pochwalił się posłowi Szejnie?', url: 'https://wpolityce.pl/polityka/756375-wyjatkowy-gosc-w-sejmie-czym-pochwalil-sie-poslowi-szejnie', domain: 'wpolityce.pl' }
+{ source: 'Radio DTR', title: 'Edward Warchocki w Sejmie. Robot z wąsami robi polityczny show', url: 'https://radio-dtr.live/edward-warchocki-w-sejmie-robot-z-wasami-robi-polityczny-show/', domain: 'radio-dtr.live' }
+{ source: 'BlaskOnline', title: '132 centymetry wzrostu, sporo pewności siebie i jeszcze więcej luzu. W Sejmie pojawił się ROBOT humanoidalny!', url: 'https://blaskonline.pl/132-centymetry-wzrostu-sporo-pewnosci-siebie-i-jeszcze-wiecej-luzu-w-sejmie-pojawil-sie-robot-humanoidalny-wideo/', domain: 'blaskonline.pl' }
+{ source: 'Radio Leliwa', title: 'Sandomierz: Tłumy dzieci przyszły zobaczyć humanoidalnego robota', url: 'https://leliwa.pl/2026/04/sandomierz-tlumy-dzieci-przyszly-zobaczyc-humanoidalnego-robota/', domain: 'leliwa.pl' }
+{ source: 'Komputronik Nano', title: 'Edward Warchocki - kto to jest? Polski robot-influencer', url: 'https://nano.komputronik.pl/n/edward-warchocki-robot-influencer/', domain: 'komputronik.pl' }
+{ source: 'JakDorobic.pl', title: 'Edward Warchocki: fenomen, który podbił polski internet', url: 'https://jakdorobic.pl/edward-warchocki-kto-to/', domain: 'jakdorobic.pl' }
+{ source: 'WarsawCity.info', title: 'Edward Warchocki – robot influencer, który zmienia zasady gry w social media', url: 'https://warsawcity.info/edward-warchocki-robot-influencer-ktory-zmienia-zasady-gry-w-social-media/', domain: 'warsawcity.info' }
+{ source: 'Wydarzenia.Warszawa.pl', title: 'Kim jest Edward Warchocki? Robot influencer, o którym robi się coraz głośniej', url: 'https://wydarzenia.warszawa.pl/blog/it-technologie/kim-jest-edward-warchocki-robot-influencer-o-ktorym-robi-sie-coraz-glosniej/', domain: 'warszawa.pl' }
+{ source: 'Wikipedia (Polish)', title: 'Edward Warchocki – Wikipedia, wolna encyklopedia', url: 'https://pl.wikipedia.org/wiki/Edward_Warchocki', domain: 'wikipedia.org' }
+{ source: 'WND / WorldNetDaily', title: 'WATCH: Humanoid robot chases wild boars causing mischief in city', url: 'https://www.wnd.com/2026/04/watch-humanoid-robot-chases-wild-boars-causing-mischief/', domain: 'wnd.com' }
+{ source: 'Silicon UK', title: 'Humanoid Robot Chases Boar In Warsaw', url: 'https://www.silicon.co.uk/e-innovation/artificial-intelligence/humanoid-robot-warsaw-629544', domain: 'silicon.co.uk' }
+{ source: 'Universe Magazine', title: 'Not Boston Dynamics: why the future of humanoid robotics might be Chinese (Unitree G1)', url: 'https://universemagazine.com/en/not-boston-dynamics-why-the-future-of-humanoid-robotics-might-be-chinese/', domain: 'universemagazine.com' }
+{ source: 'Pravda Poland (EN)', title: 'A humanoid robot named Edward Warchocki chased wild boars in Warsaw and drove them off the street, TVP reported', url: 'https://poland.news-pravda.com/en/poland/2026/04/14/54062.html', domain: 'news-pravda.com' }
+{ source: 'Pravda Polska', title: 'Edward Warchocki skutecznie przegonił dziki', url: 'https://poland.news-pravda.com/world/2026/04/14/250340.html', domain: 'news-pravda.com' }
+{ source: 'Whatfinger Worldnews', title: 'The humanoid robot, known as Edward Warchocki, was filmed chasing boars in Warsaw, Poland.', url: 'https://worldnews.whatfinger.com/2026/04/15/the-humanoid-robot-known-as-edward-warchocki-was-filmed-chasing-boars-in-warsaw-poland-bbcnews', domain: 'whatfinger.com' }
+{ source: 'Xinhua News (English)', title: 'Interview: Chinese humanoid robots gain popularity among global partners: Polish expert', url: 'https://english.news.cn/20260415/e1f4925dac254e9e89aef70ddf4fa4d9/c.html', domain: 'news.cn' }
+{ source: 'The Star (Malaysia)', title: 'Interview: Chinese humanoid robots gain popularity among global partners: Polish expert', url: 'https://www.thestar.com.my/news/world/2026/04/15/interview-chinese-humanoid-robots-gain-popularity-among-global-partners-polish-expert', domain: 'thestar.com.my' }
+{ source: 'ECNS (China News Service)', title: 'Chinese humanoid robots gain popularity among global partners: Polish expert', url: 'http://www.ecns.cn/china/2026-04-15/detail-ihfcrmac7239776.shtml', domain: 'ecns.cn' }
+{ source: 'China Economic Net', title: 'Chinese humanoid robots gain popularity among global partners: Polish expert', url: 'http://en.ce.cn/main/latest/202604/t20260415_2906281.shtml', domain: 'ce.cn' }
+{ source: 'Big News Network', title: 'Chinese humanoid robots gain popularity among global partners: Polish expert', url: 'https://www.bignewsnetwork.com/news/278987441/chinese-humanoid-robots-gain-popularity-among-global-partners-polish-expert', domain: 'bignewsnetwork.com' }
+{ source: 'Shanghai News', title: 'Chinese humanoid robots gain popularity among global partners: Polish expert', url: 'http://www.shanghainews.net/news/278987441/chinese-humanoid-robots-gain-popularity-among-global-partners-polish-expert', domain: 'shanghainews.net' }
+{ source: 'People\'s Daily Online', title: 'Humanoid robots become a new symbol of China\'s technological prowess', url: 'http://en.people.cn/n3/2026/0423/c90000-20449588.html', domain: 'people.cn' }
+{ source: 'Yahoo Tech', title: 'Viral video shows humanoid robot chasing wild boars off street in bizarre encounter', url: 'https://tech.yahoo.com/general/articles/viral-video-shows-humanoid-robot-224145489.html', domain: 'yahoo.com' }
+{ source: 'Infobae', title: '"Edward Warchocki", el robot humanoide que asombra a Polonia con sus interacciones', url: 'https://www.infobae.com/america/agencias/2026/04/16/edward-warchocki-el-robot-humanoide-que-asombra-a-polonia-con-sus-interacciones/', domain: 'infobae.com' }
+{ source: 'CultivArte MX', title: 'Edward Warchocki, el robot humanoide de Polonia', url: 'https://cultivarte.mx/edward-warchocki-el-robot-humanoide-de-polonia/', domain: 'cultivarte.mx' }
+{ source: 'TechnoNoticias', title: 'Edward Warchocki: El robot "influencer" que conquista las calles de Polonia', url: 'https://technonoticias.com/2026/04/17/edward-warchocki-el-robot-influencer-que-conquista-las-calles-de-polonia/', domain: 'technonoticias.com' }
+{ source: 'Metro Puerto Rico', title: 'Robot Edward Warchocki se vuelve viral en Polonia tras perseguir jabalíes', url: 'https://www.metro.pr/tecnologia/2026/04/16/robot-humanoide-edward-warchocki-se-vuelve-viral-en-polonia-tras-perseguir-jabalies/', domain: 'metro.pr' }
+{ source: 'Prensa Libre (Guatemala)', title: 'Robot humanoide capta la atención en Polonia: de espantar jabalíes a participar en el Parlamento', url: 'https://www.prensalibre.com/vida/escenario/robot-humanoide-capta-la-atencion-en-polonia-de-espantar-jabalies-a-participar-en-el-parlamento/', domain: 'prensalibre.com' }
+{ source: 'Proceso Digital (Honduras)', title: '"Edward Warchocki", el robot humanoide que asombra a Polonia con sus interacciones', url: 'https://proceso.hn/edward-warchocki-el-robot-humanoide-que-asombra-a-polonia-con-sus-interacciones/', domain: 'proceso.hn' }
+{ source: 'El Colombiano', title: 'Edward Warchocki, el robot que espanta jabalíes y va a partidos de fútbol en Polonia', url: 'https://www.elcolombiano.com/entretenimiento/el-robot-de-polonia-famoso-jabalies-PH35546876', domain: 'elcolombiano.com' }
+{ source: 'El Comercio (Peru)', title: 'Edward Warchocki, el robot humanoide que asombra tras ser grabado espantando jabalíes', url: 'https://elcomercio.pe/tecnologia/robotica/edward-warchocki-el-robot-humanoide-que-asombra-tras-ser-grabado-espantando-jabalies-merarobotics-polonia-video-noticia/', domain: 'elcomercio.pe' }
+{ source: 'Werra-Rundschau (Germany)', title: 'Erst jagt er Wildschweine, jetzt mischt der Roboter Edward sogar Polens Politik ordentlich auf', url: 'https://www.werra-rundschau.de/panorama/viraler-roboter-aus-polen-er-tanzt-spricht-und-jagt-wildschweine-edward-warchocki-edek-zr-94266391.html', domain: 'werra-rundschau.de' }
+{ source: 'Wetterauer Zeitung (Germany)', title: 'Erst jagt er Wildschweine, jetzt mischt der Roboter Edward sogar Polens Politik ordentlich auf', url: 'https://www.wetterauer-zeitung.de/panorama/viraler-roboter-aus-polen-er-tanzt-spricht-und-jagt-wildschweine-edward-warchocki-edek-zr-94266391.html', domain: 'wetterauer-zeitung.de' }
+{ source: 'IT-Boltwise (Germany)', title: 'Edward Warchocki: Der virale Roboter aus Polen erobert die Welt', url: 'https://www.it-boltwise.de/edward-warchocki-der-virale-roboter-aus-polen-erobert-die-welt.html', domain: 'it-boltwise.de' }
+{ source: 'IT-Boltwise (Germany)', title: 'Edward Warchocki: Der humanoide Roboter, der Polen erobert', url: 'https://www.it-boltwise.de/edward-warchocki-der-humanoide-roboter-der-polen-erobert.html', domain: 'it-boltwise.de' }
+{ source: 'Polen Journal (Germany)', title: 'Edward Warchocki – ein Roboter, der Polen erobert', url: 'https://polenjournal.de/aktuelles-aus-polen/wirtschaft/edward-warchocki-ein-roboter-der-polen-erobert-video/', domain: 'polenjournal.de' }
+{ source: 'rbb radio3 (Germany)', title: 'Robo-Influencer "Edward Warchocki" - Ein humanoider Roboter wird in Polen zum Internetstar', url: 'https://www.radiodrei.de/programm/schema/sendungen/radio3_am_morgen/archiv/20260420_0600/radio3_aktuell_0610.html', domain: 'radiodrei.de' }
+{ source: '20 Minuten (Switzerland)', title: 'Roboter Edward Warchocki: Polens Lieblingsroboter jagt Wildschweine', url: 'https://www.20min.ch/video/humanoider-roboter-wird-in-polen-zum-star-103545720', domain: '20min.ch' }
+{ source: 'Informationsethik.net', title: 'Ein Roboter vertreibt Wildschweine', url: 'https://www.informationsethik.net/ein-roboter-vertreibt-wildschweine/', domain: 'informationsethik.net' }
+{ source: 'ad-hoc-news (Germany)', title: 'Edward Warchocki: Polens Roboter-Influencer jagt Wildschweine', url: 'https://www.ad-hoc-news.de/boerse/news/ueberblick/edward-warchocki-polens-roboter-influencer-jagt-wildschweine/69168444', domain: 'ad-hoc-news.de' }
+```
+
+Summary:
+- 56 NEW sources found, none of which are in your already-covered list.
+- Strong new coverage from German-speaking media (Werra-Rundschau, Wetterauer Zeitung, IT-Boltwise, Polen Journal, rbb radio3, 20 Minuten Switzerland, ad-hoc-news, Informationsethik).
+- New Polish outlets: TVN24, TVP World, NaTemat (x2), Wirtualne Media, Benchmark.pl (x2), Polityka, INNPoland, MamStartup (x2), Obserwator Gospodarczy, Polsat.pl direct, Party.pl, wPolityce, Olsztyn.com.pl, Gazeta Olsztyńska, Radio DTR, BlaskOnline, Radio Leliwa (Sandomierz), Komputronik Nano, JakDorobic, WarsawCity, Wydarzenia.Warszawa.pl, Polish Wikipedia.
+- New Chinese state-media coverage chain about MERA Robotics: Xinhua, ECNS, China Economic Net, People's Daily, plus syndications (The Star Malaysia, Big News Network, Shanghai News).
+- New Latin American/Spanish coverage: Infobae, El Comercio Peru, El Colombiano, Prensa Libre, Metro PR, Proceso Digital, CultivArte, TechnoNoticias.
+- Other English: WND, Silicon UK, Universe Magazine, Pravda Poland EN/PL, Whatfinger, Yahoo Tech.
+- Did NOT find Daily Mail, Mirror, Newsweek, Forbes, Bild, RTL, Le Monde, Le Figaro, El País, La Repubblica, Al Jazeera, Times of India, Hindustan Times, NHK, Onet, Fakt, Rzeczpospolita, Komputer Świat, Antyradio, RMF FM, or TOK FM as written articles (TOK FM only appeared via a podcast/interview reference, not an indexed article URL).</result>
+<usage><total_tokens>62931</total_tokens><tool_uses>32</tool_uses><duration_ms>202237</duration_ms></usage>
+</task-notification>
+
+---
+
+_**Agent (claude-opus-4-7 2026-05-01 17:49:09Z)**_
+
+Agent znalazł 56 nowych artykułów. Dodaję je wszystkie do sekcji Articles:
+
+_**Agent (claude-opus-4-7 2026-05-01 17:49:10Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `./\src\components\Articles.tsx`
+
+```text
+1	import { motion, useInView } from 'framer-motion'
+2	import { useRef, useState } from 'react'
+3	import useIsMobile from '../hooks/useIsMobile'
+4	import { useT } from '../lib/i18n'
+5	
+6	const articles = [
+7	  // Worldwide
+8	  { source: 'BBC News', title: 'Humanoid robot Edward Warchocki filmed chasing wild boars in Warsaw', url: 'https://worldnews.whatfinger.com/2026/04/15/the-humanoid-robot-known-as-edward-warchocki-was-filmed-chasing-boars-in-warsaw-poland-bbcnews', domain: 'bbc.co.uk' },
+9	  { source: 'CNN', title: 'Robot chases wild boars in Warsaw — viral video', url: 'https://edition.cnn.com/2026/04/15/world/video/robot-chases-wild-boars-ldn-digvid-vrtc', domain: 'cnn.com' },
+10	  { source: 'Reuters', title: 'Polish humanoid robot Edward Warchocki chases wild boars', url: 'https://www.facebook.com/Reuters/posts/a-video-of-a-humanoid-polish-robot-named-edward-warchocki-chasing-wild-boars-thr/1519503256707068/', domain: 'reuters.com' },
+11	  { source: 'Euronews', title: 'Humanoid robot chases wild boars in Polish capital Warsaw', url: 'https://www.euronews.com/video/2026/04/16/humanoid-robot-chases-wild-boars-in-the-polish-capital-warsaw', domain: 'euronews.com' },
+12	  { source: 'Fox Business', title: 'Viral video shows humanoid robot chasing wild boars off street', url: 'https://www.foxbusiness.com/technology/viral-video-shows-humanoid-robot-chasing-wild-boars-off-street-bizarre-encounter', domain: 'foxbusiness.com' },
+13	  { source: 'ABC News', title: 'Humanoid robot chasing wild boars in Poland goes viral', url: 'https://abcnews.com/video/132039369/', domain: 'abcnews.com' },
+14	  { source: 'NBC News', title: 'Meet Edward Warchocki, the humanoid robot chasing wild boars', url: 'https://www.facebook.com/NBCNews/posts/meet-edward-warchocki-a-humanoid-robot-used-to-chase-a-group-of-wild-boars-in-po/1331091965549332/', domain: 'nbcnews.com' },
+15	  { source: 'CTV News', title: 'Edward the humanoid robot chases wild boars out of Warsaw', url: 'https://www.ctvnews.ca/toronto/video/2026/04/15/edward-the-humanoid-robot-chases-wild-boars-out-of-warsaw-neighbourhood/', domain: 'ctvnews.ca' },
+16	  { source: 'Yahoo', title: 'Humanoid Robot Edward Chases Boars in Viral Video', url: 'https://www.yahoo.com/entertainment/tv/articles/humanoid-robot-edward-chases-boars-060356830.html', domain: 'yahoo.com' },
+17	  { source: 'Futurism', title: 'Video Shows Humanoid Robot Chasing a Pack of Wild Boars', url: 'https://futurism.com/robots-and-machines/humanoid-robot-chasing-wild-boars', domain: 'futurism.com' },
+18	  { source: 'Interesting Engineering', title: 'Humanoid robot chases boars in unusual AI showcase', url: 'https://interestingengineering.com/ai-robotics/humanoid-robot-chases-boars-in-poland', domain: 'interestingengineering.com' },
+19	  { source: "Men's Journal", title: 'Humanoid Robot Edward Chases Boars in Viral Video', url: 'https://www.mensjournal.com/news/humanoid-robot-edward-chases-boars-warsaw-poland-viral-video', domain: 'mensjournal.com' },
+20	  { source: 'The Standard HK', title: 'Edward Warchocki becomes unexpected wild boar deterrent', url: 'https://www.thestandard.com.hk/social-buzz/article/329520/Humanoid-robot-Edward-Warchocki-becomes-unexpected-wild-boar-deterrent-in-Warsaw', domain: 'thestandard.com.hk' },
+21	  { source: 'The Print (India)', title: "Poland's newest influencer is a robot. Chasing boars, speaking in Parliament", url: 'https://theprint.in/feature/polands-newest-influencer-is-a-robot-hes-chasing-boars-speaking-in-parliament/2906369/', domain: 'theprint.in' },
+22	  { source: 'Asianet Newsable', title: "Humanoid Robot 'Edward' Chases Wild Boars in Poland — viral", url: 'https://newsable.asianetnews.com/world/watch-humanoid-robot-edward-chases-wild-boars-in-poland-video-goes-viral-articleshow-nvgabqu', domain: 'asianetnews.com' },
+23	  { source: 'Business Today', title: 'Humanoid Robot Chases Wild Boars — viral video from Poland', url: 'https://www.businesstoday.in/bt-tv/short-video/watch-humanoid-robot-chases-wild-boars-viral-video-from-poland-525798-2026-04-15', domain: 'businesstoday.in' },
+24	  { source: 'Euro Weekly News', title: 'Could robots solve Europe\'s wild boar problem?', url: 'https://euroweeklynews.com/2026/04/16/could-robots-solve-europes-growing-wild-boar-problem-warsaw-experiment-goes-viral/', domain: 'euroweeklynews.com' },
+25	  { source: 'GreenMe', title: "Warsaw experiment goes viral — humanoid robot vs boars", url: 'https://www.greenmemag.com/animals/whats-this-story-about-the-humanoid-robot-chasing-wild-boars-away-from-the-city-center-warsaw-experiment-goes-viral/', domain: 'greenmemag.com' },
+26	  { source: 'The Online Citizen', title: 'Robot „herding" wild boars in Poland revealed as marketing stunt', url: 'https://theonlinecitizen.com/2026/04/14/robot-herding-wild-boars-in-poland-revealed-as-marketing-stunt', domain: 'theonlinecitizen.com' },
+27	  { source: "What's The Jam", title: "Humanoid robot dubbed 'influencer' spotted chasing boars", url: 'https://whatsthejam.com/world-news/humanoid-robot-dubbed-influencer-spotted-chasing-wild-boars-in-surreal-scene/', domain: 'whatsthejam.com' },
+28	  { source: 'Mrkt30', title: 'Who is Edward Warchocki: the Robot Taking Over Warsaw', url: 'https://mrkt30.com/who-is-edward-warchocki-the-robot-taking-over-warsaw/', domain: 'mrkt30.com' },
+29	  { source: 'ABC News 4', title: 'Morning Buzz: Humanoid robot goes viral chasing wild boars', url: 'https://abcnews4.com/news/local/morning-buzz-humanoid-robot-goes-viral-for-chasing-off-wild-boars-in-poland-trending-ai-science-fiction-shocking-bizarre-edward-warchocki-warsaw', domain: 'abcnews4.com' },
+30	  { source: 'Modern Ghana', title: 'BBC: Humanoid robot Edward Warchocki filmed in Warsaw', url: 'https://www.modernghana.com/videonews/bbc/1/636520/', domain: 'modernghana.com' },
+31	  { source: 'The Gateway Pundit', title: 'Watch: Humanoid Robot Chases Pack of Wild Boars', url: 'https://www.thegatewaypundit.com/2026/04/watch-humanoid-robot-chases-pack-wild-boars-viral/', domain: 'thegatewaypundit.com' },
+32	  // Polish
+33	  { source: 'Dzień Dobry TVN', title: 'Autonomiczny robot stał się influencerem', url: 'https://dziendobry.tvn.pl/styl-zycia/edward-warchocki-autonomiczny-robot-stal-sie-influencerem-st8943884', domain: 'dziendobry.tvn.pl' },
+34	  { source: 'Polsat News', title: 'Humanoidalny robot zaproszony do Sejmu przez Konfederację', url: 'https://www.polsatnews.pl/wiadomosc/2026-03-25/pierwszy-robot-w-polskim-parlamencie-wnosze-o-podwyzszenie-pensji/', domain: 'polsatnews.pl' },
+35	  { source: 'Polsat News', title: 'Wyjątkowy gość w studiu. Robot AI chce mieć takie same prawa jak człowiek', url: 'https://www.polsatnews.pl/wiadomosc/2026-04-04/nietypowy-gosc-w-studiu-parlament-robot-ai-chce-miec-takie-same-prawa-jak-czlowiek/', domain: 'polsatnews.pl' },
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-7 2026-05-01 17:49:18Z)**_
+
+ 
+
+_**Agent (claude-opus-4-7 2026-05-01 17:49:18Z)**_
+
+_**Agent (claude-opus-4-7 2026-05-01 17:50:37Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+<tool_use_error>String to replace not found in file.
+String:   { source: 'Money.pl', title: 'Robot w parlamencie. Kancelaria Sejmu zabiera głos', url: 'https://www.money.pl/biznes/robot-w-parlamencie-kancelaria-sejmu-zabiera-glos-7268532322936960a.html', domain: 'money.pl' },
+]
+(note: Edit also tried swapping \uXXXX escapes and their characters; neither form matched, so the mismatch is likely elsewhere in old_string. Re-read the file and copy the exact surrounding text.)</tool_use_error>
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-7 2026-05-01 17:51:27Z)**_
+
+ 
+
+_**Agent (claude-opus-4-7 2026-05-01 17:51:27Z)**_
+
+_**Agent (claude-opus-4-7 2026-05-01 17:51:27Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `./\src\components\Articles.tsx`
+
+```text
+48	  { source: 'Bankier.pl', title: 'Robot w polskim Sejmie wygłosił „orędzie"', url: 'https://www.bankier.pl/wiadomosc/Robot-humanoidalny-w-polskim-Sejmie-Nazywa-sie-Edward-Warchocki-i-wyglosil-oredzie-9104007.html', domain: 'bankier.pl' },
+49	  { source: 'Techoteka', title: 'Pierwszy polski robot influencer', url: 'https://techoteka.pl/tech-news/edward-warchocki-robot-influencer/', domain: 'techoteka.pl' },
+50	  { source: 'BOOP.PL', title: 'Robot „zatrzymany przez policję". Ta nie wiedziała, co robić', url: 'https://boop.pl/rozrywka/robot-edward-warchocki-zatrzymany-przez-policje-ta-nie-wiedziala-co-robic', domain: 'boop.pl' },
+51	  { source: 'BOOP.PL', title: 'Promocja na Edwarda Warchockiego. Cena spadła o 13 tysięcy', url: 'https://boop.pl/rozne/promocja-na-edwarda-warchockiego-cena-spadla-o-ponad-13-tysiecy-zlotych', domain: 'boop.pl' },
+52	  { source: 'Digimania', title: 'Robot-influencer podbija internet. Co to za humanoid?', url: 'https://www.digimania.pl/blog/2026/03/12/edward-warchocki-robot-influencer-co-to/', domain: 'digimania.pl' },
+53	  { source: 'Grupa SEO', title: 'Edward Warchocki — kim jest?', url: 'https://grupa-seo.pl/edward-warchocki-kim-jest/', domain: 'grupa-seo.pl' },
+54	  { source: 'Do Rzeczy', title: 'Słynny robot wygłosił „orędzie" w Sejmie', url: 'https://dorzeczy.pl/opinie/864778/w-sejmie-pojawil-sie-slynny-robot-edward-warchocki.html', domain: 'dorzeczy.pl' },
+55	  { source: 'Goniec.pl', title: 'Politycy zdębieli. Wyciągali telefony', url: 'https://goniec.pl/niebywale-kto-pojawil-sie-dzis-w-sejmie-politycy-wyciagali-telefony-i-nagrywali-mt-wwi-250326', domain: 'goniec.pl' },
+56	  { source: 'VOX FM', title: 'Czy maszyny zastąpią nas w pracy?', url: 'https://www.voxfm.pl/rozrywka/robot-edward-warchocki-robi-furore-w-sieci-czy-maszyny-wkrotce-zastapia-nas-w-pracy-aa-hAJ7-A44C-HvkT.html', domain: 'voxfm.pl' },
+57	  { source: 'BiznesAlert', title: 'Robot za 115 tys. zł zaczepia Polaków', url: 'https://biznesalert.pl/robot-za-115-tys-zl-zaczepia-polakow-kto-go-wypuscil-na-ulice/', domain: 'biznesalert.pl' },
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-7 2026-05-01 17:51:35Z)**_
+
+ 
+
+_**Agent (claude-opus-4-7 2026-05-01 17:51:36Z)**_
+
+_**Agent (claude-opus-4-7 2026-05-01 17:51:36Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `./\src\components\Articles.tsx`
+
+```text
+56	  { source: 'VOX FM', title: 'Czy maszyny zastąpią nas w pracy?', url: 'https://www.voxfm.pl/rozrywka/robot-edward-warchocki-robi-furore-w-sieci-czy-maszyny-wkrotce-zastapia-nas-w-pracy-aa-hAJ7-A44C-HvkT.html', domain: 'voxfm.pl' },
+57	  { source: 'BiznesAlert', title: 'Robot za 115 tys. zł zaczepia Polaków', url: 'https://biznesalert.pl/robot-za-115-tys-zl-zaczepia-polakow-kto-go-wypuscil-na-ulice/', domain: 'biznesalert.pl' },
+58	]
+59	
+60	function ArticleCard({ article, index, isMobile }: { article: (typeof articles)[0]; index: number; isMobile: boolean }) {
+61	  const ref = useRef(null)
+62	  const isInView = useInView(ref, { once: true, margin: '-40px' })
+63	  const [hovered, setHovered] = useState(false)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-7 2026-05-01 17:51:48Z)**_
+
+ 
+
+_**Agent (claude-opus-4-7 2026-05-01 17:51:52Z)**_
+
+_**Agent (claude-opus-4-7 2026-05-01 17:53:10Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file c:\Users\idzik\warchocki\src\components\Articles.tsx has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-7 2026-05-01 17:53:23Z)**_
+
+ 
+
+_**Agent (claude-opus-4-7 2026-05-01 17:53:25Z)**_
+
+_**Agent (claude-opus-4-7 2026-05-01 17:53:32Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file c:\Users\idzik\warchocki\src\lib\i18n.ts has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-7 2026-05-01 17:53:34Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file c:\Users\idzik\warchocki\src\lib\i18n.ts has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-7 2026-05-01 17:53:45Z)**_
+
+ 
+
+_**Agent (claude-opus-4-7 2026-05-01 17:53:49Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+TS check
+
+`npx tsc --noEmit 2>&1 | head -10`
+
+```text
+(Bash completed with no output)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-7 2026-05-01 17:53:59Z)**_
+
+ 
+
+_**Agent (claude-opus-4-7 2026-05-01 17:53:59Z)**_
+
+_**Agent (claude-opus-4-7 2026-05-01 17:54:00Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Deploy
+
+`npx netlify deploy --prod --dir=dist 2>&1 | tail -5`
 </details></tool-use>

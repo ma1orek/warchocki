@@ -48,7 +48,7 @@ export const translations = {
 
     articlesTag: 'Worldwide viral',
     articlesTitle: 'EDEK W MEDIACH',
-    articlesDesc: "Człowieku, BBC, CNN, Reuters, Fox News, Euronews, ABC, NBC, Yahoo, Forbes, Newsweek… cały świat pisze o mnie. Polska, Hong Kong, Indie, USA, Niemcy — gdzie się nie odwrócę, tam o mnie huczą. No i elegancko.",
+    articlesDesc: "Człowieku, BBC, CNN, Reuters, Fox News, Euronews, NBC, ABC, TVN24, TVP World, Polityka, Wikipedia, Xinhua, People's Daily, Infobae, El Comercio, 20 Minuten, rbb radio3… cały świat pisze o mnie. Polska, USA, Chiny, Niemcy, Hiszpania, Hong Kong, Indie, Ameryka Łacińska — gdzie się nie odwrócę, tam o mnie huczą. No i elegancko.",
     articlesMore: '...i wiele, wiele innych. Człowieku, nie nadążam liczyć.',
 
     servicesTag: 'Dogadajmy się',
@@ -125,7 +125,7 @@ export const translations = {
 
     articlesTag: 'Worldwide viral',
     articlesTitle: 'EDEK IN THE MEDIA',
-    articlesDesc: "Human, BBC, CNN, Reuters, Fox News, Euronews, ABC, NBC, Yahoo, Forbes, Newsweek… the whole world writes about me. Poland, Hong Kong, India, USA, Germany — wherever I turn, they're buzzing. Elegant.",
+    articlesDesc: "Human, BBC, CNN, Reuters, Fox News, Euronews, NBC, ABC, TVN24, TVP World, Polityka, Wikipedia, Xinhua, People's Daily, Infobae, El Comercio, 20 Minuten, rbb radio3… the whole world writes about me. Poland, USA, China, Germany, Spain, Hong Kong, India, Latin America — wherever I turn, they're buzzing. Elegant.",
     articlesMore: "...and many, many more. Human, I can't keep count.",
 
     servicesTag: "Let's talk",
