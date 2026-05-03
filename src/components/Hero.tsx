@@ -122,13 +122,16 @@ export default function Hero() {
             </motion.div>
           </motion.a>
 
-          <motion.div {...fadeUp(0.8)} style={{ display: 'flex', flexDirection: m ? 'column' : 'row', gap: 12, marginBottom: 32 }}>
-            <a href="https://contactform.bitrix24.site/Napiszdoedwarda/" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', justifyContent: 'center', fontSize: 14, fontWeight: 600, letterSpacing: '0.05em', textTransform: 'uppercase', padding: m ? '14px 24px' : '16px 32px', background: '#fff', color: '#000', transition: 'all 0.2s ease' }}>
+          <motion.div {...fadeUp(0.8)} style={{ display: 'flex', flexDirection: m ? 'column' : 'row', flexWrap: 'wrap', gap: 12, marginBottom: 32 }}>
+            <a href="https://warchockishop.pl" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', justifyContent: 'center', alignItems: 'center', gap: 8, fontSize: 14, fontWeight: 600, letterSpacing: '0.05em', textTransform: 'uppercase', padding: m ? '14px 24px' : '16px 32px', background: '#fff', color: '#000', transition: 'all 0.2s ease' }}>
+              {t('heroCtaShop')}
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg>
+            </a>
+            <a href="https://contactform.bitrix24.site/Napiszdoedwarda/" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', justifyContent: 'center', fontSize: 14, fontWeight: 600, letterSpacing: '0.05em', textTransform: 'uppercase', padding: m ? '14px 24px' : '16px 32px', background: 'transparent', color: '#fff', border: '1px solid rgba(255,255,255,0.25)', transition: 'all 0.2s ease' }}>
               {t('heroCta1')}
             </a>
-            <a href="https://merarobotics.com/" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', justifyContent: 'center', alignItems: 'center', gap: 8, fontSize: 14, fontWeight: 600, letterSpacing: '0.05em', textTransform: 'uppercase', padding: m ? '14px 24px' : '16px 32px', background: 'transparent', color: '#fff', border: '1px solid rgba(255,255,255,0.25)', transition: 'all 0.2s ease' }}>
-              {t('heroCta3')}
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg>
+            <a href="https://contactform.bitrix24.site/EdwardBiznes/" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', justifyContent: 'center', alignItems: 'center', gap: 8, fontSize: 14, fontWeight: 600, letterSpacing: '0.05em', textTransform: 'uppercase', padding: m ? '14px 24px' : '16px 32px', background: 'transparent', color: '#fff', border: '1px solid rgba(255,255,255,0.25)', transition: 'all 0.2s ease' }}>
+              {t('heroCtaBiz')}
             </a>
           </motion.div>
 

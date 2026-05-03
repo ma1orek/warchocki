@@ -31793,11 +31793,122 @@ TS check
 ```
 </details></tool-use>
 
-_**Agent (claude-opus-4-7 2026-05-03 15:26:58Z)**_
+_**Agent (claude-opus-4-7 2026-05-03 15:27:20Z)**_
 
 <tool-use data-tool-type="shell" data-tool-name="Bash"><details>
 <summary>Tool use: **Bash**</summary>
 Deploy
 
 `npx netlify deploy --prod --dir=dist 2>&1 | tail -10`
+
+```text
+🚀 Deploy complete
+────────────────────────────────────────────────────────────────
+
+Production URL: <https://warchocki.pl>
+Unique deploy URL: <https://69f7694e2d5c304ed0a15b56--cute-cobbler-5ffb46.netlify.app>
+
+Build logs: <https://app.netlify.com/projects/cute-cobbler-5ffb46/deploys/69f7694e2d5c304ed0a15b56>
+Function logs: <https://app.netlify.com/projects/cute-cobbler-5ffb46/logs/functions>
+Edge function logs: <https://app.netlify.com/projects/cute-cobbler-5ffb46/logs/edge-functions>
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-7 2026-05-03 15:27:32Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Commit and push
+
+```bash
+git add -A && git commit -m "Hero: animowany shop CTA + 2 buttony (Zostan fanem / Moja firma); Navbar CTA: Odwiedz moj sklep ze strzalka
+
+Co-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>" 2>&1 | tail -2 && git push 2>&1 | tail -3
+```
+
+```text
+warning: in the working copy of '.netlify/netlify.toml', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '.specstory/statistics.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/Hero.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/Navbar.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/lib/i18n.ts', LF will be replaced by CRLF the next time Git touches it
+[main 69ec165] Hero: animowany shop CTA + 2 buttony (Zostan fanem / Moja firma); Navbar CTA: Odwiedz moj sklep ze strzalka
+ 5 files changed, 469 insertions(+), 38 deletions(-)
+To https://github.com/ma1orek/warchocki.git
+   eb3ab3a..69ec165  main -> main
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-7 2026-05-03 15:27:47Z)**_
+
+ Live na **warchocki.pl** + GitHub.
+
+### Zmiany:
+
+**Hero — zamiast opisu "No i elegancko..."**:
+- **Animowany komponent sklepu** (gradientowe tło, ramka, shimmer effect na hover)
+- Ikona torby z animowanym wahnięciem (rotate)
+- "MÓJ SKLEP DLA FANÓW" + "Koszulki, gadżety, vibe Edka" + "warchockishop.pl"
+- Animowana strzałka ↗ przesuwająca się w prawo
+- Cały komponent linkuje do **warchockishop.pl**
+
+**Buttony pod sklepem (2 zamiast 3):**
+- **"Zostań fanem"** (białe, link do bitrix24 fan formularza)
+- **"Moja firma" ↗** (outline, link do merarobotics.com)
+- (Usunięty "Moje życie")
+
+**Kolejność w hero:** Logo → "Jestem Edward..." → MERA OS → **🛍 Sklep komponent** → **2 buttony** → **🌐 Sociale** → Statystyki
+
+**Navbar CTA (desktop + mobile):**
+- **"Odwiedź mój sklep" ↗** zamiast "Dogadajmy się"
+- EN: **"Visit my shop" ↗**
+- Zawsze widoczne, otwiera warchockishop.pl w nowej karcie
+
+---
+
+_**User (2026-05-03 15:33:17Z)**_
+
+dodatkowoww daj Odwiedz SKlep jako pierwsze button dodakotwy a drugie zostań fanem a trzecie współpraca
+
+---
+
+_**Agent (claude-opus-4-7 2026-05-03 15:33:27Z)**_
+
+_**Agent (claude-opus-4-7 2026-05-03 15:33:31Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file c:\Users\idzik\warchocki\src\lib\i18n.ts has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-7 2026-05-03 15:33:32Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file c:\Users\idzik\warchocki\src\lib\i18n.ts has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-7 2026-05-03 15:34:06Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file c:\Users\idzik\warchocki\src\components\Hero.tsx has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-7 2026-05-03 15:34:12Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Deploy
+
+`npx netlify deploy --prod --dir=dist 2>&1 | tail -3`
 </details></tool-use>
