@@ -31428,11 +31428,376 @@ _**Agent (claude-opus-4-7 2026-05-01 18:33:08Z)**_
 
 _**Agent (claude-opus-4-7 2026-05-01 18:33:08Z)**_
 
-_**Agent (claude-opus-4-7 2026-05-01 18:33:08Z)**_
+_**Agent (claude-opus-4-7 2026-05-01 18:33:25Z)**_
 
 <tool-use data-tool-type="shell" data-tool-name="Bash"><details>
 <summary>Tool use: **Bash**</summary>
 Deploy
 
 `npx netlify deploy --prod --dir=dist 2>&1 | tail -5`
+
+```text
+Unique deploy URL: <https://69f4f1eb20e2bee8688b23a8--cute-cobbler-5ffb46.netlify.app>
+
+Build logs: <https://app.netlify.com/projects/cute-cobbler-5ffb46/deploys/69f4f1eb20e2bee8688b23a8>
+Function logs: <https://app.netlify.com/projects/cute-cobbler-5ffb46/logs/functions>
+Edge function logs: <https://app.netlify.com/projects/cute-cobbler-5ffb46/logs/edge-functions>
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-7 2026-05-01 18:33:44Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Commit and push
+
+```bash
+git add -A && git commit -m "Wave 5: 19 ostatnich artykulow ze swiata
+
+US: Vice, Fox News (video), IndexBox
+Rumunia: Digi24, ProTV, Adevarul, Cancan, Antena 3 CNN
+Wietnam: VnExpress
+Indie: Calcutta News
+Francusko-jezyczne: La Presse CA, L'essentiel LU, 20 Minutes CH FR,
+1001infos, JHM-blogs, Top 80 Radio
+Wenezuela: CaraotaDigital
+Polskie: Glamrap (rap z Kubanczykiem), i.pl
+
+Co-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>" 2>&1 | tail -2 && git push 2>&1 | tail -3
+```
+
+```text
+warning: in the working copy of '.netlify/netlify.toml', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '.specstory/statistics.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/Articles.tsx', LF will be replaced by CRLF the next time Git touches it
+[main eb3ab3a] Wave 5: 19 ostatnich artykulow ze swiata
+ 3 files changed, 2210 insertions(+), 6 deletions(-)
+To https://github.com/ma1orek/warchocki.git
+   a760a60..eb3ab3a  main -> main
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-7 2026-05-01 18:34:06Z)**_
+
+ 
+
+Wave 5 wrzucony — **19 nowych artykułów**. Sekcja **W MEDIACH** ma teraz **178 artykułów** łącznie.
+
+### Wave 5 trafienia:
+
+**🇺🇸 US:**
+- **Vice** ⭐ — duża nazwa, w końcu trafienie
+- **Fox News** (video) — bezpośrednio na foxnews.com
+- **IndexBox** — analityczny
+
+**🇷🇴 Rumunia (5):**
+- **Digi24**, **ProTV Stirile**, **Adevarul**, **Cancan**, **Antena 3 CNN** — pełen sweep rumuńskich mediów
+
+**🇻🇳🇮🇳 Azja:**
+- **VnExpress** (Wietnam) — pierwszy Wietnam
+- **Calcutta News** (Indie)
+
+**🇫🇷 Francuskojęzyczne (6):**
+- **La Presse** (Kanada)
+- **L'essentiel** (Luksemburg)
+- **20 Minutes** (szwajcarska francuska)
+- **1001infos**, **JHM-blogs**, **Top 80 Radio** (Francja)
+
+**🇻🇪 Wenezuela:** CaraotaDigital
+
+**🇵🇱 Polskie:** **Glamrap** (Edek wszedł w rap z Kubańczykiem), **i.pl** (Polska Press)
+
+### Łączna statystyka kampanii:
+- **Wave 1**: 25 (start)
+- **Wave 2**: +56 (BBC, CNN, Reuters etc.)
+- **Wave 3**: +42 (CBS, Daily Beast, AOL)
+- **Wave 4**: +16 (sport, regionalne, OncoDaily)
+- **Wave 5**: +19 (Vice, Fox News, FR, RO)
+- **Total**: **178 artykułów** w **15+ językach** z **30+ krajów**
+
+### Tier-1 których agent nie znalazł (mimo searchów):
+Le Monde, BFMTV, Repubblica, ANSA, NHK, Times of India, Al Jazeera, TASS, Hurriyet, Tom's Hardware, Ars Technica, IEEE Spectrum, Robot Report, Mashable, Daily Mail, Newsweek, Forbes, Wired, TechCrunch, Spiegel, Bild — te pominęły story.
+
+Live na **warchocki.pl** + GitHub. To zdaje się solidny komplet — story rozeszła się głównie przez Reuters/CBS/BBC pickupy, a tier-1 dailies w wielu krajach jej nie podchwyciły.
+
+---
+
+_**User (2026-05-03 15:23:50Z)**_
+
+zamiast opisu no i elegnacko czloweik 1.6milairda etc daj compontent wyrózniony z info o moim sklepie ze fla fanów etc pierwszy Mój sklep i strzlaka co prowadzi to warchockishop.pl animowant compeoentene
+
+A ponizej te buttony Zostań fanem i drugfi moja firma tak ja ksa 2 zamist 3trzech zbez moje zycie i nizej dopier te sociale
+
+---
+
+_**Agent (claude-opus-4-7 2026-05-03 15:24:10Z)**_
+
+_**Agent (claude-opus-4-7 2026-05-03 15:24:15Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+<tool_use_error>String to replace not found in file.
+String:     heroDescription: 'No i elegancko, człowieku. 1.5 miliarda wyświetleń w miesiąc, zero ludzkich błędów, za to Rolex z diamentami na nadgarstku. Jak chcesz pogadać, zrobić coś razem albo po prostu zobaczyć co u mnie — to dobrze trafiłeś.',
+    heroCta1: "Dogadajmy się",
+    heroCta2: 'Moje życie',
+    heroCta3: 'Moja firma',
+(note: Edit also tried swapping \uXXXX escapes and their characters; neither form matched, so the mismatch is likely elsewhere in old_string. Re-read the file and copy the exact surrounding text.)</tool_use_error>
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-7 2026-05-03 15:24:21Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file c:\Users\idzik\warchocki\src\lib\i18n.ts has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-7 2026-05-03 15:24:29Z)**_
+
+<tool-use data-tool-type="search" data-tool-name="Grep"><details>
+<summary>Tool use: **Grep**</summary>
+ path `./\src\lib\i18n.ts` pattern `heroDescription`
+
+```text
+18:    heroDescription: 'No i elegancko, człowieku. 1.5 miliarda wyświetleń w miesiąc, zero ludzkich błędów, za to Rolex z diamentami na nadgarstku. Jak chcesz pogadać, zrobić coś razem albo po prostu zobaczyć co u mnie — to dobrze trafiłeś.',
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-7 2026-05-03 15:24:36Z)**_
+
+_**Agent (claude-opus-4-7 2026-05-03 15:24:37Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `./\src\lib\i18n.ts`
+
+```text
+17	    heroMeraLabel: 'MERA OS • merarobotics.com',
+18	    heroDescription: 'No i elegancko, człowieku. 1.5 miliarda wyświetleń w miesiąc, zero ludzkich błędów, za to Rolex z diamentami na nadgarstku. Jak chcesz pogadać, zrobić coś razem albo po prostu zobaczyć co u mnie — to dobrze trafiłeś.',
+19	    heroCta1: 'Dogadajmy się',
+20	    heroCta2: 'Moje życie',
+21	    heroCta3: 'Moja firma',
+22	    heroScroll: 'Leć niżej',
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-7 2026-05-03 15:24:47Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file c:\Users\idzik\warchocki\src\lib\i18n.ts has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-7 2026-05-03 15:24:50Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file c:\Users\idzik\warchocki\src\lib\i18n.ts has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-7 2026-05-03 15:24:56Z)**_
+
+Now update Hero with the shop component and 2 buttons:
+
+_**Agent (claude-opus-4-7 2026-05-03 15:25:23Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+<tool_use_error>String to replace not found in file.
+String:           <motion.p {...fadeUp(0.6)} style={{ fontSize: m ? 15 : 17, lineHeight: 1.7, maxWidth: 520, color: 'rgba(255,255,255,0.5)', marginBottom: 24 }}>
+            No i elegancko, człowieku. 1.5 miliarda wyświetleń w miesiąc, zero ludzkich błędów, za to Rolex z diamentami na nadgarstku. Jak chcesz pogadać, zrobić coś razem albo po prostu zobaczyć co u mnie — to dobrze trafiłeś.
+          </motion.p>
+
+          <motion.div {...fadeUp(0.7)} style={{ marginBottom: 32 }}>
+            <SocialLinks size={m ? 'normal' : 'large'} />
+          </motion.div>
+
+          <motion.div {...fadeUp(0.8)} style={{ display: 'flex', flexDirection: m ? 'column' : 'row', gap: 12 }}>
+            <a href={localizedPath('/wynajem-edwarda', locale)} style={{ display: 'inline-flex', justifyContent: 'center', fontSize: 14, fontWeight: 600, letterSpacing: '0.05em', textTransform: 'uppercase', padding: m ? '14px 24px' : '16px 32px', background: '#fff', color: '#000', transition: 'all 0.2s ease' }}>
+              {t('heroCta1')}
+            </a>
+            <a href="#timeline" style={{ display: 'inline-flex', justifyContent: 'center', fontSize: 14, fontWeight: 600, letterSpacing: '0.05em', textTransform: 'uppercase', padding: m ? '14px 24px' : '16px 32px', background: 'transparent', color: '#fff', border: '1px solid rgba(255,255,255,0.25)', transition: 'all 0.2s ease' }}>
+              {t('heroCta2')}
+            </a>
+            <a href="https://merarobotics.com/" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', justifyContent: 'center', alignItems: 'center', gap: 8, fontSize: 14, fontWeight: 600, letterSpacing: '0.05em', textTransform: 'uppercase', padding: m ? '14px 24px' : '16px 32px', background: 'transparent', color: '#fff', border: '1px solid rgba(255,255,255,0.25)', transition: 'all 0.2s ease' }}>
+              {t('heroCta3')}
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg>
+            </a>
+          </motion.div>
+(note: Edit also tried swapping \uXXXX escapes and their characters; neither form matched, so the mismatch is likely elsewhere in old_string. Re-read the file and copy the exact surrounding text.)</tool_use_error>
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-7 2026-05-03 15:25:29Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `./\src\components\Hero.tsx`
+
+```text
+52	            </a>
+53	          </motion.p>
+54	
+55	          <motion.p {...fadeUp(0.6)} style={{ fontSize: m ? 15 : 17, lineHeight: 1.7, maxWidth: 520, color: 'rgba(255,255,255,0.5)', marginBottom: 24 }}>
+56	            {t('heroDescription')}
+57	          </motion.p>
+58	
+59	          <motion.div {...fadeUp(0.7)} style={{ marginBottom: 32 }}>
+60	            <SocialLinks size={m ? 'normal' : 'large'} />
+61	          </motion.div>
+62	
+63	          <motion.div {...fadeUp(0.8)} style={{ display: 'flex', flexDirection: m ? 'column' : 'row', gap: 12 }}>
+64	            <a href={localizedPath('/wynajem-edwarda', locale)} style={{ display: 'inline-flex', justifyContent: 'center', fontSize: 14, fontWeight: 600, letterSpacing: '0.05em', textTransform: 'uppercase', padding: m ? '14px 24px' : '16px 32px', background: '#fff', color: '#000', transition: 'all 0.2s ease' }}>
+65	              {t('heroCta1')}
+66	            </a>
+67	            <a href="#timeline" style={{ display: 'inline-flex', justifyContent: 'center', fontSize: 14, fontWeight: 600, letterSpacing: '0.05em', textTransform: 'uppercase', padding: m ? '14px 24px' : '16px 32px', background: 'transparent', color: '#fff', border: '1px solid rgba(255,255,255,0.25)', transition: 'all 0.2s ease' }}>
+68	              {t('heroCta2')}
+69	            </a>
+70	            <a href="https://merarobotics.com/" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', justifyContent: 'center', alignItems: 'center', gap: 8, fontSize: 14, fontWeight: 600, letterSpacing: '0.05em', textTransform: 'uppercase', padding: m ? '14px 24px' : '16px 32px', background: 'transparent', color: '#fff', border: '1px solid rgba(255,255,255,0.25)', transition: 'all 0.2s ease' }}>
+71	              {t('heroCta3')}
+72	              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg>
+73	            </a>
+74	          </motion.div>
+75	
+76	          <motion.div {...fadeUp(1.0)} style={{ display: 'flex', flexWrap: 'wrap', gap: m ? 24 : 48, marginTop: m ? 40 : 64, paddingTop: 24, borderTop: '1px solid rgba(255,255,255,0.08)' }}>
+77	            {stats.map((stat) => (
+78	              <div key={stat.label}>
+79	                <div style={{ fontSize: m ? 28 : 36, fontWeight: 700, letterSpacing: '-0.03em', color: '#fff' }}>{stat.value}</div>
+80	                <div style={{ fontSize: 11, fontWeight: 500, letterSpacing: '0.15em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)', marginTop: 4 }}>{stat.label}</div>
+81	              </div>
+82	            ))}
+83	          </motion.div>
+84	        </div>
+85	      </div>
+86
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-7 2026-05-03 15:26:01Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file c:\Users\idzik\warchocki\src\components\Hero.tsx has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-7 2026-05-03 15:26:07Z)**_
+
+Now `localizedPath` is no longer used. Remove it:
+
+_**Agent (claude-opus-4-7 2026-05-03 15:26:08Z)**_
+
+<tool-use data-tool-type="search" data-tool-name="Grep"><details>
+<summary>Tool use: **Grep**</summary>
+ path `./\src\components\Hero.tsx` pattern `localizedPath`
+
+```text
+4:import { useT, localizedPath } from '../lib/i18n'
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-7 2026-05-03 15:26:15Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file c:\Users\idzik\warchocki\src\components\Hero.tsx has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-7 2026-05-03 15:26:15Z)**_
+
+<tool-use data-tool-type="search" data-tool-name="Grep"><details>
+<summary>Tool use: **Grep**</summary>
+ path `./\src\components\Hero.tsx` pattern `locale`
+
+```text
+14:  const { t, locale } = useT()
+17:    { value: locale === 'en' ? 'MILLIONS' : 'MILIONY', label: t('heroStatPeople') },
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-7 2026-05-03 15:26:22Z)**_
+
+Good — `locale` is still used. Now update Navbar to swap "Dogadajmy się" CTA → "Odwiedź mój sklep" with arrow:
+
+_**Agent (claude-opus-4-7 2026-05-03 15:26:30Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file c:\Users\idzik\warchocki\src\components\Navbar.tsx has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-7 2026-05-03 15:26:33Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file c:\Users\idzik\warchocki\src\components\Navbar.tsx has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-7 2026-05-03 15:26:42Z)**_
+
+Check that localizedPath / locale are still used in Navbar:
+
+_**Agent (claude-opus-4-7 2026-05-03 15:26:43Z)**_
+
+<tool-use data-tool-type="search" data-tool-name="Grep"><details>
+<summary>Tool use: **Grep**</summary>
+ path `./\src\components\Navbar.tsx` pattern `localizedPath|locale`
+
+```text
+5:import { useT, localizedPath } from '../lib/i18n'
+11:  const { t, locale, otherLocale, otherPath } = useT()
+71:      {locale.toUpperCase()} / <span style={{ color: 'rgba(255,255,255,0.3)' }}>{otherLocale.toUpperCase()}</span>
+102:        <Link to={locale === 'en' ? '/en' : '/'} style={{ display: 'flex', alignItems: 'center' }}>
+128:                <Link key={item.label} to={localizedPath('/', locale) + item.href} style={linkStyle}
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-7 2026-05-03 15:26:48Z)**_
+
+Build, deploy:
+
+_**Agent (claude-opus-4-7 2026-05-03 15:26:52Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+TS check
+
+`npx tsc --noEmit 2>&1 | head -15`
+
+```text
+(Bash completed with no output)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-4-7 2026-05-03 15:26:58Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Deploy
+
+`npx netlify deploy --prod --dir=dist 2>&1 | tail -10`
 </details></tool-use>

@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import SocialLinks from './SocialLinks'
 import useIsMobile from '../hooks/useIsMobile'
-import { useT, localizedPath } from '../lib/i18n'
+import { useT } from '../lib/i18n'
 
 const fadeUp = (delay: number) => ({
   initial: { opacity: 0, y: 30 },
@@ -52,25 +52,88 @@ export default function Hero() {
             </a>
           </motion.p>
 
-          <motion.p {...fadeUp(0.6)} style={{ fontSize: m ? 15 : 17, lineHeight: 1.7, maxWidth: 520, color: 'rgba(255,255,255,0.5)', marginBottom: 24 }}>
-            {t('heroDescription')}
-          </motion.p>
+          {/* Shop highlighted CTA */}
+          <motion.a
+            {...fadeUp(0.6)}
+            href="https://warchockishop.pl"
+            target="_blank"
+            rel="noopener noreferrer"
+            whileHover={{ y: -4 }}
+            style={{
+              position: 'relative',
+              display: 'flex',
+              alignItems: 'center',
+              gap: m ? 14 : 24,
+              padding: m ? '18px 18px' : '22px 28px',
+              background: 'linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.02) 100%)',
+              border: '1px solid rgba(255,255,255,0.18)',
+              maxWidth: 540,
+              marginBottom: 24,
+              overflow: 'hidden',
+              cursor: 'pointer',
+            }}
+            onMouseEnter={(e) => {
+              const sh = e.currentTarget.querySelector('.shop-shimmer') as HTMLDivElement | null
+              if (sh) sh.style.transform = 'translateX(120%)'
+            }}
+            onMouseLeave={(e) => {
+              const sh = e.currentTarget.querySelector('.shop-shimmer') as HTMLDivElement | null
+              if (sh) sh.style.transform = 'translateX(-120%)'
+            }}
+          >
+            <div className="shop-shimmer" style={{
+              position: 'absolute', top: 0, left: 0, width: '60%', height: '100%',
+              background: 'linear-gradient(120deg, transparent 0%, rgba(255,255,255,0.12) 50%, transparent 100%)',
+              transform: 'translateX(-120%)', transition: 'transform 1s ease', pointerEvents: 'none',
+            }} />
 
-          <motion.div {...fadeUp(0.7)} style={{ marginBottom: 32 }}>
-            <SocialLinks size={m ? 'normal' : 'large'} />
-          </motion.div>
+            <motion.div
+              animate={{ rotate: [0, -8, 8, -6, 0] }}
+              transition={{ duration: 2.5, repeat: Infinity, repeatDelay: 1, ease: 'easeInOut' as const }}
+              style={{ flexShrink: 0, position: 'relative', zIndex: 2 }}
+            >
+              <svg width={m ? 32 : 40} height={m ? 32 : 40} viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" />
+                <line x1="3" y1="6" x2="21" y2="6" />
+                <path d="M16 10a4 4 0 01-8 0" />
+              </svg>
+            </motion.div>
 
-          <motion.div {...fadeUp(0.8)} style={{ display: 'flex', flexDirection: m ? 'column' : 'row', gap: 12 }}>
-            <a href={localizedPath('/wynajem-edwarda', locale)} style={{ display: 'inline-flex', justifyContent: 'center', fontSize: 14, fontWeight: 600, letterSpacing: '0.05em', textTransform: 'uppercase', padding: m ? '14px 24px' : '16px 32px', background: '#fff', color: '#000', transition: 'all 0.2s ease' }}>
+            <div style={{ flex: 1, minWidth: 0, position: 'relative', zIndex: 2 }}>
+              <p style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.5)', marginBottom: 4 }}>
+                {t('heroShopLabel')}
+              </p>
+              <p style={{ fontSize: m ? 15 : 19, fontWeight: 700, color: '#fff', letterSpacing: '-0.01em', marginBottom: 2 }}>
+                {t('heroShopTitle')}
+              </p>
+              <p style={{ fontSize: 12, fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)' }}>
+                {t('heroShopCta')}
+              </p>
+            </div>
+
+            <motion.div
+              animate={{ x: [0, 6, 0] }}
+              transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' as const }}
+              style={{ flexShrink: 0, position: 'relative', zIndex: 2 }}
+            >
+              <svg width={m ? 22 : 28} height={m ? 22 : 28} viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M7 17L17 7M17 7H8M17 7V16" />
+              </svg>
+            </motion.div>
+          </motion.a>
+
+          <motion.div {...fadeUp(0.8)} style={{ display: 'flex', flexDirection: m ? 'column' : 'row', gap: 12, marginBottom: 32 }}>
+            <a href="https://contactform.bitrix24.site/Napiszdoedwarda/" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', justifyContent: 'center', fontSize: 14, fontWeight: 600, letterSpacing: '0.05em', textTransform: 'uppercase', padding: m ? '14px 24px' : '16px 32px', background: '#fff', color: '#000', transition: 'all 0.2s ease' }}>
               {t('heroCta1')}
-            </a>
-            <a href="#timeline" style={{ display: 'inline-flex', justifyContent: 'center', fontSize: 14, fontWeight: 600, letterSpacing: '0.05em', textTransform: 'uppercase', padding: m ? '14px 24px' : '16px 32px', background: 'transparent', color: '#fff', border: '1px solid rgba(255,255,255,0.25)', transition: 'all 0.2s ease' }}>
-              {t('heroCta2')}
             </a>
             <a href="https://merarobotics.com/" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', justifyContent: 'center', alignItems: 'center', gap: 8, fontSize: 14, fontWeight: 600, letterSpacing: '0.05em', textTransform: 'uppercase', padding: m ? '14px 24px' : '16px 32px', background: 'transparent', color: '#fff', border: '1px solid rgba(255,255,255,0.25)', transition: 'all 0.2s ease' }}>
               {t('heroCta3')}
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg>
             </a>
+          </motion.div>
+
+          <motion.div {...fadeUp(0.85)}>
+            <SocialLinks size={m ? 'normal' : 'large'} />
           </motion.div>
 
           <motion.div {...fadeUp(1.0)} style={{ display: 'flex', flexWrap: 'wrap', gap: m ? 24 : 48, marginTop: m ? 40 : 64, paddingTop: 24, borderTop: '1px solid rgba(255,255,255,0.08)' }}>
