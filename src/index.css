@@ -74,6 +74,52 @@ a {
 /* Timeline scroll hide */
 .timeline-scroll::-webkit-scrollbar { display: none; }
 
+/* Mystery Box gold shimmer */
+@keyframes gold-pulse {
+  0%, 100% {
+    box-shadow:
+      0 0 0 1px rgba(255, 215, 100, 0.6),
+      0 4px 24px rgba(255, 180, 50, 0.4),
+      0 0 40px rgba(255, 200, 80, 0.25),
+      inset 0 1px 0 rgba(255, 255, 220, 0.5);
+  }
+  50% {
+    box-shadow:
+      0 0 0 1px rgba(255, 215, 100, 0.9),
+      0 6px 32px rgba(255, 180, 50, 0.7),
+      0 0 60px rgba(255, 200, 80, 0.5),
+      inset 0 1px 0 rgba(255, 255, 220, 0.7);
+  }
+}
+@keyframes gold-shimmer-sweep {
+  0% { transform: translateX(-150%) skewX(-20deg); }
+  100% { transform: translateX(250%) skewX(-20deg); }
+}
+.mystery-box-btn {
+  position: relative;
+  background: linear-gradient(135deg, #f7c948 0%, #e6a817 25%, #ffd86b 50%, #d4940a 75%, #f7c948 100%);
+  background-size: 200% 200%;
+  color: #1a1100;
+  border: none;
+  overflow: hidden;
+  animation: gold-pulse 2.4s ease-in-out infinite;
+}
+.mystery-box-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.7) 50%, transparent 100%);
+  animation: gold-shimmer-sweep 2.8s ease-in-out infinite;
+  pointer-events: none;
+}
+.mystery-box-btn > * {
+  position: relative;
+  z-index: 2;
+}
+
 @media (max-width: 768px) {
   /* Disable film grain on mobile for perf */
   body::after {
