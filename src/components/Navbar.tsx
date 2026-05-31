@@ -10,7 +10,7 @@ export default function Navbar() {
   const location = useLocation()
   const { t, locale, otherLocale, otherPath } = useT()
   const isHome = location.pathname === '/' || location.pathname === '/en'
-  const isMobile = useIsMobile()
+  const isMobile = useIsMobile(1024)
 
   const navLinks = [
     { label: t('navAbout'), href: '#o-mnie' },
@@ -45,6 +45,7 @@ export default function Navbar() {
     textTransform: 'uppercase' as const,
     color: 'rgba(255,255,255,0.45)',
     transition: 'color 0.2s ease',
+    whiteSpace: 'nowrap' as const,
   }
 
   const LanguageSwitcher = ({ big = false }: { big?: boolean }) => (
