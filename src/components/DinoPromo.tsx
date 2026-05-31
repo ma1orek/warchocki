@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import DinoLogo from './DinoLogo'
 import useIsMobile from '../hooks/useIsMobile'
 import { useT, localizedPath } from '../lib/i18n'
 
@@ -60,16 +59,14 @@ export default function DinoPromo() {
             </span>
           </div>
 
-          <p style={{ fontSize: m ? 16 : 19, fontWeight: 800, color: '#fff', letterSpacing: '-0.01em', lineHeight: 1.15, marginBottom: 10 }}>
+          <p style={{ fontSize: m ? 16 : 19, fontWeight: 800, color: '#fff', letterSpacing: '-0.01em', lineHeight: 1.15, marginBottom: 4 }}>
             {t('dinoTitle')}
           </p>
 
-          {/* DINO logo */}
-          <div style={{ marginBottom: 10 }}>
-            <span style={{ display: 'inline-flex', alignItems: 'center', background: '#fff', borderRadius: 8, padding: '5px 10px' }}>
-              <DinoLogo height={18} />
-            </span>
-          </div>
+          {/* handwritten tagline */}
+          <p style={{ fontFamily: "'Caveat', cursive", fontSize: m ? 22 : 26, fontWeight: 700, color: '#5fc065', lineHeight: 1, marginBottom: 12, transform: 'rotate(-3deg)', transformOrigin: 'left center' }}>
+            {t('dinoTagline')}
+          </p>
 
           {/* flavors + no sugar badge */}
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6, marginBottom: 'auto' }}>

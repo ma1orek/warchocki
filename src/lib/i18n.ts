@@ -14,8 +14,9 @@ export const translations = {
     navCTA: 'Dogadajmy się',
 
     dinoNew: 'NOWOŚĆ',
-    dinoKicker: 'Dostępne w całej Polsce',
-    dinoTitle: 'Moje napoje trafiły do DINO',
+    dinoKicker: 'Dostępne w całej Polsce w sieci DINO',
+    dinoTitle: 'Moje napoje trafiły do sklepów',
+    dinoTagline: 'no i elegancko',
     dinoAvail: 'Szukaj w sieci',
     dinoFlavor1: 'Jabłko — Gruszka',
     dinoFlavor2: 'Truskawka — Jagoda',
@@ -138,8 +139,9 @@ export const translations = {
     navCTA: "Let's talk",
 
     dinoNew: 'NEW',
-    dinoKicker: 'Available across Poland',
-    dinoTitle: 'My drinks just landed in DINO',
+    dinoKicker: 'Available all over Poland at DINO',
+    dinoTitle: 'My drinks hit the stores',
+    dinoTagline: 'well, elegant',
     dinoAvail: 'Look for them at',
     dinoFlavor1: 'Apple — Pear',
     dinoFlavor2: 'Strawberry — Blueberry',
