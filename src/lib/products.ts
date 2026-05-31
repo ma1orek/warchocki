@@ -39,7 +39,7 @@ export const products: Product[] = [
     accent2: '#8bc34a',
     glow: 'rgba(247, 201, 72, 0.45)',
     packshot: '/jablko-gruszka.png',
-    video: '/jablko-gruszka.mp4',
+    video: '/gruszka.mp4',
     liquid: '#e8a900',
     liquidTop: '#ffd34d',
     vitamin: { pl: 'Witamina D', en: 'Vitamin D' },
