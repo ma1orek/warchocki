@@ -1,4 +1,5 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
+import { useEffect } from 'react'
 import Home from './pages/Home'
 import WynajemEdwarda from './pages/WynajemEdwarda'
 import WynajemRobotow from './pages/WynajemRobotow'
@@ -6,9 +7,25 @@ import PromocjaSocialMedia from './pages/PromocjaSocialMedia'
 import ProduktyPage from './pages/ProduktyPage'
 import ProduktPage from './pages/ProduktPage'
 
+function ScrollToTop() {
+  const { pathname, hash } = useLocation()
+  useEffect(() => {
+    if (hash) {
+      const el = document.querySelector(hash)
+      if (el) {
+        el.scrollIntoView()
+        return
+      }
+    }
+    window.scrollTo(0, 0)
+  }, [pathname, hash])
+  return null
+}
+
 function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/wynajem-edwarda" element={<WynajemEdwarda />} />
