@@ -57,31 +57,6 @@ export default function Hero() {
           <DinoPromo />
 
           <motion.div {...fadeUp(0.8)} style={{ display: 'flex', flexDirection: m ? 'column' : 'row', flexWrap: 'wrap', gap: 12, marginBottom: 32 }}>
-            <motion.a
-              href="https://contactform.bitrix24.site/mysterybox/"
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={{ y: -2, scale: 1.02 }}
-              transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-              className="mystery-box-btn"
-              style={{
-                display: 'inline-flex', justifyContent: 'center', alignItems: 'center', gap: 10,
-                fontSize: 14, fontWeight: 800, letterSpacing: '0.05em', textTransform: 'uppercase',
-                padding: m ? '14px 24px' : '16px 32px',
-              }}
-            >
-              <motion.svg
-                width="22" height="22" viewBox="0 0 24 24" fill="none"
-                stroke="#1a1100" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
-                animate={{ rotate: [0, -8, 8, -6, 6, 0], y: [0, -2, 0] }}
-                transition={{ duration: 1.6, repeat: Infinity, repeatDelay: 0.4, ease: 'easeInOut' as const }}
-              >
-                <path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z" />
-                <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
-                <line x1="12" y1="22.08" x2="12" y2="12" />
-              </motion.svg>
-              {t('heroCtaMystery')}
-            </motion.a>
             <a href="https://warchockishop.pl" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', justifyContent: 'center', alignItems: 'center', gap: 8, fontSize: 14, fontWeight: 600, letterSpacing: '0.05em', textTransform: 'uppercase', padding: m ? '14px 24px' : '16px 32px', background: '#fff', color: '#000', transition: 'all 0.2s ease' }}>
               {t('heroCtaShop')}
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg>
