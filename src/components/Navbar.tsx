@@ -15,6 +15,7 @@ export default function Navbar() {
   const navLinks = [
     { label: t('navAbout'), href: '#o-mnie' },
     { label: t('navTimeline'), href: '#timeline' },
+    { label: t('navProducts'), href: '#produkty' },
     { label: t('navSocial'), href: '#sociale' },
     { label: t('navMedia'), href: '#media' },
     { label: t('navServices'), href: '#uslugi' },

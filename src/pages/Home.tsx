@@ -2,6 +2,7 @@ import Navbar from '../components/Navbar'
 import Hero from '../components/Hero'
 import Timeline from '../components/Timeline'
 import EdekDlaKazdego from '../components/EdekDlaKazdego'
+import Produkty from '../components/Produkty'
 import TikTokGallery from '../components/TikTokGallery'
 import Articles from '../components/Articles'
 import Services from '../components/Services'
@@ -14,6 +15,7 @@ export default function Home() {
       <Hero />
       <Timeline />
       <EdekDlaKazdego />
+      <Produkty />
       <TikTokGallery />
       <Articles />
       <Services />

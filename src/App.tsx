@@ -3,6 +3,8 @@ import Home from './pages/Home'
 import WynajemEdwarda from './pages/WynajemEdwarda'
 import WynajemRobotow from './pages/WynajemRobotow'
 import PromocjaSocialMedia from './pages/PromocjaSocialMedia'
+import ProduktyPage from './pages/ProduktyPage'
+import ProduktPage from './pages/ProduktPage'
 
 function App() {
   return (
@@ -12,10 +14,14 @@ function App() {
         <Route path="/wynajem-edwarda" element={<WynajemEdwarda />} />
         <Route path="/wynajem-robotow" element={<WynajemRobotow />} />
         <Route path="/promocja-social-media" element={<PromocjaSocialMedia />} />
+        <Route path="/produkty" element={<ProduktyPage />} />
+        <Route path="/produkty/:slug" element={<ProduktPage />} />
         <Route path="/en" element={<Home />} />
         <Route path="/en/wynajem-edwarda" element={<WynajemEdwarda />} />
         <Route path="/en/wynajem-robotow" element={<WynajemRobotow />} />
         <Route path="/en/promocja-social-media" element={<PromocjaSocialMedia />} />
+        <Route path="/en/produkty" element={<ProduktyPage />} />
+        <Route path="/en/produkty/:slug" element={<ProduktPage />} />
       </Routes>
     </BrowserRouter>
   )

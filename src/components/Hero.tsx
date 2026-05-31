@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import SocialLinks from './SocialLinks'
+import DinoPromo from './DinoPromo'
 import useIsMobile from '../hooks/useIsMobile'
 import { useT } from '../lib/i18n'
 
@@ -25,7 +26,7 @@ export default function Hero() {
     >
       <div style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
         <video autoPlay loop muted playsInline style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'brightness(0.35) contrast(1.15) grayscale(0.3)' }}>
-          <source src="/ANIMATE_BLINK_BLINK_202603291951.mp4" type="video/mp4" />
+          <source src="/hero-bg.mp4" type="video/mp4" />
         </video>
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 40%, rgba(0,0,0,0.85) 100%)' }} />
       </div>
@@ -52,75 +53,8 @@ export default function Hero() {
             </a>
           </motion.p>
 
-          {/* Shop highlighted CTA */}
-          <motion.a
-            {...fadeUp(0.6)}
-            href="https://warchockishop.pl"
-            target="_blank"
-            rel="noopener noreferrer"
-            whileHover={{ y: -4 }}
-            style={{
-              position: 'relative',
-              display: 'flex',
-              alignItems: 'center',
-              gap: m ? 14 : 24,
-              padding: m ? '18px 18px' : '22px 28px',
-              background: 'linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.02) 100%)',
-              border: '1px solid rgba(255,255,255,0.18)',
-              maxWidth: 540,
-              marginBottom: 24,
-              overflow: 'hidden',
-              cursor: 'pointer',
-            }}
-            onMouseEnter={(e) => {
-              const sh = e.currentTarget.querySelector('.shop-shimmer') as HTMLDivElement | null
-              if (sh) sh.style.transform = 'translateX(120%)'
-            }}
-            onMouseLeave={(e) => {
-              const sh = e.currentTarget.querySelector('.shop-shimmer') as HTMLDivElement | null
-              if (sh) sh.style.transform = 'translateX(-120%)'
-            }}
-          >
-            <div className="shop-shimmer" style={{
-              position: 'absolute', top: 0, left: 0, width: '60%', height: '100%',
-              background: 'linear-gradient(120deg, transparent 0%, rgba(255,255,255,0.12) 50%, transparent 100%)',
-              transform: 'translateX(-120%)', transition: 'transform 1s ease', pointerEvents: 'none',
-            }} />
-
-            <motion.div
-              animate={{ rotate: [0, -8, 8, -6, 0] }}
-              transition={{ duration: 2.5, repeat: Infinity, repeatDelay: 1, ease: 'easeInOut' as const }}
-              style={{ flexShrink: 0, position: 'relative', zIndex: 2 }}
-            >
-              <svg width={m ? 32 : 40} height={m ? 32 : 40} viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" />
-                <line x1="3" y1="6" x2="21" y2="6" />
-                <path d="M16 10a4 4 0 01-8 0" />
-              </svg>
-            </motion.div>
-
-            <div style={{ flex: 1, minWidth: 0, position: 'relative', zIndex: 2 }}>
-              <p style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.5)', marginBottom: 4 }}>
-                {t('heroShopLabel')}
-              </p>
-              <p style={{ fontSize: m ? 15 : 19, fontWeight: 700, color: '#fff', letterSpacing: '-0.01em', marginBottom: 2 }}>
-                {t('heroShopTitle')}
-              </p>
-              <p style={{ fontSize: 12, fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)' }}>
-                {t('heroShopCta')}
-              </p>
-            </div>
-
-            <motion.div
-              animate={{ x: [0, 6, 0] }}
-              transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' as const }}
-              style={{ flexShrink: 0, position: 'relative', zIndex: 2 }}
-            >
-              <svg width={m ? 22 : 28} height={m ? 22 : 28} viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M7 17L17 7M17 7H8M17 7V16" />
-              </svg>
-            </motion.div>
-          </motion.a>
+          {/* DINO product promo gazetka */}
+          <DinoPromo />
 
           <motion.div {...fadeUp(0.8)} style={{ display: 'flex', flexDirection: m ? 'column' : 'row', flexWrap: 'wrap', gap: 12, marginBottom: 32 }}>
             <motion.a
