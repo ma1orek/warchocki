@@ -4,91 +4,6 @@ import DinoLogo from './DinoLogo'
 import useIsMobile from '../hooks/useIsMobile'
 import { useT, localizedPath } from '../lib/i18n'
 
-/* Animated juice liquid — two flowing wave layers + rising bubbles, clipped to a panel. */
-function LiquidPanel({ height }: { height: number }) {
-  return (
-    <div
-      style={{
-        position: 'relative',
-        width: '100%',
-        height,
-        borderRadius: 14,
-        overflow: 'hidden',
-        background: 'linear-gradient(180deg, #1a1205 0%, #120a0a 100%)',
-        boxShadow: 'inset 0 0 0 1px rgba(255,255,255,0.06)',
-      }}
-    >
-      {/* empty space above liquid */}
-      <div style={{ position: 'absolute', inset: 0 }}>
-        <svg width="100%" height="100%" viewBox="0 0 200 120" preserveAspectRatio="none" style={{ position: 'absolute', bottom: 0 }}>
-          <defs>
-            <linearGradient id="juiceGrad" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stopColor="#ffd34d" />
-              <stop offset="45%" stopColor="#f59e0b" />
-              <stop offset="75%" stopColor="#ef4444" />
-              <stop offset="100%" stopColor="#b91c4a" />
-            </linearGradient>
-            <linearGradient id="juiceGrad2" x1="0" y1="0" x2="1" y2="0">
-              <stop offset="0%" stopColor="#f7c948" />
-              <stop offset="100%" stopColor="#e23b3b" />
-            </linearGradient>
-          </defs>
-
-          {/* back wave */}
-          <motion.path
-            fill="url(#juiceGrad2)"
-            opacity={0.55}
-            animate={{ x: [0, -200] }}
-            transition={{ duration: 6, repeat: Infinity, ease: 'linear' }}
-            d="M0 48 C 50 30, 90 66, 140 48 C 190 30, 230 66, 280 48 C 330 30, 370 66, 400 48 L 400 120 L 0 120 Z"
-          />
-          {/* front wave */}
-          <motion.path
-            fill="url(#juiceGrad)"
-            animate={{ x: [-200, 0] }}
-            transition={{ duration: 4.5, repeat: Infinity, ease: 'linear' }}
-            d="M0 60 C 40 46, 80 78, 120 60 C 160 44, 200 78, 240 60 C 280 46, 320 78, 360 60 C 400 44, 440 78, 480 60 L 480 120 L 0 120 Z"
-          />
-        </svg>
-      </div>
-
-      {/* rising bubbles */}
-      {[
-        { left: '22%', size: 5, dur: 3.2, delay: 0 },
-        { left: '46%', size: 7, dur: 4.1, delay: 0.8 },
-        { left: '63%', size: 4, dur: 2.8, delay: 1.5 },
-        { left: '80%', size: 6, dur: 3.6, delay: 0.4 },
-      ].map((b, i) => (
-        <motion.div
-          key={i}
-          initial={{ y: 0, opacity: 0 }}
-          animate={{ y: -height * 0.78, opacity: [0, 0.8, 0] }}
-          transition={{ duration: b.dur, repeat: Infinity, delay: b.delay, ease: 'easeInOut' }}
-          style={{
-            position: 'absolute',
-            bottom: 8,
-            left: b.left,
-            width: b.size,
-            height: b.size,
-            borderRadius: '50%',
-            background: 'rgba(255,255,255,0.55)',
-            boxShadow: '0 0 6px rgba(255,255,255,0.4)',
-          }}
-        />
-      ))}
-
-      {/* glossy highlight */}
-      <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '40%', background: 'linear-gradient(180deg, rgba(255,255,255,0.10), transparent)' }} />
-
-      {/* center mark */}
-      <div style={{ position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 6, textShadow: '0 2px 8px rgba(0,0,0,0.5)' }}>
-        <span style={{ fontSize: 30 }}>🧃</span>
-        <span style={{ fontSize: 10, fontWeight: 800, letterSpacing: '0.18em', color: '#fff' }}>500 ml</span>
-      </div>
-    </div>
-  )
-}
-
 export default function DinoPromo() {
   const m = useIsMobile()
   const { t, locale } = useT()
@@ -123,8 +38,19 @@ export default function DinoPromo() {
       </div>
 
       <div style={{ display: 'flex', gap: m ? 14 : 18, alignItems: 'stretch' }}>
-        <div style={{ flexShrink: 0, width: m ? 76 : 92 }}>
-          <LiquidPanel height={m ? 120 : 138} />
+        {/* product photo */}
+        <div style={{ flexShrink: 0, width: m ? 84 : 104 }}>
+          <img
+            src="/produkty-duo.jpg"
+            alt={t('dinoFlavor1') + ' & ' + t('dinoFlavor2')}
+            style={{
+              width: '100%',
+              height: m ? 120 : 138,
+              objectFit: 'cover',
+              borderRadius: 14,
+              boxShadow: 'inset 0 0 0 1px rgba(255,255,255,0.08), 0 8px 24px rgba(0,0,0,0.35)',
+            }}
+          />
         </div>
 
         <div style={{ flex: 1, minWidth: 0, display: 'flex', flexDirection: 'column' }}>
@@ -134,15 +60,14 @@ export default function DinoPromo() {
             </span>
           </div>
 
-          <p style={{ fontSize: m ? 16 : 19, fontWeight: 800, color: '#fff', letterSpacing: '-0.01em', lineHeight: 1.15, marginBottom: 8 }}>
+          <p style={{ fontSize: m ? 16 : 19, fontWeight: 800, color: '#fff', letterSpacing: '-0.01em', lineHeight: 1.15, marginBottom: 10 }}>
             {t('dinoTitle')}
           </p>
 
-          {/* availability row with DINO logo */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 10, flexWrap: 'wrap' }}>
-            <span style={{ fontSize: 11, fontWeight: 600, color: 'rgba(255,255,255,0.55)' }}>{t('dinoAvail')}</span>
-            <span style={{ display: 'inline-flex', alignItems: 'center', background: '#fff', borderRadius: 7, padding: '3px 8px' }}>
-              <DinoLogo height={16} />
+          {/* DINO logo */}
+          <div style={{ marginBottom: 10 }}>
+            <span style={{ display: 'inline-flex', alignItems: 'center', background: '#fff', borderRadius: 8, padding: '5px 10px' }}>
+              <DinoLogo height={18} />
             </span>
           </div>
 
