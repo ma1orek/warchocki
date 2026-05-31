@@ -35,7 +35,7 @@ export default function DinoPromo() {
         alt={t('dinoFlavor1') + ' & ' + t('dinoFlavor2')}
         loading="lazy"
         decoding="async"
-        style={{ position: 'relative', display: 'block', width: '100%', maxHeight: m ? 230 : 250, objectFit: 'contain', filter: 'drop-shadow(0 12px 24px rgba(0,0,0,0.5))' }}
+        style={{ position: 'relative', display: 'block', width: '100%', maxHeight: m ? 230 : 330, objectFit: 'contain', filter: 'drop-shadow(0 12px 24px rgba(0,0,0,0.5))' }}
       />
     </div>
   )
@@ -78,7 +78,7 @@ export default function DinoPromo() {
 
   const shellStyle = {
     position: 'relative' as const,
-    maxWidth: m ? 540 : 600,
+    maxWidth: m ? 540 : 680,
     marginBottom: 24,
     padding: m ? 18 : 22,
     borderRadius: 20,
@@ -110,7 +110,7 @@ export default function DinoPromo() {
     <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.6, ease: 'easeOut' as const }} whileHover={{ y: -4 }} style={shellStyle}>
       {ribbon}
       <div style={{ display: 'flex', gap: 22, alignItems: 'center' }}>
-        <div style={{ flexShrink: 0, width: 210 }}>{photo}</div>
+        <div style={{ flexShrink: 0, width: 290 }}>{photo}</div>
         <div style={{ flex: 1, minWidth: 0, display: 'flex', flexDirection: 'column' }}>
           <div style={{ marginBottom: 6, paddingRight: 50 }}>{kicker}</div>
           <div style={{ marginBottom: 14 }}>{titleBlock}</div>
