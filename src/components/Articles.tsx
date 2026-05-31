@@ -200,6 +200,21 @@ const articles = [
   // Polish (still missing)
   { source: 'Glamrap', title: 'Edward Warchocki wchodzi do rapu. Nawija z Kubańczykiem w studiu', url: 'https://glamrap.pl/edward-warchocki-wchodzi-do-rapu-nawija-z-kubanczykiem-w-studiu/', domain: 'glamrap.pl' },
   { source: 'i.pl', title: 'Robot Edward goni dziki. Nagranie hitem internetu', url: 'https://i.pl/humanoidalny-robot-edward-warchocki-przegonil-dziki-w-warszawie-hit-internetu-na-swiecie-wideo/ar/c1p2-28919145', domain: 'i.pl' },
+  // Wave 6 - Dzień Dziecka / KPRM / Dulkiewicz / napój DINO
+  { source: 'Gdansk.pl', title: 'Jak człowiek z... robotem. Co Edward Warchocki robił w Urzędzie Miejskim w Gdańsku?', url: 'https://www.gdansk.pl/wiadomosci/Robot-Edward-Warchocki-Gdansk-Aleksandra-Dulkiewicz-urzad-miejski-prezydent,a,311243', domain: 'gdansk.pl' },
+  { source: 'Media Gdańsk', title: 'Edward Warchocki z wizytą u prezydent Gdańska', url: 'https://media.gdansk.pl/komunikaty/870444/edward-warchocki-z-wizyta-u-prezydent-gdanska', domain: 'gdansk.pl' },
+  { source: 'Radio Gdańsk', title: 'Edward Warchocki spotkał się z prezydent Gdańska. W jakim celu robot odwiedził urząd miasta?', url: 'https://radiogdansk.pl/wiadomosci/trojmiasto/2026/05/24/edward-warchocki-spotkal-sie-z-prezydent-gdanska-w-jakim-celu-robot-odwiedzil-urzad-miasta/', domain: 'radiogdansk.pl' },
+  { source: 'Zawsze Pomorze', title: 'Edward Warchocki z biznesową wizytą u prezydent Gdańska', url: 'https://www.zawszepomorze.pl/artykul/26906,edward-warchocki-z-biznesowa-wizyta-u-prezydent-gdanska', domain: 'zawszepomorze.pl' },
+  { source: 'Puls Gdańska', title: 'Edward Warchocki odwiedził Prezydent Gdańska', url: 'https://pulsgdanska.pl/spoleczenstwo/nauka/edward-warchocki-odwiedzil-prezydent-gdanska/17zUTyBAdlEo3vw11lqK', domain: 'pulsgdanska.pl' },
+  { source: 'Super Express', title: 'Donald Tusk otworzył ogrody dla dzieci. Rozmawiał z robotem o dzikach', url: 'https://www.se.pl/wiadomosci/lekkie/donald-tusk-otworzyl-ogrody-dla-dzieci-rozmawial-z-robotem-o-dzikach-aa-MXaL-LEhC-tGLz.html', domain: 'se.pl' },
+  { source: 'ESKA', title: 'Donald Tusk otworzył ogrody dla dzieci. Żartował z robotem Edkiem. Jest nagranie', url: 'https://www.eska.pl/news/polityka/tlumy-na-rodzinnym-pikniku-w-kancelarii-premiera-donald-tusk-zaskoczyl-rozmowa-o-dzikach-aa-n5UQ-CJUu-Sf9p.html', domain: 'eska.pl' },
+  { source: 'Wiadomości Handlowe', title: 'Robot influencer podbija sklepy Dino. Edward Warchocki z własną linią napojów', url: 'https://www.wiadomoscihandlowe.pl/najwieksze-sieci-handlowe/dino/robot-influencer-wchodzi-do-dino-edward-warchocki-debiutuje-z-wlasna-marka-napojow-2535512', domain: 'wiadomoscihandlowe.pl' },
+  { source: "Spider's Web", title: 'Robot jest już prawdziwym celebrytą. Będzie miał własny napój', url: 'https://spidersweb.pl/2026/05/robot-edward-warchocki-wlasny-napoj.html', domain: 'spidersweb.pl' },
+  { source: 'WP Finanse', title: 'Edward Warchocki rzuca rękawicę Wojankowi. Nowy napój wchodzi na rynek', url: 'https://finanse.wp.pl/edward-warchocki-rzuca-rekawice-wojankowi-nowy-napoj-wchodzi-na-rynek-7291189784803552a', domain: 'wp.pl' },
+  { source: 'BOOP.pl', title: 'Nie uwierzycie. Edward Warchocki został twarzą picia', url: 'https://boop.pl/rozrywka/nie-uwierzycie-edward-warchocki-zostal-twarza-picia', domain: 'boop.pl' },
+  { source: 'dlahandlu.pl', title: 'Edward Warchocki w spożywczaku. Sensacja na zakupach', url: 'https://www.dlahandlu.pl/technologie-i-wyposazenie/edward-warchocki-w-spozywczaku-sensacja-na-zakupach,170446.html', domain: 'dlahandlu.pl' },
+  { source: 'Trojmiasto.pl', title: 'Sensacja w sklepie: słynny robot Edward Warchocki na zakupach', url: 'https://www.trojmiasto.pl/rozrywka/Sensacja-w-sklepie-slynny-robot-Edward-Warchocki-na-zakupach-n219716.html', domain: 'trojmiasto.pl' },
+  { source: 'Wiadomości Handlowe', title: 'Edward Warchocki wszedł do sklepu Merkus i wywołał sensację. Robot-influencer przyciągnął tłumy klientów', url: 'https://www.wiadomoscihandlowe.pl/branza-po-godzinach/edward-warchocki-wszedl-do-sklepu-i-wywolal-sensacje-robot-influencer-przyciagnal-tlumy-klientow-2535144', domain: 'wiadomoscihandlowe.pl' },
 ]
 
 function ArticleCard({ article, index, isMobile }: { article: (typeof articles)[0]; index: number; isMobile: boolean }) {

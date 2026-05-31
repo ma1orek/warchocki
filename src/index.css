@@ -22,7 +22,7 @@ a {
   color: inherit;
 }
 
-/* Film grain overlay — disabled to prevent black bar glitches */
+/* Film grain overlay - disabled to prevent black bar glitches */
 
 @keyframes grain {
   0%, 100% { transform: translate(0, 0); }

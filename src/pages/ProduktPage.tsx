@@ -4,6 +4,7 @@ import { useParams, Navigate, Link } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import DinoLogo from '../components/DinoLogo'
+import LazyVideo from '../components/LazyVideo'
 import useIsMobile from '../hooks/useIsMobile'
 import { useT, localizedPath } from '../lib/i18n'
 import { getProduct, products } from '../lib/products'
@@ -35,9 +36,9 @@ export default function ProduktPage() {
     <div style={{ position: 'relative', minHeight: '100vh', background: '#000', overflow: 'hidden' }}>
       <Navbar />
 
-      {/* themed ambient glow */}
-      <div aria-hidden style={{ position: 'absolute', top: -200, right: -200, width: 600, height: 600, borderRadius: '50%', background: product.accent, filter: 'blur(160px)', opacity: 0.18, pointerEvents: 'none' }} />
-      <div aria-hidden style={{ position: 'absolute', top: 400, left: -250, width: 600, height: 600, borderRadius: '50%', background: product.accent2, filter: 'blur(170px)', opacity: 0.13, pointerEvents: 'none' }} />
+      {/* themed ambient glow (lighter on mobile to avoid GPU jank) */}
+      <div aria-hidden style={{ position: 'absolute', top: -200, right: -200, width: m ? 320 : 600, height: m ? 320 : 600, borderRadius: '50%', background: product.accent, filter: m ? 'blur(80px)' : 'blur(160px)', opacity: 0.18, pointerEvents: 'none' }} />
+      {!m && <div aria-hidden style={{ position: 'absolute', top: 400, left: -250, width: 600, height: 600, borderRadius: '50%', background: product.accent2, filter: 'blur(170px)', opacity: 0.13, pointerEvents: 'none' }} />}
 
       {/* HERO */}
       <section ref={heroRef} style={{ position: 'relative', padding: m ? '110px 0 40px' : '140px 0 80px' }}>
@@ -87,20 +88,22 @@ export default function ProduktPage() {
             </div>
 
             {/* packshot */}
-            <motion.div style={{ order: m ? 1 : 2, position: 'relative', display: 'flex', justifyContent: 'center', y: packY }}>
-              {/* rotating conic glow */}
+            <motion.div style={{ order: m ? 1 : 2, position: 'relative', display: 'flex', justifyContent: 'center', y: m ? 0 : packY }}>
+              {/* conic glow — rotates on desktop, static on mobile to avoid GPU jank */}
               <motion.div
                 aria-hidden
-                animate={{ rotate: 360 }}
-                transition={{ duration: 24, repeat: Infinity, ease: 'linear' }}
-                style={{ position: 'absolute', width: m ? 320 : 460, height: m ? 320 : 460, top: '50%', left: '50%', translateX: '-50%', translateY: '-50%', borderRadius: '50%', background: `conic-gradient(from 0deg, ${product.accent}55, transparent 30%, ${product.accent2}44, transparent 70%, ${product.accent}55)`, filter: 'blur(50px)', opacity: 0.7, pointerEvents: 'none' }}
+                animate={m ? undefined : { rotate: 360 }}
+                transition={m ? undefined : { duration: 24, repeat: Infinity, ease: 'linear' }}
+                style={{ position: 'absolute', width: m ? 300 : 460, height: m ? 300 : 460, top: '50%', left: '50%', translateX: '-50%', translateY: '-50%', borderRadius: '50%', background: `conic-gradient(from 0deg, ${product.accent}55, transparent 30%, ${product.accent2}44, transparent 70%, ${product.accent}55)`, filter: m ? 'blur(36px)' : 'blur(50px)', opacity: 0.7, pointerEvents: 'none' }}
               />
               <motion.img
                 src={product.packshot}
                 alt={product.flavor[locale]}
+                loading="eager"
+                decoding="async"
                 initial={{ opacity: 0, scale: 0.9, y: 20 }}
-                animate={{ opacity: 1, scale: 1, y: [0, -14, 0] }}
-                transition={{ opacity: { duration: 0.8, delay: 0.2 }, scale: { duration: 0.8, delay: 0.2 }, y: { duration: 5, repeat: Infinity, ease: 'easeInOut', delay: 1 } }}
+                animate={m ? { opacity: 1, scale: 1, y: 0 } : { opacity: 1, scale: 1, y: [0, -14, 0] }}
+                transition={m ? { duration: 0.6, delay: 0.15 } : { opacity: { duration: 0.8, delay: 0.2 }, scale: { duration: 0.8, delay: 0.2 }, y: { duration: 5, repeat: Infinity, ease: 'easeInOut', delay: 1 } }}
                 style={{ position: 'relative', zIndex: 2, height: m ? 360 : 540, width: 'auto', objectFit: 'contain', borderRadius: 20, filter: `drop-shadow(0 40px 70px ${product.glow})` }}
               />
             </motion.div>
@@ -119,21 +122,16 @@ export default function ProduktPage() {
       </section>
 
       {/* VIDEO showcase */}
-      <section style={{ position: 'relative', padding: m ? '40px 0 60px' : '40px 0 100px' }}>
+      <section style={{ position: 'relative', padding: m ? '20px 0 50px' : '40px 0 100px' }}>
         <div style={{ maxWidth: 1400, margin: '0 auto', padding: '0 clamp(20px, 4vw, 48px)' }}>
-          <motion.p {...fadeUp(0)} style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)', marginBottom: 20, textAlign: 'center' }}>
-            {t('prodWatch')}
-          </motion.p>
           <motion.div {...fadeUp(0.1)} style={{ position: 'relative', borderRadius: 24, overflow: 'hidden', border: `1px solid ${product.accent}33`, maxWidth: 920, margin: '0 auto', boxShadow: `0 30px 80px ${product.glow}` }}>
-            <video autoPlay loop muted playsInline style={{ width: '100%', height: 'auto', display: 'block' }}>
-              <source src={product.video} type="video/mp4" />
-            </video>
+            <LazyVideo src={product.video} poster={product.packshot} />
             <div style={{ position: 'absolute', inset: 0, boxShadow: 'inset 0 0 80px rgba(0,0,0,0.4)', pointerEvents: 'none' }} />
           </motion.div>
         </div>
       </section>
 
-      {/* DETAILS — nutrition + ingredients/storage */}
+      {/* DETAILS - nutrition + ingredients/storage */}
       <section style={{ position: 'relative', padding: m ? '20px 0 70px' : '40px 0 110px', borderTop: '1px solid rgba(255,255,255,0.08)' }}>
         <div style={{ maxWidth: 1400, margin: '0 auto', padding: '0 clamp(20px, 4vw, 48px)' }}>
           <div style={{ display: 'grid', gridTemplateColumns: m ? '1fr' : '0.85fr 1.15fr', gap: m ? 32 : 56, marginTop: m ? 40 : 64 }}>
@@ -198,7 +196,7 @@ export default function ProduktPage() {
         </div>
       </section>
 
-      {/* CTA — other flavor + DINO */}
+      {/* CTA - other flavor + DINO */}
       <section style={{ position: 'relative', padding: m ? '60px 0 80px' : '90px 0 120px', borderTop: '1px solid rgba(255,255,255,0.08)' }}>
         <div style={{ maxWidth: 1400, margin: '0 auto', padding: '0 clamp(20px, 4vw, 48px)' }}>
           <div style={{ display: 'grid', gridTemplateColumns: m ? '1fr' : '1fr 1fr', gap: 24, alignItems: 'stretch' }}>
@@ -218,7 +216,7 @@ export default function ProduktPage() {
                 onMouseEnter={(e) => { const im = e.currentTarget.querySelector('img'); if (im) im.style.transform = 'translateY(-6px) rotate(-2deg)' }}
                 onMouseLeave={(e) => { const im = e.currentTarget.querySelector('img'); if (im) im.style.transform = 'translateY(0) rotate(0)' }}
               >
-                <img src={other.packshot} alt={other.flavor[locale]} style={{ height: m ? 130 : 170, width: 'auto', objectFit: 'contain', borderRadius: 12, transition: 'transform 0.4s ease', filter: `drop-shadow(0 18px 30px ${other.glow})` }} />
+                <img src={other.packshot} alt={other.flavor[locale]} loading="lazy" decoding="async" style={{ height: m ? 130 : 170, width: 'auto', objectFit: 'contain', borderRadius: 12, transition: 'transform 0.4s ease', filter: `drop-shadow(0 18px 30px ${other.glow})` }} />
                 <div>
                   <p style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.35)', marginBottom: 8 }}>{t('prodOther')}</p>
                   <p style={{ fontSize: m ? 18 : 22, fontWeight: 700, letterSpacing: '-0.01em', color: '#fff', marginBottom: 12 }}>{other.flavor[locale]}</p>

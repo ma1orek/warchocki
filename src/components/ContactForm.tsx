@@ -33,7 +33,7 @@ export default function ContactForm() {
       const email = data.get('email') as string
       const message = data.get('message') as string
       const body = `Imię: ${name}\nEmail: ${email}\n\n${message}`
-      window.location.href = `mailto:edwardwarchocki@gmail.com?subject=${encodeURIComponent('Zapytanie — ' + name)}&body=${encodeURIComponent(body)}`
+      window.location.href = `mailto:edwardwarchocki@gmail.com?subject=${encodeURIComponent('Zapytanie - ' + name)}&body=${encodeURIComponent(body)}`
     } finally {
       setSending(false)
     }
@@ -70,7 +70,7 @@ export default function ContactForm() {
               PRZYSZŁOŚĆ?
             </h2>
             <p style={{ fontSize: 17, lineHeight: 1.8, color: 'rgba(255,255,255,0.45)', marginBottom: 32, maxWidth: 450 }}>
-              Napisz do nas — odpowiadamy w ciągu 24 godzin. Opowiedz nam
+              Napisz do nas - odpowiadamy w ciągu 24 godzin. Opowiedz nam
               o swoim projekcie, a przygotujemy spersonalizowaną ofertę.
             </p>
 

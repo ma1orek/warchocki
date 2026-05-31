@@ -42,7 +42,7 @@ export default function PromocjaSocialMedia() {
           </motion.h1>
           <motion.p {...fadeUp(0.3)} style={{ fontSize: 18, lineHeight: 1.7, color: 'rgba(255,255,255,0.45)', maxWidth: 600, marginBottom: 32 }}>
             Edward to influencer nowej ery. 1.5 miliarda wyświetleń mówi samo za siebie.
-            Zasięgi, których nie da się kupić — ale można wynająć.
+            Zasięgi, których nie da się kupić - ale można wynająć.
           </motion.p>
           <motion.div {...fadeUp(0.4)}>
             <SocialLinks size="large" />

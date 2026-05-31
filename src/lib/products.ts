@@ -26,14 +26,14 @@ export type Product = {
 export const products: Product[] = [
   {
     slug: 'jablko-gruszka',
-    flavor: { pl: 'JABŁKO — GRUSZKA', en: 'APPLE — PEAR' },
+    flavor: { pl: 'JABŁKO - GRUSZKA', en: 'APPLE - PEAR' },
     name: {
       pl: 'Napój jabłko gruszka z dodatkiem witaminy D',
       en: 'Apple & pear drink with added vitamin D',
     },
     intro: {
-      pl: 'Złocisty jak jesienne słońce. Soczyste jabłko spotyka aksamitną gruszkę — z soków zagęszczonych, pasteryzowany, bez dodatku cukru. Tylko to, co naturalnie najlepsze, plus dawka witaminy D. No i elegancko.',
-      en: 'Golden like autumn sun. Juicy apple meets velvety pear — from concentrated juices, pasteurised, with no added sugar. Only what is naturally best, plus a dose of vitamin D. Elegant.',
+      pl: 'Złocisty jak jesienne słońce. Soczyste jabłko spotyka aksamitną gruszkę - z soków zagęszczonych, pasteryzowany, bez dodatku cukru. Tylko to, co naturalnie najlepsze, plus dawka witaminy D. No i elegancko.',
+      en: 'Golden like autumn sun. Juicy apple meets velvety pear - from concentrated juices, pasteurised, with no added sugar. Only what is naturally best, plus a dose of vitamin D. Elegant.',
     },
     accent: '#f7c948',
     accent2: '#8bc34a',
@@ -44,8 +44,8 @@ export const products: Product[] = [
     liquidTop: '#ffd34d',
     vitamin: { pl: 'Witamina D', en: 'Vitamin D' },
     ingredients: {
-      pl: 'woda, sok jabłkowy z zagęszczonego soku jabłkowego (45 %), sok gruszkowy z zagęszczonego soku gruszkowego (5 %), barwnik — karmel, witamina D, aromat naturalny.',
-      en: 'water, apple juice from apple juice concentrate (45 %), pear juice from pear juice concentrate (5 %), colour — caramel, vitamin D, natural aroma.',
+      pl: 'woda, sok jabłkowy z zagęszczonego soku jabłkowego (45 %), sok gruszkowy z zagęszczonego soku gruszkowego (5 %), barwnik - karmel, witamina D, aromat naturalny.',
+      en: 'water, apple juice from apple juice concentrate (45 %), pear juice from pear juice concentrate (5 %), colour - caramel, vitamin D, natural aroma.',
     },
     storage: {
       pl: 'Przechowuj w temperaturze pokojowej. Chroń przed działaniem promieni słonecznych. Po otwarciu przechowuj w lodówce nie dłużej niż 48 godzin.',
@@ -77,14 +77,14 @@ export const products: Product[] = [
   },
   {
     slug: 'truskawka-jagoda',
-    flavor: { pl: 'TRUSKAWKA — JAGODA', en: 'STRAWBERRY — BLUEBERRY' },
+    flavor: { pl: 'TRUSKAWKA - JAGODA', en: 'STRAWBERRY - BLUEBERRY' },
     name: {
       pl: 'Napój wieloowocowy z dodatkiem witaminy C',
       en: 'Multifruit drink with added vitamin C',
     },
     intro: {
-      pl: 'Czerwień, która budzi zmysły. Dojrzała truskawka, leśna jagoda i nuta wiśni — z soków zagęszczonych, pasteryzowany, bez dodatku cukru. Orzeźwienie z dawką witaminy C. Z kim się zadaję, tym się staję.',
-      en: 'A red that wakes the senses. Ripe strawberry, forest blueberry and a hint of cherry — from concentrated juices, pasteurised, with no added sugar. Refreshment with a dose of vitamin C.',
+      pl: 'Czerwień, która budzi zmysły. Dojrzała truskawka, leśna jagoda i nuta wiśni - z soków zagęszczonych, pasteryzowany, bez dodatku cukru. Orzeźwienie z dawką witaminy C. Z kim się zadaję, tym się staję.',
+      en: 'A red that wakes the senses. Ripe strawberry, forest blueberry and a hint of cherry - from concentrated juices, pasteurised, with no added sugar. Refreshment with a dose of vitamin C.',
     },
     accent: '#ff5a3c',
     accent2: '#7b3fe4',

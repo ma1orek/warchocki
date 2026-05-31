@@ -128,7 +128,7 @@ function ContactInline() {
   const fanDesc = isEn ? 'Got something to say? Want to chat? Edward reads every message.' : 'Masz coś do powiedzenia? Chcesz pogadać? Edek czyta każdą wiadomość.'
   const bizLabel = isEn ? 'For business' : 'Dla biznesu'
   const bizCta = isEn ? 'Business inquiry' : 'Zapytaj o współpracę'
-  const bizDesc = isEn ? 'Events, campaigns, sponsorships, ambassadorships — let\'s do something big together.' : 'Eventy, kampanie, sponsoringi, ambasadorstwa — zróbmy coś dużego razem.'
+  const bizDesc = isEn ? 'Events, campaigns, sponsorships, ambassadorships - let\'s do something big together.' : 'Eventy, kampanie, sponsoringi, ambasadorstwa - zróbmy coś dużego razem.'
 
   return (
     <motion.div

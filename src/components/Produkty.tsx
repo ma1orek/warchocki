@@ -60,6 +60,8 @@ function ProductCard({ product, index }: { product: Product; index: number }) {
           <img
             src={product.packshot}
             alt={product.flavor[locale]}
+            loading="lazy"
+            decoding="async"
             style={{
               height: m ? 240 : 290,
               width: 'auto',
