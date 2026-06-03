@@ -69,7 +69,7 @@ export default function NapojeSocial() {
   const half = Math.ceil(komentarze.length / 2)
   const rowA = komentarze.slice(0, half)
   const rowB = komentarze.slice(half)
-  const cardW = m ? 256 : 330
+  const cardW = m ? 300 : 430
 
   return (
     <section style={{ position: 'relative', padding: m ? '60px 0' : '100px 0', borderTop: '1px solid rgba(255,255,255,0.08)' }}>
