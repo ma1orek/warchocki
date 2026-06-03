@@ -31,7 +31,7 @@ export default function DinoPromo() {
     <div style={{ position: 'relative', width: '100%' }}>
       <div aria-hidden style={{ position: 'absolute', inset: '10% 14%', borderRadius: '50%', background: 'radial-gradient(ellipse at center, rgba(247,201,72,0.22), rgba(226,59,59,0.16) 55%, transparent 72%)', filter: 'blur(26px)', pointerEvents: 'none' }} />
       <img
-        src="/napoje-duo.png"
+        src="/napoje-duo.webp"
         alt={t('dinoFlavor1') + ' & ' + t('dinoFlavor2')}
         loading="lazy"
         decoding="async"
