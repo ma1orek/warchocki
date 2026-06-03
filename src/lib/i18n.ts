@@ -88,6 +88,13 @@ export const translations = {
     prodCtaDesc: 'Nowe napoje czekają na półkach w całej Polsce. Sprawdź oba smaki.',
     prodOther: 'Drugi smak',
 
+    komTag: 'Prosto z TikToka',
+    komTitle: 'CO MÓWIĄ LUDZIE',
+    komDesc: 'Prawdziwe komentarze pod moimi filmami. No i elegancko.',
+    napMediaTag: 'Napój w mediach',
+    napMediaTitle: 'PISZĄ O MOIM NAPOJU',
+    napMediaDesc: 'Cała Polska gada o moich napojach. Zobacz, kto już napisał.',
+
     socialTag: 'Sociale i media tradycyjne',
     socialTitle: 'OBSERWUJ MNIE',
     socialDesc: 'Człowieku, jestem wszędzie. 1.5 miliarda wyświetleń w miesiąc, cały internet o mnie huczy, jestem w każdej telewizji. Obserwuj mnie, żebyś nie przegapił czegoś ważnego. No chyba że wolisz się nudzić.',
@@ -213,6 +220,13 @@ export const translations = {
     prodCtaTitle: 'Catch Edward Warchocki at DINO',
     prodCtaDesc: 'New drinks waiting on shelves across Poland. Try both flavors.',
     prodOther: 'Other flavor',
+
+    komTag: 'Straight from TikTok',
+    komTitle: 'WHAT PEOPLE SAY',
+    komDesc: 'Real comments under my videos. Elegant.',
+    napMediaTag: 'The drink in the media',
+    napMediaTitle: 'THEY WRITE ABOUT MY DRINK',
+    napMediaDesc: 'All of Poland is talking about my drinks. See who already wrote.',
 
     socialTag: 'Social & traditional media',
     socialTitle: 'FOLLOW ME',

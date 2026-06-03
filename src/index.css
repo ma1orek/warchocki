@@ -74,6 +74,15 @@ a {
 /* Timeline scroll hide */
 .timeline-scroll::-webkit-scrollbar { display: none; }
 
+/* Comments marquee */
+@keyframes marquee-left { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@keyframes marquee-right { from { transform: translateX(-50%); } to { transform: translateX(0); } }
+.kom-track { display: flex; width: max-content; gap: 14px; }
+.kom-row:hover .kom-track { animation-play-state: paused; }
+@media (max-width: 768px) {
+  .kom-row:hover .kom-track { animation-play-state: running; }
+}
+
 /* Mystery Box gold shimmer */
 @keyframes gold-pulse {
   0%, 100% {

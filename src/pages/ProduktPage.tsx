@@ -5,6 +5,7 @@ import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import DinoLogo from '../components/DinoLogo'
 import LazyVideo from '../components/LazyVideo'
+import NapojeSocial from '../components/NapojeSocial'
 import useIsMobile from '../hooks/useIsMobile'
 import { useT, localizedPath } from '../lib/i18n'
 import { getProduct, products } from '../lib/products'
@@ -195,6 +196,8 @@ export default function ProduktPage() {
           </div>
         </div>
       </section>
+
+      <NapojeSocial />
 
       {/* CTA - other flavor + DINO */}
       <section style={{ position: 'relative', padding: m ? '60px 0 80px' : '90px 0 120px', borderTop: '1px solid rgba(255,255,255,0.08)' }}>

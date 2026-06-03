@@ -1,6 +1,7 @@
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import Produkty from '../components/Produkty'
+import NapojeSocial from '../components/NapojeSocial'
 
 export default function ProduktyPage() {
   return (
@@ -9,6 +10,7 @@ export default function ProduktyPage() {
       <div style={{ paddingTop: 48 }}>
         <Produkty />
       </div>
+      <NapojeSocial />
       <Footer />
     </div>
   )
