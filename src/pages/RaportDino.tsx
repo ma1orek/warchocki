@@ -25,7 +25,6 @@ const films = [
 
 export default function RaportDino() {
   const m = useIsMobile()
-  const filmViews = films.reduce((s, f) => s + f.views, 0)
   const PLATFORMS = ['TikTok', 'Instagram', 'YouTube', 'X', 'Facebook']
   const ugcHalf = Math.ceil(ugcScreens.length / 2)
   const ugcA = ugcScreens.slice(0, ugcHalf)
@@ -63,7 +62,7 @@ export default function RaportDino() {
           </motion.p>
 
           <motion.div {...fadeUp(0.24)} style={{ display: 'flex', flexWrap: 'wrap', gap: 14 }}>
-            <Stat big={`${(filmViews / 1e6).toFixed(2).replace('.', ',')} mln+`} label="Wyświetleń kampanii" sub="3 główne filmy, 5 platform" accent />
+            <Stat big="10 mln+" label="Wyświetleń kampanii" sub="filmy + reposty, 5 platform" accent />
             <Stat big="163 tys.+" label="Polubienia" sub="łącznie pod filmami" />
             <Stat big="5 mln+" label="Zasięg UGC + media" sub="setki filmów od fanów" accent />
             <Stat big="5" label="Platformy" sub="TikTok · IG · YT · X · FB" />
@@ -77,7 +76,7 @@ export default function RaportDino() {
           <motion.div {...fadeUp(0)} style={{ marginBottom: m ? 28 : 44 }}>
             <h2 style={{ fontSize: m ? 28 : 'clamp(28px, 4vw, 52px)', fontWeight: 800, letterSpacing: '-0.03em', marginBottom: 14 }}>A to dopiero początek</h2>
             <p style={{ fontSize: m ? 15 : 18, lineHeight: 1.6, color: 'rgba(255,255,255,0.5)', maxWidth: 640 }}>
-              Kilka filmów, a takie liczby. Łącznie <strong style={{ color: '#7dd17f' }}>{fmt(filmViews)}</strong> wyświetleń w pierwsze dwa tygodnie. Najlepsze wciąż przed nami.
+              Kilka filmów, a takie liczby. Łącznie <strong style={{ color: '#7dd17f' }}>ponad 10 mln</strong> wyświetleń w pierwsze dwa tygodnie. Najlepsze wciąż przed nami.
             </p>
           </motion.div>
 
@@ -154,7 +153,7 @@ export default function RaportDino() {
             </h2>
             <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 12, marginBottom: 26 }}>
               {[
-                `${(filmViews / 1e6).toFixed(2).replace('.', ',')} mln+ wyświetleń kampanii w pierwsze dwa tygodnie`,
+                '10 mln+ wyświetleń kampanii w pierwsze dwa tygodnie',
                 'Kilka milionów zasięgu UGC - setki filmów od fanów na 5 platformach',
                 `${napojeMedia.length}+ publikacji w mediach o napojach (od Press.pl po Wiadomości Handlowe)`,
                 'Realne reakcje: „polecam, bo próbowałem", „będę kupował w najbliższym Dino"',
