@@ -107,12 +107,13 @@ export default function RaportDino() {
         <div style={{ maxWidth: 1100, margin: '0 auto', padding: '0 clamp(20px, 4vw, 48px)' }}>
           <motion.div {...fadeUp(0)}>
             <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)', marginBottom: 12 }}>Fala UGC</p>
-            <h2 style={{ fontSize: m ? 24 : 'clamp(24px, 3.2vw, 40px)', fontWeight: 700, letterSpacing: '-0.03em', marginBottom: 18, maxWidth: 760 }}>
-              Ludzie sami kręcą content z napojami w Dino
+            <h2 style={{ fontSize: m ? 24 : 'clamp(24px, 3.2vw, 40px)', fontWeight: 700, letterSpacing: '-0.03em', marginBottom: 18, maxWidth: 820 }}>
+              Setki filmików tworzonych przez fanów z napojami Edwarda Warchockiego
             </h2>
             <p style={{ fontSize: m ? 15 : 17, lineHeight: 1.75, color: 'rgba(255,255,255,0.5)', maxWidth: 720 }}>
-              Klienci nagrywają Edwarda przy półce z napojami, taniec przed sklepem, wspólne zdjęcia. Każdy taki klip to darmowa
-              reklama marki DINO trafiająca do tysięcy ludzi. Poniżej realne komentarze i pełna lista mediów, które napisały o napojach.
+              Klienci i fani sami nagrywają napoje Edwarda - przy półce w sklepie, taniec przed Dino, wspólne zdjęcia -
+              bardzo często <strong style={{ color: '#fff' }}>z oznaczeniami DINO</strong>. Każdy taki klip to darmowa reklama marki
+              trafiająca do tysięcy ludzi. Poniżej realne komentarze i pełna lista mediów, które napisały o napojach.
             </p>
           </motion.div>
         </div>
