@@ -15,6 +15,11 @@ export const napojeMedia: MediaItem[] = [
   { source: 'kb.pl', title: 'Humanoidalny robot AI trafił na sklepowe półki. Klienci Dino przecierają oczy ze zdumienia', url: 'https://kb.pl/aktualnosci/promocje/dino-stawia-na-ai-napoje-sygnowane-przez-robota-juz-w-sprzedazy_fg/', domain: 'kb.pl' },
   { source: 'BOOP.pl', title: 'Nie uwierzycie. Edward Warchocki został twarzą picia', url: 'https://boop.pl/rozrywka/nie-uwierzycie-edward-warchocki-zostal-twarza-picia', domain: 'boop.pl' },
   { source: 'Pułtusk News', title: 'Znany robot Edward Warchocki spotkał się z właścicielami Grupy Polmlek', url: 'https://pultusk.news/aktualnosci/znany-robot-edward-warchocki-spotkal-sie-z-wlascicielami-grupy-polmlek/', domain: 'pultusk.news' },
+  { source: 'Android.com.pl', title: 'Edward Warchocki trafił do… branży spożywczej. Popularny robot ma własny napój', url: 'https://android.com.pl/tech/1052386-edward-warchocki-napoj-w-dino/', domain: 'android.com.pl' },
+  { source: 'Portal Spożywczy', title: 'Początek 17 czerwca. Takie rzeczy w Dino', url: 'https://www.portalspozywczy.pl/handel/wiadomosci/poczatek-17-czerwca-takie-rzeczy-w-dino,289877.html', domain: 'portalspozywczy.pl' },
+  { source: 'Payload', title: 'Robot jest już prawdziwym celebrytą. Będzie miał własny napój', url: 'https://spolecznosc.payload.pl/robot-jest-juz-prawdziwym-celebryta-bedzie-mial-wlasny-napoj-40112956.html', domain: 'payload.pl' },
+  { source: 'Fortuna / Polmlek', title: 'Fortuna Napój Jabłko-Gruszka 500 ml EDWARD WARCHOCKI', url: 'https://polmlek.com/products/fortuna-napoj-jablko-gruszka-500-ml-edward-warchocki/', domain: 'polmlek.com' },
+  { source: 'Fortuna / Polmlek', title: 'Fortuna Napój Wieloowocowy 500 ml EDWARD WARCHOCKI', url: 'https://polmlek.com/products/fortuna-napoj-wieloowocowy-500-ml-edward-warchocki/', domain: 'polmlek.com' },
 ]
 
 // 20 real TikTok comment screenshots about the drink.
