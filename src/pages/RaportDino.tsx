@@ -5,7 +5,7 @@ import DinoLogo from '../components/DinoLogo'
 import LazyVideo from '../components/LazyVideo'
 import NapojeSocial from '../components/NapojeSocial'
 import useIsMobile from '../hooks/useIsMobile'
-import { napojeMedia } from '../lib/napojeMedia'
+import { napojeMedia, ugcScreens } from '../lib/napojeMedia'
 
 const fmt = (n: number) => n.toLocaleString('pl-PL')
 
@@ -23,20 +23,13 @@ const films = [
   { title: 'barca czy real?', src: '/dino-promo-3.mp4', poster: '/dino-promo-3.jpg', views: 660000, likes: '21,2 tys.' },
 ]
 
-// Main UGC clips with the drink / Dino in frame (play counts read from the apps)
-const ugcClips = [
-  { label: 'Taniec przed sklepem Dino', views: 1100000 },
-  { label: 'Taniec przed Dino (repost)', views: 223000 },
-  { label: 'W magazynie napojów', views: 562000 },
-  { label: 'Pakowanie palet', views: 96000 },
-  { label: 'Zakupy w sklepie', views: 203000 },
-  { label: 'Zakupy w alejce', views: 105000 },
-]
-
 export default function RaportDino() {
   const m = useIsMobile()
   const filmViews = films.reduce((s, f) => s + f.views, 0)
   const PLATFORMS = ['TikTok', 'Instagram', 'YouTube', 'X', 'Facebook']
+  const ugcHalf = Math.ceil(ugcScreens.length / 2)
+  const ugcA = ugcScreens.slice(0, ugcHalf)
+  const ugcB = ugcScreens.slice(ugcHalf)
 
   const Stat = ({ big, label, sub, accent }: { big: string; label: string; sub?: string; accent?: boolean }) => (
     <div style={{ flex: '1 1 170px', padding: m ? '20px 16px' : '28px 24px', borderRadius: 16, background: accent ? 'linear-gradient(150deg, rgba(52,169,58,0.16), rgba(255,255,255,0.02))' : 'rgba(255,255,255,0.03)', border: `1px solid ${accent ? 'rgba(95,192,101,0.35)' : 'rgba(255,255,255,0.08)'}` }}>
@@ -72,7 +65,7 @@ export default function RaportDino() {
           <motion.div {...fadeUp(0.24)} style={{ display: 'flex', flexWrap: 'wrap', gap: 14 }}>
             <Stat big={`${(filmViews / 1e6).toFixed(2).replace('.', ',')} mln+`} label="Wyświetleń kampanii" sub="3 główne filmy, 5 platform" accent />
             <Stat big="163 tys.+" label="Polubienia" sub="łącznie pod filmami" />
-            <Stat big="Kilka mln+" label="Zasięg UGC" sub="setki filmów od fanów" accent />
+            <Stat big="5 mln+" label="Zasięg UGC + media" sub="setki filmów od fanów" accent />
             <Stat big="5" label="Platformy" sub="TikTok · IG · YT · X · FB" />
           </motion.div>
         </div>
@@ -123,19 +116,18 @@ export default function RaportDino() {
               reklama marki DINO trafiająca do tysięcy ludzi. Poniżej realne komentarze i pełna lista mediów, które napisały o napojach.
             </p>
           </motion.div>
+        </div>
 
-          <motion.div {...fadeUp(0.1)} style={{ display: 'flex', flexWrap: 'wrap', gap: 12, marginTop: 28 }}>
-            {ugcClips.map((c) => (
-              <div key={c.label} style={{ flex: '1 1 150px', padding: '18px 20px', borderRadius: 14, background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)' }}>
-                <div style={{ fontSize: m ? 22 : 26, fontWeight: 800, color: '#7dd17f' }}>{c.views >= 1e6 ? (c.views / 1e6).toFixed(1).replace('.', ',') + ' mln' : Math.round(c.views / 1000) + ' tys.'}</div>
-                <div style={{ fontSize: 12, color: 'rgba(255,255,255,0.45)', marginTop: 4 }}>{c.label}</div>
-              </div>
-            ))}
-          </motion.div>
+        {/* UGC wall — real posts from people */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 12, marginTop: m ? 24 : 32 }}>
+          <UgcRow items={ugcA} dir="left" duration={m ? 42 : 62} h={m ? 150 : 210} />
+          <UgcRow items={ugcB} dir="right" duration={m ? 46 : 68} h={m ? 150 : 210} />
+        </div>
 
+        <div style={{ maxWidth: 1100, margin: '0 auto', padding: '0 clamp(20px, 4vw, 48px)' }}>
           {/* estimate block */}
-          <motion.div {...fadeUp(0.16)} style={{ marginTop: 26, padding: m ? 22 : 30, borderRadius: 16, background: 'linear-gradient(150deg, rgba(52,169,58,0.14), rgba(255,255,255,0.02))', border: '1px solid rgba(95,192,101,0.3)' }}>
-            <h3 style={{ fontSize: m ? 19 : 24, fontWeight: 800, marginBottom: 12 }}>Łączny zasięg UGC: <span style={{ color: '#7dd17f' }}>kilka milionów</span></h3>
+          <motion.div {...fadeUp(0.1)} style={{ marginTop: 28, padding: m ? 22 : 30, borderRadius: 16, background: 'linear-gradient(150deg, rgba(52,169,58,0.14), rgba(255,255,255,0.02))', border: '1px solid rgba(95,192,101,0.3)' }}>
+            <h3 style={{ fontSize: m ? 19 : 24, fontWeight: 800, marginBottom: 12 }}>Łączny zasięg UGC + media: <span style={{ color: '#7dd17f' }}>5 mln+</span></h3>
             <p style={{ fontSize: m ? 14 : 16, lineHeight: 1.75, color: 'rgba(255,255,255,0.6)', marginBottom: 16 }}>
               To nie są pojedyncze nagrania - to <strong style={{ color: '#fff' }}>setki filmów</strong> nakręconych przez klientów i fanów,
               żyjących równolegle na TikToku, Instagramie, YouTubie, X i Facebooku. Każdy z marką DINO w tle, każdy za darmo. I to wszystko w dwa tygodnie.
@@ -204,4 +196,17 @@ function Chip({ icon, val, label }: { icon: string; val: string; label: string }
 
 function Tag({ children }: { children: React.ReactNode }) {
   return <span style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.06em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.5)', border: '1px solid rgba(255,255,255,0.14)', borderRadius: 6, padding: '3px 7px' }}>{children}</span>
+}
+
+function UgcRow({ items, dir, duration, h }: { items: string[]; dir: 'left' | 'right'; duration: number; h: number }) {
+  const doubled = [...items, ...items]
+  return (
+    <div className="kom-row" style={{ overflow: 'hidden', WebkitMaskImage: 'linear-gradient(to right, transparent, #000 6%, #000 94%, transparent)', maskImage: 'linear-gradient(to right, transparent, #000 6%, #000 94%, transparent)' }}>
+      <div className="kom-track" style={{ animation: `marquee-${dir} ${duration}s linear infinite` }}>
+        {doubled.map((src, i) => (
+          <img key={i} src={src} alt="UGC z napojem Edwarda Warchockiego" loading="lazy" decoding="async" style={{ height: h, width: 'auto', borderRadius: 12, border: '1px solid rgba(255,255,255,0.1)', flexShrink: 0, display: 'block', objectFit: 'cover' }} />
+        ))}
+      </div>
+    </div>
+  )
 }

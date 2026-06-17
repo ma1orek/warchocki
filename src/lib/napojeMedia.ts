@@ -24,3 +24,6 @@ export const napojeMedia: MediaItem[] = [
 
 // 20 real TikTok comment screenshots about the drink.
 export const komentarze: string[] = Array.from({ length: 20 }, (_, i) => `/komentarze/k${i + 1}.png`)
+
+// Real UGC screenshots — people posting the drink across socials.
+export const ugcScreens: string[] = Array.from({ length: 14 }, (_, i) => `/ugc/u${i + 1}.jpg`)
