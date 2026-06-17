@@ -17,8 +17,16 @@ export const napojeMedia: MediaItem[] = [
   { source: 'Android.com.pl', title: 'Edward Warchocki trafił do… branży spożywczej. Popularny robot ma własny napój', url: 'https://android.com.pl/tech/1052386-edward-warchocki-napoj-w-dino/', domain: 'android.com.pl' },
   { source: 'Portal Spożywczy', title: 'Początek 17 czerwca. Takie rzeczy w Dino', url: 'https://www.portalspozywczy.pl/handel/wiadomosci/poczatek-17-czerwca-takie-rzeczy-w-dino,289877.html', domain: 'portalspozywczy.pl' },
   { source: 'Payload', title: 'Robot jest już prawdziwym celebrytą. Będzie miał własny napój', url: 'https://spolecznosc.payload.pl/robot-jest-juz-prawdziwym-celebryta-bedzie-mial-wlasny-napoj-40112956.html', domain: 'payload.pl' },
-  { source: 'Fortuna / Polmlek', title: 'Fortuna Napój Jabłko-Gruszka 500 ml EDWARD WARCHOCKI', url: 'https://polmlek.com/products/fortuna-napoj-jablko-gruszka-500-ml-edward-warchocki/', domain: 'polmlek.com' },
-  { source: 'Fortuna / Polmlek', title: 'Fortuna Napój Wieloowocowy 500 ml EDWARD WARCHOCKI', url: 'https://polmlek.com/products/fortuna-napoj-wieloowocowy-500-ml-edward-warchocki/', domain: 'polmlek.com' },
+  { source: 'Dino Najbliżej Ciebie', title: 'Napoje Edwarda Warchockiego w sieci Dino', url: 'https://www.facebook.com/dinonajblizejciebie/posts/pfbid025Tjsk853HFpYB4P5doMeFP2CQzSHfvJ6bQFDqHoEec96nnvtTHuZ7PxQme9wyMpTl', domain: 'facebook.com' },
+  { source: 'INNPoland', title: 'Napoje Edwarda Warchockiego już w sklepach', url: 'https://www.facebook.com/innpoland/posts/pfbid034NBKUwv3Y94oKM2RFZuyuQVhJNeC8tjPxN61bjLHdPxUqrvik5K65hwHSAZs9VTol', domain: 'facebook.com' },
+  { source: 'Sztosowe.pl', title: 'Napoje Edwarda Warchockiego w Dino', url: 'https://www.facebook.com/Sztosowepl/posts/pfbid04A4LvtwPMKkEGL1zsLJT8n2EjF4m2wW4cDdDih7MQLYEPhAbDaj6vKUJu2mhj1aRl', domain: 'facebook.com' },
+  { source: 'Łowiczanin.info', title: 'Edward Warchocki i jego napoje w Dino', url: 'https://www.facebook.com/lowiczanin.info/posts/pfbid031R3dC8c6wgMimqS9YRhMfz52k6JEsPKYiAmAYM5xdJCdDv7YsF1xeM5yxsegKywzl', domain: 'facebook.com' },
+  { source: 'Pułtusk24', title: 'Edward Warchocki - napój w Dino', url: 'https://www.facebook.com/pultusk24/posts/pfbid0xouArrxBWVGFTzB4p8wUGQgPyKjqVxLtGxUhCNqxoeQjCjZLRK3GtEmeAcyP3se6l', domain: 'facebook.com' },
+  { source: 'Partyka Design', title: 'Napój Edwarda Warchockiego', url: 'https://www.facebook.com/partykadesign/posts/pfbid02gdZnLKNRXYhPKFUb3Rb6Mnq4NwW8DgVp3rXskostcJxaQqt6fFevURweuiQ6m68Fl', domain: 'facebook.com' },
+  { source: 'Facebook', title: 'Napój Edwarda Warchockiego - post', url: 'https://www.facebook.com/permalink.php?story_fbid=pfbid0369GnrGPHvEsY5sSvHsWJSfSxnvdE9YapaJPmXofg8oeabCRJsgeNiRi6aEEQq65Vl&id=100005695003439', domain: 'facebook.com' },
+  { source: 'Facebook', title: 'Napój Edwarda Warchockiego (reel)', url: 'https://www.facebook.com/reel/2241860569968057/', domain: 'facebook.com' },
+  { source: 'Facebook', title: 'Napój Edwarda Warchockiego (reel)', url: 'https://www.facebook.com/reel/1281703877284191/', domain: 'facebook.com' },
+  { source: 'Facebook', title: 'Napój Edwarda Warchockiego (reel)', url: 'https://www.facebook.com/reel/998977615881525/', domain: 'facebook.com' },
 ]
 
 // 20 real TikTok comment screenshots about the drink.
