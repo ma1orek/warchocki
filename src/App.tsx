@@ -6,6 +6,7 @@ import WynajemRobotow from './pages/WynajemRobotow'
 import PromocjaSocialMedia from './pages/PromocjaSocialMedia'
 import ProduktyPage from './pages/ProduktyPage'
 import ProduktPage from './pages/ProduktPage'
+import RaportDino from './pages/RaportDino'
 
 function ScrollToTop() {
   const { pathname, hash } = useLocation()
@@ -33,6 +34,8 @@ function App() {
         <Route path="/promocja-social-media" element={<PromocjaSocialMedia />} />
         <Route path="/produkty" element={<ProduktyPage />} />
         <Route path="/produkty/:slug" element={<ProduktPage />} />
+        <Route path="/raport-dino" element={<RaportDino />} />
+        <Route path="/dino" element={<RaportDino />} />
         <Route path="/en" element={<Home />} />
         <Route path="/en/wynajem-edwarda" element={<WynajemEdwarda />} />
         <Route path="/en/wynajem-robotow" element={<WynajemRobotow />} />
