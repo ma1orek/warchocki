@@ -4,8 +4,9 @@ import Footer from '../components/Footer'
 import DinoLogo from '../components/DinoLogo'
 import LazyVideo from '../components/LazyVideo'
 import NapojeSocial from '../components/NapojeSocial'
+import Produkty from '../components/Produkty'
 import useIsMobile from '../hooks/useIsMobile'
-import { napojeMedia, ugcScreens } from '../lib/napojeMedia'
+import { ugcScreens } from '../lib/napojeMedia'
 
 const fmt = (n: number) => n.toLocaleString('pl-PL')
 
@@ -144,35 +145,17 @@ export default function RaportDino() {
       {/* Comments + media (reused) */}
       <NapojeSocial />
 
-      {/* SUMMARY */}
-      <section style={{ position: 'relative', padding: m ? '50px 0 70px' : '80px 0 110px', borderTop: '1px solid rgba(255,255,255,0.08)' }}>
-        <div style={{ maxWidth: 1100, margin: '0 auto', padding: '0 clamp(20px, 4vw, 48px)' }}>
-          <motion.div {...fadeUp(0)} style={{ borderRadius: 22, padding: m ? 28 : 48, background: 'linear-gradient(150deg, rgba(52,169,58,0.18), rgba(255,255,255,0.03))', border: '1px solid rgba(95,192,101,0.3)' }}>
-            <span style={{ display: 'inline-flex', alignItems: 'center', background: '#fff', borderRadius: 30, padding: '8px 16px', marginBottom: 20 }}><DinoLogo height={24} /></span>
-            <h2 style={{ fontSize: m ? 24 : 'clamp(26px, 3.5vw, 44px)', fontWeight: 800, letterSpacing: '-0.03em', lineHeight: 1.1, marginBottom: 18 }}>
-              Napój, który sam się reklamuje
-            </h2>
-            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 12, marginBottom: 26 }}>
-              {[
-                '10 mln+ wyświetleń kampanii w pierwsze dwa tygodnie',
-                'Kilka milionów zasięgu UGC - setki filmów od fanów na 5 platformach',
-                `${napojeMedia.length}+ publikacji w mediach o napojach (od Press.pl po Wiadomości Handlowe)`,
-                'Realne reakcje: „polecam, bo próbowałem", „będę kupował w najbliższym Dino"',
-                'Organiczny, darmowy UGC z marką DINO w tle - bez kosztów mediowych',
-                'A to dopiero początek - kampania właśnie się rozkręca',
-              ].map((line) => (
-                <li key={line} style={{ display: 'flex', gap: 12, fontSize: m ? 14 : 16, lineHeight: 1.6, color: 'rgba(255,255,255,0.8)' }}>
-                  <span style={{ color: '#7dd17f', flexShrink: 0, fontWeight: 800 }}>✓</span>{line}
-                </li>
-              ))}
-            </ul>
-            <a href="https://contactform.bitrix24.site/EdwardBiznes/" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: 10, padding: '14px 26px', borderRadius: 12, background: '#fff', color: '#000', fontSize: 14, fontWeight: 800, letterSpacing: '0.06em', textTransform: 'uppercase' }}>
-              Porozmawiajmy o współpracy
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
-            </a>
-          </motion.div>
+      {/* PRODUKTY — NAPOJE EDKA */}
+      <Produkty />
 
-          <p style={{ fontSize: 11, color: 'rgba(255,255,255,0.3)', marginTop: 24, lineHeight: 1.6 }}>
+      {/* CTA + note */}
+      <section style={{ position: 'relative', padding: m ? '20px 0 70px' : '40px 0 100px' }}>
+        <div style={{ maxWidth: 1100, margin: '0 auto', padding: '0 clamp(20px, 4vw, 48px)', textAlign: 'center' }}>
+          <a href="https://contactform.bitrix24.site/EdwardBiznes/" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: 10, padding: '15px 28px', borderRadius: 12, background: '#fff', color: '#000', fontSize: 14, fontWeight: 800, letterSpacing: '0.06em', textTransform: 'uppercase' }}>
+            Porozmawiajmy o współpracy
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+          </a>
+          <p style={{ fontSize: 11, color: 'rgba(255,255,255,0.3)', margin: '22px auto 0', lineHeight: 1.6, maxWidth: 760 }}>
             Dane wyświetleń i polubień zliczone z kanałów Edwarda (TikTok, Instagram, YouTube, X, Facebook) za pierwsze dwa tygodnie kampanii (czerwiec 2026).
             Zasięg UGC szacowany na podstawie wolumenu filmów publikowanych przez klientów i fanów.
           </p>
