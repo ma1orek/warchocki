@@ -63,9 +63,9 @@ export default function RaportDino() {
 
           <motion.div {...fadeUp(0.24)} style={{ display: 'flex', flexWrap: 'wrap', gap: 14 }}>
             <Stat big="10 mln+" label="Wyświetleń kampanii" sub="filmy + reposty, 5 platform" accent />
-            <Stat big="163 tys.+" label="Polubienia" sub="łącznie pod filmami" />
+            <Stat big="5 mln+" label="Zasięg postów własnych" sub="o napojach i DINO" accent />
             <Stat big="5 mln+" label="Zasięg UGC + media" sub="setki filmów od fanów" accent />
-            <Stat big="5" label="Platformy" sub="TikTok · IG · YT · X · FB" />
+            <Stat big="163 tys.+" label="Polubienia" sub="łącznie pod filmami" />
           </motion.div>
         </div>
       </section>
