@@ -4,6 +4,11 @@ import useIsMobile from '../hooks/useIsMobile'
 import { useT } from '../lib/i18n'
 
 const articles = [
+  // Wave 7 — Ustka / lato 2026 (najnowsze)
+  { source: 'TVP World', title: "'Time for a cannonball!' Robot tourist turns Polish beach into sci-fi scene", url: 'https://tvpworld.com/94188321/edward-warchocki-goes-to-ustka-robot-turns-polish-beach-into-sci-fi-scene', domain: 'tvpworld.com' },
+  { source: 'o2.pl', title: 'Prawie 500 tys. wyświetleń. Nagranie z Ustki podbija sieć', url: 'https://www.o2.pl/informacje/prawie-500-tys-wyswietlen-nagranie-z-ustki-podbija-siec-7304093848070560a', domain: 'o2.pl' },
+  { source: 'BlaskOnline', title: 'Edward Warchocki — robot, który podbił Polskę. Kim jest „Edek" i jak na nim zarabiać?', url: 'https://blaskonline.pl/edward-warchocki-robot-ktory-podbil-polske-kim-jest-edek-i-jak-na-nim-zarabiac/', domain: 'blaskonline.pl' },
+  { source: 'Euronews PL', title: 'Robot influencer przegonił dziki w Warszawie. Wideo podbija internet', url: 'https://pl.euronews.com/2026/04/14/edward-warchocki-robot-influencer-przegonil-dziki-w-warszawie-wideo-podbija-internet', domain: 'pl.euronews.com' },
   // Worldwide
   { source: 'BBC News', title: 'Humanoid robot Edward Warchocki filmed chasing wild boars in Warsaw', url: 'https://worldnews.whatfinger.com/2026/04/15/the-humanoid-robot-known-as-edward-warchocki-was-filmed-chasing-boars-in-warsaw-poland-bbcnews', domain: 'bbc.co.uk' },
   { source: 'CNN', title: 'Robot chases wild boars in Warsaw — viral video', url: 'https://edition.cnn.com/2026/04/15/world/video/robot-chases-wild-boars-ldn-digvid-vrtc', domain: 'cnn.com' },
