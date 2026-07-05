@@ -8,7 +8,7 @@ export default function ProduktyPage() {
     <div style={{ position: 'relative', minHeight: '100vh', background: '#000' }}>
       <Navbar />
       <div style={{ paddingTop: 48 }}>
-        <Produkty />
+        <Produkty showStoreLogos standalone />
       </div>
       <NapojeSocial />
       <Footer />

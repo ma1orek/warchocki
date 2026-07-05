@@ -105,14 +105,14 @@ function ProductCard({ product, index }: { product: Product; index: number }) {
   )
 }
 
-export default function Produkty() {
+export default function Produkty({ showStoreLogos = false, standalone = false }: { showStoreLogos?: boolean; standalone?: boolean }) {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: '-50px' })
   const m = useIsMobile()
   const { t } = useT()
 
   return (
-    <section id="produkty" style={{ position: 'relative', padding: m ? '80px 0' : '120px 0', borderTop: '1px solid rgba(255,255,255,0.08)', scrollMarginTop: 80 }}>
+    <section id="produkty" style={{ position: 'relative', padding: m ? '80px 0' : '120px 0', borderTop: standalone ? 'none' : '1px solid rgba(255,255,255,0.08)', scrollMarginTop: 80 }}>
       <div style={{ maxWidth: 1400, margin: '0 auto', padding: m ? '0 20px' : '0 48px' }}>
         <motion.div
           ref={ref}
@@ -131,13 +131,15 @@ export default function Produkty() {
             {t('productsIntro')}
           </p>
 
-          {/* store availability strip: DINO, Kaufland, Auchan, SPAR */}
-          <div style={{ display: 'inline-flex', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center', gap: 12, padding: '8px 12px', borderRadius: 40, border: '1px solid rgba(255,255,255,0.12)', background: 'rgba(255,255,255,0.03)' }}>
-            <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)' }}>
-              {t('productsAvail')}
-            </span>
-            <StoreLogos height={18} align="center" />
-          </div>
+          {/* store availability strip: DINO, Kaufland, Auchan, SPAR (hidden on homepage) */}
+          {showStoreLogos && (
+            <div style={{ display: 'inline-flex', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center', gap: 12, padding: '8px 12px', borderRadius: 40, border: '1px solid rgba(255,255,255,0.12)', background: 'rgba(255,255,255,0.03)' }}>
+              <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)' }}>
+                {t('productsAvail')}
+              </span>
+              <StoreLogos height={18} align="center" />
+            </div>
+          )}
         </motion.div>
 
         <div style={{ display: 'grid', gridTemplateColumns: m ? '1fr' : '1fr 1fr', gap: m ? 20 : 24 }}>
