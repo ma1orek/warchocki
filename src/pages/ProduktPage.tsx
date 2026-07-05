@@ -3,7 +3,7 @@ import { useRef } from 'react'
 import { useParams, Navigate, Link } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
-import DinoLogo from '../components/DinoLogo'
+import StoreLogos from '../components/StoreLogos'
 import LazyVideo from '../components/LazyVideo'
 import NapojeSocial from '../components/NapojeSocial'
 import useIsMobile from '../hooks/useIsMobile'
@@ -77,14 +77,12 @@ export default function ProduktPage() {
                 </span>
               </motion.div>
 
-              {/* DINO availability */}
-              <motion.div {...fadeUp(0.42)} style={{ display: 'inline-flex', alignItems: 'center', gap: 12, padding: '10px 10px 10px 18px', borderRadius: 44, border: '1px solid rgba(255,255,255,0.12)', background: 'rgba(255,255,255,0.03)' }}>
+              {/* store availability: DINO, Kaufland, Auchan, SPAR */}
+              <motion.div {...fadeUp(0.42)} style={{ display: 'inline-flex', flexWrap: 'wrap', alignItems: 'center', gap: 12, padding: '10px 14px', borderRadius: 44, border: '1px solid rgba(255,255,255,0.12)', background: 'rgba(255,255,255,0.03)' }}>
                 <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)' }}>
                   {t('prodAvailTitle')}
                 </span>
-                <span style={{ display: 'inline-flex', alignItems: 'center', background: '#fff', borderRadius: 28, padding: '5px 14px' }}>
-                  <DinoLogo height={18} />
-                </span>
+                <StoreLogos height={16} />
               </motion.div>
             </div>
 
@@ -205,9 +203,7 @@ export default function ProduktPage() {
           <div style={{ display: 'grid', gridTemplateColumns: m ? '1fr' : '1fr 1fr', gap: 24, alignItems: 'stretch' }}>
             {/* DINO block */}
             <motion.div {...fadeUp(0)} style={{ borderRadius: 22, padding: m ? 28 : 40, background: 'linear-gradient(135deg, rgba(52,169,58,0.18), rgba(255,255,255,0.03))', border: '1px solid rgba(95,192,101,0.3)', display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: 18 }}>
-              <span style={{ display: 'inline-flex', alignItems: 'center', alignSelf: 'flex-start', background: '#fff', borderRadius: 30, padding: '8px 18px' }}>
-                <DinoLogo height={26} />
-              </span>
+              <StoreLogos height={20} />
               <h3 style={{ fontSize: m ? 24 : 30, fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.15 }}>{t('prodCtaTitle')}</h3>
               <p style={{ fontSize: 15, lineHeight: 1.7, color: 'rgba(255,255,255,0.55)' }}>{t('prodCtaDesc')}</p>
             </motion.div>

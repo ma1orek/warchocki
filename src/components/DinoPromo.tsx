@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import useIsMobile from '../hooks/useIsMobile'
 import { useT, localizedPath } from '../lib/i18n'
+import StoreLogos from './StoreLogos'
 
 /* Translucent on-brand banner built around the cut-out duo photo.
    Mobile: stacked. Desktop: image left, text right (compact). */
@@ -59,6 +60,12 @@ export default function DinoPromo() {
     </>
   )
 
+  const storesRow = (
+    <div style={{ display: 'flex', justifyContent: m ? 'center' : 'flex-start', marginBottom: 14 }}>
+      <StoreLogos height={13} align={m ? 'center' : 'flex-start'} />
+    </div>
+  )
+
   const cta = (
     <Link to={to} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 9, width: '100%', padding: '12px 18px', borderRadius: 13, background: '#fff', color: '#000', fontSize: 13, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase' }}
       onMouseEnter={(e) => (e.currentTarget.style.opacity = '0.88')}
@@ -100,6 +107,7 @@ export default function DinoPromo() {
         <div style={{ marginBottom: 12 }}>{titleBlock}</div>
         <div style={{ marginBottom: 12 }}>{photo}</div>
         {flavors}
+        {storesRow}
         {cta}
       </motion.div>
     )
@@ -115,6 +123,7 @@ export default function DinoPromo() {
           <div style={{ marginBottom: 6, paddingRight: 50 }}>{kicker}</div>
           <div style={{ marginBottom: 14 }}>{titleBlock}</div>
           {flavors}
+          {storesRow}
           {cta}
         </div>
       </div>

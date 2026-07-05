@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import useIsMobile from '../hooks/useIsMobile'
 import { useT, localizedPath } from '../lib/i18n'
 import { products, type Product } from '../lib/products'
-import DinoLogo from './DinoLogo'
+import StoreLogos from './StoreLogos'
 
 function ProductCard({ product, index }: { product: Product; index: number }) {
   const ref = useRef(null)
@@ -131,14 +131,12 @@ export default function Produkty() {
             {t('productsIntro')}
           </p>
 
-          {/* DINO availability strip */}
-          <div style={{ display: 'inline-flex', alignItems: 'center', gap: 12, padding: '8px 8px 8px 16px', borderRadius: 40, border: '1px solid rgba(255,255,255,0.12)', background: 'rgba(255,255,255,0.03)' }}>
+          {/* store availability strip: DINO, Kaufland, Auchan, SPAR */}
+          <div style={{ display: 'inline-flex', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center', gap: 12, padding: '8px 12px', borderRadius: 40, border: '1px solid rgba(255,255,255,0.12)', background: 'rgba(255,255,255,0.03)' }}>
             <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)' }}>
               {t('productsAvail')}
             </span>
-            <span style={{ display: 'inline-flex', alignItems: 'center', background: '#fff', borderRadius: 24, padding: '4px 12px' }}>
-              <DinoLogo height={18} />
-            </span>
+            <StoreLogos height={18} align="center" />
           </div>
         </motion.div>
 
