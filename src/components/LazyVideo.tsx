@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState, type CSSProperties } from 'react'
 
-/* Loads/plays the video only once it scrolls near the viewport — keeps heavy
+/* Loads/plays the video only once it scrolls near the viewport - keeps heavy
    mp4s from blocking first paint and interactivity on mobile. */
 export default function LazyVideo({ src, poster, style }: { src: string; poster?: string; style?: CSSProperties }) {
   const ref = useRef<HTMLDivElement>(null)

@@ -54,7 +54,7 @@ export default function RaportDino() {
         <div style={{ maxWidth: 1100, margin: '0 auto', padding: '0 clamp(20px, 4vw, 48px)' }}>
           <motion.div {...fadeUp(0)} style={{ display: 'flex', alignItems: 'center', gap: 14, marginBottom: 28, flexWrap: 'wrap' }}>
             <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: '#7dd17f', border: '1px solid rgba(95,192,101,0.4)', borderRadius: 30, padding: '8px 16px' }}>
-              Raport kampanii — od czerwca 2026
+              Raport kampanii - od czerwca 2026
             </span>
             <span style={{ display: 'inline-flex', alignItems: 'center', background: '#fff', borderRadius: 8, padding: '6px 12px' }}><DinoLogo height={20} /></span>
           </motion.div>
@@ -64,8 +64,7 @@ export default function RaportDino() {
           </motion.h1>
           <motion.p {...fadeUp(0.16)} style={{ fontSize: m ? 16 : 20, lineHeight: 1.6, color: 'rgba(255,255,255,0.5)', maxWidth: 660, marginBottom: 40 }}>
             Pierwszy w Polsce robot-influencer i jego produkty bez dodatku cukru. Kampania wystartowała w DINO,
-            a napoje są już także w sieciach <strong style={{ color: '#fff' }}>Kaufland, Auchan i SPAR</strong> —
-            do tego <strong style={{ color: '#7dd17f' }}>NOWOŚĆ: musy owocowe</strong>, dostępne w Dino. A to dopiero początek.
+            a napoje są już także w sieciach <strong style={{ color: '#fff' }}>Kaufland, Auchan i SPAR</strong> - do tego <strong style={{ color: '#7dd17f' }}>NOWOŚĆ: musy owocowe</strong>, dostępne w Dino. A to dopiero początek.
           </motion.p>
 
           <motion.div {...fadeUp(0.24)} style={{ display: 'flex', flexWrap: 'wrap', gap: 14 }}>
@@ -76,13 +75,13 @@ export default function RaportDino() {
         </div>
       </section>
 
-      {/* FILMS — "to dopiero początek" */}
+      {/* FILMS - "to dopiero początek" */}
       <section style={{ position: 'relative', padding: m ? '40px 0' : '60px 0', borderTop: '1px solid rgba(255,255,255,0.08)' }}>
         <div style={{ maxWidth: 1100, margin: '0 auto', padding: '0 clamp(20px, 4vw, 48px)' }}>
           <motion.div {...fadeUp(0)} style={{ marginBottom: m ? 28 : 44 }}>
             <h2 style={{ fontSize: m ? 28 : 'clamp(28px, 4vw, 52px)', fontWeight: 800, letterSpacing: '-0.03em', marginBottom: 14 }}>A to dopiero początek</h2>
             <p style={{ fontSize: m ? 15 : 18, lineHeight: 1.6, color: 'rgba(255,255,255,0.5)', maxWidth: 640 }}>
-              Kilka filmów, a takie liczby. Łącznie <strong style={{ color: '#7dd17f' }}>ponad 20 mln</strong> wyświetleń — a licznik dalej bije. Najlepsze wciąż przed nami.
+              Kilka filmów, a takie liczby. Łącznie <strong style={{ color: '#7dd17f' }}>ponad 20 mln</strong> wyświetleń - a licznik dalej bije. Najlepsze wciąż przed nami.
             </p>
           </motion.div>
 
@@ -118,7 +117,7 @@ export default function RaportDino() {
         </div>
       </section>
 
-      {/* FALA UGC — main stats */}
+      {/* FALA UGC - main stats */}
       <section style={{ position: 'relative', padding: m ? '40px 0' : '70px 0', borderTop: '1px solid rgba(255,255,255,0.08)' }}>
         <div style={{ maxWidth: 1100, margin: '0 auto', padding: '0 clamp(20px, 4vw, 48px)' }}>
           <motion.div {...fadeUp(0)}>
@@ -134,7 +133,7 @@ export default function RaportDino() {
           </motion.div>
         </div>
 
-        {/* UGC wall — real posts from people */}
+        {/* UGC wall - real posts from people */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: 12, marginTop: m ? 24 : 32 }}>
           <UgcRow items={ugcA} dir="left" duration={m ? 42 : 62} h={m ? 150 : 210} />
           <UgcRow items={ugcB} dir="right" duration={m ? 46 : 68} h={m ? 150 : 210} />
@@ -160,7 +159,7 @@ export default function RaportDino() {
       {/* Comments + media (reused) */}
       <NapojeSocial />
 
-      {/* NOWOŚĆ — MUSY OWOCOWE (kolejny produkt linii, dostępne w Dino) */}
+      {/* NOWOŚĆ - MUSY OWOCOWE (kolejny produkt linii, dostępne w Dino) */}
       <section style={{ position: 'relative', padding: m ? '50px 0' : '80px 0', borderTop: '1px solid rgba(255,255,255,0.08)' }}>
         <div style={{ maxWidth: 1100, margin: '0 auto', padding: '0 clamp(20px, 4vw, 48px)' }}>
           <div style={{ display: 'grid', gridTemplateColumns: m ? '1fr' : '1fr 1fr', gap: m ? 28 : 56, alignItems: 'center' }}>
@@ -173,7 +172,7 @@ export default function RaportDino() {
               </h2>
               <p style={{ fontSize: m ? 15 : 17, lineHeight: 1.75, color: 'rgba(255,255,255,0.55)', marginBottom: 22 }}>
                 Linia produktów rośnie: po napojach do sprzedaży wchodzą <strong style={{ color: '#fff' }}>musy owocowe
-                w saszetkach 200 g</strong> — jabłko-brzoskwinia-banan i jabłko-gruszka-banan.
+                w saszetkach 200 g</strong> - jabłko-brzoskwinia-banan i jabłko-gruszka-banan.
                 100% owoców, bez dodatku cukru, z witaminą C. Dostępne w sieci Dino.
               </p>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
@@ -184,13 +183,13 @@ export default function RaportDino() {
             </motion.div>
             <motion.div {...fadeUp(0.12)} style={{ position: 'relative' }}>
               <div aria-hidden style={{ position: 'absolute', inset: '8% 10%', borderRadius: '50%', background: 'radial-gradient(ellipse at center, rgba(255,159,67,0.25), rgba(195,210,67,0.18) 55%, transparent 75%)', filter: 'blur(30px)', pointerEvents: 'none' }} />
-              <img src="/musy-robot.jpg" alt="Edward Warchocki z musami owocowymi — nowość w Dino" loading="lazy" decoding="async" style={{ position: 'relative', display: 'block', width: '100%', borderRadius: 20, border: '1px solid rgba(255,255,255,0.12)', boxShadow: '0 30px 70px rgba(0,0,0,0.5)' }} />
+              <img src="/musy-robot.jpg" alt="Edward Warchocki z musami owocowymi - nowość w Dino" loading="lazy" decoding="async" style={{ position: 'relative', display: 'block', width: '100%', borderRadius: 20, border: '1px solid rgba(255,255,255,0.12)', boxShadow: '0 30px 70px rgba(0,0,0,0.5)' }} />
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* PRODUKTY — PRODUKTY EDKA (napoje + musy) */}
+      {/* PRODUKTY - PRODUKTY EDKA (napoje + musy) */}
       <Produkty />
 
       {/* CTA + note */}
@@ -202,7 +201,7 @@ export default function RaportDino() {
           </a>
           <p style={{ fontSize: 11, color: 'rgba(255,255,255,0.3)', margin: '22px auto 0', lineHeight: 1.6, maxWidth: 760 }}>
             Dane wyświetleń zliczone z kanałów Edwarda (TikTok, Instagram, YouTube, X, Facebook) od startu kampanii (czerwiec 2026).
-            Zasięg UGC szacowany na podstawie wolumenu filmów publikowanych przez klientów i fanów. Napoje dostępne w sieciach DINO, Kaufland, Auchan i SPAR; musy owocowe — w sieci Dino.
+            Zasięg UGC szacowany na podstawie wolumenu filmów publikowanych przez klientów i fanów. Napoje dostępne w sieciach DINO, Kaufland, Auchan i SPAR; musy owocowe - w sieci Dino.
           </p>
         </div>
       </section>

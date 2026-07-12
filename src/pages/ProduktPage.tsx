@@ -29,7 +29,7 @@ export default function ProduktPage() {
   const product = getProduct(slug || '')
   if (!product) return <Navigate to={localizedPath('/produkty', locale)} replace />
 
-  // Mus (saszetka, gramy) vs napój (butelka, ml) — inne fakty, brak kaucji.
+  // Mus (saszetka, gramy) vs napój (butelka, ml) - inne fakty, brak kaucji.
   const isMus = !!product.volume?.pl.includes('g')
   const other = products.find((p) => p.slug !== product.slug && !!p.volume?.pl.includes('g') === isMus)!
   const nutrition = product.nutrition[locale]
@@ -95,7 +95,7 @@ export default function ProduktPage() {
 
             {/* packshot */}
             <motion.div style={{ order: m ? 1 : 2, position: 'relative', display: 'flex', justifyContent: 'center', y: m ? 0 : packY }}>
-              {/* conic glow — rotates on desktop, static on mobile to avoid GPU jank */}
+              {/* conic glow - rotates on desktop, static on mobile to avoid GPU jank */}
               <motion.div
                 aria-hidden
                 animate={m ? undefined : { rotate: 360 }}
@@ -127,7 +127,7 @@ export default function ProduktPage() {
         </div>
       </section>
 
-      {/* VIDEO showcase (musy nie mają jeszcze wideo — sekcja znika) */}
+      {/* VIDEO showcase (musy nie mają jeszcze wideo - sekcja znika) */}
       {product.video && (
         <section style={{ position: 'relative', padding: m ? '20px 0 50px' : '40px 0 100px' }}>
           <div style={{ maxWidth: 1400, margin: '0 auto', padding: '0 clamp(20px, 4vw, 48px)' }}>
@@ -194,7 +194,7 @@ export default function ProduktPage() {
                   <p style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)', marginBottom: 6 }}>{t('prodProducer')}</p>
                   <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.6)', lineHeight: 1.6 }}>{t('prodProducerVal')}</p>
                 </div>
-                {/* kaucja dotyczy tylko butelek — saszetki musów bez kaucji */}
+                {/* kaucja dotyczy tylko butelek - saszetki musów bez kaucji */}
                 {!isMus && (
                   <div>
                     <p style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)', marginBottom: 6 }}>{t('prodDeposit')}</p>

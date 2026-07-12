@@ -10,12 +10,12 @@ export type Product = {
   accent: string
   accent2: string
   glow: string
-  // hero / packshot + product video (musy nie mają jeszcze wideo — sekcja znika)
+  // hero / packshot + product video (musy nie mają jeszcze wideo - sekcja znika)
   packshot: string
   video?: string
   // gramatura/pojemność (default: 500 ml dla napojów)
   volume?: { pl: string; en: string }
-  // NOWOŚĆ — badge na karcie + dopisek o dostępności (musy: tylko Dino)
+  // NOWOŚĆ - badge na karcie + dopisek o dostępności (musy: tylko Dino)
   isNew?: boolean
   // bottle juice color (used in the animated liquid)
   liquid: string
@@ -130,7 +130,7 @@ export const products: Product[] = [
       ],
     },
   },
-  // ── MUSY (NOWOŚĆ 2026-07) — saszetki 200 g, 100% owoców, dostępne w Dino.
+  // ── MUSY (NOWOŚĆ 2026-07) - saszetki 200 g, 100% owoców, dostępne w Dino.
   // Dane brzoskwini przepisane z realnej etykiety (tył opakowania, Fortuna Sp. z o.o.).
   {
     slug: 'mus-jablko-brzoskwinia-banan',
@@ -140,7 +140,7 @@ export const products: Product[] = [
       en: 'Apple, peach & banana fruit pouch with added vitamin C',
     },
     intro: {
-      pl: 'Mus, który smakuje jak lato w sadzie. Aksamitne jabłko, słoneczna brzoskwinia i kremowy banan — 100% owoców, pasteryzowany, bez dodatku cukru. Wyciskasz i jedziesz dalej. No i elegancko.',
+      pl: 'Mus, który smakuje jak lato w sadzie. Aksamitne jabłko, słoneczna brzoskwinia i kremowy banan - 100% owoców, pasteryzowany, bez dodatku cukru. Wyciskasz i jedziesz dalej. No i elegancko.',
       en: 'A pouch that tastes like summer in the orchard. Velvety apple, sunny peach and creamy banana - 100% fruit, pasteurised, no added sugar. Squeeze and go. Elegant.',
     },
     accent: '#ff9f43',
@@ -194,7 +194,7 @@ export const products: Product[] = [
       en: 'Apple, pear & banana fruit pouch with added vitamin C',
     },
     intro: {
-      pl: 'Klasyka w najlepszym wydaniu. Soczyste jabłko, aksamitna gruszka i kremowy banan — 100% owoców, pasteryzowany, bez dodatku cukru. Idealny do torby, plecaka i na wynos. No i elegancko.',
+      pl: 'Klasyka w najlepszym wydaniu. Soczyste jabłko, aksamitna gruszka i kremowy banan - 100% owoców, pasteryzowany, bez dodatku cukru. Idealny do torby, plecaka i na wynos. No i elegancko.',
       en: 'A classic at its best. Juicy apple, velvety pear and creamy banana - 100% fruit, pasteurised, no added sugar. Perfect for your bag, backpack and on the go. Elegant.',
     },
     accent: '#c3d243',

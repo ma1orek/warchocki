@@ -91,7 +91,7 @@ export default function DinoPromo() {
       transition={{ duration: 0.8, delay: 0.6, ease: 'easeOut' as const }}
       style={{ display: 'grid', gridTemplateColumns: m ? '1fr' : '1fr 1fr', gap: 16, maxWidth: m ? 540 : 900, marginBottom: 24 }}
     >
-      {/* BOX 1 — NAPOJE (DINO, Kaufland, Auchan, SPAR) */}
+      {/* BOX 1 - NAPOJE (DINO, Kaufland, Auchan, SPAR) */}
       <motion.div whileHover={m ? undefined : { y: -4 }} style={cardStyle}>
         <div style={{ marginBottom: 10 }}>{photo('/napoje-duo.webp', t('dinoFlavor1') + ' & ' + t('dinoFlavor2'), 'radial-gradient(ellipse at center, rgba(247,201,72,0.22), rgba(226,59,59,0.16) 55%, transparent 72%)')}</div>
         <div style={{ marginBottom: 6 }}>{kicker(t('dinoKicker'))}</div>
@@ -104,7 +104,7 @@ export default function DinoPromo() {
         {cta}
       </motion.div>
 
-      {/* BOX 2 — MUSY (NOWOŚĆ, tylko Dino) */}
+      {/* BOX 2 - MUSY (NOWOŚĆ, tylko Dino) */}
       <motion.div whileHover={m ? undefined : { y: -4 }} style={cardStyle}>
         {ribbon}
         <div style={{ marginBottom: 10 }}>{photo('/musy-cutout.png', t('musFlavor1') + ' & ' + t('musFlavor2'), 'radial-gradient(ellipse at center, rgba(255,159,67,0.24), rgba(195,210,67,0.18) 55%, transparent 72%)')}</div>
