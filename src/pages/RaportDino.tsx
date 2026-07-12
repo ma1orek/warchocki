@@ -17,8 +17,11 @@ const fadeUp = (delay = 0) => ({
   transition: { duration: 0.7, delay, ease: 'easeOut' as const },
 })
 
-// Cross-platform totals (TikTok + Instagram + YouTube + X + Facebook), first two weeks
-const films = [
+// Filmy kampanii. src = lokalny mp4 (starsze, liczby cross-platform 5 sieci);
+// tiktokId = embed prosto z TikToka (najnowsze, liczby z TikToka).
+type Film = { title: string; views: number; likes: string; src?: string; poster?: string; tiktokId?: string; platforms?: string[]; isNew?: boolean }
+const films: Film[] = [
+  { title: 'Autopromocja z Dych Dzikim', tiktokId: '7655432061007744288', views: 1900000, likes: '142 tys.', platforms: ['TikTok'], isNew: true },
   { title: 'kto pił', src: '/dino-promo-1.mp4', poster: '/dino-promo-1.jpg', views: 2270000, likes: '77,8 tys.' },
   { title: 'Moje napoje od dzisiaj w Dino', src: '/dino-promo-2.mp4', poster: '/dino-promo-2.jpg', views: 1830000, likes: '64 tys.' },
   { title: 'barca czy real?', src: '/dino-promo-3.mp4', poster: '/dino-promo-3.jpg', views: 660000, likes: '21,2 tys.' },
@@ -84,9 +87,24 @@ export default function RaportDino() {
 
           <div style={{ display: 'grid', gridTemplateColumns: m ? '1fr' : 'repeat(3, 1fr)', gap: 20 }}>
             {films.map((f, i) => (
-              <motion.div key={f.title} {...fadeUp(i * 0.1)} style={{ borderRadius: 18, overflow: 'hidden', border: '1px solid rgba(255,255,255,0.1)', background: 'rgba(255,255,255,0.02)' }}>
+              <motion.div key={f.title} {...fadeUp(i * 0.1)} style={{ position: 'relative', borderRadius: 18, overflow: 'hidden', border: `1px solid ${f.isNew ? 'rgba(95,192,101,0.45)' : 'rgba(255,255,255,0.1)'}`, background: 'rgba(255,255,255,0.02)' }}>
+                {f.isNew && (
+                  <span style={{ position: 'absolute', top: 10, right: 10, zIndex: 3, fontSize: 10, fontWeight: 800, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#fff', background: '#e23b3b', borderRadius: 14, padding: '4px 10px', boxShadow: '0 2px 10px rgba(0,0,0,0.4)' }}>
+                    NOWY
+                  </span>
+                )}
                 <div style={{ position: 'relative', background: '#000' }}>
-                  <LazyVideo src={f.src} poster={f.poster} style={{ maxWidth: m ? 320 : '100%', margin: '0 auto' }} />
+                  {f.tiktokId ? (
+                    <iframe
+                      src={`https://www.tiktok.com/embed/v2/${f.tiktokId}`}
+                      title={f.title}
+                      allow="encrypted-media; fullscreen"
+                      loading="lazy"
+                      style={{ display: 'block', width: '100%', aspectRatio: '9 / 16', maxWidth: m ? 320 : '100%', margin: '0 auto', border: 'none', background: '#000' }}
+                    />
+                  ) : (
+                    <LazyVideo src={f.src!} poster={f.poster} style={{ maxWidth: m ? 320 : '100%', margin: '0 auto' }} />
+                  )}
                 </div>
                 <div style={{ padding: 18 }}>
                   <p style={{ fontSize: 15, fontWeight: 700, marginBottom: 14 }}>„{f.title}"</p>
@@ -95,7 +113,7 @@ export default function RaportDino() {
                     <Chip icon="❤" val={f.likes} label="polubień" />
                   </div>
                   <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginTop: 12 }}>
-                    {PLATFORMS.map((p) => <Tag key={p}>{p}</Tag>)}
+                    {(f.platforms ?? PLATFORMS).map((p) => <Tag key={p}>{p}</Tag>)}
                   </div>
                 </div>
               </motion.div>
