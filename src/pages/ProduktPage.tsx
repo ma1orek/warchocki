@@ -28,10 +28,14 @@ export default function ProduktPage() {
   const product = getProduct(slug || '')
   if (!product) return <Navigate to={localizedPath('/produkty', locale)} replace />
 
-  const other = products.find((p) => p.slug !== product.slug)!
+  // Mus (saszetka, gramy) vs napój (butelka, ml) — inne fakty, brak kaucji.
+  const isMus = !!product.volume?.pl.includes('g')
+  const other = products.find((p) => p.slug !== product.slug && !!p.volume?.pl.includes('g') === isMus)!
   const nutrition = product.nutrition[locale]
 
-  const facts = [t('prodFactPasteurised'), t('prodFactConcentrate'), t('prodFactNatural')]
+  const facts = isMus
+    ? [t('prodFactPasteurised'), locale === 'pl' ? '100% owoców' : '100% fruit', t('prodFactNatural')]
+    : [t('prodFactPasteurised'), t('prodFactConcentrate'), t('prodFactNatural')]
 
   return (
     <div style={{ position: 'relative', minHeight: '100vh', background: '#000', overflow: 'hidden' }}>
@@ -73,7 +77,7 @@ export default function ProduktPage() {
                   + {product.vitamin[locale]}
                 </span>
                 <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.06em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.7)', border: '1px solid rgba(255,255,255,0.18)', borderRadius: 24, padding: '8px 16px' }}>
-                  500 ml
+                  {product.volume?.[locale] ?? '500 ml'}
                 </span>
               </motion.div>
 
@@ -120,15 +124,17 @@ export default function ProduktPage() {
         </div>
       </section>
 
-      {/* VIDEO showcase */}
-      <section style={{ position: 'relative', padding: m ? '20px 0 50px' : '40px 0 100px' }}>
-        <div style={{ maxWidth: 1400, margin: '0 auto', padding: '0 clamp(20px, 4vw, 48px)' }}>
-          <motion.div {...fadeUp(0.1)} style={{ position: 'relative', borderRadius: 24, overflow: 'hidden', border: `1px solid ${product.accent}33`, maxWidth: 920, margin: '0 auto', boxShadow: `0 30px 80px ${product.glow}` }}>
-            <LazyVideo src={product.video} poster={product.packshot} />
-            <div style={{ position: 'absolute', inset: 0, boxShadow: 'inset 0 0 80px rgba(0,0,0,0.4)', pointerEvents: 'none' }} />
-          </motion.div>
-        </div>
-      </section>
+      {/* VIDEO showcase (musy nie mają jeszcze wideo — sekcja znika) */}
+      {product.video && (
+        <section style={{ position: 'relative', padding: m ? '20px 0 50px' : '40px 0 100px' }}>
+          <div style={{ maxWidth: 1400, margin: '0 auto', padding: '0 clamp(20px, 4vw, 48px)' }}>
+            <motion.div {...fadeUp(0.1)} style={{ position: 'relative', borderRadius: 24, overflow: 'hidden', border: `1px solid ${product.accent}33`, maxWidth: 920, margin: '0 auto', boxShadow: `0 30px 80px ${product.glow}` }}>
+              <LazyVideo src={product.video} poster={product.packshot} />
+              <div style={{ position: 'absolute', inset: 0, boxShadow: 'inset 0 0 80px rgba(0,0,0,0.4)', pointerEvents: 'none' }} />
+            </motion.div>
+          </div>
+        </section>
+      )}
 
       {/* DETAILS - nutrition + ingredients/storage */}
       <section style={{ position: 'relative', padding: m ? '20px 0 70px' : '40px 0 110px', borderTop: '1px solid rgba(255,255,255,0.08)' }}>
@@ -139,7 +145,7 @@ export default function ProduktPage() {
               <div style={{ borderRadius: 16, overflow: 'hidden', border: '1px solid rgba(255,255,255,0.1)', background: 'rgba(255,255,255,0.02)' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', padding: '18px 20px', background: product.accent, color: '#101010' }}>
                   <span style={{ fontSize: 15, fontWeight: 800, letterSpacing: '-0.01em' }}>{t('prodNutritionTitle')}</span>
-                  <span style={{ fontSize: 12, fontWeight: 700 }}>{t('prodNutritionSub')}</span>
+                  <span style={{ fontSize: 12, fontWeight: 700 }}>{product.volume?.pl.includes('g') ? (locale === 'pl' ? 'w 100 g produktu' : 'per 100 g') : t('prodNutritionSub')}</span>
                 </div>
                 <div>
                   {nutrition.map((row, i) => (
@@ -171,7 +177,7 @@ export default function ProduktPage() {
               <div style={{ display: 'grid', gridTemplateColumns: m ? '1fr' : '1fr 1fr', gap: 24 }}>
                 <div>
                   <h3 style={{ fontSize: 13, fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', color: product.accent, marginBottom: 12 }}>{t('prodBestBeforeTitle')}</h3>
-                  <p style={{ fontSize: 14, lineHeight: 1.7, color: 'rgba(255,255,255,0.55)' }}>{t('prodBestBefore')}</p>
+                  <p style={{ fontSize: 14, lineHeight: 1.7, color: 'rgba(255,255,255,0.55)' }}>{isMus ? (locale === 'pl' ? 'Data i numer partii w środkowej części opakowania.' : 'Date and batch number in the middle part of the pouch.') : t('prodBestBefore')}</p>
                 </div>
                 <div>
                   <h3 style={{ fontSize: 13, fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', color: product.accent, marginBottom: 12 }}>{t('prodStorageTitle')}</h3>
@@ -185,10 +191,13 @@ export default function ProduktPage() {
                   <p style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)', marginBottom: 6 }}>{t('prodProducer')}</p>
                   <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.6)', lineHeight: 1.6 }}>{t('prodProducerVal')}</p>
                 </div>
-                <div>
-                  <p style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)', marginBottom: 6 }}>{t('prodDeposit')}</p>
-                  <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.6)' }}>{t('prodDepositVal')}</p>
-                </div>
+                {/* kaucja dotyczy tylko butelek — saszetki musów bez kaucji */}
+                {!isMus && (
+                  <div>
+                    <p style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)', marginBottom: 6 }}>{t('prodDeposit')}</p>
+                    <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.6)' }}>{t('prodDepositVal')}</p>
+                  </div>
+                )}
               </div>
             </motion.div>
           </div>

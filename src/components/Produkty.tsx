@@ -74,7 +74,12 @@ function ProductCard({ product, index }: { product: Product; index: number }) {
 
         {/* text */}
         <div style={{ position: 'relative', zIndex: 2, flex: 1, textAlign: m ? 'center' : 'left' }}>
-          <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: product.accent, marginBottom: 10 }}>
+          <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: product.accent, marginBottom: 10, display: 'flex', alignItems: 'center', gap: 8, justifyContent: m ? 'center' : 'flex-start', flexWrap: 'wrap' }}>
+            {product.isNew && (
+              <span style={{ fontSize: 9.5, fontWeight: 800, letterSpacing: '0.12em', color: '#fff', background: '#e23b3b', borderRadius: 14, padding: '4px 10px' }}>
+                {t('dinoNew')}
+              </span>
+            )}
             {product.flavor[locale]}
           </p>
           <h3 style={{ fontSize: m ? 20 : 24, fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.2, marginBottom: 14, color: '#fff' }}>
@@ -89,8 +94,13 @@ function ProductCard({ product, index }: { product: Product; index: number }) {
               + {product.vitamin[locale]}
             </span>
             <span style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.05em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.7)', border: '1px solid rgba(255,255,255,0.18)', borderRadius: 20, padding: '5px 11px' }}>
-              {t('productsVolume')}
+              {product.volume?.[locale] ?? t('productsVolume')}
             </span>
+            {product.isNew && (
+              <span style={{ fontSize: 10, fontWeight: 800, letterSpacing: '0.05em', textTransform: 'uppercase', color: '#0a2e0c', background: '#7dd17f', borderRadius: 20, padding: '5px 11px' }}>
+                {t('productsInDino')}
+              </span>
+            )}
           </div>
 
           <div style={{ display: 'inline-flex', alignItems: 'center', gap: 10, fontSize: 13, fontWeight: 700, letterSpacing: '0.06em', textTransform: 'uppercase', color: '#fff' }}>
