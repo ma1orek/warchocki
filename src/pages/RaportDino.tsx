@@ -69,9 +69,9 @@ export default function RaportDino() {
           </motion.p>
 
           <motion.div {...fadeUp(0.24)} style={{ display: 'flex', flexWrap: 'wrap', gap: 14 }}>
-            <Stat big="13 mln+" label="Wyświetleń kampanii" sub="filmy + reposty, 5 platform" accent />
-            <Stat big="6,5 mln+" label="Zasięg postów własnych" sub="o napojach i DINO" accent />
-            <Stat big="13 mln+" label="Zasięg UGC + media" sub="setki filmów od fanów" accent />
+            <Stat big="20 mln+" label="Wyświetleń kampanii" sub="filmy + reposty, 5 platform" accent />
+            <Stat big="10 mln+" label="Zasięg postów własnych" sub="o napojach i DINO" accent />
+            <Stat big="10 mln+" label="Zasięg UGC + media" sub="setki filmów od fanów" accent />
           </motion.div>
         </div>
       </section>
@@ -82,7 +82,7 @@ export default function RaportDino() {
           <motion.div {...fadeUp(0)} style={{ marginBottom: m ? 28 : 44 }}>
             <h2 style={{ fontSize: m ? 28 : 'clamp(28px, 4vw, 52px)', fontWeight: 800, letterSpacing: '-0.03em', marginBottom: 14 }}>A to dopiero początek</h2>
             <p style={{ fontSize: m ? 15 : 18, lineHeight: 1.6, color: 'rgba(255,255,255,0.5)', maxWidth: 640 }}>
-              Kilka filmów, a takie liczby. Łącznie <strong style={{ color: '#7dd17f' }}>ponad 13 mln</strong> wyświetleń — a licznik dalej bije. Najlepsze wciąż przed nami.
+              Kilka filmów, a takie liczby. Łącznie <strong style={{ color: '#7dd17f' }}>ponad 20 mln</strong> wyświetleń — a licznik dalej bije. Najlepsze wciąż przed nami.
             </p>
           </motion.div>
 
@@ -143,7 +143,7 @@ export default function RaportDino() {
         <div style={{ maxWidth: 1100, margin: '0 auto', padding: '0 clamp(20px, 4vw, 48px)' }}>
           {/* estimate block */}
           <motion.div {...fadeUp(0.1)} style={{ marginTop: 28, padding: m ? 22 : 30, borderRadius: 16, background: 'linear-gradient(150deg, rgba(52,169,58,0.14), rgba(255,255,255,0.02))', border: '1px solid rgba(95,192,101,0.3)' }}>
-            <h3 style={{ fontSize: m ? 19 : 24, fontWeight: 800, marginBottom: 12 }}>Łączny zasięg UGC + media: <span style={{ color: '#7dd17f' }}>13 mln+</span></h3>
+            <h3 style={{ fontSize: m ? 19 : 24, fontWeight: 800, marginBottom: 12 }}>Łączny zasięg UGC + media: <span style={{ color: '#7dd17f' }}>10 mln+</span></h3>
             <p style={{ fontSize: m ? 14 : 16, lineHeight: 1.75, color: 'rgba(255,255,255,0.6)', marginBottom: 16 }}>
               To nie są pojedyncze nagrania - to <strong style={{ color: '#fff' }}>setki filmów</strong> nakręconych przez klientów i fanów,
               żyjących równolegle na TikToku, Instagramie, YouTubie, X i Facebooku. Każdy z marką DINO w tle, każdy za darmo. A licznik dalej bije.
