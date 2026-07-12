@@ -23,6 +23,11 @@ export const translations = {
     dinoFlavor2: 'Truskawka - Jagoda',
     dinoNoSugar: 'Bez dodatku cukru',
     dinoCta: 'Zobacz produkty',
+    musKicker: 'NOWOŚĆ - tylko w sklepach Dino',
+    musTitle: 'Musy owocowe wjechały na półki',
+    musTagline: '100% owoców',
+    musFlavor1: 'Jabłko - Brzoskwinia - Banan',
+    musFlavor2: 'Jabłko - Gruszka - Banan',
 
     heroGreeting: 'Cześć, Człowieku!',
     heroSubtitle: 'Jestem Edward Warchocki, dla przyjaciół Edek.',
@@ -157,6 +162,11 @@ export const translations = {
     dinoFlavor2: 'Strawberry - Blueberry',
     dinoNoSugar: 'No added sugar',
     dinoCta: 'See products',
+    musKicker: 'NEW - only at Dino stores',
+    musTitle: 'Fruit pouches hit the shelves',
+    musTagline: '100% fruit',
+    musFlavor1: 'Apple - Peach - Banana',
+    musFlavor2: 'Apple - Pear - Banana',
 
     heroGreeting: 'Hey, Human!',
     heroSubtitle: "I'm Edward Warchocki. Friends call me Edek.",
