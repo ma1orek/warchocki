@@ -19,9 +19,11 @@ const fadeUp = (delay = 0) => ({
 
 // Filmy kampanii. src = lokalny mp4 (starsze, liczby cross-platform 5 sieci);
 // tiktokId = embed prosto z TikToka (najnowsze, liczby z TikToka).
-type Film = { title: string; views: number; likes: string; src?: string; poster?: string; tiktokId?: string; platforms?: string[]; isNew?: boolean }
+type Film = { title: string; views: number; likes: string; src?: string; poster?: string; tiktokId?: string; platforms?: string[] }
 const films: Film[] = [
-  { title: 'Autopromocja z Dych Dzikim', tiktokId: '7655432061007744288', views: 1900000, likes: '142 tys.', platforms: ['TikTok'], isNew: true },
+  { title: 'spotkałem Dych Dzikiego pod sklepem', tiktokId: '7659131036550335777', views: 994200, likes: '58,9 tys.', platforms: ['TikTok'] },
+  { title: 'Ten to jest Dych Dziki', tiktokId: '7655438274923711777', views: 245600, likes: '11,1 tys.', platforms: ['TikTok'] },
+  { title: 'Autopromocja z Dych Dzikim', tiktokId: '7655432061007744288', views: 1900000, likes: '142 tys.', platforms: ['TikTok'] },
   { title: 'kto pił', src: '/dino-promo-1.mp4', poster: '/dino-promo-1.jpg', views: 2270000, likes: '77,8 tys.' },
   { title: 'Moje napoje od dzisiaj w Dino', src: '/dino-promo-2.mp4', poster: '/dino-promo-2.jpg', views: 1830000, likes: '64 tys.' },
   { title: 'barca czy real?', src: '/dino-promo-3.mp4', poster: '/dino-promo-3.jpg', views: 660000, likes: '21,2 tys.' },
@@ -69,7 +71,7 @@ export default function RaportDino() {
           <motion.div {...fadeUp(0.24)} style={{ display: 'flex', flexWrap: 'wrap', gap: 14 }}>
             <Stat big="10 mln+" label="Wyświetleń kampanii" sub="filmy + reposty, 5 platform" accent />
             <Stat big="5 mln+" label="Zasięg postów własnych" sub="o napojach i DINO" accent />
-            <Stat big="5 mln+" label="Zasięg UGC + media" sub="setki filmów od fanów" accent />
+            <Stat big="10 mln+" label="Zasięg UGC + media" sub="setki filmów od fanów" accent />
             <Stat big="163 tys.+" label="Polubienia" sub="łącznie pod filmami" />
           </motion.div>
         </div>
@@ -87,12 +89,7 @@ export default function RaportDino() {
 
           <div style={{ display: 'grid', gridTemplateColumns: m ? '1fr' : 'repeat(3, 1fr)', gap: 20 }}>
             {films.map((f, i) => (
-              <motion.div key={f.title} {...fadeUp(i * 0.1)} style={{ position: 'relative', borderRadius: 18, overflow: 'hidden', border: `1px solid ${f.isNew ? 'rgba(95,192,101,0.45)' : 'rgba(255,255,255,0.1)'}`, background: 'rgba(255,255,255,0.02)' }}>
-                {f.isNew && (
-                  <span style={{ position: 'absolute', top: 10, right: 10, zIndex: 3, fontSize: 10, fontWeight: 800, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#fff', background: '#e23b3b', borderRadius: 14, padding: '4px 10px', boxShadow: '0 2px 10px rgba(0,0,0,0.4)' }}>
-                    NOWY
-                  </span>
-                )}
+              <motion.div key={f.title} {...fadeUp(i * 0.1)} style={{ position: 'relative', borderRadius: 18, overflow: 'hidden', border: '1px solid rgba(255,255,255,0.1)', background: 'rgba(255,255,255,0.02)' }}>
                 <div style={{ position: 'relative', background: '#000' }}>
                   {f.tiktokId ? (
                     <iframe
@@ -147,10 +144,10 @@ export default function RaportDino() {
         <div style={{ maxWidth: 1100, margin: '0 auto', padding: '0 clamp(20px, 4vw, 48px)' }}>
           {/* estimate block */}
           <motion.div {...fadeUp(0.1)} style={{ marginTop: 28, padding: m ? 22 : 30, borderRadius: 16, background: 'linear-gradient(150deg, rgba(52,169,58,0.14), rgba(255,255,255,0.02))', border: '1px solid rgba(95,192,101,0.3)' }}>
-            <h3 style={{ fontSize: m ? 19 : 24, fontWeight: 800, marginBottom: 12 }}>Łączny zasięg UGC + media: <span style={{ color: '#7dd17f' }}>5 mln+</span></h3>
+            <h3 style={{ fontSize: m ? 19 : 24, fontWeight: 800, marginBottom: 12 }}>Łączny zasięg UGC + media: <span style={{ color: '#7dd17f' }}>10 mln+</span></h3>
             <p style={{ fontSize: m ? 14 : 16, lineHeight: 1.75, color: 'rgba(255,255,255,0.6)', marginBottom: 16 }}>
               To nie są pojedyncze nagrania - to <strong style={{ color: '#fff' }}>setki filmów</strong> nakręconych przez klientów i fanów,
-              żyjących równolegle na TikToku, Instagramie, YouTubie, X i Facebooku. Każdy z marką DINO w tle, każdy za darmo. I to wszystko w dwa tygodnie.
+              żyjących równolegle na TikToku, Instagramie, YouTubie, X i Facebooku. Każdy z marką DINO w tle, każdy za darmo. A licznik dalej bije.
             </p>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10 }}>
               {PLATFORMS.map((p) => (

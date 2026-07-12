@@ -4,6 +4,7 @@ import { useParams, Navigate, Link } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import StoreLogos from '../components/StoreLogos'
+import DinoLogo from '../components/DinoLogo'
 import LazyVideo from '../components/LazyVideo'
 import NapojeSocial from '../components/NapojeSocial'
 import useIsMobile from '../hooks/useIsMobile'
@@ -81,12 +82,14 @@ export default function ProduktPage() {
                 </span>
               </motion.div>
 
-              {/* store availability: DINO, Kaufland, Auchan, SPAR */}
+              {/* dostępność: napoje = DINO/Kaufland/Auchan/SPAR, musy = TYLKO Dino */}
               <motion.div {...fadeUp(0.42)} style={{ display: 'inline-flex', flexWrap: 'wrap', alignItems: 'center', gap: 12, padding: '10px 14px', borderRadius: 44, border: '1px solid rgba(255,255,255,0.12)', background: 'rgba(255,255,255,0.03)' }}>
                 <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)' }}>
-                  {t('prodAvailTitle')}
+                  {isMus ? (locale === 'pl' ? 'Dostępny w sklepach Dino' : 'Available at Dino stores') : t('prodAvailTitle')}
                 </span>
-                <StoreLogos height={16} />
+                {isMus
+                  ? <span style={{ display: 'inline-flex', alignItems: 'center', background: '#fff', borderRadius: 6, padding: '4px 9px' }}><DinoLogo height={14} /></span>
+                  : <StoreLogos height={16} />}
               </motion.div>
             </div>
 
@@ -212,9 +215,15 @@ export default function ProduktPage() {
           <div style={{ display: 'grid', gridTemplateColumns: m ? '1fr' : '1fr 1fr', gap: 24, alignItems: 'stretch' }}>
             {/* DINO block */}
             <motion.div {...fadeUp(0)} style={{ borderRadius: 22, padding: m ? 28 : 40, background: 'linear-gradient(135deg, rgba(52,169,58,0.18), rgba(255,255,255,0.03))', border: '1px solid rgba(95,192,101,0.3)', display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: 18 }}>
-              <StoreLogos height={20} />
+              {isMus
+                ? <span style={{ display: 'inline-flex', alignItems: 'center', alignSelf: 'flex-start', background: '#fff', borderRadius: 8, padding: '6px 12px' }}><DinoLogo height={18} /></span>
+                : <StoreLogos height={20} />}
               <h3 style={{ fontSize: m ? 24 : 30, fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.15 }}>{t('prodCtaTitle')}</h3>
-              <p style={{ fontSize: 15, lineHeight: 1.7, color: 'rgba(255,255,255,0.55)' }}>{t('prodCtaDesc')}</p>
+              <p style={{ fontSize: 15, lineHeight: 1.7, color: 'rgba(255,255,255,0.55)' }}>
+                {isMus
+                  ? (locale === 'pl' ? 'Musy owocowe czekają na półkach sklepów Dino w całej Polsce. Sprawdź oba smaki.' : 'The fruit pouches are waiting on the shelves of Dino stores across Poland. Try both flavors.')
+                  : t('prodCtaDesc')}
+              </p>
             </motion.div>
 
             {/* Other flavor */}
