@@ -27,7 +27,7 @@ const fadeUp = (delay = 0) => ({
 type Film = { title: string; views: number; src?: string; poster?: string; tiktokId?: string }
 const films: Film[] = [
   { title: 'spotkałem Dych Dzikiego pod sklepem', tiktokId: '7659131036550335777', views: 1290000 },
-  { title: 'Ten to jest Dych Dziki', tiktokId: '7655438274923711777', views: 320000 },
+  { title: 'Ten to jest Dych Dziki', tiktokId: '7655438274923711777', views: 500000 },
   { title: 'Autopromocja z Dych Dzikim', tiktokId: '7655432061007744288', views: 2470000 },
   { title: 'kto pił', src: '/dino-promo-1.mp4', poster: '/dino-promo-1.jpg', views: 2950000 },
   { title: 'Moje napoje od dzisiaj w Dino', src: '/dino-promo-2.mp4', poster: '/dino-promo-2.jpg', views: 2380000 },
@@ -110,7 +110,7 @@ export default function RaportDino() {
                 <div style={{ padding: 18 }}>
                   <p style={{ fontSize: 15, fontWeight: 700, marginBottom: 14 }}>„{f.title}"</p>
                   <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
-                    <Chip icon="▶" val={fmt(f.views)} label="wyświetleń" />
+                    <Chip icon="▶" val={fmt(f.views) + '+'} label="wyświetleń" />
                   </div>
                   <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginTop: 12 }}>
                     {PLATFORMS.map((p) => <Tag key={p}>{p}</Tag>)}
