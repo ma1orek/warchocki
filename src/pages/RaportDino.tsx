@@ -138,15 +138,9 @@ export default function RaportDino() {
           </motion.div>
         </div>
 
-        {/* UGC wall - real posts from people */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 12, marginTop: m ? 24 : 32 }}>
-          <UgcRow items={ugcA} dir="left" duration={m ? 42 : 62} h={m ? 150 : 210} />
-          <UgcRow items={ugcB} dir="right" duration={m ? 46 : 68} h={m ? 150 : 210} />
-        </div>
-
-        {/* IG STORIES - licznik + sciana miniatur (ilosc robi wrazenie) */}
+        {/* IG STORIES (pojedyncze slajdy) - licznik + 3 rzedy NAJPIERW */}
         <div style={{ maxWidth: 1100, margin: '0 auto', padding: '0 clamp(20px, 4vw, 48px)' }}>
-          <motion.div {...fadeUp(0.05)} style={{ display: 'flex', alignItems: 'baseline', gap: m ? 12 : 18, margin: m ? '40px 0 16px' : '56px 0 20px', flexWrap: 'wrap' }}>
+          <motion.div {...fadeUp(0.05)} style={{ display: 'flex', alignItems: 'baseline', gap: m ? 12 : 18, margin: m ? '28px 0 16px' : '36px 0 20px', flexWrap: 'wrap' }}>
             <span style={{ fontSize: m ? 56 : 92, fontWeight: 800, letterSpacing: '-0.04em', color: '#7dd17f', lineHeight: 1 }}>{STORIES_COUNT}</span>
             <span style={{ fontSize: m ? 16 : 20, fontWeight: 800, color: '#fff', lineHeight: 1.35 }}>
               stories na Instagramie z produktami Edwarda
@@ -160,6 +154,12 @@ export default function RaportDino() {
           <UgcRow items={igStories.slice(0, 77)} dir="left" duration={m ? 120 : 170} h={m ? 130 : 180} />
           <UgcRow items={igStories.slice(77, 154)} dir="right" duration={m ? 130 : 185} h={m ? 130 : 180} />
           <UgcRow items={igStories.slice(154)} dir="left" duration={m ? 125 : 178} h={m ? 130 : 180} />
+        </div>
+
+        {/* UGC wall (grupowe posty) - PONIZEJ stories */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 12, marginTop: m ? 24 : 32 }}>
+          <UgcRow items={ugcA} dir="left" duration={m ? 42 : 62} h={m ? 150 : 210} />
+          <UgcRow items={ugcB} dir="right" duration={m ? 46 : 68} h={m ? 150 : 210} />
         </div>
 
         <div style={{ maxWidth: 1100, margin: '0 auto', padding: '0 clamp(20px, 4vw, 48px)' }}>
@@ -255,7 +255,7 @@ function UgcRow({ items, dir, duration, h }: { items: string[]; dir: 'left' | 'r
     <div className="kom-row" style={{ overflow: 'hidden', WebkitMaskImage: 'linear-gradient(to right, transparent, #000 6%, #000 94%, transparent)', maskImage: 'linear-gradient(to right, transparent, #000 6%, #000 94%, transparent)' }}>
       <div className="kom-track" style={{ animation: `marquee-${dir} ${duration}s linear infinite` }}>
         {doubled.map((src, i) => (
-          <img key={i} src={src} alt="UGC z napojem Edwarda Warchockiego" loading="lazy" decoding="async" style={{ height: h, width: 'auto', borderRadius: 12, border: '1px solid rgba(255,255,255,0.1)', flexShrink: 0, display: 'block', objectFit: 'cover' }} />
+          <img key={i} src={src} alt="" loading="lazy" decoding="async" style={{ height: h, width: 'auto', borderRadius: 12, border: '1px solid rgba(255,255,255,0.1)', flexShrink: 0, display: 'block', objectFit: 'cover' }} />
         ))}
       </div>
     </div>
