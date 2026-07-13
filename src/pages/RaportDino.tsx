@@ -10,6 +10,11 @@ import { ugcScreens } from '../lib/napojeMedia'
 
 const fmt = (n: number) => n.toLocaleString('pl-PL')
 
+// 229 stories z Instagrama (1.06 - 13.07) zebrane przez usera - miniatury
+// wygenerowane ffmpegiem do public/ugc-stories (story-1.jpg ... story-229.jpg).
+const STORIES_COUNT = 229
+const igStories = Array.from({ length: STORIES_COUNT }, (_, i) => `/ugc-stories/story-${i + 1}.jpg`)
+
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 28 },
   whileInView: { opacity: 1, y: 0 },
@@ -139,13 +144,32 @@ export default function RaportDino() {
           <UgcRow items={ugcB} dir="right" duration={m ? 46 : 68} h={m ? 150 : 210} />
         </div>
 
+        {/* IG STORIES - licznik + sciana miniatur (ilosc robi wrazenie) */}
+        <div style={{ maxWidth: 1100, margin: '0 auto', padding: '0 clamp(20px, 4vw, 48px)' }}>
+          <motion.div {...fadeUp(0.05)} style={{ display: 'flex', alignItems: 'baseline', gap: m ? 12 : 18, margin: m ? '40px 0 16px' : '56px 0 20px', flexWrap: 'wrap' }}>
+            <span style={{ fontSize: m ? 56 : 92, fontWeight: 800, letterSpacing: '-0.04em', color: '#7dd17f', lineHeight: 1 }}>{STORIES_COUNT}</span>
+            <span style={{ fontSize: m ? 16 : 20, fontWeight: 800, color: '#fff', lineHeight: 1.35 }}>
+              stories na Instagramie z produktami Edwarda
+              <span style={{ display: 'block', fontSize: m ? 12 : 14, color: 'rgba(255,255,255,0.45)', fontWeight: 600, marginTop: 4 }}>
+                oznaczenia od fanów i klientów, zebrane 1.06 - 13.07
+              </span>
+            </span>
+          </motion.div>
+        </div>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+          <UgcRow items={igStories.slice(0, 77)} dir="left" duration={m ? 120 : 170} h={m ? 130 : 180} />
+          <UgcRow items={igStories.slice(77, 154)} dir="right" duration={m ? 130 : 185} h={m ? 130 : 180} />
+          <UgcRow items={igStories.slice(154)} dir="left" duration={m ? 125 : 178} h={m ? 130 : 180} />
+        </div>
+
         <div style={{ maxWidth: 1100, margin: '0 auto', padding: '0 clamp(20px, 4vw, 48px)' }}>
           {/* estimate block */}
           <motion.div {...fadeUp(0.1)} style={{ marginTop: 28, padding: m ? 22 : 30, borderRadius: 16, background: 'linear-gradient(150deg, rgba(52,169,58,0.14), rgba(255,255,255,0.02))', border: '1px solid rgba(95,192,101,0.3)' }}>
             <h3 style={{ fontSize: m ? 19 : 24, fontWeight: 800, marginBottom: 12 }}>Łączny zasięg UGC + media: <span style={{ color: '#7dd17f' }}>10 mln+</span></h3>
             <p style={{ fontSize: m ? 14 : 16, lineHeight: 1.75, color: 'rgba(255,255,255,0.6)', marginBottom: 16 }}>
-              To nie są pojedyncze nagrania - to <strong style={{ color: '#fff' }}>setki filmów</strong> nakręconych przez klientów i fanów,
-              żyjących równolegle na TikToku, Instagramie, YouTubie, X i Facebooku. Każdy z marką DINO w tle, każdy za darmo. A licznik dalej bije.
+              To nie są pojedyncze nagrania - to <strong style={{ color: '#fff' }}>setki filmów</strong> nakręconych przez klientów i fanów
+              oraz <strong style={{ color: '#fff' }}>{STORIES_COUNT} stories na Instagramie</strong>, żyjących równolegle na TikToku, Instagramie,
+              YouTubie, X i Facebooku. Każdy z marką DINO w tle, każdy za darmo. A licznik dalej bije.
             </p>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10 }}>
               {PLATFORMS.map((p) => (
