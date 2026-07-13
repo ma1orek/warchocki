@@ -75,7 +75,7 @@ export default function RaportDino() {
           <motion.div {...fadeUp(0.24)} style={{ display: 'flex', flexWrap: 'wrap', gap: 14 }}>
             <Stat big="20 mln+" label="Wyświetleń kampanii" sub="filmy + reposty, 5 platform" accent />
             <Stat big="10 mln+" label="Zasięg postów własnych" sub="o napojach i DINO" accent />
-            <Stat big="10 mln+" label="Zasięg UGC + media" sub="setki filmów od fanów" accent />
+            <Stat big="Dziesiątki mln" label="Zasięg UGC + media" sub="tysiące filmów od fanów" accent />
           </motion.div>
         </div>
       </section>
@@ -141,11 +141,11 @@ export default function RaportDino() {
         {/* IG STORIES (pojedyncze slajdy) - licznik + 3 rzedy NAJPIERW */}
         <div style={{ maxWidth: 1100, margin: '0 auto', padding: '0 clamp(20px, 4vw, 48px)' }}>
           <motion.div {...fadeUp(0.05)} style={{ display: 'flex', alignItems: 'baseline', gap: m ? 12 : 18, margin: m ? '28px 0 16px' : '36px 0 20px', flexWrap: 'wrap' }}>
-            <span style={{ fontSize: m ? 56 : 92, fontWeight: 800, letterSpacing: '-0.04em', color: '#7dd17f', lineHeight: 1 }}>{STORIES_COUNT}</span>
+            <span style={{ fontSize: m ? 44 : 76, fontWeight: 800, letterSpacing: '-0.04em', color: '#7dd17f', lineHeight: 1, textTransform: 'uppercase' }}>Tysiące</span>
             <span style={{ fontSize: m ? 16 : 20, fontWeight: 800, color: '#fff', lineHeight: 1.35 }}>
-              stories na Instagramie z produktami Edwarda
+              UGC - filmów i stories z produktami Edwarda
               <span style={{ display: 'block', fontSize: m ? 12 : 14, color: 'rgba(255,255,255,0.45)', fontWeight: 600, marginTop: 4 }}>
-                oznaczenia od fanów i klientów, zebrane 1.06 - 13.07
+                oznaczenia od fanów i klientów - poniżej próbka z samego Instagrama (1.06 - 13.07)
               </span>
             </span>
           </motion.div>
@@ -165,10 +165,10 @@ export default function RaportDino() {
         <div style={{ maxWidth: 1100, margin: '0 auto', padding: '0 clamp(20px, 4vw, 48px)' }}>
           {/* estimate block */}
           <motion.div {...fadeUp(0.1)} style={{ marginTop: 28, padding: m ? 22 : 30, borderRadius: 16, background: 'linear-gradient(150deg, rgba(52,169,58,0.14), rgba(255,255,255,0.02))', border: '1px solid rgba(95,192,101,0.3)' }}>
-            <h3 style={{ fontSize: m ? 19 : 24, fontWeight: 800, marginBottom: 12 }}>Łączny zasięg UGC + media: <span style={{ color: '#7dd17f' }}>10 mln+</span></h3>
+            <h3 style={{ fontSize: m ? 19 : 24, fontWeight: 800, marginBottom: 12 }}>Łączny zasięg UGC + media: <span style={{ color: '#7dd17f' }}>dziesiątki milionów</span></h3>
             <p style={{ fontSize: m ? 14 : 16, lineHeight: 1.75, color: 'rgba(255,255,255,0.6)', marginBottom: 16 }}>
               To nie są pojedyncze nagrania - to <strong style={{ color: '#fff' }}>setki filmów</strong> nakręconych przez klientów i fanów
-              oraz <strong style={{ color: '#fff' }}>{STORIES_COUNT} stories na Instagramie</strong>, żyjących równolegle na TikToku, Instagramie,
+              oraz <strong style={{ color: '#fff' }}>tysiące stories na Instagramie</strong>, żyjących równolegle na TikToku, Instagramie,
               YouTubie, X i Facebooku. Każdy z marką DINO w tle, każdy za darmo. A licznik dalej bije.
             </p>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10 }}>
