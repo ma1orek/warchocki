@@ -128,7 +128,7 @@ export default function RaportDino() {
           <motion.div {...fadeUp(0)}>
             <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)', marginBottom: 12 }}>Fala UGC</p>
             <h2 style={{ fontSize: m ? 24 : 'clamp(24px, 3.2vw, 40px)', fontWeight: 700, letterSpacing: '-0.03em', marginBottom: 18, maxWidth: 820 }}>
-              Setki filmików tworzonych przez fanów z napojami Edwarda Warchockiego
+              Tysiące filmików tworzonych przez fanów z napojami Edwarda Warchockiego
             </h2>
             <p style={{ fontSize: m ? 15 : 17, lineHeight: 1.75, color: 'rgba(255,255,255,0.5)', maxWidth: 720 }}>
               Klienci i fani sami nagrywają napoje Edwarda - przy półce w sklepie, taniec przed Dino, wspólne zdjęcia -
@@ -138,18 +138,7 @@ export default function RaportDino() {
           </motion.div>
         </div>
 
-        {/* IG STORIES (pojedyncze slajdy) - licznik + 3 rzedy NAJPIERW */}
-        <div style={{ maxWidth: 1100, margin: '0 auto', padding: '0 clamp(20px, 4vw, 48px)' }}>
-          <motion.div {...fadeUp(0.05)} style={{ display: 'flex', alignItems: 'baseline', gap: m ? 12 : 18, margin: m ? '28px 0 16px' : '36px 0 20px', flexWrap: 'wrap' }}>
-            <span style={{ fontSize: m ? 44 : 76, fontWeight: 800, letterSpacing: '-0.04em', color: '#7dd17f', lineHeight: 1, textTransform: 'uppercase' }}>Tysiące</span>
-            <span style={{ fontSize: m ? 16 : 20, fontWeight: 800, color: '#fff', lineHeight: 1.35 }}>
-              UGC - filmów i stories z produktami Edwarda
-              <span style={{ display: 'block', fontSize: m ? 12 : 14, color: 'rgba(255,255,255,0.45)', fontWeight: 600, marginTop: 4 }}>
-                oznaczenia od fanów i klientów - poniżej próbka z samego Instagrama (1.06 - 13.07)
-              </span>
-            </span>
-          </motion.div>
-        </div>
+        {/* IG STORIES (pojedyncze slajdy) - 3 rzedy */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
           <UgcRow items={igStories.slice(0, 77)} dir="left" duration={m ? 120 : 170} h={m ? 130 : 180} />
           <UgcRow items={igStories.slice(77, 154)} dir="right" duration={m ? 130 : 185} h={m ? 130 : 180} />
