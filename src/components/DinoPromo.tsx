@@ -1,166 +1,144 @@
-import { motion } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import useIsMobile from '../hooks/useIsMobile'
 import { useT, localizedPath } from '../lib/i18n'
-import { products, type Product } from '../lib/products'
+import { products } from '../lib/products'
 
-/* KARUZELA na hero — WSZYSTKIE produkty w poprzek: PC = 3 karty naraz
-   (mnogość produktów!), mobile = 1. Przesuw o jedną, auto co 4s, strzałki
-   + kropki. Klik/CTA → podstrona produktu. */
+/* HERO SHOWCASE — jeden duży produkt (spójna karta) + rail miniatur wszystkich
+   produktów pod spodem (mnogość + szybkie przeskakiwanie). Auto co 5s. */
 
-const AUTO_MS = 4000
+const AUTO_MS = 5000
 
 export default function DinoPromo() {
   const m = useIsMobile()
   const { t, locale } = useT()
   const pl = locale === 'pl'
 
-  const count = products.length
-  // ułamek = "peek" następnej karty wystaje z prawej (widać, że jest więcej)
-  const visible = m ? 1.12 : 4.2
-  const maxIndex = Math.ceil(count - visible)
   const [index, setIndex] = useState(0)
+  const [dir, setDir] = useState(1)
+  const count = products.length
 
   const go = (next: number) => {
-    if (next > maxIndex) next = 0
-    if (next < 0) next = maxIndex
-    setIndex(next)
+    const n = ((next % count) + count) % count
+    setDir(n > index || (index === count - 1 && n === 0) ? 1 : -1)
+    setIndex(n)
   }
 
-  // auto-przewijanie; dep [index] resetuje timer po każdym ruchu
   useEffect(() => {
     const iv = setInterval(() => go(index + 1), AUTO_MS)
     return () => clearInterval(iv)
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [index, maxIndex])
+  }, [index])
+
+  const p = products[index]
+  const isLody = p.category === 'lody'
+  const isMus = !isLody && !!p.volume?.pl.includes('g')
+  const store = isLody ? 'Biedronka' : isMus ? 'Dino' : (pl ? 'Dino · Kaufland · Auchan · SPAR' : 'Dino · Kaufland · Auchan · SPAR')
 
   const chip = (label: string, color: string, solid = false) => (
     <span key={label} style={solid
-      ? { fontSize: 9.5, fontWeight: 800, letterSpacing: '0.05em', textTransform: 'uppercase', color: '#1c1c04', background: color, borderRadius: 22, padding: '4px 9px' }
-      : { fontSize: 9.5, fontWeight: 800, letterSpacing: '0.04em', textTransform: 'uppercase', color, border: `1px solid ${color}80`, borderRadius: 22, padding: '4px 9px' }}>
+      ? { fontSize: 10, fontWeight: 800, letterSpacing: '0.05em', textTransform: 'uppercase', color: '#1c1c04', background: color, borderRadius: 22, padding: '5px 11px' }
+      : { fontSize: 10, fontWeight: 800, letterSpacing: '0.04em', textTransform: 'uppercase', color, border: `1px solid ${color}80`, borderRadius: 22, padding: '5px 11px' }}>
       {label}
     </span>
   )
-
-  const card = (p: Product) => {
-    const isLody = p.category === 'lody'
-    const isMus = !isLody && !!p.volume?.pl.includes('g')
-    const photo = p.mainPhoto ?? p.packshot
-    const kickerText = isLody
-      ? (pl ? 'NOWOŚĆ - LODY W BIEDRONCE' : 'NEW - AT BIEDRONKA')
-      : isMus
-      ? (pl ? 'NOWOŚĆ - TYLKO W DINO' : 'NEW - ONLY AT DINO')
-      : (pl ? 'DINO, KAUFLAND, AUCHAN, SPAR' : 'DINO, KAUFLAND, AUCHAN, SPAR')
-
-    return (
-      <Link
-        to={localizedPath(`/produkty/${p.slug}`, locale)}
-        style={{
-          position: 'relative',
-          height: '100%',
-          padding: 14,
-          borderRadius: 16,
-          overflow: 'hidden',
-          display: 'flex',
-          flexDirection: 'column',
-          background: 'linear-gradient(155deg, rgba(22,24,16,0.5) 0%, rgba(10,10,10,0.42) 52%, rgba(24,16,17,0.5) 100%)',
-          border: '1px solid rgba(255,255,255,0.14)',
-          backdropFilter: 'blur(10px)',
-          WebkitBackdropFilter: 'blur(10px)',
-          boxShadow: '0 16px 46px rgba(0,0,0,0.45)',
-        }}
-      >
-        {p.isNew && (
-          <div style={{ position: 'absolute', top: 12, right: -40, transform: 'rotate(45deg)', background: '#e23b3b', color: '#fff', fontSize: 9, fontWeight: 800, letterSpacing: '0.16em', padding: '3px 44px', boxShadow: '0 2px 10px rgba(0,0,0,0.3)', zIndex: 4 }}>
-            {t('dinoNew')}
-          </div>
-        )}
-
-        <div style={{ position: 'relative', width: '100%', marginBottom: 9 }}>
-          <div aria-hidden style={{ position: 'absolute', inset: '10% 14%', borderRadius: '50%', background: p.accent, opacity: 0.22, filter: 'blur(24px)', pointerEvents: 'none' }} />
-          <img
-            src={photo}
-            alt={p.flavor[locale]}
-            loading="lazy"
-            decoding="async"
-            style={p.mainPhoto
-              ? { position: 'relative', display: 'block', width: '100%', height: m ? 170 : 150, objectFit: 'cover', borderRadius: 11, filter: 'drop-shadow(0 10px 20px rgba(0,0,0,0.5))' }
-              : { position: 'relative', display: 'block', width: '100%', height: m ? 170 : 150, objectFit: 'contain', filter: 'drop-shadow(0 10px 20px rgba(0,0,0,0.5))' }}
-          />
-        </div>
-
-        <span style={{ fontSize: 9, fontWeight: 800, letterSpacing: '0.11em', textTransform: 'uppercase', color: '#7dd17f', lineHeight: 1.3, marginBottom: 5, paddingRight: p.isNew ? 30 : 0, textShadow: '0 1px 4px rgba(0,0,0,0.5)' }}>
-          {kickerText}
-        </span>
-        <p style={{ fontSize: m ? 16 : 15, fontWeight: 800, color: '#fff', letterSpacing: '-0.01em', lineHeight: 1.18, textShadow: '0 1px 6px rgba(0,0,0,0.5)' }}>
-          {p.name[locale]}
-        </p>
-        <p style={{ fontFamily: "'Caveat', cursive", fontSize: m ? 21 : 20, fontWeight: 700, color: p.accent, lineHeight: 1, marginTop: 2, marginBottom: 9, transform: 'rotate(-2.5deg)', transformOrigin: 'left center', textShadow: '0 1px 6px rgba(0,0,0,0.5)' }}>
-          {p.category === 'lody' ? (pl ? 'to jest smak lata!' : 'the taste of summer!') : p.flavor[locale].toLowerCase()}
-        </p>
-
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 5, marginBottom: 11 }}>
-          {p.category === 'lody'
-            ? chip(pl ? '💥 MEGA strzelający' : '💥 MEGA popping', '#ffd23c', true)
-            : chip(t('dinoNoSugar'), '#5fc065', true)}
-          {chip(p.volume?.[locale] ?? '500 ml', 'rgba(255,255,255,0.75)')}
-        </div>
-
-        <span style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, width: '100%', padding: '10px 14px', borderRadius: 12, background: '#fff', color: '#000', fontSize: 11.5, fontWeight: 800, letterSpacing: '0.07em', textTransform: 'uppercase', marginTop: 'auto' }}>
-          {t('productsCardCta')}
-          <span style={{ fontSize: 15, lineHeight: 1 }}>→</span>
-        </span>
-      </Link>
-    )
-  }
-
-  const arrowStyle: React.CSSProperties = {
-    width: 36, height: 36, borderRadius: '50%', border: '1px solid rgba(255,255,255,0.2)',
-    background: 'rgba(0,0,0,0.45)', color: '#fff', fontSize: 17, cursor: 'pointer',
-    display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0,
-    backdropFilter: 'blur(6px)', WebkitBackdropFilter: 'blur(6px)',
-  }
 
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, delay: 0.6, ease: 'easeOut' as const }}
-      style={{ position: 'relative', width: '100%', marginBottom: 24 }}
+      style={{ position: 'relative', maxWidth: m ? 500 : 680, marginBottom: 24 }}
     >
-      <div style={{ overflow: 'hidden', borderRadius: 18, margin: '0 -7px' }}>
-        <motion.div
-          animate={{ x: `-${Math.min(index * (100 / visible), (count / visible - 1) * 100)}%` }}
-          transition={{ duration: 0.45, ease: 'easeOut' }}
-          style={{ display: 'flex', alignItems: 'stretch' }}
-        >
-          {products.map((p) => (
-            <div key={p.slug} style={{ flex: `0 0 ${100 / visible}%`, boxSizing: 'border-box', padding: '0 7px', display: 'flex' }}>
-              <div style={{ width: '100%' }}>{card(p)}</div>
+      {/* KARTA GŁÓWNA — spójny rozmiar, zmienia się treść */}
+      <div style={{
+        position: 'relative',
+        borderRadius: 22,
+        overflow: 'hidden',
+        border: '1px solid rgba(255,255,255,0.14)',
+        background: 'linear-gradient(150deg, rgba(20,20,16,0.62) 0%, rgba(8,8,8,0.55) 100%)',
+        backdropFilter: 'blur(12px)',
+        WebkitBackdropFilter: 'blur(12px)',
+        boxShadow: '0 24px 70px rgba(0,0,0,0.5)',
+      }}>
+        {/* akcentowa poświata w tle, w kolorze produktu */}
+        <motion.div aria-hidden key={p.slug + '-glow'} initial={{ opacity: 0 }} animate={{ opacity: 0.5 }}
+          style={{ position: 'absolute', top: -60, right: -40, width: 260, height: 260, borderRadius: '50%', background: p.accent, filter: 'blur(90px)', pointerEvents: 'none' }} />
+
+        <AnimatePresence mode="wait" initial={false} custom={dir}>
+          <motion.div
+            key={p.slug}
+            custom={dir}
+            initial={{ opacity: 0, x: dir * 40 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -dir * 40 }}
+            transition={{ duration: 0.4, ease: 'easeOut' }}
+            style={{ position: 'relative', display: 'grid', gridTemplateColumns: m ? '1fr' : '0.82fr 1fr', gap: m ? 4 : 20, alignItems: 'center', padding: m ? 16 : 22 }}
+          >
+            {/* zdjęcie */}
+            <Link to={localizedPath(`/produkty/${p.slug}`, locale)} style={{ position: 'relative', display: 'flex', justifyContent: 'center' }}>
+              <img
+                src={p.mainPhoto ?? p.packshot}
+                alt={p.flavor[locale]}
+                loading="lazy"
+                decoding="async"
+                style={p.mainPhoto
+                  ? { width: '100%', maxWidth: m ? 300 : 260, aspectRatio: '1 / 1', objectFit: 'cover', borderRadius: 16, boxShadow: `0 20px 44px ${p.glow}` }
+                  : { width: 'auto', maxWidth: '100%', height: m ? 210 : 240, objectFit: 'contain', filter: `drop-shadow(0 18px 34px ${p.glow})` }}
+              />
+            </Link>
+
+            {/* treść */}
+            <div style={{ textAlign: m ? 'center' : 'left', paddingTop: m ? 8 : 0 }}>
+              <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, marginBottom: 10, flexWrap: 'wrap', justifyContent: m ? 'center' : 'flex-start' }}>
+                {p.isNew && <span style={{ fontSize: 9.5, fontWeight: 800, letterSpacing: '0.12em', color: '#fff', background: '#e23b3b', borderRadius: 14, padding: '4px 10px' }}>{t('dinoNew')}</span>}
+                <span style={{ fontSize: 10, fontWeight: 800, letterSpacing: '0.1em', textTransform: 'uppercase', color: p.accent }}>{store}</span>
+              </div>
+              <h3 style={{ fontSize: m ? 21 : 24, fontWeight: 800, color: '#fff', letterSpacing: '-0.02em', lineHeight: 1.14, marginBottom: 4 }}>
+                {p.name[locale]}
+              </h3>
+              <p style={{ fontFamily: "'Caveat', cursive", fontSize: m ? 24 : 27, fontWeight: 700, color: p.accent, lineHeight: 1, marginBottom: 14, transform: 'rotate(-2deg)', transformOrigin: m ? 'center' : 'left center' }}>
+                {isLody ? (pl ? 'człowieku, to jest smak lata!' : 'the taste of summer!') : p.flavor[locale].toLowerCase()}
+              </p>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: 7, marginBottom: 18, justifyContent: m ? 'center' : 'flex-start' }}>
+                {isLody ? chip(pl ? '💥 MEGA strzelający' : '💥 MEGA popping', '#ffd23c', true) : chip(t('dinoNoSugar'), '#5fc065', true)}
+                {chip('+ ' + p.vitamin[locale], 'rgba(255,255,255,0.75)')}
+                {chip(p.volume?.[locale] ?? '500 ml', 'rgba(255,255,255,0.75)')}
+              </div>
+              <Link to={localizedPath(`/produkty/${p.slug}`, locale)} style={{ display: 'inline-flex', alignItems: 'center', gap: 9, padding: '12px 24px', borderRadius: 40, background: '#fff', color: '#000', fontSize: 12.5, fontWeight: 800, letterSpacing: '0.07em', textTransform: 'uppercase' }}>
+                {t('productsCardCta')}
+                <span style={{ fontSize: 16, lineHeight: 1 }}>→</span>
+              </Link>
             </div>
-          ))}
-        </motion.div>
+          </motion.div>
+        </AnimatePresence>
       </div>
 
-      {/* strzałki + kropki */}
-      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 12, marginTop: 10 }}>
-        <button aria-label="Poprzedni" onClick={() => go(index - 1)} style={arrowStyle}>‹</button>
-        <div style={{ display: 'flex', gap: 6 }}>
-          {Array.from({ length: maxIndex + 1 }, (_, i) => (
+      {/* RAIL MINIATUR — wszystkie produkty, aktywny podświetlony */}
+      <div style={{ display: 'flex', gap: 8, marginTop: 12, justifyContent: 'center', flexWrap: 'nowrap', overflowX: 'auto', paddingBottom: 2 }}>
+        {products.map((sp, i) => {
+          const active = i === index
+          return (
             <button
-              key={i}
-              aria-label={`Pozycja ${i + 1}`}
+              key={sp.slug}
+              aria-label={sp.flavor[locale]}
               onClick={() => go(i)}
               style={{
-                width: i === index ? 22 : 7, height: 7, borderRadius: 8, border: 'none', cursor: 'pointer',
-                background: i === index ? products[i].accent : 'rgba(255,255,255,0.25)',
-                transition: 'all 0.3s ease', padding: 0,
+                position: 'relative', flexShrink: 0,
+                width: m ? 52 : 60, height: m ? 52 : 60, borderRadius: 12,
+                border: active ? `2px solid ${sp.accent}` : '1px solid rgba(255,255,255,0.14)',
+                background: 'rgba(255,255,255,0.05)', cursor: 'pointer', padding: 0, overflow: 'hidden',
+                opacity: active ? 1 : 0.55, transition: 'opacity 0.25s ease, border-color 0.25s ease',
               }}
-            />
-          ))}
-        </div>
-        <button aria-label="Następny" onClick={() => go(index + 1)} style={arrowStyle}>›</button>
+              onMouseEnter={(e) => (e.currentTarget.style.opacity = '1')}
+              onMouseLeave={(e) => (e.currentTarget.style.opacity = active ? '1' : '0.55')}
+            >
+              <img src={sp.mainPhoto ?? sp.packshot} alt="" loading="lazy" decoding="async"
+                style={{ width: '100%', height: '100%', objectFit: sp.mainPhoto ? 'cover' : 'contain', padding: sp.mainPhoto ? 0 : 4 }} />
+            </button>
+          )
+        })}
       </div>
     </motion.div>
   )
