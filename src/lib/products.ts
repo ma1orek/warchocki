@@ -12,6 +12,8 @@ export type Product = {
   glow: string
   // hero / packshot + product video (musy nie mają jeszcze wideo - sekcja znika)
   packshot: string
+  // bogata wizualizacja (key-visual) do slidera na głównej; fallback = packshot
+  mainPhoto?: string
   video?: string
   // gramatura/pojemność (default: 500 ml dla napojów)
   volume?: { pl: string; en: string }
@@ -48,6 +50,7 @@ export const products: Product[] = [
     accent2: '#8b5a2b',
     glow: 'rgba(245, 166, 35, 0.45)',
     packshot: '/edwardzik-popcorn.png',
+    mainPhoto: '/edwardzik-main-popcorn.jpg',
     video: '/edwardziki.mp4',
     liquid: '#6b3a1e',
     liquidTop: '#a8703f',
@@ -100,6 +103,7 @@ export const products: Product[] = [
     accent2: '#e23b3b',
     glow: 'rgba(139, 212, 42, 0.45)',
     packshot: '/edwardzik-truskawka.png',
+    mainPhoto: '/edwardzik-main-truskawka.jpg',
     video: '/edwardziki.mp4',
     liquid: '#d8202a',
     liquidTop: '#a4e04b',
