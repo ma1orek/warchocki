@@ -17,8 +17,9 @@ export default function DinoPromo() {
   const pl = locale === 'pl'
 
   const count = products.length
-  const visible = m ? 1 : 3
-  const maxIndex = count - visible
+  // ułamek = "peek" następnej karty wystaje z prawej (widać, że jest więcej)
+  const visible = m ? 1.12 : 4.2
+  const maxIndex = Math.ceil(count - visible)
   const [index, setIndex] = useState(0)
 
   const go = (next: number) => {
@@ -126,11 +127,11 @@ export default function DinoPromo() {
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, delay: 0.6, ease: 'easeOut' as const }}
-      style={{ position: 'relative', maxWidth: m ? 500 : 1150, marginBottom: 24 }}
+      style={{ position: 'relative', width: '100%', marginBottom: 24 }}
     >
       <div style={{ overflow: 'hidden', borderRadius: 18, margin: '0 -7px' }}>
         <motion.div
-          animate={{ x: `-${index * (100 / visible)}%` }}
+          animate={{ x: `-${Math.min(index * (100 / visible), (count / visible - 1) * 100)}%` }}
           transition={{ duration: 0.45, ease: 'easeOut' }}
           style={{ display: 'flex', alignItems: 'stretch' }}
         >
