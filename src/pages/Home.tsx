@@ -2,7 +2,6 @@ import Navbar from '../components/Navbar'
 import Hero from '../components/Hero'
 import Timeline from '../components/Timeline'
 import EdekDlaKazdego from '../components/EdekDlaKazdego'
-import EdwardzikPromo from '../components/EdwardzikPromo'
 import Produkty from '../components/Produkty'
 import TikTokGallery from '../components/TikTokGallery'
 import Articles from '../components/Articles'
@@ -16,7 +15,6 @@ export default function Home() {
       <Hero />
       <Timeline />
       <EdekDlaKazdego />
-      <EdwardzikPromo />
       <Produkty />
       <TikTokGallery />
       <Articles />

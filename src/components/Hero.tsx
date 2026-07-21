@@ -52,10 +52,12 @@ export default function Hero() {
               MERA OS &bull; merarobotics.com
             </a>
           </motion.p>
+        </div>
 
-          {/* DINO product promo gazetka */}
-          <DinoPromo />
+        {/* product promo — poza kontenerem 750px, bo 3 karty potrzebują szerokości */}
+        <DinoPromo />
 
+        <div style={{ maxWidth: 750 }}>
           <motion.div {...fadeUp(0.8)} style={{ display: 'flex', flexDirection: m ? 'column' : 'row', flexWrap: 'wrap', gap: 12, marginBottom: 32 }}>
             <a href="https://warchockishop.pl" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', justifyContent: 'center', alignItems: 'center', gap: 8, fontSize: 14, fontWeight: 600, letterSpacing: '0.05em', textTransform: 'uppercase', padding: m ? '14px 24px' : '16px 32px', background: '#fff', color: '#000', transition: 'all 0.2s ease' }}>
               {t('heroCtaShop')}

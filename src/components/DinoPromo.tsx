@@ -3,11 +3,12 @@ import { Link } from 'react-router-dom'
 import useIsMobile from '../hooks/useIsMobile'
 import { useT, localizedPath } from '../lib/i18n'
 
-/* DWA translucent boxy na hero: NAPOJE (4 sieci) + MUSY (NOWOŚĆ, tylko Dino).
-   Mobile: jeden pod drugim. Desktop: obok siebie. */
+/* TRZY translucent boxy na hero: NAPOJE (4 sieci) + MUSY (Dino) + LODY EDWARDZIK
+   (NOWOŚĆ, Biedronka). Mobile: jeden pod drugim. Desktop: obok siebie. */
 export default function DinoPromo() {
   const m = useIsMobile()
   const { t, locale } = useT()
+  const pl = locale === 'pl'
   const to = localizedPath('/produkty', locale)
 
   const cardStyle = {
@@ -89,7 +90,7 @@ export default function DinoPromo() {
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, delay: 0.6, ease: 'easeOut' as const }}
-      style={{ display: 'grid', gridTemplateColumns: m ? '1fr' : '1fr 1fr', gap: 16, maxWidth: m ? 540 : 900, marginBottom: 24 }}
+      style={{ display: 'grid', gridTemplateColumns: m ? '1fr' : '1fr 1fr 1fr', gap: 16, maxWidth: m ? 540 : 1290, marginBottom: 24 }}
     >
       {/* BOX 1 - NAPOJE (DINO, Kaufland, Auchan, SPAR) */}
       <motion.div whileHover={m ? undefined : { y: -4 }} style={cardStyle}>
@@ -114,6 +115,29 @@ export default function DinoPromo() {
           {chip(t('musFlavor1'), '#ffb066')}
           {chip(t('musFlavor2'), '#d3e06b')}
           {chip(t('dinoNoSugar'), '#5fc065', true)}
+        </>)}
+        {cta}
+      </motion.div>
+
+      {/* BOX 3 - LODY EDWARDZIK (NOWOŚĆ, Biedronka) - dwa main foto obok siebie */}
+      <motion.div whileHover={m ? undefined : { y: -4 }} style={cardStyle}>
+        {ribbon}
+        <div style={{ position: 'relative', display: 'flex', gap: 8, marginBottom: 10 }}>
+          <div aria-hidden style={{ position: 'absolute', inset: '10% 14%', borderRadius: '50%', background: 'radial-gradient(ellipse at center, rgba(245,166,35,0.24), rgba(139,212,42,0.18) 55%, transparent 72%)', filter: 'blur(26px)', pointerEvents: 'none' }} />
+          <img src="/edwardzik-main-popcorn.jpg" alt={pl ? 'EDWARDZIK czekolada i popcorn' : 'EDWARDZIK chocolate & popcorn'} loading="lazy" decoding="async"
+            style={{ position: 'relative', width: 'calc(50% - 4px)', maxHeight: m ? 200 : 210, objectFit: 'cover', borderRadius: 12, filter: 'drop-shadow(0 12px 24px rgba(0,0,0,0.5))' }} />
+          <img src="/edwardzik-main-truskawka.jpg" alt={pl ? 'EDWARDZIK truskawka i limonka' : 'EDWARDZIK strawberry & lime'} loading="lazy" decoding="async"
+            style={{ position: 'relative', width: 'calc(50% - 4px)', maxHeight: m ? 200 : 210, objectFit: 'cover', borderRadius: 12, filter: 'drop-shadow(0 12px 24px rgba(0,0,0,0.5))' }} />
+        </div>
+        <div style={{ marginBottom: 6, paddingRight: 46 }}>{kicker(pl ? 'NOWOŚĆ - LODY W BIEDRONCE' : 'NEW - ICE CREAM AT BIEDRONKA')}</div>
+        <div style={{ marginBottom: 12 }}>{titleBlock(
+          pl ? 'Lody EDWARDZIK wjechały do Biedronki' : 'EDWARDZIK ice cream hits Biedronka',
+          pl ? 'człowieku, to jest smak lata!' : 'the taste of summer!'
+        )}</div>
+        {chipsRow(<>
+          {chip(pl ? 'CZEKOLADA I POPCORN' : 'CHOCOLATE & POPCORN', '#f5a623')}
+          {chip(pl ? 'TRUSKAWKA I LIMONKA' : 'STRAWBERRY & LIME', '#8bd42a')}
+          {chip(pl ? '💥 MEGA STRZELAJĄCY' : '💥 MEGA POPPING', '#ffd23c', true)}
         </>)}
         {cta}
       </motion.div>
