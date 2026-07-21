@@ -37,8 +37,8 @@ export const products: Product[] = [
     category: 'lody',
     flavor: { pl: 'CZEKOLADA I POPCORN', en: 'CHOCOLATE & POPCORN' },
     name: {
-      pl: 'Lody EDWARDZIK o smaku popcornu z płynnym czekoladowym nadzieniem i cukrem strzelającym',
-      en: 'EDWARDZIK popcorn flavoured ice cream with liquid chocolate filling and popping sugar',
+      pl: 'Lody EDWARDZIK czekolada i popcorn',
+      en: 'EDWARDZIK ice cream chocolate & popcorn',
     },
     intro: {
       pl: 'Człowieku, to jest smak lata! Lody o smaku popcornu, w środku płynne czekoladowe nadzienie, a na polewie MEGA strzelający cukier w czekoladzie. Kino w gębie - dosłownie strzela. No i elegancko.',
@@ -89,8 +89,8 @@ export const products: Product[] = [
     category: 'lody',
     flavor: { pl: 'TRUSKAWKA I LIMONKA', en: 'STRAWBERRY & LIME' },
     name: {
-      pl: 'Lody EDWARDZIK - sorbet truskawkowy z płynnym limonkowym nadzieniem i cukrem strzelającym',
-      en: 'EDWARDZIK strawberry sorbet with liquid lime filling and popping sugar',
+      pl: 'Lody EDWARDZIK truskawka i limonka',
+      en: 'EDWARDZIK ice cream strawberry & lime',
     },
     intro: {
       pl: 'Truskawka jak z lata, limonka jak z kosmosu. Sorbet truskawkowy, w środku płynne limonkowe nadzienie, a na kolorowej polewie MEGA strzelający cukier o smaku limonkowym. Orzeźwienie, które strzela. Człowieku!',
@@ -191,8 +191,8 @@ export const products: Product[] = [
     slug: 'truskawka-jagoda',
     flavor: { pl: 'TRUSKAWKA - JAGODA', en: 'STRAWBERRY - BLUEBERRY' },
     name: {
-      pl: 'Napój wieloowocowy z dodatkiem witaminy C',
-      en: 'Multifruit drink with added vitamin C',
+      pl: 'Napój truskawka jagoda z dodatkiem witaminy C',
+      en: 'Strawberry & blueberry drink with added vitamin C',
     },
     intro: {
       pl: 'Czerwień, która budzi zmysły. Dojrzała truskawka, leśna jagoda i nuta wiśni - z soków zagęszczonych, pasteryzowany, bez dodatku cukru. Orzeźwienie z dawką witaminy C. Z kim się zadaję, tym się staję.',
