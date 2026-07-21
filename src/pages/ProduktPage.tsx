@@ -29,12 +29,20 @@ export default function ProduktPage() {
   const product = getProduct(slug || '')
   if (!product) return <Navigate to={localizedPath('/produkty', locale)} replace />
 
-  // Mus (saszetka, gramy) vs napój (butelka, ml) - inne fakty, brak kaucji.
-  const isMus = !!product.volume?.pl.includes('g')
-  const other = products.find((p) => p.slug !== product.slug && !!p.volume?.pl.includes('g') === isMus)!
+  // Kategorie: lody (Edwardzik/Biedronka) vs mus (saszetka, gramy) vs napój (butelka, ml).
+  const isLody = product.category === 'lody'
+  const isMus = !isLody && !!product.volume?.pl.includes('g')
+  const catOf = (p: typeof product) => (p.category === 'lody' ? 'lody' : p.volume?.pl.includes('g') ? 'mus' : 'napoj')
+  const other = products.find((p) => p.slug !== product.slug && catOf(p) === catOf(product))!
   const nutrition = product.nutrition[locale]
 
-  const facts = isMus
+  const facts = isLody
+    ? [
+        locale === 'pl' ? 'MEGA strzelający cukier w polewie' : 'MEGA popping sugar in the coating',
+        locale === 'pl' ? 'Płynne nadzienie w środku' : 'Liquid filling inside',
+        locale === 'pl' ? 'Lody NORDIS × Edward Warchocki' : 'NORDIS × Edward Warchocki ice cream',
+      ]
+    : isMus
     ? [t('prodFactPasteurised'), locale === 'pl' ? '100% owoców' : '100% fruit', t('prodFactNatural')]
     : [t('prodFactPasteurised'), t('prodFactConcentrate'), t('prodFactNatural')]
 
@@ -71,8 +79,8 @@ export default function ProduktPage() {
               </motion.p>
 
               <motion.div {...fadeUp(0.34)} style={{ display: 'flex', flexWrap: 'wrap', gap: 10, marginBottom: 30 }}>
-                <span style={{ fontSize: 11, fontWeight: 800, letterSpacing: '0.06em', textTransform: 'uppercase', color: '#0a2e0c', background: '#5fc065', borderRadius: 24, padding: '8px 16px' }}>
-                  {t('prodHeroBadge')}
+                <span style={{ fontSize: 11, fontWeight: 800, letterSpacing: '0.06em', textTransform: 'uppercase', color: isLody ? '#3a1200' : '#0a2e0c', background: isLody ? '#ffd23c' : '#5fc065', borderRadius: 24, padding: '8px 16px' }}>
+                  {isLody ? (locale === 'pl' ? '💥 MEGA strzelający' : '💥 MEGA popping') : t('prodHeroBadge')}
                 </span>
                 <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.06em', textTransform: 'uppercase', color: '#fff', border: `1px solid ${product.accent}66`, borderRadius: 24, padding: '8px 16px' }}>
                   + {product.vitamin[locale]}
@@ -82,15 +90,21 @@ export default function ProduktPage() {
                 </span>
               </motion.div>
 
-              {/* dostępność: napoje = DINO/Kaufland/Auchan/SPAR, musy = TYLKO Dino */}
-              <motion.div {...fadeUp(0.42)} style={{ display: 'inline-flex', flexWrap: 'wrap', alignItems: 'center', gap: 12, padding: '10px 14px', borderRadius: 44, border: '1px solid rgba(255,255,255,0.12)', background: 'rgba(255,255,255,0.03)' }}>
-                <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)' }}>
-                  {isMus ? (locale === 'pl' ? 'Dostępny w sklepach Dino' : 'Available at Dino stores') : t('prodAvailTitle')}
-                </span>
-                {isMus
-                  ? <span style={{ display: 'inline-flex', alignItems: 'center', background: '#fff', borderRadius: 6, padding: '4px 9px' }}><DinoLogo height={14} /></span>
-                  : <StoreLogos height={16} />}
-              </motion.div>
+              {/* dostępność: lody = Biedronka, napoje = DINO/Kaufland/Auchan/SPAR, musy = TYLKO Dino */}
+              {isLody ? (
+                <motion.div {...fadeUp(0.42)}>
+                  <img src="/biedronka-badge.png" alt={locale === 'pl' ? 'Dostępne w Biedronce' : 'Available at Biedronka'} loading="lazy" decoding="async" style={{ height: m ? 74 : 96, width: 'auto', filter: 'drop-shadow(0 10px 24px rgba(0,0,0,0.5))' }} />
+                </motion.div>
+              ) : (
+                <motion.div {...fadeUp(0.42)} style={{ display: 'inline-flex', flexWrap: 'wrap', alignItems: 'center', gap: 12, padding: '10px 14px', borderRadius: 44, border: '1px solid rgba(255,255,255,0.12)', background: 'rgba(255,255,255,0.03)' }}>
+                  <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)' }}>
+                    {isMus ? (locale === 'pl' ? 'Dostępny w sklepach Dino' : 'Available at Dino stores') : t('prodAvailTitle')}
+                  </span>
+                  {isMus
+                    ? <span style={{ display: 'inline-flex', alignItems: 'center', background: '#fff', borderRadius: 6, padding: '4px 9px' }}><DinoLogo height={14} /></span>
+                    : <StoreLogos height={16} />}
+                </motion.div>
+              )}
             </div>
 
             {/* packshot */}
@@ -110,7 +124,9 @@ export default function ProduktPage() {
                 initial={{ opacity: 0, scale: 0.9, y: 20 }}
                 animate={m ? { opacity: 1, scale: 1, y: 0 } : { opacity: 1, scale: 1, y: [0, -14, 0] }}
                 transition={m ? { duration: 0.6, delay: 0.15 } : { opacity: { duration: 0.8, delay: 0.2 }, scale: { duration: 0.8, delay: 0.2 }, y: { duration: 5, repeat: Infinity, ease: 'easeInOut', delay: 1 } }}
-                style={{ position: 'relative', zIndex: 2, height: m ? 360 : 540, width: 'auto', objectFit: 'contain', borderRadius: 20, filter: `drop-shadow(0 40px 70px ${product.glow})` }}
+                style={isLody
+                  ? { position: 'relative', zIndex: 2, width: '100%', maxWidth: m ? 340 : 560, height: 'auto', objectFit: 'contain', borderRadius: 20, transform: 'rotate(-6deg)', filter: `drop-shadow(0 40px 70px ${product.glow})` }
+                  : { position: 'relative', zIndex: 2, height: m ? 360 : 540, width: 'auto', objectFit: 'contain', borderRadius: 20, filter: `drop-shadow(0 40px 70px ${product.glow})` }}
               />
             </motion.div>
           </div>
@@ -180,7 +196,7 @@ export default function ProduktPage() {
               <div style={{ display: 'grid', gridTemplateColumns: m ? '1fr' : '1fr 1fr', gap: 24 }}>
                 <div>
                   <h3 style={{ fontSize: 13, fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', color: product.accent, marginBottom: 12 }}>{t('prodBestBeforeTitle')}</h3>
-                  <p style={{ fontSize: 14, lineHeight: 1.7, color: 'rgba(255,255,255,0.55)' }}>{isMus ? (locale === 'pl' ? 'Data i numer partii w środkowej części opakowania.' : 'Date and batch number in the middle part of the pouch.') : t('prodBestBefore')}</p>
+                  <p style={{ fontSize: 14, lineHeight: 1.7, color: 'rgba(255,255,255,0.55)' }}>{isLody ? (locale === 'pl' ? 'Data i numer partii: nadruk z tyłu opakowania.' : 'Date and batch number: printed on the back of the package.') : isMus ? (locale === 'pl' ? 'Data i numer partii w środkowej części opakowania.' : 'Date and batch number in the middle part of the pouch.') : t('prodBestBefore')}</p>
                 </div>
                 <div>
                   <h3 style={{ fontSize: 13, fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', color: product.accent, marginBottom: 12 }}>{t('prodStorageTitle')}</h3>
@@ -192,10 +208,10 @@ export default function ProduktPage() {
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: m ? 16 : 32, paddingTop: 24, borderTop: '1px solid rgba(255,255,255,0.08)' }}>
                 <div style={{ flex: '1 1 220px' }}>
                   <p style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)', marginBottom: 6 }}>{t('prodProducer')}</p>
-                  <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.6)', lineHeight: 1.6 }}>{t('prodProducerVal')}</p>
+                  <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.6)', lineHeight: 1.6 }}>{isLody ? 'NORDIS Chłodnie Polskie Sp. z o.o., ul. Zimna 1a, 65-707 Zielona Góra' : t('prodProducerVal')}</p>
                 </div>
-                {/* kaucja dotyczy tylko butelek - saszetki musów bez kaucji */}
-                {!isMus && (
+                {/* kaucja dotyczy tylko butelek - musy/lody bez kaucji */}
+                {!isMus && !isLody && (
                   <div>
                     <p style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)', marginBottom: 6 }}>{t('prodDeposit')}</p>
                     <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.6)' }}>{t('prodDepositVal')}</p>
@@ -214,13 +230,17 @@ export default function ProduktPage() {
         <div style={{ maxWidth: 1400, margin: '0 auto', padding: '0 clamp(20px, 4vw, 48px)' }}>
           <div style={{ display: 'grid', gridTemplateColumns: m ? '1fr' : '1fr 1fr', gap: 24, alignItems: 'stretch' }}>
             {/* DINO block */}
-            <motion.div {...fadeUp(0)} style={{ borderRadius: 22, padding: m ? 28 : 40, background: 'linear-gradient(135deg, rgba(52,169,58,0.18), rgba(255,255,255,0.03))', border: '1px solid rgba(95,192,101,0.3)', display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: 18 }}>
-              {isMus
+            <motion.div {...fadeUp(0)} style={{ borderRadius: 22, padding: m ? 28 : 40, background: isLody ? 'linear-gradient(135deg, rgba(255,210,60,0.16), rgba(255,255,255,0.03))' : 'linear-gradient(135deg, rgba(52,169,58,0.18), rgba(255,255,255,0.03))', border: isLody ? '1px solid rgba(255,210,60,0.35)' : '1px solid rgba(95,192,101,0.3)', display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: 18 }}>
+              {isLody
+                ? <img src="/biedronka-badge.png" alt="Biedronka" loading="lazy" decoding="async" style={{ height: 78, width: 'auto', alignSelf: 'flex-start' }} />
+                : isMus
                 ? <span style={{ display: 'inline-flex', alignItems: 'center', alignSelf: 'flex-start', background: '#fff', borderRadius: 8, padding: '6px 12px' }}><DinoLogo height={18} /></span>
                 : <StoreLogos height={20} />}
-              <h3 style={{ fontSize: m ? 24 : 30, fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.15 }}>{t('prodCtaTitle')}</h3>
+              <h3 style={{ fontSize: m ? 24 : 30, fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.15 }}>{isLody ? (locale === 'pl' ? 'Szukaj w zamrażarkach Biedronki' : 'Find it in Biedronka freezers') : t('prodCtaTitle')}</h3>
               <p style={{ fontSize: 15, lineHeight: 1.7, color: 'rgba(255,255,255,0.55)' }}>
-                {isMus
+                {isLody
+                  ? (locale === 'pl' ? 'Lody EDWARDZIK czekają w zamrażarkach sklepów Biedronka w całej Polsce. Człowieku, spróbuj obu smaków - zanim się rozejdą.' : 'EDWARDZIK ice creams are waiting in Biedronka freezers across Poland. Try both flavours - before they are gone.')
+                  : isMus
                   ? (locale === 'pl' ? 'Musy owocowe czekają na półkach sklepów Dino w całej Polsce. Sprawdź oba smaki.' : 'The fruit pouches are waiting on the shelves of Dino stores across Poland. Try both flavors.')
                   : t('prodCtaDesc')}
               </p>
@@ -233,7 +253,9 @@ export default function ProduktPage() {
                 onMouseEnter={(e) => { const im = e.currentTarget.querySelector('img'); if (im) im.style.transform = 'translateY(-6px) rotate(-2deg)' }}
                 onMouseLeave={(e) => { const im = e.currentTarget.querySelector('img'); if (im) im.style.transform = 'translateY(0) rotate(0)' }}
               >
-                <img src={other.packshot} alt={other.flavor[locale]} loading="lazy" decoding="async" style={{ height: m ? 130 : 170, width: 'auto', objectFit: 'contain', borderRadius: 12, transition: 'transform 0.4s ease', filter: `drop-shadow(0 18px 30px ${other.glow})` }} />
+                <img src={other.packshot} alt={other.flavor[locale]} loading="lazy" decoding="async" style={isLody
+                  ? { width: m ? 150 : 230, height: 'auto', objectFit: 'contain', borderRadius: 12, transition: 'transform 0.4s ease', filter: `drop-shadow(0 18px 30px ${other.glow})`, flexShrink: 0 }
+                  : { height: m ? 130 : 170, width: 'auto', objectFit: 'contain', borderRadius: 12, transition: 'transform 0.4s ease', filter: `drop-shadow(0 18px 30px ${other.glow})` }} />
                 <div>
                   <p style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.35)', marginBottom: 8 }}>{t('prodOther')}</p>
                   <p style={{ fontSize: m ? 18 : 22, fontWeight: 700, letterSpacing: '-0.01em', color: '#fff', marginBottom: 12 }}>{other.flavor[locale]}</p>

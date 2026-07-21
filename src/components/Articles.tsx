@@ -4,7 +4,21 @@ import useIsMobile from '../hooks/useIsMobile'
 import { useT } from '../lib/i18n'
 
 const articles = [
-  // Wave 7 - Ustka / lato 2026 (najnowsze)
+  // Wave 8 - CDT Cyberfest / Industriada Rybnik / „chiński szpieg" (najnowsze, lato 2026)
+  { source: 'CDT', title: 'Wiemy, kto pozna Edwarda Warchockiego! Wyniki ogólnopolskiego testu z cyberbezpieczeństwa', url: 'https://cdt.pl/artykul/wiemy-kto-pozna-edwarda-warchockiego-wyniki-ogolnopolskiego-testu-wiedzy-z', domain: 'cdt.pl' },
+  { source: 'Instytut Cyfrowego Obywatelstwa', title: 'Cyberfest w Centralnym Domu Technologii — wydarzenie Fundacji PFR', url: 'https://cyfroweobywatelstwo.pl/wydarzenie/cyberfest-w-centralnym-domu-technologii-wydarzenie-fundacji-pfr/', domain: 'cyfroweobywatelstwo.pl' },
+  { source: 'Techoteka', title: 'Edward Warchocki idzie o krok dalej. Robot influencer z własną stroną i ofertą dla firm', url: 'https://techoteka.pl/nowe-technologie/edward-warchocki-robot-influencer-strona-oferta/', domain: 'techoteka.pl' },
+  { source: 'Nadmorski24', title: 'Edward Warchocki na plaży [FILM]', url: 'https://nadmorski24.pl/aktualnosci/80853-edward-warchocki-na-plazy-film', domain: 'nadmorski24.pl' },
+  { source: 'Goniec.pl', title: 'Nagranie z polskiej plaży podbija sieć. Widziało je 500 tys. osób, zjawił się niespodziewany gość', url: 'https://goniec.pl/nagranie-z-polskiej-plazy-podbija-siec-widzialo-je-500-tys-osob-zjawil-sie-niespodziewany-gosc-wk-wpd-070726', domain: 'goniec.pl' },
+  { source: 'Puls Gdańska', title: 'Edward Warchocki odwiedził plażę na Pomorzu. Takiej sceny turyści długo nie zapomną', url: 'https://pulsgdanska.pl/wiadomosci-pomorze/edward-warchocki-odwiedzil-plaze-na-pomorzu-takiej-sceny-turysci-dlugo-nie-zapomna/62vIP0QWoHCr4VQYrvKC', domain: 'pulsgdanska.pl' },
+  { source: 'Mój Powiat', title: 'Edward Warchocki na plaży [FILM]', url: 'https://moj.powiat.pl/edward-warchocki-na-plazy-film-40945690.html', domain: 'moj.powiat.pl' },
+  { source: 'Kanał Zero / Rymanowski', title: 'Rymanowski, Warchocki, Grzelaczyk: robot i jego twórca', url: 'https://www.youtube.com/watch?v=uwZQOztn9S0', domain: 'youtube.com' },
+  { source: 'Silesion', title: 'Industriada 2026 w Rybniku. Twarze przemysłu, robot Edward Warchocki i fontanna parowa', url: 'https://silesion.pl/industriada-2026-w-rybniku-twarze-przemyslu-robot-edward-warchocki-i-fontanna-parowa/', domain: 'silesion.pl' },
+  { source: 'Radio 90', title: 'Industriada w Rybniku. Do Kopalni Ignacy przyjechał robot Edward Warchocki [ZDJĘCIA]', url: 'https://www.radio90.pl/industriada-w-rybniku-do-zabytkowej-kopalni-ignacy-przyjechal-robot-humanoidalny-edward-warchocki-zdjecia.html', domain: 'radio90.pl' },
+  { source: 'Nasz Rybnik', title: 'Edward Warchocki przyjedzie do Rybnika. Robot będzie szukał swojej praprababki', url: 'https://www.naszrybnik.com/site/art/1/0/27481', domain: 'naszrybnik.com' },
+  { source: 'Rybnik.com.pl', title: 'Edward Warchocki w Rybniku. Robot zrobił furorę! (foto)', url: 'https://www.rybnik.com.pl/wiadomosci,edward-warchocki-w-rybniku-robot-zrobil-furore-foto,wia5-3266-65305.html', domain: 'rybnik.com.pl' },
+  { source: 'Kopalnia Ignacy', title: 'Edward Warchocki na INDUSTRIADZIE 2026', url: 'https://www.kopalniaignacy.pl/wydarzenia/edward-warchocki-na-industriadzie-2026/', domain: 'kopalniaignacy.pl' },
+  // Wave 7 - Ustka / lato 2026
   { source: 'TVP World', title: "'Time for a cannonball!' Robot tourist turns Polish beach into sci-fi scene", url: 'https://tvpworld.com/94188321/edward-warchocki-goes-to-ustka-robot-turns-polish-beach-into-sci-fi-scene', domain: 'tvpworld.com' },
   { source: 'o2.pl', title: 'Prawie 500 tys. wyświetleń. Nagranie z Ustki podbija sieć', url: 'https://www.o2.pl/informacje/prawie-500-tys-wyswietlen-nagranie-z-ustki-podbija-siec-7304093848070560a', domain: 'o2.pl' },
   { source: 'BlaskOnline', title: 'Edward Warchocki - robot, który podbił Polskę. Kim jest „Edek" i jak na nim zarabiać?', url: 'https://blaskonline.pl/edward-warchocki-robot-ktory-podbil-polske-kim-jest-edek-i-jak-na-nim-zarabiac/', domain: 'blaskonline.pl' },

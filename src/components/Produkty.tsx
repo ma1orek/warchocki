@@ -12,6 +12,7 @@ function ProductCard({ product, index }: { product: Product; index: number }) {
   const [hovered, setHovered] = useState(false)
   const m = useIsMobile()
   const { t, locale } = useT()
+  const isLody = product.category === 'lody'
 
   return (
     <motion.div
@@ -62,13 +63,22 @@ function ProductCard({ product, index }: { product: Product; index: number }) {
             alt={product.flavor[locale]}
             loading="lazy"
             decoding="async"
-            style={{
-              height: m ? 240 : 290,
-              width: 'auto',
-              objectFit: 'contain',
-              borderRadius: 16,
-              filter: `drop-shadow(0 24px 40px ${product.glow})`,
-            }}
+            style={isLody
+              ? {
+                  width: m ? 260 : 320,
+                  height: 'auto',
+                  objectFit: 'contain',
+                  borderRadius: 16,
+                  transform: 'rotate(-5deg)',
+                  filter: `drop-shadow(0 24px 40px ${product.glow})`,
+                }
+              : {
+                  height: m ? 240 : 290,
+                  width: 'auto',
+                  objectFit: 'contain',
+                  borderRadius: 16,
+                  filter: `drop-shadow(0 24px 40px ${product.glow})`,
+                }}
           />
         </motion.div>
 
@@ -87,8 +97,8 @@ function ProductCard({ product, index }: { product: Product; index: number }) {
           </h3>
 
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, justifyContent: m ? 'center' : 'flex-start', marginBottom: 22 }}>
-            <span style={{ fontSize: 10, fontWeight: 800, letterSpacing: '0.05em', textTransform: 'uppercase', color: '#0a2e0c', background: '#5fc065', borderRadius: 20, padding: '5px 11px' }}>
-              {t('productsNoSugar')}
+            <span style={{ fontSize: 10, fontWeight: 800, letterSpacing: '0.05em', textTransform: 'uppercase', color: isLody ? '#3a1200' : '#0a2e0c', background: isLody ? '#ffd23c' : '#5fc065', borderRadius: 20, padding: '5px 11px' }}>
+              {isLody ? (locale === 'pl' ? '💥 MEGA strzelający' : '💥 MEGA popping') : t('productsNoSugar')}
             </span>
             <span style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.05em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.7)', border: '1px solid rgba(255,255,255,0.18)', borderRadius: 20, padding: '5px 11px' }}>
               + {product.vitamin[locale]}
@@ -97,8 +107,8 @@ function ProductCard({ product, index }: { product: Product; index: number }) {
               {product.volume?.[locale] ?? t('productsVolume')}
             </span>
             {product.isNew && (
-              <span style={{ fontSize: 10, fontWeight: 800, letterSpacing: '0.05em', textTransform: 'uppercase', color: '#0a2e0c', background: '#7dd17f', borderRadius: 20, padding: '5px 11px' }}>
-                {t('productsInDino')}
+              <span style={{ fontSize: 10, fontWeight: 800, letterSpacing: '0.05em', textTransform: 'uppercase', color: isLody ? '#7a0c0c' : '#0a2e0c', background: isLody ? '#ffe14d' : '#7dd17f', borderRadius: 20, padding: '5px 11px' }}>
+                {isLody ? (locale === 'pl' ? 'Dostępne w Biedronce' : 'Available at Biedronka') : t('productsInDino')}
               </span>
             )}
           </div>
