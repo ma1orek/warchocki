@@ -59,18 +59,17 @@ function ProductCard({ product, index }: { product: Product; index: number }) {
           style={{ position: 'relative', zIndex: 2, flexShrink: 0 }}
         >
           <img
-            src={product.packshot}
+            src={isLody ? (product.mainPhoto ?? product.packshot) : product.packshot}
             alt={product.flavor[locale]}
             loading="lazy"
             decoding="async"
             style={isLody
               ? {
-                  width: m ? 260 : 320,
-                  height: 'auto',
-                  objectFit: 'contain',
-                  borderRadius: 16,
-                  transform: 'rotate(-5deg)',
-                  filter: `drop-shadow(0 24px 40px ${product.glow})`,
+                  width: m ? 230 : 260,
+                  height: m ? 230 : 260,
+                  objectFit: 'cover',
+                  borderRadius: 18,
+                  boxShadow: `0 24px 50px ${product.glow}, 0 14px 30px rgba(0,0,0,0.5)`,
                 }
               : {
                   height: m ? 240 : 290,
