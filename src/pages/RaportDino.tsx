@@ -1,4 +1,5 @@
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
+import { useState, useEffect } from 'react'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import DinoLogo from '../components/DinoLogo'
@@ -149,56 +150,9 @@ export default function RaportDino() {
             ))}
           </motion.div>
 
-          {/* embed TikTok + YouTube */}
-          <div style={{ display: 'grid', gridTemplateColumns: m ? '1fr' : '1fr 1fr', gap: 20, marginBottom: 22 }}>
-            <motion.div {...fadeUp(0.12)} style={{ borderRadius: 18, overflow: 'hidden', border: '1px solid rgba(255,255,255,0.1)', background: '#000' }}>
-              <iframe
-                src="https://www.tiktok.com/embed/v2/7663466557502229792"
-                title="Musy Edwarda - TikTok"
-                allow="encrypted-media; fullscreen"
-                loading="lazy"
-                scrolling="no"
-                style={{ display: 'block', width: '100%', aspectRatio: '9 / 16', maxWidth: m ? 320 : '100%', margin: '0 auto', border: 'none', background: '#000' }}
-              />
-            </motion.div>
-            <motion.div {...fadeUp(0.18)} style={{ borderRadius: 18, overflow: 'hidden', border: '1px solid rgba(255,255,255,0.1)', background: '#000' }}>
-              <iframe
-                src="https://www.youtube.com/embed/BNoZsxeYy1E"
-                title="Musy Edwarda - YouTube Shorts"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                loading="lazy"
-                style={{ display: 'block', width: '100%', aspectRatio: '9 / 16', maxWidth: m ? 320 : '100%', margin: '0 auto', border: 'none', background: '#000' }}
-              />
-            </motion.div>
-          </div>
-
-          {/* linki do pozostałych platform */}
-          <motion.div {...fadeUp(0.24)}>
-            <p style={{ fontSize: 12, fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.4)', marginBottom: 12 }}>Zobacz też na:</p>
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10 }}>
-              {[
-                { label: 'TikTok', url: 'https://www.tiktok.com/@edwardwarchocki/video/7663466557502229792', color: '#ff0050' },
-                { label: 'Instagram', url: 'https://www.instagram.com/p/Da5MGXuIOon/', color: '#e1306c' },
-                { label: 'YouTube', url: 'https://www.youtube.com/shorts/BNoZsxeYy1E', color: '#ff0000' },
-                { label: 'Facebook - rolka', url: 'https://www.facebook.com/reel/27381042821578677/', color: '#1877f2' },
-                { label: 'Facebook - film', url: 'https://www.facebook.com/edwardwarchocki/videos/1004448792412185', color: '#1877f2' },
-                { label: 'X', url: 'https://x.com/edwardwarchocki/status/2078092317425107247', color: '#ffffff' },
-              ].map((s) => (
-                <a
-                  key={s.url}
-                  href={s.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '10px 16px', borderRadius: 40, border: `1px solid ${s.color}66`, background: 'rgba(255,255,255,0.03)', color: '#fff', fontSize: 12.5, fontWeight: 700, letterSpacing: '0.03em', transition: 'background 0.2s ease, border-color 0.2s ease' }}
-                  onMouseEnter={(e) => { e.currentTarget.style.background = `${s.color}1a`; e.currentTarget.style.borderColor = s.color }}
-                  onMouseLeave={(e) => { e.currentTarget.style.background = 'rgba(255,255,255,0.03)'; e.currentTarget.style.borderColor = `${s.color}66` }}
-                >
-                  <span style={{ width: 7, height: 7, borderRadius: '50%', background: s.color }} />
-                  {s.label} <span style={{ opacity: 0.6 }}>↗</span>
-                </a>
-              ))}
-            </div>
+          {/* SLIDER filmików musów - wszystkie platformy */}
+          <motion.div {...fadeUp(0.14)}>
+            <MusVideoSlider m={m} />
           </motion.div>
         </div>
       </section>
@@ -253,36 +207,6 @@ export default function RaportDino() {
       {/* Comments + media (reused) */}
       <NapojeSocial />
 
-      {/* NOWOŚĆ - MUSY OWOCOWE (kolejny produkt linii, dostępne w Dino) */}
-      <section style={{ position: 'relative', padding: m ? '50px 0' : '80px 0', borderTop: '1px solid rgba(255,255,255,0.08)' }}>
-        <div style={{ maxWidth: 1100, margin: '0 auto', padding: '0 clamp(20px, 4vw, 48px)' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: m ? '1fr' : '1fr 1fr', gap: m ? 28 : 56, alignItems: 'center' }}>
-            <motion.div {...fadeUp(0)}>
-              <span style={{ display: 'inline-block', fontSize: 11, fontWeight: 800, letterSpacing: '0.16em', textTransform: 'uppercase', color: '#fff', background: '#e23b3b', borderRadius: 24, padding: '7px 14px', marginBottom: 18 }}>
-                NOWOŚĆ
-              </span>
-              <h2 style={{ fontSize: m ? 28 : 'clamp(28px, 4vw, 48px)', fontWeight: 800, letterSpacing: '-0.03em', lineHeight: 1.08, marginBottom: 16 }}>
-                Musy owocowe Edwarda<br /><span style={{ color: '#7dd17f' }}>już w sklepach Dino</span>
-              </h2>
-              <p style={{ fontSize: m ? 15 : 17, lineHeight: 1.75, color: 'rgba(255,255,255,0.55)', marginBottom: 22 }}>
-                Linia produktów rośnie: po napojach do sprzedaży wchodzą <strong style={{ color: '#fff' }}>musy owocowe
-                w saszetkach 200 g</strong> - jabłko-brzoskwinia-banan i jabłko-gruszka-banan.
-                100% owoców, bez dodatku cukru, z witaminą C. Dostępne w sieci Dino.
-              </p>
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
-                <span style={{ fontSize: 11, fontWeight: 800, letterSpacing: '0.05em', textTransform: 'uppercase', color: '#0a2e0c', background: '#5fc065', borderRadius: 22, padding: '6px 12px' }}>100% owoców</span>
-                <span style={{ fontSize: 11, fontWeight: 800, letterSpacing: '0.05em', textTransform: 'uppercase', color: '#0a2e0c', background: '#7dd17f', borderRadius: 22, padding: '6px 12px' }}>Bez dodatku cukru</span>
-                <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.05em', textTransform: 'uppercase', color: '#fff', border: '1px solid rgba(255,255,255,0.25)', borderRadius: 22, padding: '6px 12px' }}>Dostępne w Dino</span>
-              </div>
-            </motion.div>
-            <motion.div {...fadeUp(0.12)} style={{ position: 'relative' }}>
-              <div aria-hidden style={{ position: 'absolute', inset: '8% 10%', borderRadius: '50%', background: 'radial-gradient(ellipse at center, rgba(255,159,67,0.25), rgba(195,210,67,0.18) 55%, transparent 75%)', filter: 'blur(30px)', pointerEvents: 'none' }} />
-              <img src="/musy-robot.jpg" alt="Edward Warchocki z musami owocowymi - nowość w Dino" loading="lazy" decoding="async" style={{ position: 'relative', display: 'block', width: '100%', borderRadius: 20, border: '1px solid rgba(255,255,255,0.12)', boxShadow: '0 30px 70px rgba(0,0,0,0.5)' }} />
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
       {/* PRODUKTY - PRODUKTY EDKA (napoje + musy) */}
       <Produkty />
 
@@ -301,6 +225,99 @@ export default function RaportDino() {
       </section>
 
       <Footer />
+    </div>
+  )
+}
+
+// Filmiki musów — jeden na raz (9:16), strzałki + kropki, auto co 7s.
+// Embed dla platform które da się osadzić (TikTok/Instagram/YouTube/Facebook);
+// X bez pewnego iframe → slajd-link. Wszystkie mają też przycisk „otwórz".
+type MusVid = { platform: string; accent: string; embed?: string; link: string }
+const MUS_VIDS: MusVid[] = [
+  { platform: 'TikTok', accent: '#ff0050', embed: 'https://www.tiktok.com/embed/v2/7663466557502229792', link: 'https://www.tiktok.com/@edwardwarchocki/video/7663466557502229792' },
+  { platform: 'Instagram', accent: '#e1306c', embed: 'https://www.instagram.com/p/Da5MGXuIOon/embed', link: 'https://www.instagram.com/p/Da5MGXuIOon/' },
+  { platform: 'YouTube Shorts', accent: '#ff0000', embed: 'https://www.youtube.com/embed/BNoZsxeYy1E', link: 'https://www.youtube.com/shorts/BNoZsxeYy1E' },
+  { platform: 'Facebook · rolka', accent: '#1877f2', embed: 'https://www.facebook.com/plugins/video.php?href=' + encodeURIComponent('https://www.facebook.com/reel/27381042821578677/') + '&show_text=false&width=340&height=600', link: 'https://www.facebook.com/reel/27381042821578677/' },
+  { platform: 'Facebook · film', accent: '#1877f2', embed: 'https://www.facebook.com/plugins/video.php?href=' + encodeURIComponent('https://www.facebook.com/edwardwarchocki/videos/1004448792412185') + '&show_text=false&width=340&height=600', link: 'https://www.facebook.com/edwardwarchocki/videos/1004448792412185' },
+  { platform: 'X', accent: '#ffffff', link: 'https://x.com/edwardwarchocki/status/2078092317425107247' },
+]
+
+function MusVideoSlider({ m }: { m: boolean }) {
+  const [i, setI] = useState(0)
+  const [dir, setDir] = useState(1)
+  const n = MUS_VIDS.length
+  const go = (x: number) => { const nx = ((x % n) + n) % n; setDir(nx > i || (i === n - 1 && nx === 0) ? 1 : -1); setI(nx) }
+  useEffect(() => { const iv = setInterval(() => go(i + 1), 7000); return () => clearInterval(iv) /* eslint-disable-next-line */ }, [i])
+  const v = MUS_VIDS[i]
+
+  const arrow: React.CSSProperties = {
+    width: 40, height: 40, borderRadius: '50%', border: '1px solid rgba(255,255,255,0.2)',
+    background: 'rgba(0,0,0,0.5)', color: '#fff', fontSize: 19, cursor: 'pointer',
+    display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0,
+    backdropFilter: 'blur(6px)', WebkitBackdropFilter: 'blur(6px)',
+  }
+
+  return (
+    <div>
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: m ? 8 : 18 }}>
+        {!m && <button aria-label="Poprzedni" onClick={() => go(i - 1)} style={arrow}>‹</button>}
+        <div style={{ position: 'relative', width: '100%', maxWidth: 340, aspectRatio: '9 / 16', borderRadius: 18, overflow: 'hidden', border: `1px solid ${v.accent}55`, background: '#000', boxShadow: `0 26px 60px rgba(0,0,0,0.55)` }}>
+          <AnimatePresence mode="wait" initial={false} custom={dir}>
+            <motion.div
+              key={v.platform}
+              custom={dir}
+              initial={{ opacity: 0, x: dir * 40 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -dir * 40 }}
+              transition={{ duration: 0.35, ease: 'easeOut' }}
+              style={{ position: 'absolute', inset: 0 }}
+            >
+              {/* etykieta platformy */}
+              <div style={{ position: 'absolute', top: 10, left: 10, zIndex: 3, display: 'inline-flex', alignItems: 'center', gap: 7, padding: '5px 11px', borderRadius: 20, background: 'rgba(0,0,0,0.6)', backdropFilter: 'blur(6px)', WebkitBackdropFilter: 'blur(6px)', fontSize: 11, fontWeight: 800, letterSpacing: '0.04em', color: '#fff', pointerEvents: 'none' }}>
+                <span style={{ width: 7, height: 7, borderRadius: '50%', background: v.accent }} /> {v.platform}
+              </div>
+
+              {v.embed ? (
+                <iframe
+                  src={v.embed}
+                  title={`Musy Edwarda — ${v.platform}`}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+                  allowFullScreen
+                  loading="lazy"
+                  scrolling="no"
+                  style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', border: 'none', background: '#000' }}
+                />
+              ) : (
+                <a href={v.link} target="_blank" rel="noopener noreferrer"
+                  style={{ position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 16, textDecoration: 'none', background: `radial-gradient(120% 120% at 50% 0%, ${v.accent}33, rgba(0,0,0,0.9) 60%)` }}>
+                  <div style={{ width: 64, height: 64, borderRadius: '50%', border: `2px solid ${v.accent}`, display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontSize: 26 }}>▶</div>
+                  <div style={{ fontSize: 15, fontWeight: 800, color: '#fff' }}>Zobacz na {v.platform}</div>
+                  <div style={{ fontSize: 12, fontWeight: 700, letterSpacing: '0.06em', textTransform: 'uppercase', color: v.accent }}>Otwórz ↗</div>
+                </a>
+              )}
+            </motion.div>
+          </AnimatePresence>
+        </div>
+        {!m && <button aria-label="Następny" onClick={() => go(i + 1)} style={arrow}>›</button>}
+      </div>
+
+      {/* kropki + (mobile) strzałki + przycisk otwórz w platformie */}
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 12, marginTop: 14 }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+          {m && <button aria-label="Poprzedni" onClick={() => go(i - 1)} style={arrow}>‹</button>}
+          <div style={{ display: 'flex', gap: 7 }}>
+            {MUS_VIDS.map((sv, k) => (
+              <button key={sv.platform} aria-label={sv.platform} onClick={() => go(k)}
+                style={{ width: k === i ? 22 : 7, height: 7, borderRadius: 8, border: 'none', cursor: 'pointer', background: k === i ? sv.accent : 'rgba(255,255,255,0.25)', transition: 'all 0.3s ease', padding: 0 }} />
+            ))}
+          </div>
+          {m && <button aria-label="Następny" onClick={() => go(i + 1)} style={arrow}>›</button>}
+        </div>
+        <a href={v.link} target="_blank" rel="noopener noreferrer"
+          style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '9px 18px', borderRadius: 40, border: `1px solid ${v.accent}66`, color: '#fff', fontSize: 12, fontWeight: 700, letterSpacing: '0.03em' }}>
+          Otwórz na {v.platform} <span style={{ opacity: 0.65 }}>↗</span>
+        </a>
+      </div>
     </div>
   )
 }
