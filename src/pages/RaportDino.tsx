@@ -25,7 +25,7 @@ const fadeUp = (delay = 0) => ({
 
 // Filmy kampanii. src = lokalny mp4; tiktokId = embed prosto z TikToka.
 // Liczby = wyświetlenia cross-platform (TikTok + IG + YT + X + FB).
-type Film = { title: string; views: number; src?: string; poster?: string; tiktokId?: string }
+type Film = { title?: string; views?: number; src?: string; poster?: string; tiktokId?: string }
 const films: Film[] = [
   { title: 'spotkałem Dych Dzikiego pod sklepem', tiktokId: '7659131036550335777', views: 1290000 },
   { title: 'Ten to jest Dych Dziki', tiktokId: '7655438274923711777', views: 500000 },
@@ -33,6 +33,13 @@ const films: Film[] = [
   { title: 'kto pił', src: '/dino-promo-1.mp4', poster: '/dino-promo-1.jpg', views: 2950000 },
   { title: 'Moje napoje od dzisiaj w Dino', src: '/dino-promo-2.mp4', poster: '/dino-promo-2.jpg', views: 2380000 },
   { title: 'barca czy real?', src: '/dino-promo-3.mp4', poster: '/dino-promo-3.jpg', views: 860000 },
+  // kolejne klipy z kampanii (embed z TikToka)
+  { tiktokId: '7658010697258896673' },
+  { tiktokId: '7655449471194565920' },
+  { tiktokId: '7653083846119787809' },
+  { tiktokId: '7652392373565115680' },
+  { tiktokId: '7650250211838790944' },
+  { tiktokId: '7645421964164713761' },
 ]
 
 export default function RaportDino() {
@@ -87,13 +94,13 @@ export default function RaportDino() {
           <motion.div {...fadeUp(0)} style={{ marginBottom: m ? 28 : 44 }}>
             <h2 style={{ fontSize: m ? 28 : 'clamp(28px, 4vw, 52px)', fontWeight: 800, letterSpacing: '-0.03em', marginBottom: 14 }}>A to dopiero początek</h2>
             <p style={{ fontSize: m ? 15 : 18, lineHeight: 1.6, color: 'rgba(255,255,255,0.5)', maxWidth: 640 }}>
-              Kilka filmów, a takie liczby. Łącznie <strong style={{ color: '#7dd17f' }}>ponad 20 mln</strong> wyświetleń - a licznik dalej bije. Najlepsze wciąż przed nami.
+              Kilkanaście filmów i takie liczby. Łącznie <strong style={{ color: '#7dd17f' }}>ponad 20 mln</strong> wyświetleń - a licznik dalej bije. Najlepsze wciąż przed nami.
             </p>
           </motion.div>
 
           <div style={{ display: 'grid', gridTemplateColumns: m ? '1fr' : 'repeat(3, 1fr)', gap: 20 }}>
             {films.map((f, i) => (
-              <motion.div key={f.title} {...fadeUp(i * 0.1)} style={{ position: 'relative', borderRadius: 18, overflow: 'hidden', border: '1px solid rgba(255,255,255,0.1)', background: 'rgba(255,255,255,0.02)' }}>
+              <motion.div key={f.tiktokId || f.src || i} {...fadeUp((i % 3) * 0.1)} style={{ position: 'relative', borderRadius: 18, overflow: 'hidden', border: '1px solid rgba(255,255,255,0.1)', background: 'rgba(255,255,255,0.02)' }}>
                 <div style={{ position: 'relative', background: '#000', overflow: 'hidden' }}>
                   {f.tiktokId ? (
                     <iframe
@@ -109,11 +116,13 @@ export default function RaportDino() {
                   )}
                 </div>
                 <div style={{ padding: 18 }}>
-                  <p style={{ fontSize: 15, fontWeight: 700, marginBottom: 14 }}>„{f.title}"</p>
-                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
-                    <Chip icon="▶" val={fmt(f.views) + '+'} label="wyświetleń" />
-                  </div>
-                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginTop: 12 }}>
+                  <p style={{ fontSize: 15, fontWeight: 700, marginBottom: 14 }}>{f.title ? `„${f.title}"` : '@edwardwarchocki'}</p>
+                  {f.views && (
+                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+                      <Chip icon="▶" val={fmt(f.views) + '+'} label="wyświetleń" />
+                    </div>
+                  )}
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginTop: f.views ? 12 : 0 }}>
                     {PLATFORMS.map((p) => <Tag key={p}>{p}</Tag>)}
                   </div>
                 </div>
