@@ -14,7 +14,7 @@ export const translations = {
     navCTA: 'Dogadajmy się',
 
     dinoNew: 'NOWOŚĆ',
-    dinoKicker: 'Dostępne w całej Polsce - DINO, Kaufland, Auchan i SPAR',
+    dinoKicker: 'Dostępne w całej Polsce - DINO, Kaufland, Auchan, SPAR i POLOmarket',
     dinoTitle: 'Moje napoje trafiły do sklepów',
     dinoTagline: 'no i elegancko',
     dinoTwoFlavors: 'Napoje i NOWOŚĆ: musy owocowe',
@@ -64,7 +64,7 @@ export const translations = {
 
     productsTag: 'Moje produkty',
     productsTitle: 'PRODUKTY EDKA',
-    productsIntro: 'Trafiam do każdego - teraz dosłownie. Napoje bez dodatku cukru w sieciach DINO, Kaufland, Auchan i SPAR w całej Polsce. A od teraz NOWOŚĆ: musy owocowe 100% owoców - do kupienia w sklepach Dino. No i elegancko.',
+    productsIntro: 'Trafiam do każdego - teraz dosłownie. Napoje bez dodatku cukru w sieciach DINO, Kaufland, Auchan, SPAR i POLOmarket w całej Polsce. A od teraz NOWOŚĆ: musy owocowe 100% owoców - do kupienia w sklepach Dino. No i elegancko.',
     productsAvail: 'Dostępne w całej Polsce',
     productsNoSugar: 'Bez dodatku cukru',
     productsCardCta: 'Poznaj smak',
@@ -75,7 +75,7 @@ export const translations = {
     prodHeroBadge: 'Bez dodatku cukru',
     prodWatch: 'Zobacz w ruchu',
     prodAvailTitle: 'Dostępne w całej Polsce',
-    prodAvailDesc: 'Szukaj napojów Edwarda Warchockiego na półkach sieci DINO, Kaufland, Auchan i SPAR w całej Polsce.',
+    prodAvailDesc: 'Szukaj napojów Edwarda Warchockiego na półkach sieci DINO, Kaufland, Auchan, SPAR i POLOmarket w całej Polsce.',
     prodNutritionTitle: 'Wartość odżywcza',
     prodNutritionSub: 'w 100 ml produktu',
     prodNutritionNote: '* Dzienne referencyjne wartości spożycia witamin (dla osób dorosłych)',
@@ -91,7 +91,7 @@ export const translations = {
     prodDeposit: 'Kaucja',
     prodDepositVal: '0,50 zł',
     prodCtaTitle: 'Złap Edwarda Warchockiego w sklepach',
-    prodCtaDesc: 'Nowe napoje czekają na półkach DINO, Kaufland, Auchan i SPAR w całej Polsce. Sprawdź oba smaki.',
+    prodCtaDesc: 'Nowe napoje czekają na półkach DINO, Kaufland, Auchan, SPAR i POLOmarket w całej Polsce. Sprawdź oba smaki.',
     prodOther: 'Drugi smak',
 
     komTag: 'Prosto z TikToka',
@@ -153,7 +153,7 @@ export const translations = {
     navCTA: "Let's talk",
 
     dinoNew: 'NEW',
-    dinoKicker: 'Available all over Poland - DINO, Kaufland, Auchan & SPAR',
+    dinoKicker: 'Available all over Poland - DINO, Kaufland, Auchan, SPAR & POLOmarket',
     dinoTitle: 'My drinks hit the stores',
     dinoTagline: 'well, elegant',
     dinoTwoFlavors: 'Drinks & NEW: fruit pouches',
@@ -203,7 +203,7 @@ export const translations = {
 
     productsTag: 'My products',
     productsTitle: "EDEK'S PRODUCTS",
-    productsIntro: 'I reach everyone - now literally. No-added-sugar drinks at DINO, Kaufland, Auchan and SPAR stores across Poland. And now NEW: 100% fruit pouches - available at Dino stores. Elegant.',
+    productsIntro: 'I reach everyone - now literally. No-added-sugar drinks at DINO, Kaufland, Auchan, SPAR and POLOmarket stores across Poland. And now NEW: 100% fruit pouches - available at Dino stores. Elegant.',
     productsAvail: 'Available across Poland',
     productsNoSugar: 'No added sugar',
     productsCardCta: 'Meet the flavor',
@@ -214,7 +214,7 @@ export const translations = {
     prodHeroBadge: 'No added sugar',
     prodWatch: 'See it in motion',
     prodAvailTitle: 'Available across Poland',
-    prodAvailDesc: "Look for Edward Warchocki's drinks on the shelves of DINO, Kaufland, Auchan and SPAR stores all over Poland.",
+    prodAvailDesc: "Look for Edward Warchocki's drinks on the shelves of DINO, Kaufland, Auchan, SPAR and POLOmarket stores all over Poland.",
     prodNutritionTitle: 'Nutrition',
     prodNutritionSub: 'per 100 ml',
     prodNutritionNote: '* Reference intake of vitamins for an average adult',
@@ -230,7 +230,7 @@ export const translations = {
     prodDeposit: 'Deposit',
     prodDepositVal: 'PLN 0.50',
     prodCtaTitle: 'Catch Edward Warchocki in stores',
-    prodCtaDesc: 'New drinks waiting on the shelves of DINO, Kaufland, Auchan and SPAR across Poland. Try both flavors.',
+    prodCtaDesc: 'New drinks waiting on the shelves of DINO, Kaufland, Auchan, SPAR and POLOmarket across Poland. Try both flavors.',
     prodOther: 'Other flavor',
 
     komTag: 'Straight from TikTok',

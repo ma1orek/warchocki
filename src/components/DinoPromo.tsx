@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import useIsMobile from '../hooks/useIsMobile'
 import { useT, localizedPath } from '../lib/i18n'
 import { products } from '../lib/products'
+import { boldDino } from '../lib/boldDino'
 
 /* HERO SHOWCASE — jeden duży produkt (spójna karta) + rail miniatur wszystkich
    produktów pod spodem (mnogość + szybkie przeskakiwanie). Auto co 5s. */
@@ -34,7 +35,7 @@ export default function DinoPromo() {
   const p = products[index]
   const isLody = p.category === 'lody'
   const isMus = !isLody && !!p.volume?.pl.includes('g')
-  const store = isLody ? 'Biedronka' : isMus ? 'Dino' : (pl ? 'Dino · Kaufland · Auchan · SPAR' : 'Dino · Kaufland · Auchan · SPAR')
+  const store = isLody ? 'Biedronka' : isMus ? 'Dino' : 'Dino · Kaufland · Auchan · SPAR · POLOmarket'
 
   const chip = (label: string, color: string, solid = false) => (
     <span key={label} style={solid
@@ -93,7 +94,7 @@ export default function DinoPromo() {
             <div style={{ textAlign: m ? 'center' : 'left', paddingTop: m ? 8 : 0 }}>
               <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, marginBottom: 10, flexWrap: 'wrap', justifyContent: m ? 'center' : 'flex-start' }}>
                 {p.isNew && <span style={{ fontSize: 9.5, fontWeight: 800, letterSpacing: '0.12em', color: '#fff', background: '#e23b3b', borderRadius: 14, padding: '4px 10px' }}>{t('dinoNew')}</span>}
-                <span style={{ fontSize: 10, fontWeight: 800, letterSpacing: '0.1em', textTransform: 'uppercase', color: p.accent }}>{store}</span>
+                <span style={{ fontSize: 10, fontWeight: 800, letterSpacing: '0.1em', textTransform: 'uppercase', color: p.accent }}>{boldDino(store)}</span>
               </div>
               <h3 style={{ fontSize: m ? 21 : 24, fontWeight: 800, color: '#fff', letterSpacing: '-0.02em', lineHeight: 1.14, marginBottom: 4 }}>
                 {p.name[locale]}

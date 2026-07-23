@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import useIsMobile from '../hooks/useIsMobile'
 import { useT, localizedPath } from '../lib/i18n'
 import { products, type Product } from '../lib/products'
+import { boldDino } from '../lib/boldDino'
 import StoreLogos from './StoreLogos'
 
 function ProductCard({ product, index }: { product: Product; index: number }) {
@@ -147,7 +148,7 @@ export default function Produkty({ showStoreLogos = false, standalone = false }:
             {t('productsTitle')}
           </h2>
           <p style={{ fontSize: m ? 15 : 17, lineHeight: 1.8, color: 'rgba(255,255,255,0.45)', maxWidth: 620, margin: '0 auto 22px' }}>
-            {t('productsIntro')}
+            {boldDino(t('productsIntro'))}
           </p>
 
           {/* store availability strip: DINO, Kaufland, Auchan, SPAR (hidden on homepage) */}

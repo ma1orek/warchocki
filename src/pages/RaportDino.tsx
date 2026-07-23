@@ -219,7 +219,7 @@ export default function RaportDino() {
           </a>
           <p style={{ fontSize: 11, color: 'rgba(255,255,255,0.3)', margin: '22px auto 0', lineHeight: 1.6, maxWidth: 760 }}>
             Dane wyświetleń zliczone z kanałów Edwarda (TikTok, Instagram, YouTube, X, Facebook) od startu kampanii (czerwiec 2026).
-            Zasięg UGC szacowany na podstawie wolumenu filmów publikowanych przez klientów i fanów. Napoje dostępne w sieciach DINO, Kaufland, Auchan i SPAR; musy owocowe - w sieci Dino.
+            Zasięg UGC szacowany na podstawie wolumenu filmów publikowanych przez klientów i fanów. Napoje dostępne w sieciach DINO, Kaufland, Auchan, SPAR i POLOmarket; musy owocowe - w sieci Dino.
           </p>
         </div>
       </section>

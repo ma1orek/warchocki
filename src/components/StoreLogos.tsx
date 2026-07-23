@@ -27,6 +27,13 @@ export default function StoreLogos({ height = 18, align = 'flex-start' }: { heig
           <img src={s.src} alt={s.name} decoding="async" style={{ height, width: 'auto', display: 'block' }} />
         </span>
       ))}
+      {/* POLOmarket - wordmark (brak oficjalnego SVG w assetach) */}
+      <span style={pill}>
+        <span style={{ display: 'inline-flex', alignItems: 'baseline', fontFamily: "'Inter', system-ui, sans-serif", fontWeight: 800, fontSize: Math.round(height * 0.82), letterSpacing: '-0.02em', lineHeight: 1 }}>
+          <span style={{ color: '#e2001a' }}>POLO</span>
+          <span style={{ color: '#1a1a1a' }}>market</span>
+        </span>
+      </span>
     </span>
   )
 }
