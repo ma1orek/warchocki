@@ -69,8 +69,8 @@ export default function RaportDino() {
             EDWARD WARCHOCKI<br /><span style={{ color: '#7dd17f' }}>×</span> DINO
           </motion.h1>
           <motion.p {...fadeUp(0.16)} style={{ fontSize: m ? 16 : 20, lineHeight: 1.6, color: 'rgba(255,255,255,0.5)', maxWidth: 660, marginBottom: 40 }}>
-            Pierwszy w Polsce robot-influencer i jego produkty bez dodatku cukru. Kampania wystartowała w DINO,
-            a napoje są już także w sieciach <strong style={{ color: '#fff' }}>Kaufland, Auchan i SPAR</strong> - do tego <strong style={{ color: '#7dd17f' }}>NOWOŚĆ: musy owocowe</strong>, dostępne w Dino. A to dopiero początek.
+            Pierwszy w Polsce robot-influencer i jego produkty bez dodatku cukru. Kampania wystartowała w <strong style={{ color: '#fff' }}>DINO</strong>,
+            a napoje są już także w sieciach <strong style={{ color: '#fff' }}>Kaufland, Auchan, SPAR i POLOmarket</strong> - do tego <strong style={{ color: '#7dd17f' }}>NOWOŚĆ: musy owocowe</strong>, dostępne w <strong style={{ color: '#fff' }}>Dino</strong>. A to dopiero początek.
           </motion.p>
 
           <motion.div {...fadeUp(0.24)} style={{ display: 'flex', flexWrap: 'wrap', gap: 14 }}>
@@ -129,7 +129,7 @@ export default function RaportDino() {
         <div style={{ position: 'relative', maxWidth: 1100, margin: '0 auto', padding: '0 clamp(20px, 4vw, 48px)' }}>
           <motion.div {...fadeUp(0)} style={{ marginBottom: m ? 26 : 40 }}>
             <span style={{ fontSize: 11, fontWeight: 800, letterSpacing: '0.16em', textTransform: 'uppercase', color: '#ffb066' }}>NOWOŚĆ · MUSY OWOCOWE</span>
-            <h2 style={{ fontSize: m ? 28 : 'clamp(28px, 4vw, 52px)', fontWeight: 800, letterSpacing: '-0.03em', margin: '12px 0 14px' }}>Musy wjechały do Dino</h2>
+            <h2 style={{ fontSize: m ? 28 : 'clamp(28px, 4vw, 52px)', fontWeight: 800, letterSpacing: '-0.03em', margin: '12px 0 14px' }}>Musy wjechały do <span style={{ color: '#7dd17f' }}>Dino</span></h2>
             <p style={{ fontSize: m ? 15 : 18, lineHeight: 1.6, color: 'rgba(255,255,255,0.5)', maxWidth: 640 }}>
               100% owoców, bez dodatku cukru - dwa smaki na start. Zobacz premierowe filmiki z musami na wszystkich platformach Edka.
             </p>
@@ -166,7 +166,7 @@ export default function RaportDino() {
               Tysiące filmików tworzonych przez fanów z napojami Edwarda Warchockiego
             </h2>
             <p style={{ fontSize: m ? 15 : 17, lineHeight: 1.75, color: 'rgba(255,255,255,0.5)', maxWidth: 720 }}>
-              Klienci i fani sami nagrywają napoje Edwarda - przy półce w sklepie, taniec przed Dino, wspólne zdjęcia -
+              Klienci i fani sami nagrywają napoje Edwarda - przy półce w sklepie, taniec przed <strong style={{ color: '#fff' }}>Dino</strong>, wspólne zdjęcia -
               bardzo często <strong style={{ color: '#fff' }}>z oznaczeniami DINO</strong>. Każdy taki klip to darmowa reklama marki
               trafiająca do tysięcy ludzi. Poniżej realne komentarze i pełna lista mediów, które napisały o napojach.
             </p>
@@ -193,7 +193,7 @@ export default function RaportDino() {
             <p style={{ fontSize: m ? 14 : 16, lineHeight: 1.75, color: 'rgba(255,255,255,0.6)', marginBottom: 16 }}>
               To nie są pojedyncze nagrania - to <strong style={{ color: '#fff' }}>setki filmów</strong> nakręconych przez klientów i fanów
               oraz <strong style={{ color: '#fff' }}>tysiące stories na Instagramie</strong>, żyjących równolegle na TikToku, Instagramie,
-              YouTubie, X i Facebooku. Każdy z marką DINO w tle, każdy za darmo. A licznik dalej bije.
+              YouTubie, X i Facebooku. Każdy z marką <strong style={{ color: '#fff' }}>DINO</strong> w tle, każdy za darmo. A licznik dalej bije.
             </p>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10 }}>
               {PLATFORMS.map((p) => (
