@@ -122,6 +122,87 @@ export default function RaportDino() {
         </div>
       </section>
 
+      {/* MUSY - filmiki premierowe (NOWOŚĆ w Dino) */}
+      <section style={{ position: 'relative', padding: m ? '46px 0' : '70px 0', borderTop: '1px solid rgba(255,255,255,0.08)' }}>
+        <div aria-hidden style={{ position: 'absolute', top: 20, left: -140, width: m ? 300 : 460, height: m ? 300 : 460, borderRadius: '50%', background: '#ff9f43', filter: 'blur(150px)', opacity: 0.12, pointerEvents: 'none' }} />
+        <div style={{ position: 'relative', maxWidth: 1100, margin: '0 auto', padding: '0 clamp(20px, 4vw, 48px)' }}>
+          <motion.div {...fadeUp(0)} style={{ marginBottom: m ? 26 : 40 }}>
+            <span style={{ fontSize: 11, fontWeight: 800, letterSpacing: '0.16em', textTransform: 'uppercase', color: '#ffb066' }}>NOWOŚĆ · MUSY OWOCOWE</span>
+            <h2 style={{ fontSize: m ? 28 : 'clamp(28px, 4vw, 52px)', fontWeight: 800, letterSpacing: '-0.03em', margin: '12px 0 14px' }}>Musy wjechały do Dino</h2>
+            <p style={{ fontSize: m ? 15 : 18, lineHeight: 1.6, color: 'rgba(255,255,255,0.5)', maxWidth: 640 }}>
+              100% owoców, bez dodatku cukru - dwa smaki na start. Zobacz premierowe filmiki z musami na wszystkich platformach Edka.
+            </p>
+          </motion.div>
+
+          {/* wizualizacje musów - dwa smaki */}
+          <motion.div {...fadeUp(0.08)} style={{ display: 'grid', gridTemplateColumns: m ? '1fr 1fr' : '1fr 1fr', gap: m ? 12 : 20, marginBottom: m ? 24 : 34 }}>
+            {[
+              { img: '/mus-gruszka-main.jpg', label: 'Jabłko · gruszka · banan' },
+              { img: '/mus-brzoskwinia-main.jpg', label: 'Jabłko · brzoskwinia · banan' },
+            ].map((p) => (
+              <div key={p.img} style={{ position: 'relative', borderRadius: 16, overflow: 'hidden', border: '1px solid rgba(255,255,255,0.1)' }}>
+                <img src={p.img} alt={p.label} loading="lazy" decoding="async" style={{ display: 'block', width: '100%', aspectRatio: '1 / 1', objectFit: 'cover' }} />
+                <div style={{ position: 'absolute', left: 0, right: 0, bottom: 0, padding: m ? '20px 12px 10px' : '30px 16px 12px', background: 'linear-gradient(to top, rgba(0,0,0,0.75), transparent)', fontSize: m ? 11 : 13, fontWeight: 700, color: '#fff' }}>
+                  {p.label}
+                </div>
+              </div>
+            ))}
+          </motion.div>
+
+          {/* embed TikTok + YouTube */}
+          <div style={{ display: 'grid', gridTemplateColumns: m ? '1fr' : '1fr 1fr', gap: 20, marginBottom: 22 }}>
+            <motion.div {...fadeUp(0.12)} style={{ borderRadius: 18, overflow: 'hidden', border: '1px solid rgba(255,255,255,0.1)', background: '#000' }}>
+              <iframe
+                src="https://www.tiktok.com/embed/v2/7663466557502229792"
+                title="Musy Edwarda - TikTok"
+                allow="encrypted-media; fullscreen"
+                loading="lazy"
+                scrolling="no"
+                style={{ display: 'block', width: '100%', aspectRatio: '9 / 16', maxWidth: m ? 320 : '100%', margin: '0 auto', border: 'none', background: '#000' }}
+              />
+            </motion.div>
+            <motion.div {...fadeUp(0.18)} style={{ borderRadius: 18, overflow: 'hidden', border: '1px solid rgba(255,255,255,0.1)', background: '#000' }}>
+              <iframe
+                src="https://www.youtube.com/embed/BNoZsxeYy1E"
+                title="Musy Edwarda - YouTube Shorts"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                loading="lazy"
+                style={{ display: 'block', width: '100%', aspectRatio: '9 / 16', maxWidth: m ? 320 : '100%', margin: '0 auto', border: 'none', background: '#000' }}
+              />
+            </motion.div>
+          </div>
+
+          {/* linki do pozostałych platform */}
+          <motion.div {...fadeUp(0.24)}>
+            <p style={{ fontSize: 12, fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.4)', marginBottom: 12 }}>Zobacz też na:</p>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10 }}>
+              {[
+                { label: 'TikTok', url: 'https://www.tiktok.com/@edwardwarchocki/video/7663466557502229792', color: '#ff0050' },
+                { label: 'Instagram', url: 'https://www.instagram.com/p/Da5MGXuIOon/', color: '#e1306c' },
+                { label: 'YouTube', url: 'https://www.youtube.com/shorts/BNoZsxeYy1E', color: '#ff0000' },
+                { label: 'Facebook - rolka', url: 'https://www.facebook.com/reel/27381042821578677/', color: '#1877f2' },
+                { label: 'Facebook - film', url: 'https://www.facebook.com/edwardwarchocki/videos/1004448792412185', color: '#1877f2' },
+                { label: 'X', url: 'https://x.com/edwardwarchocki/status/2078092317425107247', color: '#ffffff' },
+              ].map((s) => (
+                <a
+                  key={s.url}
+                  href={s.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '10px 16px', borderRadius: 40, border: `1px solid ${s.color}66`, background: 'rgba(255,255,255,0.03)', color: '#fff', fontSize: 12.5, fontWeight: 700, letterSpacing: '0.03em', transition: 'background 0.2s ease, border-color 0.2s ease' }}
+                  onMouseEnter={(e) => { e.currentTarget.style.background = `${s.color}1a`; e.currentTarget.style.borderColor = s.color }}
+                  onMouseLeave={(e) => { e.currentTarget.style.background = 'rgba(255,255,255,0.03)'; e.currentTarget.style.borderColor = `${s.color}66` }}
+                >
+                  <span style={{ width: 7, height: 7, borderRadius: '50%', background: s.color }} />
+                  {s.label} <span style={{ opacity: 0.6 }}>↗</span>
+                </a>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* FALA UGC - main stats */}
       <section style={{ position: 'relative', padding: m ? '40px 0' : '70px 0', borderTop: '1px solid rgba(255,255,255,0.08)' }}>
         <div style={{ maxWidth: 1100, margin: '0 auto', padding: '0 clamp(20px, 4vw, 48px)' }}>

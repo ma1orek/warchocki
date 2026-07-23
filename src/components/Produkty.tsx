@@ -59,11 +59,11 @@ function ProductCard({ product, index }: { product: Product; index: number }) {
           style={{ position: 'relative', zIndex: 2, flexShrink: 0 }}
         >
           <img
-            src={isLody ? (product.mainPhoto ?? product.packshot) : product.packshot}
+            src={product.mainPhoto ?? product.packshot}
             alt={product.flavor[locale]}
             loading="lazy"
             decoding="async"
-            style={isLody
+            style={product.mainPhoto
               ? {
                   width: m ? 230 : 260,
                   height: m ? 230 : 260,

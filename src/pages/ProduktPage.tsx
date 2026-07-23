@@ -117,14 +117,14 @@ export default function ProduktPage() {
                 style={{ position: 'absolute', width: m ? 300 : 460, height: m ? 300 : 460, top: '50%', left: '50%', translateX: '-50%', translateY: '-50%', borderRadius: '50%', background: `conic-gradient(from 0deg, ${product.accent}55, transparent 30%, ${product.accent2}44, transparent 70%, ${product.accent}55)`, filter: m ? 'blur(36px)' : 'blur(50px)', opacity: 0.7, pointerEvents: 'none' }}
               />
               <motion.img
-                src={isLody ? (product.mainPhoto ?? product.packshot) : product.packshot}
+                src={product.mainPhoto ?? product.packshot}
                 alt={product.flavor[locale]}
                 loading="eager"
                 decoding="async"
                 initial={{ opacity: 0, scale: 0.9, y: 20 }}
                 animate={m ? { opacity: 1, scale: 1, y: 0 } : { opacity: 1, scale: 1, y: [0, -14, 0] }}
                 transition={m ? { duration: 0.6, delay: 0.15 } : { opacity: { duration: 0.8, delay: 0.2 }, scale: { duration: 0.8, delay: 0.2 }, y: { duration: 5, repeat: Infinity, ease: 'easeInOut', delay: 1 } }}
-                style={isLody
+                style={product.mainPhoto
                   ? { position: 'relative', zIndex: 2, width: '100%', maxWidth: m ? 360 : 480, aspectRatio: '1 / 1', objectFit: 'cover', borderRadius: 24, boxShadow: `0 40px 80px ${product.glow}, 0 20px 46px rgba(0,0,0,0.55)` }
                   : { position: 'relative', zIndex: 2, height: m ? 360 : 540, width: 'auto', objectFit: 'contain', borderRadius: 20, filter: `drop-shadow(0 40px 70px ${product.glow})` }}
               />
@@ -253,7 +253,7 @@ export default function ProduktPage() {
                 onMouseEnter={(e) => { const im = e.currentTarget.querySelector('img'); if (im) im.style.transform = 'translateY(-6px) rotate(-2deg)' }}
                 onMouseLeave={(e) => { const im = e.currentTarget.querySelector('img'); if (im) im.style.transform = 'translateY(0) rotate(0)' }}
               >
-                <img src={isLody ? (other.mainPhoto ?? other.packshot) : other.packshot} alt={other.flavor[locale]} loading="lazy" decoding="async" style={isLody
+                <img src={other.mainPhoto ?? other.packshot} alt={other.flavor[locale]} loading="lazy" decoding="async" style={other.mainPhoto
                   ? { width: m ? 130 : 150, height: m ? 130 : 150, objectFit: 'cover', borderRadius: 14, transition: 'transform 0.4s ease', boxShadow: `0 18px 34px ${other.glow}`, flexShrink: 0 }
                   : { height: m ? 130 : 170, width: 'auto', objectFit: 'contain', borderRadius: 12, transition: 'transform 0.4s ease', filter: `drop-shadow(0 18px 30px ${other.glow})` }} />
                 <div>
