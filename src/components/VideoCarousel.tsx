@@ -1,4 +1,4 @@
-import { useRef, useEffect, useState } from 'react'
+import { useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import useIsMobile from '../hooks/useIsMobile'
 import { useT } from '../lib/i18n'
@@ -11,38 +11,46 @@ const VIDS = Array.from({ length: 20 }, (_, i) => `/ugc-video/vid-${String(i + 1
 
 function Clip({ base }: { base: string }) {
   const ref = useRef<HTMLVideoElement>(null)
-  const [muted, setMuted] = useState(true)
-  useEffect(() => {
+  const [playing, setPlaying] = useState(false)
+
+  const toggle = () => {
     const v = ref.current
     if (!v) return
-    const io = new IntersectionObserver(
-      ([e]) => {
-        if (e.isIntersecting) { v.play().catch(() => {}) } else { v.pause() }
-      },
-      { threshold: 0.6 }
-    )
-    io.observe(v)
-    return () => io.disconnect()
-  }, [])
+    if (v.paused) {
+      // pauzuj wszystkie inne, żeby grał tylko jeden
+      document.querySelectorAll<HTMLVideoElement>('video[data-ugc]').forEach((o) => { if (o !== v) o.pause() })
+      v.muted = false
+      v.play().catch(() => {})
+    } else {
+      v.pause()
+    }
+  }
+
   return (
     <div
-      onClick={() => { const v = ref.current; if (!v) return; v.muted = !v.muted; setMuted(v.muted); if (v.paused) v.play().catch(() => {}) }}
+      onClick={toggle}
       style={{ position: 'relative', cursor: 'pointer', borderRadius: 16, overflow: 'hidden', border: '1px solid rgba(255,255,255,0.12)', background: '#000', boxShadow: '0 18px 44px rgba(0,0,0,0.5)' }}
     >
       <video
         ref={ref}
+        data-ugc=""
         src={`${base}.mp4`}
         poster={`${base}.jpg`}
-        muted
         loop
         playsInline
-        preload="none"
+        preload="metadata"
+        onPlay={() => setPlaying(true)}
+        onPause={() => setPlaying(false)}
         style={{ display: 'block', width: '100%', aspectRatio: '9 / 16', objectFit: 'cover', background: '#000' }}
       />
-      {/* wskaźnik dźwięku */}
-      <div style={{ position: 'absolute', bottom: 10, right: 10, width: 34, height: 34, borderRadius: '50%', background: 'rgba(0,0,0,0.55)', backdropFilter: 'blur(6px)', WebkitBackdropFilter: 'blur(6px)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontSize: 15, pointerEvents: 'none' }}>
-        {muted ? '🔇' : '🔊'}
-      </div>
+      {/* przycisk PLAY na posterze — znika gdy gra */}
+      {!playing && (
+        <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', pointerEvents: 'none', background: 'linear-gradient(to top, rgba(0,0,0,0.25), transparent 40%)' }}>
+          <div style={{ width: 64, height: 64, borderRadius: '50%', background: 'rgba(0,0,0,0.5)', backdropFilter: 'blur(6px)', WebkitBackdropFilter: 'blur(6px)', border: '1.5px solid rgba(255,255,255,0.7)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <span style={{ color: '#fff', fontSize: 24, marginLeft: 4 }}>▶</span>
+          </div>
+        </div>
+      )}
     </div>
   )
 }
