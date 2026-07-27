@@ -9,16 +9,25 @@ import { useT } from '../lib/i18n'
 const OPINIE = [
   '/ugc-musy/op-dm-01.jpg', // masz strasznie pyszne musy
   '/ugc-musy/op-tt-07.jpg', // te lody to hit tego lata
-  '/ugc-musy/op-dm-03.jpg', // czekoladowo popcornowy i mega dobry
+  '/ugc-musy/op-dm-05.jpg', // super są te lody 100/10
   '/ugc-musy/op-tt-01.jpg', // czekolada popcorn takie dobre
   '/ugc-musy/op-dm-04.jpg', // Przepyszne Lody + 100 na 100
   '/ugc-musy/op-tt-05.jpg', // napoj truskawka jagoda pyszny
+  '/ugc-musy/op-dm-03.jpg', // czekoladowo popcornowy i mega dobry
   '/ugc-musy/op-tt-03.jpg', // twoje lody są przepyszne
-  '/ugc-musy/op-dm-02.jpg', // picie i mus mega dobre
+  '/ugc-musy/op-dm-12.jpg', // próbowałem napój i mus bardzo dobre
   '/ugc-musy/op-tt-08.jpg', // musy mega pycha jabłko gruszka
+  '/ugc-musy/op-dm-06.jpg', // twoje lody takie pyszne nie mogę przestać
   '/ugc-musy/op-tt-02.jpg', // popcorn czekoladą pyszny
+  '/ugc-musy/op-dm-11.jpg', // Lody bardzo dobre jadłam i przepyszne
   '/ugc-musy/op-tt-04.jpg', // twoje lody super polecam
+  '/ugc-musy/op-dm-02.jpg', // picie i mus mega dobre
+  '/ugc-musy/op-tt-09.jpg', // Są pyszne lody truskawka liminka
+  '/ugc-musy/op-dm-07.jpg', // Przepyszny!!! Czekam na inne smaki
   '/ugc-musy/op-tt-06.jpg', // przepyszne lody szczerze
+  '/ugc-musy/op-dm-10.jpg', // Znalazłam lody mega dobre
+  '/ugc-musy/op-dm-08.jpg', // Te napoje są takie pyszne
+  '/ugc-musy/op-dm-09.jpg', // dzisiaj jadłem edward dzięki że je wymyśliłeś
 ]
 
 export default function Opinie({

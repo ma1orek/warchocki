@@ -17,7 +17,7 @@ export default function Home() {
       <Timeline />
       <EdekDlaKazdego />
       <Produkty />
-      <Opinie limit={9} />
+      <Opinie limit={15} />
       <TikTokGallery />
       <Articles />
       <Services />
