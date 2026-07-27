@@ -4,6 +4,7 @@ import Timeline from '../components/Timeline'
 import EdekDlaKazdego from '../components/EdekDlaKazdego'
 import Produkty from '../components/Produkty'
 import Opinie from '../components/Opinie'
+import VideoCarousel from '../components/VideoCarousel'
 import TikTokGallery from '../components/TikTokGallery'
 import Articles from '../components/Articles'
 import Services from '../components/Services'
@@ -18,6 +19,7 @@ export default function Home() {
       <EdekDlaKazdego />
       <Produkty />
       <Opinie limit={15} />
+      <VideoCarousel />
       <TikTokGallery />
       <Articles />
       <Services />
