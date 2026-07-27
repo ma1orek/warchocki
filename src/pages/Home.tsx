@@ -3,6 +3,7 @@ import Hero from '../components/Hero'
 import Timeline from '../components/Timeline'
 import EdekDlaKazdego from '../components/EdekDlaKazdego'
 import Produkty from '../components/Produkty'
+import Opinie from '../components/Opinie'
 import TikTokGallery from '../components/TikTokGallery'
 import Articles from '../components/Articles'
 import Services from '../components/Services'
@@ -16,6 +17,7 @@ export default function Home() {
       <Timeline />
       <EdekDlaKazdego />
       <Produkty />
+      <Opinie limit={9} />
       <TikTokGallery />
       <Articles />
       <Services />

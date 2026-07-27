@@ -7,6 +7,7 @@ import StoreLogos from '../components/StoreLogos'
 import DinoLogo from '../components/DinoLogo'
 import LazyVideo from '../components/LazyVideo'
 import NapojeSocial from '../components/NapojeSocial'
+import Opinie from '../components/Opinie'
 import useIsMobile from '../hooks/useIsMobile'
 import { useT, localizedPath } from '../lib/i18n'
 import { getProduct, products } from '../lib/products'
@@ -222,6 +223,9 @@ export default function ProduktPage() {
           </div>
         </div>
       </section>
+
+      {/* Opinie o lodach — tylko na podstronach lodów EDWARDZIK */}
+      {isLody && <Opinie heading="Opinie o lodach EDWARDZIK" sub="Prawdziwe wiadomości i komentarze od ludzi, którzy już spróbowali. Bez nazwisk — tylko to, co napisali." limit={9} />}
 
       <NapojeSocial />
 

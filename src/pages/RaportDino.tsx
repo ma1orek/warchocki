@@ -6,6 +6,7 @@ import DinoLogo from '../components/DinoLogo'
 import LazyVideo from '../components/LazyVideo'
 import NapojeSocial from '../components/NapojeSocial'
 import Produkty from '../components/Produkty'
+import Opinie from '../components/Opinie'
 import useIsMobile from '../hooks/useIsMobile'
 import { ugcScreens } from '../lib/napojeMedia'
 
@@ -165,6 +166,9 @@ export default function RaportDino() {
           </motion.div>
         </div>
       </section>
+
+      {/* OPINIE - anonimowe wycinki wiadomości/komentarzy o produktach (pod musami) */}
+      <Opinie heading="Opinie o lodach i musach" sub="Prawdziwe wiadomości i komentarze od odbiorców - o lodach EDWARDZIK, musach i napojach. Bez nazwisk, tylko to, co napisali." />
 
       {/* FALA UGC - main stats */}
       <section style={{ position: 'relative', padding: m ? '40px 0' : '70px 0', borderTop: '1px solid rgba(255,255,255,0.08)' }}>
