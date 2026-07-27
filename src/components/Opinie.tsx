@@ -35,11 +35,13 @@ export default function Opinie({
   sub,
   standalone = false,
   limit,
-}: { heading?: string; sub?: string; standalone?: boolean; limit?: number }) {
+  items: itemsProp,
+}: { heading?: string; sub?: string; standalone?: boolean; limit?: number; items?: string[] }) {
   const m = useIsMobile()
   const { locale } = useT()
   const pl = locale === 'pl'
-  const items = limit ? OPINIE.slice(0, limit) : OPINIE
+  const source = itemsProp ?? OPINIE
+  const items = limit ? source.slice(0, limit) : source
 
   return (
     <section id="opinie" style={{ position: 'relative', padding: m ? '70px 0' : '110px 0', borderTop: standalone ? 'none' : '1px solid rgba(255,255,255,0.08)', scrollMarginTop: 80 }}>

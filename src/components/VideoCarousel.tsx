@@ -55,7 +55,8 @@ function Clip({ base }: { base: string }) {
   )
 }
 
-export default function VideoCarousel({ heading, sub, standalone = false }: { heading?: string; sub?: string; standalone?: boolean }) {
+export default function VideoCarousel({ heading, sub, standalone = false, items }: { heading?: string; sub?: string; standalone?: boolean; items?: string[] }) {
+  const list = items ?? VIDS
   const m = useIsMobile()
   const { locale } = useT()
   const pl = locale === 'pl'
@@ -108,7 +109,7 @@ export default function VideoCarousel({ heading, sub, standalone = false }: { he
             }}
             className="vc-track"
           >
-            {VIDS.map((base) => (
+            {list.map((base) => (
               <div key={base} style={{ flex: `0 0 ${m ? '76%' : '230px'}`, scrollSnapAlign: 'start' }}>
                 <Clip base={base} />
               </div>

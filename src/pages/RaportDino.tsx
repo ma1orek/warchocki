@@ -168,11 +168,26 @@ export default function RaportDino() {
         </div>
       </section>
 
-      {/* OPINIE - anonimowe wycinki wiadomości/komentarzy o produktach (pod musami) */}
-      <Opinie heading="Opinie o lodach i musach" sub="Prawdziwe wiadomości i komentarze od odbiorców - o lodach EDWARDZIK, musach i napojach. Bez nazwisk, tylko to, co napisali." />
+      {/* OPINIE - TYLKO musy i napoje (lody nie są w Dino - zostają poza raportem) */}
+      <Opinie
+        heading="Opinie o musach i napojach"
+        sub="Prawdziwe wiadomości i komentarze od odbiorców - o musach i napojach Edwarda. Bez nazwisk, tylko to, co napisali."
+        items={[
+          '/ugc-musy/op-dm-01.jpg', // masz strasznie pyszne musy
+          '/ugc-musy/op-tt-05.jpg', // napoj truskawka jagoda pyszny
+          '/ugc-musy/op-dm-12.jpg', // próbowałem napój i mus bardzo dobre
+          '/ugc-musy/op-tt-08.jpg', // musy mega pycha jabłko gruszka
+          '/ugc-musy/op-dm-02.jpg', // picie i mus mega dobre
+          '/ugc-musy/op-dm-08.jpg', // Te napoje są takie pyszne
+        ]}
+      />
 
-      {/* KARUZELA FILMIKÓW UGC - stories/TikToki fanów z produktami */}
-      <VideoCarousel />
+      {/* KARUZELA FILMIKÓW UGC - TYLKO musy (stories/TikToki fanów) */}
+      <VideoCarousel
+        heading="Ludzie kręcą filmiki z musami"
+        sub="Prawdziwe stories i TikToki fanów z musami Edwarda. Kliknij, żeby odtworzyć z dźwiękiem."
+        items={['07', '08', '09', '10', '11', '12', '17', '18', '19', '20'].map((n) => `/ugc-video/vid-${n}`)}
+      />
 
       {/* FALA UGC - main stats */}
       <section style={{ position: 'relative', padding: m ? '40px 0' : '70px 0', borderTop: '1px solid rgba(255,255,255,0.08)' }}>
