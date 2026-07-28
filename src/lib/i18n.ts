@@ -140,7 +140,6 @@ export const translations = {
     svcFormSent: '✓ Wysłano!',
     svcFormThanks: 'Dziękujemy! Odpowiemy najszybciej jak to możliwe.',
 
-    footerCounter: '1 500 000 000+ i lecę dalej',
   },
   en: {
     navAbout: 'About me',
@@ -279,7 +278,6 @@ export const translations = {
     svcFormSent: '✓ Sent!',
     svcFormThanks: 'Thanks! We will reply as soon as possible.',
 
-    footerCounter: '1,500,000,000+ and counting',
   },
 } as const
 
