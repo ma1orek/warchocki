@@ -7,7 +7,15 @@ import { useT } from '../lib/i18n'
    Autoplay MUTED tylko gdy kafel jest w kadrze (IntersectionObserver), tap =
    dźwięk on/off. Poziomy scroll-snap + strzałki. Lekkie (preload none). */
 
-const VIDS = Array.from({ length: 20 }, (_, i) => `/ugc-video/vid-${String(i + 1).padStart(2, '0')}`)
+// 50 klipów; kolejność ręczna — najładniejsze (jasne, czytelny produkt) na przodzie.
+const ORDER = [
+  17, 20, 44, 15, 30, 13, 48, 27, 28, 22,
+  18, 8, 2, 6, 26, 34, 19, 33, 21, 7,
+  36, 46, 50, 25, 3, 12, 10, 11, 24, 40,
+  4, 9, 14, 16, 23, 29, 31, 32, 35, 37,
+  38, 39, 41, 42, 43, 45, 47, 49, 5, 1,
+]
+const VIDS = ORDER.map((n) => `/ugc-video/vid-${String(n).padStart(2, '0')}`)
 
 function Clip({ base }: { base: string }) {
   const ref = useRef<HTMLVideoElement>(null)
@@ -20,7 +28,8 @@ function Clip({ base }: { base: string }) {
       // pauzuj wszystkie inne, żeby grał tylko jeden
       document.querySelectorAll<HTMLVideoElement>('video[data-ugc]').forEach((o) => { if (o !== v) o.pause() })
       v.muted = false
-      v.play().catch(() => {})
+      // fallback: jeśli przeglądarka odmówi z dźwiękiem, zagraj wyciszone
+      v.play().catch(() => { v.muted = true; v.play().catch(() => {}) })
     } else {
       v.pause()
     }
