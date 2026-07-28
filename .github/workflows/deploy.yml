@@ -1,0 +1,26 @@
+name: Deploy warchocki.pl
+
+# Deploy TYLKO przy pushu na gałąź "production" (lub ręcznie z zakładki Actions).
+# Zwykły push na main NIE wdraża strony — tak jak dotychczas.
+# Wdrożenie z telefonu: git push origin main:production
+
+on:
+  push:
+    branches: [production]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - run: npx --yes netlify-cli deploy --prod --dir dist
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: 31742803-3e2e-427b-acf7-7fb5a5d2f9fb
