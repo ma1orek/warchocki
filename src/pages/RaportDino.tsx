@@ -18,6 +18,13 @@ const fmt = (n: number) => n.toLocaleString('pl-PL')
 const STORIES_COUNT = 229
 const igStories = Array.from({ length: STORIES_COUNT }, (_, i) => `/ugc-stories/story-${i + 1}.jpg`)
 
+// Stories z MUSAMI (public/ugc-stories-musy) — fanowskie relacje IG/TikTok.
+// Wykluczone: 8 (bez produktu), 42 (zbliżenie twarzy dziecka).
+const MUS_STORIES_EXCLUDE = new Set([8, 42])
+const musStories = Array.from({ length: 44 }, (_, i) => i + 1)
+  .filter((n) => !MUS_STORIES_EXCLUDE.has(n))
+  .map((n) => `/ugc-stories-musy/musstory-${n}.jpg`)
+
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 28 },
   whileInView: { opacity: 1, y: 0 },
@@ -165,6 +172,17 @@ export default function RaportDino() {
           <motion.div {...fadeUp(0.14)}>
             <MusVideoSlider m={m} />
           </motion.div>
+        </div>
+
+        {/* STORIES z musami — fanowskie relacje, 2 przewijane rzędy */}
+        <motion.div {...fadeUp(0.18)} style={{ maxWidth: 1100, margin: `${m ? 34 : 50}px auto 0`, padding: '0 clamp(20px, 4vw, 48px)' }}>
+          <p style={{ fontSize: 12, fontWeight: 800, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#ffb066', textAlign: 'center' }}>
+            Stories od ludzi — musy w akcji
+          </p>
+        </motion.div>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 10, marginTop: m ? 16 : 22 }}>
+          <UgcRow items={musStories.slice(0, 21)} dir="left" duration={m ? 60 : 90} h={m ? 130 : 180} />
+          <UgcRow items={musStories.slice(21)} dir="right" duration={m ? 64 : 96} h={m ? 130 : 180} />
         </div>
       </section>
 
