@@ -10,7 +10,7 @@ import NapojeSocial from '../components/NapojeSocial'
 import Opinie from '../components/Opinie'
 import useIsMobile from '../hooks/useIsMobile'
 import { useT, localizedPath } from '../lib/i18n'
-import { getProduct, products } from '../lib/products'
+import { getProduct, products, storeOf } from '../lib/products'
 
 const fadeUp = (delay: number) => ({
   initial: { opacity: 0, y: 30 },
@@ -30,18 +30,28 @@ export default function ProduktPage() {
   const product = getProduct(slug || '')
   if (!product) return <Navigate to={localizedPath('/produkty', locale)} replace />
 
-  // Kategorie: lody (Edwardzik/Biedronka) vs mus (saszetka, gramy) vs napój (butelka, ml).
+  // Kategorie: lody (Edwardzik/Biedronka) vs szkoła (kolekcja Back to School) vs mus (saszetka, gramy) vs napój (butelka, ml).
   const isLody = product.category === 'lody'
-  const isMus = !isLody && !!product.volume?.pl.includes('g')
-  const catOf = (p: typeof product) => (p.category === 'lody' ? 'lody' : p.volume?.pl.includes('g') ? 'mus' : 'napoj')
-  const other = products.find((p) => p.slug !== product.slug && catOf(p) === catOf(product))!
-  const nutrition = product.nutrition[locale]
+  const isSzkola = product.category === 'szkola'
+  const isMus = !isLody && !isSzkola && !!product.volume?.pl.includes('g')
+  // gdzie kupić (lody + multiwitamina + kolekcja szkolna = tylko Biedronka)
+  const isBiedronka = storeOf(product) === 'biedronka'
+  const catOf = (p: typeof product) => (p.category ?? (p.volume?.pl.includes('g') ? 'mus' : 'napoj'))
+  // kolekcja szkolna jest jedna - `other` bywa undefined, sekcja "inny smak" wtedy znika
+  const other = products.find((p) => p.slug !== product.slug && catOf(p) === catOf(product))
+  const nutrition = product.nutrition?.[locale] ?? []
 
   const facts = isLody
     ? [
         locale === 'pl' ? 'MEGA strzelający cukier w polewie' : 'MEGA popping sugar in the coating',
         locale === 'pl' ? 'Płynne nadzienie w środku' : 'Liquid filling inside',
         locale === 'pl' ? 'Lody NORDIS × Edward Warchocki' : 'NORDIS × Edward Warchocki ice cream',
+      ]
+    : isSzkola
+    ? [
+        locale === 'pl' ? 'Plecaki, plecakoworki, zeszyty i teczki' : 'Backpacks, drawstring bags, notebooks & folders',
+        locale === 'pl' ? 'Akcja Back to School od 17.08.2026' : 'Back to School campaign from 17.08.2026',
+        locale === 'pl' ? 'Od października: tour po polskich szkołach' : 'From October: a tour of Polish schools',
       ]
     : isMus
     ? [t('prodFactPasteurised'), locale === 'pl' ? '100% owoców' : '100% fruit', t('prodFactNatural')]
@@ -80,30 +90,38 @@ export default function ProduktPage() {
               </motion.p>
 
               <motion.div {...fadeUp(0.34)} style={{ display: 'flex', flexWrap: 'wrap', gap: 10, marginBottom: 30 }}>
-                <span style={{ fontSize: 11, fontWeight: 800, letterSpacing: '0.06em', textTransform: 'uppercase', color: isLody ? '#3a1200' : '#0a2e0c', background: isLody ? '#ffd23c' : '#5fc065', borderRadius: 24, padding: '8px 16px' }}>
-                  {isLody ? (locale === 'pl' ? '💥 MEGA strzelający' : '💥 MEGA popping') : t('prodHeroBadge')}
+                <span style={{ fontSize: 11, fontWeight: 800, letterSpacing: '0.06em', textTransform: 'uppercase', color: isLody ? '#3a1200' : isSzkola ? '#04303a' : '#0a2e0c', background: isLody ? '#ffd23c' : isSzkola ? '#35dfe0' : '#5fc065', borderRadius: 24, padding: '8px 16px' }}>
+                  {isLody ? (locale === 'pl' ? '💥 MEGA strzelający' : '💥 MEGA popping') : isSzkola ? '🎒 Back to School' : t('prodHeroBadge')}
                 </span>
-                <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.06em', textTransform: 'uppercase', color: '#fff', border: `1px solid ${product.accent}66`, borderRadius: 24, padding: '8px 16px' }}>
-                  + {product.vitamin[locale]}
-                </span>
+                {product.vitamin && (
+                  <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.06em', textTransform: 'uppercase', color: '#fff', border: `1px solid ${product.accent}66`, borderRadius: 24, padding: '8px 16px' }}>
+                    + {product.vitamin[locale]}
+                  </span>
+                )}
                 <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.06em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.7)', border: '1px solid rgba(255,255,255,0.18)', borderRadius: 24, padding: '8px 16px' }}>
                   {product.volume?.[locale] ?? '500 ml'}
                 </span>
               </motion.div>
 
-              {/* dostępność: lody = Biedronka, napoje = DINO/Kaufland/Auchan/SPAR, musy = TYLKO Dino */}
-              {isLody ? (
-                <motion.div {...fadeUp(0.42)}>
-                  <img src="/biedronka-badge.png" alt={locale === 'pl' ? 'Dostępne w Biedronce' : 'Available at Biedronka'} loading="lazy" decoding="async" style={{ height: m ? 74 : 96, width: 'auto', filter: 'drop-shadow(0 10px 24px rgba(0,0,0,0.5))' }} />
+              {/* dostępność: lody + multiwitamina = TYLKO Biedronka, napoje = DINO/Kaufland/Auchan/SPAR, musy = Dino i Biedronka */}
+              {isBiedronka ? (
+                <motion.div {...fadeUp(0.42)} style={{ display: 'flex', flexDirection: 'column', alignItems: m ? 'center' : 'flex-start', gap: 8 }}>
+                  <img src="/biedronka-badge.png" alt={locale === 'pl' ? 'Dostępne tylko w Biedronce' : 'Available only at Biedronka'} loading="lazy" decoding="async" style={{ height: m ? 74 : 96, width: 'auto', filter: 'drop-shadow(0 10px 24px rgba(0,0,0,0.5))' }} />
+                  <span style={{ fontSize: 11, fontWeight: 800, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)' }}>
+                    {locale === 'pl' ? 'Dostępne tylko w Biedronce' : 'Available only at Biedronka'}
+                  </span>
                 </motion.div>
               ) : (
                 <motion.div {...fadeUp(0.42)} style={{ display: 'inline-flex', flexWrap: 'wrap', alignItems: 'center', gap: 12, padding: '10px 14px', borderRadius: 44, border: '1px solid rgba(255,255,255,0.12)', background: 'rgba(255,255,255,0.03)' }}>
                   <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)' }}>
-                    {isMus ? (locale === 'pl' ? 'Dostępny w sklepach Dino' : 'Available at Dino stores') : t('prodAvailTitle')}
+                    {isMus ? (locale === 'pl' ? 'Dostępny w Dino i Biedronce' : 'Available at Dino and Biedronka') : t('prodAvailTitle')}
                   </span>
-                  {isMus
-                    ? <span style={{ display: 'inline-flex', alignItems: 'center', background: '#fff', borderRadius: 6, padding: '4px 9px' }}><DinoLogo height={14} /></span>
-                    : <StoreLogos height={16} />}
+                  {isMus ? (
+                    <>
+                      <span style={{ display: 'inline-flex', alignItems: 'center', background: '#fff', borderRadius: 6, padding: '4px 9px' }}><DinoLogo height={14} /></span>
+                      <img src="/biedronka-badge.png" alt="Biedronka" loading="lazy" decoding="async" style={{ height: 30, width: 'auto' }} />
+                    </>
+                  ) : <StoreLogos height={16} />}
                 </motion.div>
               )}
             </div>
@@ -156,7 +174,45 @@ export default function ProduktPage() {
         </section>
       )}
 
-      {/* DETAILS - nutrition + ingredients/storage */}
+      {/* CO W KOLEKCJI - tylko kolekcja szkolna (zamiast tabeli wartości odżywczych) */}
+      {isSzkola && (
+        <section style={{ position: 'relative', padding: m ? '20px 0 70px' : '40px 0 110px', borderTop: '1px solid rgba(255,255,255,0.08)' }}>
+          <div style={{ maxWidth: 1400, margin: '0 auto', padding: '0 clamp(20px, 4vw, 48px)' }}>
+            <motion.div {...fadeUp(0)} style={{ textAlign: 'center', marginTop: m ? 40 : 64, marginBottom: m ? 32 : 48 }}>
+              <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: product.accent, marginBottom: 14 }}>
+                {locale === 'pl' ? 'Kolekcja Back to School' : 'Back to School collection'}
+              </p>
+              <h2 style={{ fontSize: m ? 26 : 'clamp(26px, 3.4vw, 44px)', fontWeight: 700, letterSpacing: '-0.03em' }}>
+                {locale === 'pl' ? 'Co znajdziesz w Biedronce' : 'What you will find at Biedronka'}
+              </h2>
+            </motion.div>
+
+            <div style={{ display: 'grid', gridTemplateColumns: m ? '1fr 1fr' : 'repeat(4, 1fr)', gap: m ? 12 : 20 }}>
+              {[
+                { pl: 'Plecak szkolny', en: 'School backpack', d: { pl: 'Czarny, z Edwardem na przodzie', en: 'Black, with Edward on the front' }, e: '🎒' },
+                { pl: 'Plecakoworek', en: 'Drawstring bag', d: { pl: 'Granatowy worek na kapcie i WF', en: 'Navy gym bag for PE and slippers' }, e: '👟' },
+                { pl: 'Zeszyty', en: 'Notebooks', d: { pl: 'Różne wzory - w tym „No i elegancko człowieku"', en: 'Many designs - incl. Edward’s catchphrases' }, e: '📓' },
+                { pl: 'Teczki', en: 'Folders', d: { pl: 'Na rysunki i dokumenty A4', en: 'For drawings and A4 papers' }, e: '📁' },
+              ].map((it, i) => (
+                <motion.div key={it.pl} {...fadeUp(0.08 + i * 0.07)} style={{ borderRadius: 18, padding: m ? '22px 16px' : '30px 24px', textAlign: 'center', background: `radial-gradient(130% 130% at 50% 0%, ${product.glow} 0%, rgba(255,255,255,0.02) 55%)`, border: '1px solid rgba(255,255,255,0.1)' }}>
+                  <div style={{ fontSize: m ? 30 : 38, marginBottom: 12 }}>{it.e}</div>
+                  <p style={{ fontSize: m ? 15 : 17, fontWeight: 700, color: '#fff', marginBottom: 8 }}>{locale === 'pl' ? it.pl : it.en}</p>
+                  <p style={{ fontSize: m ? 12 : 13, lineHeight: 1.6, color: 'rgba(255,255,255,0.5)' }}>{it.d[locale]}</p>
+                </motion.div>
+              ))}
+            </div>
+
+            <motion.p {...fadeUp(0.2)} style={{ fontSize: m ? 14 : 15, lineHeight: 1.8, color: 'rgba(255,255,255,0.45)', maxWidth: 700, margin: `${m ? 32 : 48}px auto 0`, textAlign: 'center' }}>
+              {locale === 'pl'
+                ? 'Kolekcja dostępna w sklepach Biedronka w całej Polsce od 17.08.2026, do wyczerpania zapasów. Edward prowadzi też edukacyjne live’y dla dzieci - nauka języków, matematyki, technologii i ciekawostek ze świata - a od października odwiedza wybrane szkoły w całej Polsce.'
+                : 'The collection is available at Biedronka stores across Poland from 17.08.2026, while stocks last. Edward also hosts educational live streams for kids - languages, maths, technology and fun facts - and from October he visits selected schools across Poland.'}
+            </motion.p>
+          </div>
+        </section>
+      )}
+
+      {/* DETAILS - nutrition + ingredients/storage (produkty spożywcze) */}
+      {!isSzkola && (
       <section style={{ position: 'relative', padding: m ? '20px 0 70px' : '40px 0 110px', borderTop: '1px solid rgba(255,255,255,0.08)' }}>
         <div style={{ maxWidth: 1400, margin: '0 auto', padding: '0 clamp(20px, 4vw, 48px)' }}>
           <div style={{ display: 'grid', gridTemplateColumns: m ? '1fr' : '0.85fr 1.15fr', gap: m ? 32 : 56, marginTop: m ? 40 : 64 }}>
@@ -191,7 +247,7 @@ export default function ProduktPage() {
             <motion.div {...fadeUp(0.12)} style={{ display: 'flex', flexDirection: 'column', gap: 28 }}>
               <div>
                 <h3 style={{ fontSize: 13, fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', color: product.accent, marginBottom: 12 }}>{t('prodIngredientsTitle')}</h3>
-                <p style={{ fontSize: m ? 15 : 16, lineHeight: 1.8, color: 'rgba(255,255,255,0.6)' }}>{product.ingredients[locale]}</p>
+                <p style={{ fontSize: m ? 15 : 16, lineHeight: 1.8, color: 'rgba(255,255,255,0.6)' }}>{product.ingredients?.[locale]}</p>
               </div>
 
               <div style={{ display: 'grid', gridTemplateColumns: m ? '1fr' : '1fr 1fr', gap: 24 }}>
@@ -201,7 +257,7 @@ export default function ProduktPage() {
                 </div>
                 <div>
                   <h3 style={{ fontSize: 13, fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', color: product.accent, marginBottom: 12 }}>{t('prodStorageTitle')}</h3>
-                  <p style={{ fontSize: 14, lineHeight: 1.7, color: 'rgba(255,255,255,0.55)' }}>{product.storage[locale]}</p>
+                  <p style={{ fontSize: 14, lineHeight: 1.7, color: 'rgba(255,255,255,0.55)' }}>{product.storage?.[locale]}</p>
                 </div>
               </div>
 
@@ -223,34 +279,45 @@ export default function ProduktPage() {
           </div>
         </div>
       </section>
+      )}
 
       {/* Opinie o lodach — tylko na podstronach lodów EDWARDZIK */}
       {isLody && <Opinie heading="Opinie o lodach EDWARDZIK" sub="Prawdziwe wiadomości i komentarze od ludzi, którzy już spróbowali. Bez nazwisk — tylko to, co napisali." limit={12} />}
 
-      <NapojeSocial />
+      {!isSzkola && <NapojeSocial />}
 
       {/* CTA - other flavor + DINO */}
       <section style={{ position: 'relative', padding: m ? '60px 0 80px' : '90px 0 120px', borderTop: '1px solid rgba(255,255,255,0.08)' }}>
         <div style={{ maxWidth: 1400, margin: '0 auto', padding: '0 clamp(20px, 4vw, 48px)' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: m ? '1fr' : '1fr 1fr', gap: 24, alignItems: 'stretch' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: m ? '1fr' : other ? '1fr 1fr' : '1fr', gap: 24, alignItems: 'stretch' }}>
             {/* DINO block */}
-            <motion.div {...fadeUp(0)} style={{ borderRadius: 22, padding: m ? 28 : 40, background: isLody ? 'linear-gradient(135deg, rgba(255,210,60,0.16), rgba(255,255,255,0.03))' : 'linear-gradient(135deg, rgba(52,169,58,0.18), rgba(255,255,255,0.03))', border: isLody ? '1px solid rgba(255,210,60,0.35)' : '1px solid rgba(95,192,101,0.3)', display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: 18 }}>
-              {isLody
+            <motion.div {...fadeUp(0)} style={{ borderRadius: 22, padding: m ? 28 : 40, background: isBiedronka ? 'linear-gradient(135deg, rgba(255,210,60,0.16), rgba(255,255,255,0.03))' : 'linear-gradient(135deg, rgba(52,169,58,0.18), rgba(255,255,255,0.03))', border: isBiedronka ? '1px solid rgba(255,210,60,0.35)' : '1px solid rgba(95,192,101,0.3)', display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: 18 }}>
+              {isBiedronka
                 ? <img src="/biedronka-badge.png" alt="Biedronka" loading="lazy" decoding="async" style={{ height: 78, width: 'auto', alignSelf: 'flex-start' }} />
                 : isMus
-                ? <span style={{ display: 'inline-flex', alignItems: 'center', alignSelf: 'flex-start', background: '#fff', borderRadius: 8, padding: '6px 12px' }}><DinoLogo height={18} /></span>
+                ? (
+                  <span style={{ display: 'inline-flex', alignItems: 'center', gap: 12, alignSelf: 'flex-start', flexWrap: 'wrap' }}>
+                    <span style={{ display: 'inline-flex', alignItems: 'center', background: '#fff', borderRadius: 8, padding: '6px 12px' }}><DinoLogo height={18} /></span>
+                    <img src="/biedronka-badge.png" alt="Biedronka" loading="lazy" decoding="async" style={{ height: 40, width: 'auto' }} />
+                  </span>
+                )
                 : <StoreLogos height={20} />}
-              <h3 style={{ fontSize: m ? 24 : 30, fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.15 }}>{isLody ? (locale === 'pl' ? 'Szukaj w zamrażarkach Biedronki' : 'Find it in Biedronka freezers') : t('prodCtaTitle')}</h3>
+              <h3 style={{ fontSize: m ? 24 : 30, fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.15 }}>{isBiedronka ? (isLody ? (locale === 'pl' ? 'Szukaj w zamrażarkach Biedronki' : 'Find it in Biedronka freezers') : (locale === 'pl' ? 'Szukaj tylko w Biedronce' : 'Find it only at Biedronka')) : t('prodCtaTitle')}</h3>
               <p style={{ fontSize: 15, lineHeight: 1.7, color: 'rgba(255,255,255,0.55)' }}>
-                {isLody
+                {isSzkola
+                  ? (locale === 'pl' ? 'Plecaki, plecakoworki, zeszyty i teczki z Edwardem czekają w sklepach Biedronka w całej Polsce w ramach akcji Back to School. Człowieku, bierz póki są - do szkolnej ławki tylko z Edkiem.' : 'Backpacks, drawstring bags, notebooks and folders with Edward are waiting at Biedronka stores across Poland as part of the Back to School campaign. Grab them while they last.')
+                  : isLody
                   ? (locale === 'pl' ? 'Lody EDWARDZIK czekają w zamrażarkach sklepów Biedronka w całej Polsce. Człowieku, spróbuj obu smaków - zanim się rozejdą.' : 'EDWARDZIK ice creams are waiting in Biedronka freezers across Poland. Try both flavours - before they are gone.')
+                  : isBiedronka
+                  ? (locale === 'pl' ? 'Ten smak dostępny jest wyłącznie w sklepach Biedronka w całej Polsce. Nie znajdziesz go nigdzie indziej - człowieku, bierz póki jest.' : 'This flavour is available exclusively at Biedronka stores across Poland. You will not find it anywhere else.')
                   : isMus
-                  ? (locale === 'pl' ? 'Musy owocowe czekają na półkach sklepów Dino w całej Polsce. Sprawdź oba smaki.' : 'The fruit pouches are waiting on the shelves of Dino stores across Poland. Try both flavors.')
+                  ? (locale === 'pl' ? 'Musy owocowe czekają na półkach sklepów Dino i Biedronka w całej Polsce. Sprawdź oba smaki.' : 'The fruit pouches are waiting on the shelves of Dino and Biedronka stores across Poland. Try both flavors.')
                   : t('prodCtaDesc')}
               </p>
             </motion.div>
 
-            {/* Other flavor */}
+            {/* Other flavor (kolekcja szkolna jest jedna - blok znika) */}
+            {other && (
             <motion.div {...fadeUp(0.12)}>
               <Link to={localizedPath(`/produkty/${other.slug}`, locale)}
                 style={{ position: 'relative', display: 'flex', alignItems: 'center', gap: m ? 16 : 24, height: '100%', borderRadius: 22, padding: m ? 24 : 32, overflow: 'hidden', background: `radial-gradient(120% 140% at 90% 10%, ${other.glow}, rgba(255,255,255,0.02) 55%)`, border: `1px solid ${other.accent}44` }}
@@ -269,6 +336,7 @@ export default function ProduktPage() {
                 </div>
               </Link>
             </motion.div>
+            )}
           </div>
         </div>
       </section>

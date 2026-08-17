@@ -152,7 +152,7 @@ function ContactInline() {
 
       <div className="contact-cta-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 24 }}>
         <ContactCard
-          href="https://contactform.bitrix24.site/Napiszdoedwarda/"
+          href="/wspolpraca?typ=fan"
           label={fanLabel}
           cta={fanCta}
           desc={fanDesc}
@@ -163,7 +163,7 @@ function ContactInline() {
           }
         />
         <ContactCard
-          href="https://contactform.bitrix24.site/EdwardBiznes/"
+          href="/wspolpraca"
           label={bizLabel}
           cta={bizCta}
           desc={bizDesc}

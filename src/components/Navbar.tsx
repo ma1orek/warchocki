@@ -135,8 +135,9 @@ export default function Navbar() {
               )
             )}
             <LanguageSwitcher />
+            {/* było: sklep warchockishop.pl (nie działa) → teraz kontakt */}
             <a
-              href="https://warchockishop.pl"
+              href="/wspolpraca"
               target="_blank"
               rel="noopener noreferrer"
               style={{ display: 'inline-flex', alignItems: 'center', gap: 8, fontSize: 13, fontWeight: 600, letterSpacing: '0.05em', textTransform: 'uppercase' as const, padding: '10px 18px', background: '#fff', color: '#000', transition: 'opacity 0.2s ease' }}
@@ -166,7 +167,7 @@ export default function Navbar() {
               {item.label}
             </a>
           ))}
-          <a href="https://warchockishop.pl" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 8, fontSize: 14, fontWeight: 600, textTransform: 'uppercase' as const, padding: '12px 20px', background: '#fff', color: '#000', textAlign: 'center' }}>
+          <a href="/wspolpraca" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 8, fontSize: 14, fontWeight: 600, textTransform: 'uppercase' as const, padding: '12px 20px', background: '#fff', color: '#000', textAlign: 'center' }}>
             {t('navShop')}
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg>
           </a>

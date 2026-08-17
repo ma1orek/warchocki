@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import useIsMobile from '../hooks/useIsMobile'
 import { useT, localizedPath } from '../lib/i18n'
-import { products } from '../lib/products'
+import { products, storeOf } from '../lib/products'
 import { boldDino } from '../lib/boldDino'
 
 /* HERO SHOWCASE — jeden duży produkt (spójna karta) + rail miniatur wszystkich
@@ -34,8 +34,15 @@ export default function DinoPromo() {
 
   const p = products[index]
   const isLody = p.category === 'lody'
-  const isMus = !isLody && !!p.volume?.pl.includes('g')
-  const store = isLody ? 'Biedronka' : isMus ? 'Dino' : 'Dino · Kaufland · Auchan · SPAR · POLOmarket'
+  const isSzkola = p.category === 'szkola'
+  const st = storeOf(p)
+  const store = st === 'biedronka'
+    ? (pl ? 'Tylko w Biedronce' : 'Only at Biedronka')
+    : st === 'dino-biedronka'
+    ? 'Dino · Biedronka'
+    : st === 'dino'
+    ? 'Dino'
+    : 'Dino · Kaufland · Auchan · SPAR · POLOmarket'
 
   const chip = (label: string, color: string, solid = false) => (
     <span key={label} style={solid
@@ -100,11 +107,11 @@ export default function DinoPromo() {
                 {p.name[locale]}
               </h3>
               <p style={{ fontFamily: "'Caveat', cursive", fontSize: m ? 24 : 27, fontWeight: 700, color: p.accent, lineHeight: 1, marginBottom: 14, transform: 'rotate(-2deg)', transformOrigin: m ? 'center' : 'left center' }}>
-                {isLody ? (pl ? 'człowieku, to jest smak lata!' : 'the taste of summer!') : p.flavor[locale].toLowerCase()}
+                {isLody ? (pl ? 'człowieku, to jest smak lata!' : 'the taste of summer!') : isSzkola ? (pl ? 'człowieku, do szkoły z Edkiem!' : 'back to school with Edek!') : p.flavor[locale].toLowerCase()}
               </p>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: 7, marginBottom: 18, justifyContent: m ? 'center' : 'flex-start' }}>
-                {isLody ? chip(pl ? '💥 MEGA strzelający' : '💥 MEGA popping', '#ffd23c', true) : chip(t('dinoNoSugar'), '#5fc065', true)}
-                {chip('+ ' + p.vitamin[locale], 'rgba(255,255,255,0.75)')}
+                {isLody ? chip(pl ? '💥 MEGA strzelający' : '💥 MEGA popping', '#ffd23c', true) : isSzkola ? chip('🎒 Back to School', '#35dfe0', true) : chip(t('dinoNoSugar'), '#5fc065', true)}
+                {p.vitamin && chip('+ ' + p.vitamin[locale], 'rgba(255,255,255,0.75)')}
                 {chip(p.volume?.[locale] ?? '500 ml', 'rgba(255,255,255,0.75)')}
               </div>
               <Link to={localizedPath(`/produkty/${p.slug}`, locale)} style={{ display: 'inline-flex', alignItems: 'center', gap: 9, padding: '12px 24px', borderRadius: 40, background: '#fff', color: '#000', fontSize: 12.5, fontWeight: 800, letterSpacing: '0.07em', textTransform: 'uppercase' }}>

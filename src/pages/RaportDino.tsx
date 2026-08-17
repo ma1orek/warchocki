@@ -86,7 +86,7 @@ export default function RaportDino() {
           </motion.h1>
           <motion.p {...fadeUp(0.16)} style={{ fontSize: m ? 16 : 20, lineHeight: 1.6, color: 'rgba(255,255,255,0.5)', maxWidth: 660, marginBottom: 40 }}>
             Pierwszy w Polsce robot-influencer i jego produkty bez dodatku cukru. Kampania wystartowała w <strong style={{ color: '#fff' }}>DINO</strong>,
-            a napoje są już także w sieciach <strong style={{ color: '#fff' }}>Kaufland, Auchan, SPAR i POLOmarket</strong> - do tego <strong style={{ color: '#7dd17f' }}>NOWOŚĆ: musy owocowe</strong>, dostępne w <strong style={{ color: '#fff' }}>Dino</strong>. A to dopiero początek.
+            a napoje są już także w sieciach <strong style={{ color: '#fff' }}>Kaufland, Auchan, SPAR i POLOmarket</strong> - do tego <strong style={{ color: '#7dd17f' }}>NOWOŚĆ: musy owocowe</strong>, dostępne w <strong style={{ color: '#fff' }}>Dino</strong> i <strong style={{ color: '#fff' }}>Biedronce</strong>. A to dopiero początek.
           </motion.p>
 
           <motion.div {...fadeUp(0.24)} style={{ display: 'flex', flexWrap: 'wrap', gap: 14 }}>
@@ -146,10 +146,11 @@ export default function RaportDino() {
         <div aria-hidden style={{ position: 'absolute', top: 20, left: -140, width: m ? 300 : 460, height: m ? 300 : 460, borderRadius: '50%', background: '#ff9f43', filter: 'blur(150px)', opacity: 0.12, pointerEvents: 'none' }} />
         <div style={{ position: 'relative', maxWidth: 1100, margin: '0 auto', padding: '0 clamp(20px, 4vw, 48px)' }}>
           <motion.div {...fadeUp(0)} style={{ marginBottom: m ? 26 : 40 }}>
-            <span style={{ fontSize: 11, fontWeight: 800, letterSpacing: '0.16em', textTransform: 'uppercase', color: '#ffb066' }}>NOWOŚĆ · MUSY OWOCOWE</span>
+            <span style={{ fontSize: 11, fontWeight: 800, letterSpacing: '0.16em', textTransform: 'uppercase', color: '#ffb066' }}>NOWOŚĆ · MUSY OWOCOWE · DINO I BIEDRONKA</span>
             <h2 style={{ fontSize: m ? 28 : 'clamp(28px, 4vw, 52px)', fontWeight: 800, letterSpacing: '-0.03em', margin: '12px 0 14px' }}>Musy wjechały do <span style={{ color: '#7dd17f' }}>Dino</span></h2>
             <p style={{ fontSize: m ? 15 : 18, lineHeight: 1.6, color: 'rgba(255,255,255,0.5)', maxWidth: 640 }}>
-              100% owoców, bez dodatku cukru - dwa smaki na start. Zobacz premierowe filmiki z musami na wszystkich platformach Edka.
+              100% owoców, bez dodatku cukru - dwa smaki na start. Do kupienia w <strong style={{ color: '#fff' }}>Dino</strong> i w <strong style={{ color: '#fff' }}>Biedronce</strong>.
+              Zobacz premierowe filmiki z musami na wszystkich platformach Edka.
             </p>
           </motion.div>
 
@@ -263,13 +264,13 @@ export default function RaportDino() {
       {/* CTA + note */}
       <section style={{ position: 'relative', padding: m ? '20px 0 70px' : '40px 0 100px' }}>
         <div style={{ maxWidth: 1100, margin: '0 auto', padding: '0 clamp(20px, 4vw, 48px)', textAlign: 'center' }}>
-          <a href="https://contactform.bitrix24.site/EdwardBiznes/" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: 10, padding: '15px 28px', borderRadius: 12, background: '#fff', color: '#000', fontSize: 14, fontWeight: 800, letterSpacing: '0.06em', textTransform: 'uppercase' }}>
+          <a href="/wspolpraca" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: 10, padding: '15px 28px', borderRadius: 12, background: '#fff', color: '#000', fontSize: 14, fontWeight: 800, letterSpacing: '0.06em', textTransform: 'uppercase' }}>
             Porozmawiajmy o współpracy
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
           </a>
           <p style={{ fontSize: 11, color: 'rgba(255,255,255,0.3)', margin: '22px auto 0', lineHeight: 1.6, maxWidth: 760 }}>
             Dane wyświetleń zliczone z kanałów Edwarda (TikTok, Instagram, YouTube, X, Facebook) od startu kampanii (czerwiec 2026).
-            Zasięg UGC szacowany na podstawie wolumenu filmów publikowanych przez klientów i fanów. Napoje dostępne w sieciach DINO, Kaufland, Auchan, SPAR i POLOmarket; musy owocowe - w sieci Dino.
+            Zasięg UGC szacowany na podstawie wolumenu filmów publikowanych przez klientów i fanów. Napoje dostępne w sieciach DINO, Kaufland, Auchan, SPAR i POLOmarket; musy owocowe - w sieciach Dino i Biedronka.
           </p>
         </div>
       </section>

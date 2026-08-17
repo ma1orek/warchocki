@@ -94,7 +94,7 @@ export default function SubpageContactForm({ defaultSubject: _ }: { defaultSubje
 
       <div className="contact-cta-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 20 }}>
         <ContactCard
-          href="https://contactform.bitrix24.site/Napiszdoedwarda/"
+          href="/wspolpraca?typ=fan"
           label={fanLabel}
           cta={fanCta}
           desc={fanDesc}
@@ -105,7 +105,7 @@ export default function SubpageContactForm({ defaultSubject: _ }: { defaultSubje
           }
         />
         <ContactCard
-          href="https://contactform.bitrix24.site/EdwardBiznes/"
+          href="/wspolpraca"
           label={bizLabel}
           cta={bizCta}
           desc={bizDesc}

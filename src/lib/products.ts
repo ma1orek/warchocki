@@ -19,19 +19,46 @@ export type Product = {
   volume?: { pl: string; en: string }
   // NOWOŚĆ - badge na karcie + dopisek o dostępności (musy: tylko Dino)
   isNew?: boolean
-  // kategoria: 'lody' (Edwardzik/Biedronka, poziomy flowpack) - brak = napój/mus (po volume)
-  category?: 'lody'
+  // kategoria: 'lody' (Edwardzik/Biedronka, poziomy flowpack), 'szkola' (kolekcja Back to School,
+  // produkt informacyjny bez danych z etykiet) - brak = napój/mus (po volume)
+  category?: 'lody' | 'szkola'
+  // gdzie kupić. Brak = wyliczane: lody→biedronka, musy→dino, napoje→wszystkie sieci.
+  store?: 'biedronka' | 'dino' | 'dino-biedronka' | 'all'
   // bottle juice color (used in the animated liquid)
-  liquid: string
-  liquidTop: string
-  vitamin: { pl: string; en: string }
-  ingredients: { pl: string; en: string }
-  storage: { pl: string; en: string }
-  energy: string
-  nutrition: { pl: NutritionRow[]; en: NutritionRow[] }
+  liquid?: string
+  liquidTop?: string
+  // pola spożywcze - kolekcja szkolna ich nie ma, więc opcjonalne
+  vitamin?: { pl: string; en: string }
+  ingredients?: { pl: string; en: string }
+  storage?: { pl: string; en: string }
+  energy?: string
+  nutrition?: { pl: NutritionRow[]; en: NutritionRow[] }
 }
 
 export const products: Product[] = [
+  // ── KOLEKCJA SZKOLNA (NOWOŚĆ 2026-08) - Back to School w Biedronce od 17.08.2026:
+  // plecaki, plecakoworki, zeszyty i teczki z Edwardem. Produkt informacyjny - bez danych z etykiet.
+  {
+    slug: 'kolekcja-szkolna',
+    category: 'szkola',
+    store: 'biedronka',
+    flavor: { pl: 'BACK TO SCHOOL', en: 'BACK TO SCHOOL' },
+    name: {
+      pl: 'Kolekcja szkolna EDWARD WARCHOCKI',
+      en: 'EDWARD WARCHOCKI school collection',
+    },
+    intro: {
+      pl: 'Edward idzie do szkoły! Plecaki, plecakoworki, zeszyty i teczki z najpopularniejszym robotem internetu - od 17 sierpnia w sklepach Biedronka w całej Polsce, w ramach akcji Back to School. A to dopiero początek: Edward już prowadzi edukacyjne transmisje na żywo dla dzieci, a od października rusza w tour po polskich szkołach. No i elegancko człowieku.',
+      en: "Edward goes to school! Backpacks, drawstring bags, notebooks and folders featuring the internet's most popular robot - from August 17 at Biedronka stores across Poland as part of the Back to School campaign. And that's just the beginning: Edward already hosts educational live streams for kids, and in October he sets off on a tour of Polish schools. Elegant.",
+    },
+    accent: '#35dfe0',
+    accent2: '#2b6bd8',
+    glow: 'rgba(53, 223, 224, 0.4)',
+    packshot: '/szkola-kolekcja.jpg',
+    mainPhoto: '/szkola-kolekcja.jpg',
+    volume: { pl: 'Plecaki · Zeszyty · Teczki', en: 'Backpacks · Notebooks · Folders' },
+    isNew: true,
+  },
   // ── LODY EDWARDZIK (NOWOŚĆ 2026-07) - lody na patyku 55 ml z cukrem strzelającym,
   // Nordis × Edward Warchocki, dostępne w Biedronce. Dane przepisane z realnych etykiet.
   {
@@ -140,6 +167,71 @@ export const products: Product[] = [
       ],
     },
   },
+  // ── MULTIWITAMINA (NOWOŚĆ 2026-07) - napój wieloowocowy 500 ml z 6 witaminami,
+  // dostępny TYLKO w Biedronce. Dane przepisane z realnej etykiety (Fortuna Sp. z o.o.).
+  {
+    slug: 'multiwitamina',
+    store: 'biedronka', // NOWOŚĆ - dostępny tylko w Biedronce
+    flavor: { pl: 'MULTIWITAMINA', en: 'MULTIVITAMIN' },
+    name: {
+      pl: 'Napój wieloowocowy multiwitamina z dodatkiem 6 witamin',
+      en: 'Multifruit multivitamin drink with 6 added vitamins',
+    },
+    intro: {
+      pl: 'Czternaście owoców w jednej butelce. Jabłko, ananas, pomarańcza, mango, banan, cytryna, passiflora, brzoskwinia, liczi, gujawa, opuncja figowa, kiwi, limetka i papaja - z soków zagęszczonych i przecierów, pasteryzowany, bez dodatku cukru. Do tego 6 witamin. Smak lata w jednym łyku. No i elegancko.',
+      en: 'Fourteen fruits in one bottle. Apple, pineapple, orange, mango, banana, lemon, passion fruit, peach, lychee, guava, prickly pear, kiwi, lime and papaya - from concentrated juices and purees, pasteurised, no added sugar. Plus 6 vitamins.',
+    },
+    accent: '#ff9f1c',
+    accent2: '#ffd23c',
+    glow: 'rgba(255, 159, 28, 0.45)',
+    packshot: '/multiwitamina-main.jpg',
+    mainPhoto: '/multiwitamina-main.jpg',
+    liquid: '#f08a00',
+    liquidTop: '#ffb733',
+    isNew: true,
+    vitamin: { pl: '6 witamin', en: '6 vitamins' },
+    ingredients: {
+      pl: 'soki z soków zagęszczonych i przeciery z: jabłek (45 %), ananasów (1,9 %), pomarańczy (1,1 %), mango (0,6 %), bananów (0,4 %), brzoskwiń (0,2 %), cytryn (0,1 %), passiflory (0,1 %), liczi (0,1 %), gujawy (0,1 %), opuncji figowej (0,1 %), kiwi (0,1 %), limetki (0,1 %) i papai (0,1 %); woda, niacyna, witamina B6, kwas foliowy, witamina B12, biotyna, kwas pantotenowy, barwnik - karoteny, aromat naturalny.',
+      en: 'juices from concentrated juices and purees of: apples (45 %), pineapples (1.9 %), oranges (1.1 %), mango (0.6 %), bananas (0.4 %), peaches (0.2 %), lemons (0.1 %), passion fruit (0.1 %), lychee (0.1 %), guava (0.1 %), prickly pear (0.1 %), kiwi (0.1 %), lime (0.1 %) and papaya (0.1 %); water, niacin, vitamin B6, folic acid, vitamin B12, biotin, pantothenic acid, colour - carotenes, natural aroma.',
+    },
+    storage: {
+      pl: 'Przechowuj w temperaturze pokojowej. Chroń przed działaniem promieni słonecznych. Po otwarciu przechowuj w lodówce nie dłużej niż 48 godzin.',
+      en: 'Store at room temperature. Protect from sunlight. After opening, keep refrigerated for no longer than 48 hours.',
+    },
+    energy: '91 kJ / 21 kcal',
+    nutrition: {
+      pl: [
+        { label: 'Wartość energetyczna', value: '91 kJ / 21 kcal' },
+        { label: 'Tłuszcz', value: '0 g' },
+        { label: 'w tym kwasy tłuszczowe nasycone', sub: true, value: '0 g' },
+        { label: 'Węglowodany', value: '5,1 g' },
+        { label: 'w tym cukry', sub: true, value: '4,9 g' },
+        { label: 'Białko', value: '0 g' },
+        { label: 'Sól', value: '0 g' },
+        { label: 'Niacyna', value: '1,2 mg / 7,5 %*' },
+        { label: 'Witamina B6', value: '0,1 mg / 7,5 %*' },
+        { label: 'Kwas foliowy', value: '15 µg / 7,5 %*' },
+        { label: 'Witamina B12', value: '0,19 µg / 7,5 %*' },
+        { label: 'Biotyna', value: '3,75 µg / 7,5 %*' },
+        { label: 'Kwas pantotenowy', value: '0,45 mg / 7,5 %*' },
+      ],
+      en: [
+        { label: 'Energy', value: '91 kJ / 21 kcal' },
+        { label: 'Fat', value: '0 g' },
+        { label: 'of which saturates', sub: true, value: '0 g' },
+        { label: 'Carbohydrate', value: '5.1 g' },
+        { label: 'of which sugars', sub: true, value: '4.9 g' },
+        { label: 'Protein', value: '0 g' },
+        { label: 'Salt', value: '0 g' },
+        { label: 'Niacin', value: '1.2 mg / 7.5 %*' },
+        { label: 'Vitamin B6', value: '0.1 mg / 7.5 %*' },
+        { label: 'Folic acid', value: '15 µg / 7.5 %*' },
+        { label: 'Vitamin B12', value: '0.19 µg / 7.5 %*' },
+        { label: 'Biotin', value: '3.75 µg / 7.5 %*' },
+        { label: 'Pantothenic acid', value: '0.45 mg / 7.5 %*' },
+      ],
+    },
+  },
   {
     slug: 'jablko-gruszka',
     flavor: { pl: 'JABŁKO - GRUSZKA', en: 'APPLE - PEAR' },
@@ -242,10 +334,11 @@ export const products: Product[] = [
       ],
     },
   },
-  // ── MUSY (NOWOŚĆ 2026-07) - saszetki 200 g, 100% owoców, dostępne w Dino.
+  // ── MUSY (NOWOŚĆ 2026-07) - saszetki 200 g, 100% owoców, w Dino i w Biedronce.
   // Dane brzoskwini przepisane z realnej etykiety (tył opakowania, Fortuna Sp. z o.o.).
   {
     slug: 'mus-jablko-brzoskwinia-banan',
+    store: 'dino-biedronka',
     flavor: { pl: 'JABŁKO - BRZOSKWINIA - BANAN', en: 'APPLE - PEACH - BANANA' },
     name: {
       pl: 'Mus jabłko brzoskwinia banan z dodatkiem witaminy C',
@@ -300,6 +393,7 @@ export const products: Product[] = [
   },
   {
     slug: 'mus-jablko-gruszka-banan',
+    store: 'dino-biedronka',
     flavor: { pl: 'JABŁKO - GRUSZKA - BANAN', en: 'APPLE - PEAR - BANANA' },
     name: {
       pl: 'Mus jabłko gruszka banan z dodatkiem witaminy C',
@@ -355,3 +449,7 @@ export const products: Product[] = [
 ]
 
 export const getProduct = (slug: string) => products.find((p) => p.slug === slug)
+
+// Gdzie kupić dany produkt (jawne pole `store` wygrywa; inaczej wg kategorii).
+export const storeOf = (p: Product): 'biedronka' | 'dino' | 'dino-biedronka' | 'all' =>
+  p.store ?? (p.category === 'lody' ? 'biedronka' : p.volume?.pl.includes('g') ? 'dino' : 'all')

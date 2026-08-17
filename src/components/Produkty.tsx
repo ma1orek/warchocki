@@ -3,7 +3,7 @@ import { useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import useIsMobile from '../hooks/useIsMobile'
 import { useT, localizedPath } from '../lib/i18n'
-import { products, type Product } from '../lib/products'
+import { products, storeOf, type Product } from '../lib/products'
 import { boldDino } from '../lib/boldDino'
 import StoreLogos from './StoreLogos'
 
@@ -14,6 +14,7 @@ function ProductCard({ product, index }: { product: Product; index: number }) {
   const m = useIsMobile()
   const { t, locale } = useT()
   const isLody = product.category === 'lody'
+  const isSzkola = product.category === 'szkola'
 
   return (
     <motion.div
@@ -97,24 +98,30 @@ function ProductCard({ product, index }: { product: Product; index: number }) {
           </h3>
 
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, justifyContent: m ? 'center' : 'flex-start', marginBottom: 22 }}>
-            <span style={{ fontSize: 10, fontWeight: 800, letterSpacing: '0.05em', textTransform: 'uppercase', color: isLody ? '#3a1200' : '#0a2e0c', background: isLody ? '#ffd23c' : '#5fc065', borderRadius: 20, padding: '5px 11px' }}>
-              {isLody ? (locale === 'pl' ? '💥 MEGA strzelający' : '💥 MEGA popping') : t('productsNoSugar')}
+            <span style={{ fontSize: 10, fontWeight: 800, letterSpacing: '0.05em', textTransform: 'uppercase', color: isLody ? '#3a1200' : isSzkola ? '#04303a' : '#0a2e0c', background: isLody ? '#ffd23c' : isSzkola ? '#35dfe0' : '#5fc065', borderRadius: 20, padding: '5px 11px' }}>
+              {isLody ? (locale === 'pl' ? '💥 MEGA strzelający' : '💥 MEGA popping') : isSzkola ? '🎒 Back to School' : t('productsNoSugar')}
             </span>
-            <span style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.05em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.7)', border: '1px solid rgba(255,255,255,0.18)', borderRadius: 20, padding: '5px 11px' }}>
-              + {product.vitamin[locale]}
-            </span>
+            {product.vitamin && (
+              <span style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.05em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.7)', border: '1px solid rgba(255,255,255,0.18)', borderRadius: 20, padding: '5px 11px' }}>
+                + {product.vitamin[locale]}
+              </span>
+            )}
             <span style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.05em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.7)', border: '1px solid rgba(255,255,255,0.18)', borderRadius: 20, padding: '5px 11px' }}>
               {product.volume?.[locale] ?? t('productsVolume')}
             </span>
-            {product.isNew && (
-              <span style={{ fontSize: 10, fontWeight: 800, letterSpacing: '0.05em', textTransform: 'uppercase', color: isLody ? '#7a0c0c' : '#0a2e0c', background: isLody ? '#ffe14d' : '#7dd17f', borderRadius: 20, padding: '5px 11px' }}>
-                {isLody ? (locale === 'pl' ? 'Dostępne w Biedronce' : 'Available at Biedronka') : t('productsInDino')}
+            {product.isNew && storeOf(product) !== 'all' && (
+              <span style={{ fontSize: 10, fontWeight: 800, letterSpacing: '0.05em', textTransform: 'uppercase', color: storeOf(product) === 'biedronka' ? '#7a0c0c' : '#0a2e0c', background: storeOf(product) === 'biedronka' ? '#ffe14d' : '#7dd17f', borderRadius: 20, padding: '5px 11px' }}>
+                {storeOf(product) === 'biedronka'
+                  ? (locale === 'pl' ? 'Tylko w Biedronce' : 'Only at Biedronka')
+                  : storeOf(product) === 'dino-biedronka'
+                  ? (locale === 'pl' ? 'Dino i Biedronka' : 'Dino & Biedronka')
+                  : t('productsInDino')}
               </span>
             )}
           </div>
 
           <div style={{ display: 'inline-flex', alignItems: 'center', gap: 10, fontSize: 13, fontWeight: 700, letterSpacing: '0.06em', textTransform: 'uppercase', color: '#fff' }}>
-            {t('productsCardCta')}
+            {isSzkola ? (locale === 'pl' ? 'Zobacz kolekcję' : 'See the collection') : t('productsCardCta')}
             <motion.span animate={hovered ? { x: 6 } : { x: 0 }} transition={{ type: 'spring', stiffness: 300, damping: 20 }} style={{ display: 'inline-block', fontSize: 18, color: product.accent }}>
               →
             </motion.span>
