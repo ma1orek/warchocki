@@ -56,6 +56,25 @@ export default function Wspolpraca() {
     const who = g('Nazwa firmy / organizacji') || `${g('Imię')} ${g('Nazwisko')}`.trim() || 'warchocki.pl'
     const stamp = new Date().toLocaleString('pl-PL', { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit' })
     const kat = (type || 'Ogólne').toUpperCase()
+    // Rejestr leadów (Supabase MERA) — fire-and-forget OBOK maila. Gdy padnie,
+    // mail i tak dochodzi, więc lead się nie gubi. Widok: admin MERA → LEADY.
+    fetch('https://merarobotics.com/api/save-lead', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        source: 'warchocki.pl',
+        category: type || '',
+        company: g('Nazwa firmy / organizacji'),
+        first_name: g('Imię'),
+        last_name: g('Nazwisko'),
+        position: g('Stanowisko'),
+        phone: g('Telefon'),
+        email: g('email'),
+        term: g('Termin / Data'),
+        budget: g('Budżet orientacyjny'),
+        message: g('Opis potrzeby'),
+      }),
+    }).catch(() => { /* rejestr opcjonalny — mail jest podstawą */ })
     try {
       const res = await fetch('https://formsubmit.co/ajax/edwardwarchocki@gmail.com', {
         method: 'POST',
