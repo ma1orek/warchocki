@@ -20,7 +20,7 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run build
-      - run: npx --yes netlify-cli deploy --prod --dir dist
+      - run: npx --yes netlify-cli@17 deploy --prod --dir dist
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: 31742803-3e2e-427b-acf7-7fb5a5d2f9fb
