@@ -4,22 +4,6 @@ import { useSearchParams } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 
-// Auto-odpowiedź do osoby zgłaszającej (FormSubmit _autoresponse).
-// UWAGA: _autoresponse działa TYLKO przez standardowy POST (nie AJAX) i z
-// WŁĄCZONĄ captchą — dlatego formularz wysyła się natywnie, nie fetchem.
-const AUTORESPONSE = `Hej!
-
-Dziękujemy za kontakt z biurem Edwarda Warchockiego - dostaliśmy Twoje zapytanie i już na nie patrzymy! 👀
-
-Odezwiemy się do Ciebie najszybciej jak się da - zwykle w ciągu 24 godzin.
-
-Edward jest teraz w trasie, ale jego zespół jest na miejscu i ogarnie wszystko.
-No i elegancko! 🤖
-
-
-_____
-Biuro Edwarda Warchockiego`
-
 const TYPES = [
   { id: 'Urodziny', emoji: '🎂', desc: 'Przyjęcia urodzinowe, imprezy' },
   { id: 'Eventy', emoji: '🎪', desc: 'Targi, otwarcia, konferencje' },
@@ -51,24 +35,58 @@ const sectionTitle = { fontSize: 12, fontWeight: 700, letterSpacing: '0.15em', t
 
 export default function Wspolpraca() {
   const [params] = useSearchParams()
+  const formRef = useRef<HTMLFormElement>(null)
   const [type, setType] = useState<string>(params.get('typ') === 'fan' ? 'Fan' : '')
   const [sending, setSending] = useState(false)
-  const subjectRef = useRef<HTMLInputElement>(null)
-  const sent = params.get('sent') === '1'
+  const [sent, setSent] = useState(false)
+  const [error, setError] = useState('')
 
-  // NIE robimy preventDefault — formularz wysyła się NATYWNIE do FormSubmit
-  // (jedyny sposób na działającą auto-odpowiedź). Tu tylko ustawiamy UNIKALNY
-  // temat per zgłoszenie (znacznik czasu), żeby Gmail nie wątkował maili razem.
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-    const f = e.currentTarget
-    const val = (name: string) => (f.querySelector(`[name="${name}"]`) as HTMLInputElement | null)?.value?.trim() || ''
-    const who = val('Nazwa firmy / organizacji') || `${val('Imię')} ${val('Nazwisko')}`.trim() || 'warchocki.pl'
+  // Wysyłka AJAX-em przez FormSubmit — formularz ZOSTAJE na stronie, ZERO captchy
+  // (_captcha:false), zero przekierowań. Leady lecą na maila; auto-odpowiedzi
+  // świadomie brak (FormSubmit wysyła ją tylko z włączoną captchą).
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    const form = e.currentTarget
+    const d = new FormData(form)
+    // honeypot: bot wypełni ukryte pole -> udajemy sukces i nie wysyłamy
+    if ((d.get('website') as string)?.trim()) { setSent(true); form.reset(); return }
+    setSending(true)
+    setError('')
+    const g = (k: string) => ((d.get(k) as string) || '').trim()
+    const who = g('Nazwa firmy / organizacji') || `${g('Imię')} ${g('Nazwisko')}`.trim() || 'warchocki.pl'
     const stamp = new Date().toLocaleString('pl-PL', { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit' })
-    // Kategoria (Rodzaj współpracy) NA POCZĄTKU tematu — od razu widać w skrzynce
-    // co kto pisze; znacznik czasu zapewnia unikalność (Gmail nie wątkuje).
     const kat = (type || 'Ogólne').toUpperCase()
-    if (subjectRef.current) subjectRef.current.value = `[${kat}] Zapytanie o współpracę — ${who} • ${stamp}`
-    setSending(true) // wizualny feedback zanim przeglądarka przejdzie dalej
+    try {
+      const res = await fetch('https://formsubmit.co/ajax/edwardwarchocki@gmail.com', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          // Kategoria [RODZAJ] na początku + znacznik czasu = widać co kto pisze
+          // i Gmail nie wątkuje maili razem (każdy osobno).
+          _subject: `[${kat}] Zapytanie o współpracę — ${who} • ${stamp}`,
+          _template: 'table',
+          _captcha: 'false',
+          'Rodzaj współpracy': type || '—',
+          'Nazwa firmy / organizacji': g('Nazwa firmy / organizacji') || '—',
+          'Imię': g('Imię'),
+          'Nazwisko': g('Nazwisko'),
+          'Stanowisko': g('Stanowisko') || '—',
+          'Telefon': g('Telefon') || '—',
+          email: g('email'),
+          'Termin / Data': g('Termin / Data') || '—',
+          'Budżet orientacyjny': g('Budżet orientacyjny') || '—',
+          'Opis potrzeby': g('Opis potrzeby'),
+        }),
+      })
+      if (!res.ok) throw new Error(`HTTP ${res.status}`)
+      setSent(true)
+      form.reset()
+      setType('')
+    } catch {
+      setError('Coś nie zadziałało. Napisz bezpośrednio na edwardwarchocki@gmail.com')
+    } finally {
+      setSending(false)
+    }
   }
 
   return (
@@ -101,27 +119,13 @@ export default function Wspolpraca() {
             <div style={{ fontSize: 40, marginBottom: 14 }}>🤖</div>
             <h2 style={{ fontSize: 24, fontWeight: 700, marginBottom: 12 }}>Wysłane!</h2>
             <p style={{ fontSize: 15, lineHeight: 1.7, color: 'rgba(255,255,255,0.6)' }}>
-              Dostaliśmy Twoje zapytanie i już na nie patrzymy. Sprawdź maila — wysłaliśmy Ci potwierdzenie. Odezwiemy się najszybciej jak się da, zwykle w ciągu 24 godzin. No i elegancko!
+              Dostaliśmy Twoje zapytanie i już na nie patrzymy. Odezwiemy się najszybciej jak się da — zwykle w ciągu 24 godzin. No i elegancko!
             </p>
-            <a href="/" style={{ display: 'inline-block', marginTop: 24, fontSize: 13, fontWeight: 700, letterSpacing: '0.05em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)', borderBottom: '1px solid rgba(255,255,255,0.3)', paddingBottom: 2 }}>
-              ← Wróć na stronę
-            </a>
           </motion.div>
         ) : (
-          <form
-            action="https://formsubmit.co/edwardwarchocki@gmail.com"
-            method="POST"
-            onSubmit={handleSubmit}
-            style={{ display: 'flex', flexDirection: 'column', gap: 44 }}
-          >
-            {/* Pola sterujące FormSubmit */}
-            <input ref={subjectRef} type="hidden" name="_subject" defaultValue="Nowe zapytanie o współpracę" />
-            <input type="hidden" name="_template" value="table" />
-            <input type="hidden" name="_autoresponse" value={AUTORESPONSE} />
-            <input type="hidden" name="_next" value="https://warchocki.pl/wspolpraca?sent=1" />
-            <input type="hidden" name="Rodzaj współpracy" value={type} />
-            {/* honeypot anty-spam (FormSubmit ukrywa pole _honey) */}
-            <input type="text" name="_honey" style={{ display: 'none' }} tabIndex={-1} autoComplete="off" />
+          <form ref={formRef} onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: 44 }}>
+            {/* honeypot anty-spam (niewidoczny dla ludzi) */}
+            <input type="text" name="website" tabIndex={-1} autoComplete="off" style={{ position: 'absolute', left: '-9999px', width: 1, height: 1, opacity: 0 }} aria-hidden="true" />
 
             {/* 1. Rodzaj współpracy */}
             <div>
@@ -211,6 +215,8 @@ export default function Wspolpraca() {
               </div>
             </div>
 
+            {error && <p style={{ fontSize: 14, color: '#ff8a8a' }}>{error}</p>}
+
             <div>
               <button
                 type="submit"
@@ -224,7 +230,7 @@ export default function Wspolpraca() {
                 {sending ? 'Wysyłanie...' : 'Wyślij zapytanie 💼'}
               </button>
               <p style={{ fontSize: 12, lineHeight: 1.5, color: 'rgba(255,255,255,0.35)', textAlign: 'center', marginTop: 14 }}>
-                Po wysłaniu potwierdź, że nie jesteś botem (jednorazowo). Wysyłając zapytanie zgadzasz się na kontakt zwrotny i przetwarzanie podanych danych w celu jego obsługi.
+                Wysyłając zapytanie zgadzasz się na kontakt zwrotny i przetwarzanie podanych danych w celu jego obsługi.
               </p>
             </div>
           </form>
