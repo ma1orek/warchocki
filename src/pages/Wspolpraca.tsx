@@ -4,7 +4,9 @@ import { useSearchParams } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 
-// Auto-odpowiedź wysyłana do osoby zgłaszającej (formsubmit.co _autoresponse).
+// Auto-odpowiedź do osoby zgłaszającej (FormSubmit _autoresponse).
+// UWAGA: _autoresponse działa TYLKO przez standardowy POST (nie AJAX) i z
+// WŁĄCZONĄ captchą — dlatego formularz wysyła się natywnie, nie fetchem.
 const AUTORESPONSE = `Hej!
 
 Dziękujemy za kontakt z biurem Edwarda Warchockiego - dostaliśmy Twoje zapytanie i już na nie patrzymy! 👀
@@ -49,51 +51,24 @@ const sectionTitle = { fontSize: 12, fontWeight: 700, letterSpacing: '0.15em', t
 
 export default function Wspolpraca() {
   const [params] = useSearchParams()
-  const formRef = useRef<HTMLFormElement>(null)
   const [type, setType] = useState<string>(params.get('typ') === 'fan' ? 'Fan' : '')
   const [sending, setSending] = useState(false)
-  const [sent, setSent] = useState(false)
-  const [error, setError] = useState('')
+  const subjectRef = useRef<HTMLInputElement>(null)
+  const sent = params.get('sent') === '1'
 
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    const form = e.currentTarget
-    const d = new FormData(form)
-    const firma = (d.get('firma') as string) || ''
-    const imie = (d.get('imie') as string) || ''
-    const nazwisko = (d.get('nazwisko') as string) || ''
-    setSending(true)
-    setError('')
-    try {
-      const res = await fetch('https://formsubmit.co/ajax/edwardwarchocki@gmail.com', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify({
-          _subject: `Nowe zapytanie o współpracę — ${firma || `${imie} ${nazwisko}`.trim() || 'warchocki.pl'}`,
-          _template: 'table',
-          _autoresponse: AUTORESPONSE,
-          _captcha: 'false',
-          'Rodzaj współpracy': type || '—',
-          'Nazwa firmy / organizacji': firma || '—',
-          'Imię': imie,
-          'Nazwisko': nazwisko,
-          'Stanowisko': (d.get('stanowisko') as string) || '—',
-          'Telefon': (d.get('telefon') as string) || '—',
-          email: d.get('email'),
-          'Termin / Data': (d.get('termin') as string) || '—',
-          'Budżet orientacyjny': (d.get('budzet') as string) || '—',
-          'Opis potrzeby': d.get('opis'),
-        }),
-      })
-      if (!res.ok) throw new Error(`HTTP ${res.status}`)
-      setSent(true)
-      form.reset()
-      setType('')
-    } catch {
-      setError('Coś nie zadziałało. Napisz bezpośrednio na edwardwarchocki@gmail.com')
-    } finally {
-      setSending(false)
-    }
+  // NIE robimy preventDefault — formularz wysyła się NATYWNIE do FormSubmit
+  // (jedyny sposób na działającą auto-odpowiedź). Tu tylko ustawiamy UNIKALNY
+  // temat per zgłoszenie (znacznik czasu), żeby Gmail nie wątkował maili razem.
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    const f = e.currentTarget
+    const val = (name: string) => (f.querySelector(`[name="${name}"]`) as HTMLInputElement | null)?.value?.trim() || ''
+    const who = val('Nazwa firmy / organizacji') || `${val('Imię')} ${val('Nazwisko')}`.trim() || 'warchocki.pl'
+    const stamp = new Date().toLocaleString('pl-PL', { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit' })
+    // Kategoria (Rodzaj współpracy) NA POCZĄTKU tematu — od razu widać w skrzynce
+    // co kto pisze; znacznik czasu zapewnia unikalność (Gmail nie wątkuje).
+    const kat = (type || 'Ogólne').toUpperCase()
+    if (subjectRef.current) subjectRef.current.value = `[${kat}] Zapytanie o współpracę — ${who} • ${stamp}`
+    setSending(true) // wizualny feedback zanim przeglądarka przejdzie dalej
   }
 
   return (
@@ -126,11 +101,28 @@ export default function Wspolpraca() {
             <div style={{ fontSize: 40, marginBottom: 14 }}>🤖</div>
             <h2 style={{ fontSize: 24, fontWeight: 700, marginBottom: 12 }}>Wysłane!</h2>
             <p style={{ fontSize: 15, lineHeight: 1.7, color: 'rgba(255,255,255,0.6)' }}>
-              Dostaliśmy Twoje zapytanie i już na nie patrzymy. Odezwiemy się najszybciej jak się da — zwykle w ciągu 24 godzin. No i elegancko!
+              Dostaliśmy Twoje zapytanie i już na nie patrzymy. Sprawdź maila — wysłaliśmy Ci potwierdzenie. Odezwiemy się najszybciej jak się da, zwykle w ciągu 24 godzin. No i elegancko!
             </p>
+            <a href="/" style={{ display: 'inline-block', marginTop: 24, fontSize: 13, fontWeight: 700, letterSpacing: '0.05em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)', borderBottom: '1px solid rgba(255,255,255,0.3)', paddingBottom: 2 }}>
+              ← Wróć na stronę
+            </a>
           </motion.div>
         ) : (
-          <form ref={formRef} onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: 44 }}>
+          <form
+            action="https://formsubmit.co/edwardwarchocki@gmail.com"
+            method="POST"
+            onSubmit={handleSubmit}
+            style={{ display: 'flex', flexDirection: 'column', gap: 44 }}
+          >
+            {/* Pola sterujące FormSubmit */}
+            <input ref={subjectRef} type="hidden" name="_subject" defaultValue="Nowe zapytanie o współpracę" />
+            <input type="hidden" name="_template" value="table" />
+            <input type="hidden" name="_autoresponse" value={AUTORESPONSE} />
+            <input type="hidden" name="_next" value="https://warchocki.pl/wspolpraca?sent=1" />
+            <input type="hidden" name="Rodzaj współpracy" value={type} />
+            {/* honeypot anty-spam (FormSubmit ukrywa pole _honey) */}
+            <input type="text" name="_honey" style={{ display: 'none' }} tabIndex={-1} autoComplete="off" />
+
             {/* 1. Rodzaj współpracy */}
             <div>
               <p style={sectionTitle}>1 · Rodzaj współpracy</p>
@@ -166,26 +158,26 @@ export default function Wspolpraca() {
               <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
                 <div>
                   <label style={label}>Nazwa firmy / organizacji</label>
-                  <input name="firma" style={inputStyle} placeholder="np. Magiczna Księgarnia Sp. z o.o." onFocus={focusOn} onBlur={focusOff} />
+                  <input name="Nazwa firmy / organizacji" style={inputStyle} placeholder="np. Magiczna Księgarnia Sp. z o.o." onFocus={focusOn} onBlur={focusOff} />
                 </div>
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
                   <div>
                     <label style={label}>Imię *</label>
-                    <input name="imie" required style={inputStyle} placeholder="Imię" onFocus={focusOn} onBlur={focusOff} />
+                    <input name="Imię" required style={inputStyle} placeholder="Imię" onFocus={focusOn} onBlur={focusOff} />
                   </div>
                   <div>
                     <label style={label}>Nazwisko *</label>
-                    <input name="nazwisko" required style={inputStyle} placeholder="Nazwisko" onFocus={focusOn} onBlur={focusOff} />
+                    <input name="Nazwisko" required style={inputStyle} placeholder="Nazwisko" onFocus={focusOn} onBlur={focusOff} />
                   </div>
                 </div>
                 <div>
                   <label style={label}>Stanowisko</label>
-                  <input name="stanowisko" style={inputStyle} placeholder="np. Marketing Manager" onFocus={focusOn} onBlur={focusOff} />
+                  <input name="Stanowisko" style={inputStyle} placeholder="np. Marketing Manager" onFocus={focusOn} onBlur={focusOff} />
                 </div>
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
                   <div>
                     <label style={label}>Telefon *</label>
-                    <input name="telefon" type="tel" required style={inputStyle} placeholder="+48 600 000 000" onFocus={focusOn} onBlur={focusOff} />
+                    <input name="Telefon" type="tel" required style={inputStyle} placeholder="+48 600 000 000" onFocus={focusOn} onBlur={focusOff} />
                   </div>
                   <div>
                     <label style={label}>E-mail *</label>
@@ -202,11 +194,11 @@ export default function Wspolpraca() {
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
                   <div>
                     <label style={label}>Termin / Data</label>
-                    <input name="termin" style={inputStyle} placeholder="np. 15 czerwca 2026 lub Q3" onFocus={focusOn} onBlur={focusOff} />
+                    <input name="Termin / Data" style={inputStyle} placeholder="np. 15 czerwca 2026 lub Q3" onFocus={focusOn} onBlur={focusOff} />
                   </div>
                   <div>
                     <label style={label}>Budżet orientacyjny</label>
-                    <select name="budzet" defaultValue="" style={{ ...inputStyle, appearance: 'none' as const, cursor: 'pointer' }} onFocus={focusOn} onBlur={focusOff}>
+                    <select name="Budżet orientacyjny" defaultValue="" style={{ ...inputStyle, appearance: 'none' as const, cursor: 'pointer' }} onFocus={focusOn} onBlur={focusOff}>
                       <option value="" style={{ background: '#111' }}>Wybierz przedział</option>
                       {BUDGETS.map((b) => <option key={b} value={b} style={{ background: '#111' }}>{b}</option>)}
                     </select>
@@ -214,12 +206,10 @@ export default function Wspolpraca() {
                 </div>
                 <div>
                   <label style={label}>Opisz czego potrzebujesz *</label>
-                  <textarea name="opis" required rows={5} style={{ ...inputStyle, resize: 'vertical' as const, minHeight: 130 }} placeholder="Opisz projekt, czego oczekujesz od Edwarda, co chcesz osiągnąć..." onFocus={focusOn} onBlur={focusOff} />
+                  <textarea name="Opis potrzeby" required rows={5} style={{ ...inputStyle, resize: 'vertical' as const, minHeight: 130 }} placeholder="Opisz projekt, czego oczekujesz od Edwarda, co chcesz osiągnąć..." onFocus={focusOn} onBlur={focusOff} />
                 </div>
               </div>
             </div>
-
-            {error && <p style={{ fontSize: 14, color: '#ff8a8a' }}>{error}</p>}
 
             <div>
               <button
@@ -234,7 +224,7 @@ export default function Wspolpraca() {
                 {sending ? 'Wysyłanie...' : 'Wyślij zapytanie 💼'}
               </button>
               <p style={{ fontSize: 12, lineHeight: 1.5, color: 'rgba(255,255,255,0.35)', textAlign: 'center', marginTop: 14 }}>
-                Wysyłając zapytanie zgadzasz się na kontakt zwrotny i przetwarzanie podanych danych w celu jego obsługi.
+                Po wysłaniu potwierdź, że nie jesteś botem (jednorazowo). Wysyłając zapytanie zgadzasz się na kontakt zwrotny i przetwarzanie podanych danych w celu jego obsługi.
               </p>
             </div>
           </form>
