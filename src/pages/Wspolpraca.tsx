@@ -13,7 +13,6 @@ const TYPES = [
   { id: 'Fan', emoji: '⭐', desc: 'Spotkanie z fanem, meet & greet' },
 ]
 
-const BUDGETS = ['Do ustalenia', 'Do 5 000 zł', '5 000 – 15 000 zł', '15 000 – 50 000 zł', 'Powyżej 50 000 zł']
 
 const inputStyle = {
   width: '100%',
@@ -71,7 +70,6 @@ export default function Wspolpraca() {
         phone: g('Telefon'),
         email: g('email'),
         term: g('Termin / Data'),
-        budget: g('Budżet orientacyjny'),
         message: g('Opis potrzeby'),
       }),
     }).catch(() => { /* rejestr opcjonalny — mail jest podstawą */ })
@@ -93,7 +91,6 @@ export default function Wspolpraca() {
           'Telefon': g('Telefon') || '—',
           email: g('email'),
           'Termin / Data': g('Termin / Data') || '—',
-          'Budżet orientacyjny': g('Budżet orientacyjny') || '—',
           'Opis potrzeby': g('Opis potrzeby'),
         }),
       })
@@ -214,18 +211,9 @@ export default function Wspolpraca() {
             <div>
               <p style={sectionTitle}>3 · Szczegóły</p>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
-                  <div>
-                    <label style={label}>Termin / Data</label>
-                    <input name="Termin / Data" style={inputStyle} placeholder="np. 15 czerwca 2026 lub Q3" onFocus={focusOn} onBlur={focusOff} />
-                  </div>
-                  <div>
-                    <label style={label}>Budżet orientacyjny</label>
-                    <select name="Budżet orientacyjny" defaultValue="" style={{ ...inputStyle, appearance: 'none' as const, cursor: 'pointer' }} onFocus={focusOn} onBlur={focusOff}>
-                      <option value="" style={{ background: '#111' }}>Wybierz przedział</option>
-                      {BUDGETS.map((b) => <option key={b} value={b} style={{ background: '#111' }}>{b}</option>)}
-                    </select>
-                  </div>
+                <div>
+                  <label style={label}>Termin / Data</label>
+                  <input name="Termin / Data" style={inputStyle} placeholder="np. 15 czerwca 2026 lub Q3" onFocus={focusOn} onBlur={focusOff} />
                 </div>
                 <div>
                   <label style={label}>Opisz czego potrzebujesz *</label>
