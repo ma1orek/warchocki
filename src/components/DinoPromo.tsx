@@ -115,7 +115,7 @@ export default function DinoPromo() {
                 {chip(p.volume?.[locale] ?? '500 ml', 'rgba(255,255,255,0.75)')}
               </div>
               <Link to={localizedPath(`/produkty/${p.slug}`, locale)} style={{ display: 'inline-flex', alignItems: 'center', gap: 9, padding: '12px 24px', borderRadius: 40, background: '#fff', color: '#000', fontSize: 12.5, fontWeight: 800, letterSpacing: '0.07em', textTransform: 'uppercase' }}>
-                {t('productsCardCta')}
+                {isSzkola ? (pl ? 'Zobacz kolekcję' : 'See the collection') : t('productsCardCta')}
                 <span style={{ fontSize: 16, lineHeight: 1 }}>→</span>
               </Link>
             </div>
