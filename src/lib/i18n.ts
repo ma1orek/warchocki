@@ -65,7 +65,7 @@ export const translations = {
 
     productsTag: 'Moje produkty',
     productsTitle: 'PRODUKTY EDKA',
-    productsIntro: 'Trafiam do każdego - teraz dosłownie. Napoje bez dodatku cukru w sieciach DINO, Kaufland, Auchan, SPAR i POLOmarket w całej Polsce, musy owocowe 100% owoców w Dino i Biedronce. A od 17.08 NOWOŚĆ: kolekcja szkolna Back to School - plecaki, plecakoworki, zeszyty i teczki w Biedronkach w całej Polsce. No i elegancko.',
+    productsIntro: 'Trafiam do każdego - teraz dosłownie. Napoje bez dodatku cukru w sieciach DINO, Kaufland, Auchan, SPAR i POLOmarket w całej Polsce, musy owocowe 100% owoców w Dino i Biedronce, kolekcja szkolna Back to School w Biedronkach. A teraz NOWOŚĆ: koncentraty do napojów w 5 smakach - jedna butelka to aż 10 litrów napoju bez dodatku cukru, dostępne online w Media Expert. No i elegancko.',
     productsAvail: 'Dostępne w całej Polsce',
     productsNoSugar: 'Bez dodatku cukru',
     productsCardCta: 'Poznaj smak',
@@ -204,7 +204,7 @@ export const translations = {
 
     productsTag: 'My products',
     productsTitle: "EDEK'S PRODUCTS",
-    productsIntro: 'I reach everyone - now literally. No-added-sugar drinks at DINO, Kaufland, Auchan, SPAR and POLOmarket stores across Poland, 100% fruit pouches at Dino and Biedronka. And NEW from 17.08: the Back to School collection - backpacks, drawstring bags, notebooks and folders at Biedronka stores across Poland. Elegant.',
+    productsIntro: 'I reach everyone - now literally. No-added-sugar drinks at DINO, Kaufland, Auchan, SPAR and POLOmarket stores across Poland, 100% fruit pouches at Dino and Biedronka, the Back to School collection at Biedronka. And now NEW: drink concentrates in 5 flavours - one bottle makes up to 10 litres of no-added-sugar drink, available online at Media Expert. Elegant.',
     productsAvail: 'Available across Poland',
     productsNoSugar: 'No added sugar',
     productsCardCta: 'Meet the flavor',

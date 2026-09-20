@@ -109,12 +109,19 @@ function ProductCard({ product, index }: { product: Product; index: number }) {
             <span style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.05em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.7)', border: '1px solid rgba(255,255,255,0.18)', borderRadius: 20, padding: '5px 11px' }}>
               {product.volume?.[locale] ?? t('productsVolume')}
             </span>
+            {product.category === 'koncentrat' && (
+              <span style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.05em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.7)', border: '1px solid rgba(255,255,255,0.18)', borderRadius: 20, padding: '5px 11px' }}>
+                {locale === 'pl' ? 'Aż do 10 l napoju' : 'Up to 10 l of drink'}
+              </span>
+            )}
             {product.isNew && storeOf(product) !== 'all' && (
-              <span style={{ fontSize: 10, fontWeight: 800, letterSpacing: '0.05em', textTransform: 'uppercase', color: storeOf(product) === 'biedronka' ? '#7a0c0c' : '#0a2e0c', background: storeOf(product) === 'biedronka' ? '#ffe14d' : '#7dd17f', borderRadius: 20, padding: '5px 11px' }}>
+              <span style={{ fontSize: 10, fontWeight: 800, letterSpacing: '0.05em', textTransform: 'uppercase', color: storeOf(product) === 'biedronka' ? '#7a0c0c' : storeOf(product) === 'mediaexpert' ? '#fff' : '#0a2e0c', background: storeOf(product) === 'biedronka' ? '#ffe14d' : storeOf(product) === 'mediaexpert' ? '#0b2d8f' : '#7dd17f', borderRadius: 20, padding: '5px 11px' }}>
                 {storeOf(product) === 'biedronka'
                   ? (locale === 'pl' ? 'Tylko w Biedronce' : 'Only at Biedronka')
                   : storeOf(product) === 'dino-biedronka'
                   ? (locale === 'pl' ? 'Dino i Biedronka' : 'Dino & Biedronka')
+                  : storeOf(product) === 'mediaexpert'
+                  ? (locale === 'pl' ? 'Kup w Media Expert' : 'Buy at Media Expert')
                   : t('productsInDino')}
               </span>
             )}

@@ -20,10 +20,14 @@ export type Product = {
   // NOWOŚĆ - badge na karcie + dopisek o dostępności (musy: tylko Dino)
   isNew?: boolean
   // kategoria: 'lody' (Edwardzik/Biedronka, poziomy flowpack), 'szkola' (kolekcja Back to School,
-  // produkt informacyjny bez danych z etykiet) - brak = napój/mus (po volume)
-  category?: 'lody' | 'szkola'
+  // produkt informacyjny bez danych z etykiet), 'koncentrat' (koncentraty do napojów 500 ml, 5 smaków,
+  // sprzedaż online w Media Expert) - brak = napój/mus (po volume)
+  category?: 'lody' | 'szkola' | 'koncentrat'
   // gdzie kupić. Brak = wyliczane: lody→biedronka, musy→dino, napoje→wszystkie sieci.
-  store?: 'biedronka' | 'dino' | 'dino-biedronka' | 'all'
+  store?: 'biedronka' | 'dino' | 'dino-biedronka' | 'all' | 'mediaexpert'
+  // kod EAN (z etykiety) i link do zakupu online (Media Expert)
+  ean?: string
+  buyUrl?: string
   // bottle juice color (used in the animated liquid)
   liquid?: string
   liquidTop?: string
@@ -35,7 +39,150 @@ export type Product = {
   nutrition?: { pl: NutritionRow[]; en: NutritionRow[] }
 }
 
+// Sprzedaż online koncentratów: Media Expert. Bezpośrednie karty produktów - gdy znane; inaczej wyszukiwarka sklepu.
+const MEDIA_EXPERT_SEARCH = 'https://www.mediaexpert.pl/search?query%5Bquerystring%5D=edward%20warchocki%20koncentrat'
+const MEDIA_EXPERT_URLS: Record<string, string> = {}
+
 export const products: Product[] = [
+  // ── KONCENTRATY DO NAPOJÓW (NOWOŚĆ 2026-09) - butelka 500 ml z kubeczkiem-miarką, aż do 10 l napoju
+  // (40 porcji po 250 ml), bez dodatku cukru (sukraloza), 1 kcal/100 ml gotowego napoju, pasteryzowane,
+  // Fortuna Sp. z o.o. Sprzedaż online: Media Expert. Składy i wartości odżywcze 1:1 z etykiet
+  // (karta produktowa 04.09.2026). Wartości odżywcze = napój przygotowany zgodnie z instrukcją (1:20).
+  ...([
+    {
+      slug: 'koncentrat-cola',
+      flavor: { pl: 'COLA', en: 'COLA' },
+      name: { pl: 'Koncentrat do przygotowania napoju o smaku coli', en: 'Cola flavour drink concentrate' },
+      intro: {
+        pl: 'Klasyka, której nie trzeba przedstawiać: głęboki, karmelowy smak coli z nutą kofeiny. Odmierzasz kubeczkiem, dolewasz zimnej wody gazowanej, mieszasz - i masz pełnoprawną colę, tylko bez cukru i z Edwardem na etykiecie. Jedna butelka to aż 10 litrów napoju. Człowieku, to jest cola.',
+        en: 'A classic that needs no introduction: deep caramel cola taste with a hint of caffeine. Measure with the cup, add cold sparkling water, stir - and you have a proper cola, just without sugar and with Edward on the label. One bottle makes up to 10 litres of drink.',
+      },
+      accent: '#d07a2b', accent2: '#3b1f0e', glow: 'rgba(208, 122, 43, 0.45)',
+      packshot: '/koncentrat-cola.webp', mainPhoto: '/koncentrat-cola-main.webp',
+      liquid: '#3a1a08', liquidTop: '#8a4a1c',
+      ean: '5901886049754',
+      ingredients: {
+        pl: 'woda, regulatory kwasowości - kwas cytrynowy, kwas jabłkowy, kwas fosforowy, cytryniany sodu; barwnik - karmel amoniakalno-siarczynowy, aromat naturalny, aromat (w tym kofeina), substancja słodząca - sukraloza, stabilizator - karboksymetyloceluloza, substancje konserwujące - benzoesan sodu, sorbinian potasu.',
+        en: 'water, acidity regulators - citric acid, malic acid, phosphoric acid, sodium citrates; colour - sulphite ammonia caramel, natural flavouring, flavouring (containing caffeine), sweetener - sucralose, stabiliser - carboxymethyl cellulose, preservatives - sodium benzoate, potassium sorbate.',
+      },
+    },
+    {
+      slug: 'koncentrat-cytryna-limonka',
+      flavor: { pl: 'CYTRYNA - LIMONKA', en: 'LEMON - LIME' },
+      name: { pl: 'Koncentrat do przygotowania napoju o smaku cytrynowo-limonkowym', en: 'Lemon & lime flavour drink concentrate' },
+      intro: {
+        pl: 'Kwaśno-orzeźwiający duet cytryny i limonki z naturalnym aromatem. Najbardziej letni smak w kolekcji: idealny na upał, do bidonu na trening i jako baza domowej lemoniady z miętą i lodem. Bez dodatku cukru, aż do 10 litrów napoju z jednej butelki. No i elegancko.',
+        en: 'A sour, refreshing duo of lemon and lime with natural flavouring. The most summery taste in the range: perfect for hot days, for your gym bottle and as the base of homemade lemonade with mint and ice. No added sugar, up to 10 litres of drink from one bottle.',
+      },
+      accent: '#b8e34a', accent2: '#f5e04b', glow: 'rgba(184, 227, 74, 0.45)',
+      packshot: '/koncentrat-cytryna-limonka.webp', mainPhoto: '/koncentrat-cytryna-limonka-main.webp',
+      liquid: '#9fd12e', liquidTop: '#e6f27a',
+      ean: '5901886049815',
+      ingredients: {
+        pl: 'woda, regulatory kwasowości - kwas cytrynowy, kwas jabłkowy, cytryniany sodu; naturalny aromat limetki i cytryny z innymi naturalnymi aromatami (0,5 %), aromat, substancja słodząca - sukraloza, stabilizator - karboksymetyloceluloza, substancje konserwujące - benzoesan sodu, sorbinian potasu.',
+        en: 'water, acidity regulators - citric acid, malic acid, sodium citrates; natural lime and lemon flavouring with other natural flavourings (0.5 %), flavouring, sweetener - sucralose, stabiliser - carboxymethyl cellulose, preservatives - sodium benzoate, potassium sorbate.',
+      },
+    },
+    {
+      slug: 'koncentrat-pomarancza',
+      flavor: { pl: 'POMARAŃCZA', en: 'ORANGE' },
+      name: { pl: 'Koncentrat do przygotowania napoju o smaku pomarańczowym', en: 'Orange flavour drink concentrate' },
+      intro: {
+        pl: 'Soczysta, słoneczna pomarańcza z naturalnym aromatem i kolorem z karotenów. Z wodą gazowaną to oranżada z dzieciństwa, z niegazowaną - lekki napój pomarańczowy na cały dzień. Bez dodatku cukru, 40 porcji z jednej butelki. Człowieku, oranżada bez cukru istnieje.',
+        en: 'Juicy, sunny orange with natural flavouring and colour from carotenes. With sparkling water it is the orangeade of your childhood, with still water - a light orange drink for the whole day. No added sugar, 40 servings from one bottle.',
+      },
+      accent: '#ff8a1f', accent2: '#ffc23c', glow: 'rgba(255, 138, 31, 0.45)',
+      packshot: '/koncentrat-pomarancza.webp', mainPhoto: '/koncentrat-pomarancza-main.webp',
+      liquid: '#f07a00', liquidTop: '#ffb94d',
+      ean: '5901886049778',
+      ingredients: {
+        pl: 'woda, regulatory kwasowości - kwas cytrynowy, kwas jabłkowy, cytryniany sodu; barwniki: karoteny, beta-apo-8’-karotenal, naturalny aromat pomarańczowy z innymi naturalnymi aromatami (0,5 %), aromat, stabilizatory: guma arabska, estry glicerolu i żywicy roślinnej, substancja słodząca - sukraloza, stabilizator - karboksymetyloceluloza, substancje konserwujące - benzoesan sodu, sorbinian potasu.',
+        en: 'water, acidity regulators - citric acid, malic acid, sodium citrates; colours: carotenes, beta-apo-8’-carotenal, natural orange flavouring with other natural flavourings (0.5 %), flavouring, stabilisers: gum arabic, glycerol esters of wood rosin, sweetener - sucralose, stabiliser - carboxymethyl cellulose, preservatives - sodium benzoate, potassium sorbate.',
+      },
+    },
+    {
+      slug: 'koncentrat-truskawka-jagoda',
+      flavor: { pl: 'TRUSKAWKA - JAGODA', en: 'STRAWBERRY - BLUEBERRY' },
+      name: { pl: 'Koncentrat do przygotowania napoju o smaku truskawka-jagoda z dodatkiem witaminy C', en: 'Strawberry & blueberry flavour drink concentrate with added vitamin C' },
+      intro: {
+        pl: 'Słodka truskawka spotyka leśną jagodę. Każda szklanka dostarcza 15 mg witaminy C, czyli 18,75 % dziennego referencyjnego spożycia, a głęboki kolor pochodzi z koncentratu czarnej marchwi, nie z syntetycznego barwnika. Bez dodatku cukru, do bidonu do szkoły i na przyjęcie. Z kim się zadaję, tym się staję.',
+        en: 'Sweet strawberry meets forest blueberry. Every glass delivers 15 mg of vitamin C, i.e. 18.75 % of the daily reference intake, and the deep colour comes from black carrot concentrate, not a synthetic dye. No added sugar - for the school bottle and for parties.',
+      },
+      accent: '#ff3b6b', accent2: '#5b3bd6', glow: 'rgba(255, 59, 107, 0.45)',
+      packshot: '/koncentrat-truskawka-jagoda.webp', mainPhoto: '/koncentrat-truskawka-jagoda-main.webp',
+      liquid: '#d0143a', liquidTop: '#ff6b8c',
+      ean: '5901886049853',
+      vitamin: { pl: 'Witamina C', en: 'Vitamin C' },
+      ingredients: {
+        pl: 'woda, regulatory kwasowości - kwas cytrynowy, kwas jabłkowy, cytryniany sodu; aromat, substancja słodząca - sukraloza, witamina C, koncentrat czarnej marchwi, sok truskawkowy z zagęszczonego soku truskawkowego (0,05 %), sok jagodowy z zagęszczonego soku jagodowego (0,05 %), stabilizator - karboksymetyloceluloza, substancje konserwujące - benzoesan sodu, sorbinian potasu.',
+        en: 'water, acidity regulators - citric acid, malic acid, sodium citrates; flavouring, sweetener - sucralose, vitamin C, black carrot concentrate, strawberry juice from strawberry juice concentrate (0.05 %), blueberry juice from blueberry juice concentrate (0.05 %), stabiliser - carboxymethyl cellulose, preservatives - sodium benzoate, potassium sorbate.',
+      },
+      extraRows: { pl: [{ label: 'Witamina C', value: '6 mg / 7,5 %*' }], en: [{ label: 'Vitamin C', value: '6 mg / 7.5 %*' }] },
+      sugarsRow: { pl: '0 g', en: '0 g' },
+    },
+    {
+      slug: 'koncentrat-jablko-gruszka',
+      flavor: { pl: 'JABŁKO - GRUSZKA', en: 'APPLE - PEAR' },
+      name: { pl: 'Koncentrat do przygotowania napoju o smaku jabłko-gruszka z dodatkiem witaminy D', en: 'Apple & pear flavour drink concentrate with added vitamin D' },
+      intro: {
+        pl: 'Złocisty jak jesienne słońce: soczyste jabłko i aksamitna gruszka z naturalnym aromatem. Do tego witamina D - 0,94 µg w szklance, czyli 18,75 % dziennego referencyjnego spożycia. Najbardziej rodzinny smak z piątki: kompot na szybko dla wszystkich, do wody niegazowanej, na jesień i zimę. No i elegancko.',
+        en: 'Golden like autumn sun: juicy apple and velvety pear with natural flavouring. Plus vitamin D - 0.94 µg per glass, i.e. 18.75 % of the daily reference intake. The most family-friendly taste of the five: a quick compote for everyone, best with still water, for autumn and winter.',
+      },
+      accent: '#f5b73a', accent2: '#9ccc3c', glow: 'rgba(245, 183, 58, 0.45)',
+      packshot: '/koncentrat-jablko-gruszka.webp', mainPhoto: '/koncentrat-jablko-gruszka-main.webp',
+      liquid: '#e6a200', liquidTop: '#ffd45c',
+      ean: '5901886049839',
+      vitamin: { pl: 'Witamina D', en: 'Vitamin D' },
+      ingredients: {
+        pl: 'woda, regulatory kwasowości - kwas cytrynowy, kwas jabłkowy, cytryniany sodu; aromat naturalny, substancja słodząca - sukraloza, barwnik - karmel, witamina D, sok jabłkowy z zagęszczonego soku jabłkowego (0,05 %), sok gruszkowy z zagęszczonego soku gruszkowego (0,05 %), stabilizator - karboksymetyloceluloza, substancje konserwujące - benzoesan sodu, sorbinian potasu.',
+        en: 'water, acidity regulators - citric acid, malic acid, sodium citrates; natural flavouring, sweetener - sucralose, colour - caramel, vitamin D, apple juice from apple juice concentrate (0.05 %), pear juice from pear juice concentrate (0.05 %), stabiliser - carboxymethyl cellulose, preservatives - sodium benzoate, potassium sorbate.',
+      },
+      extraRows: { pl: [{ label: 'Witamina D', value: '0,375 µg / 7,5 %*' }], en: [{ label: 'Vitamin D', value: '0.375 µg / 7.5 %*' }] },
+    },
+  ] as const).map((k): Product => ({
+    slug: k.slug,
+    category: 'koncentrat',
+    store: 'mediaexpert',
+    flavor: k.flavor,
+    name: k.name,
+    intro: k.intro,
+    accent: k.accent, accent2: k.accent2, glow: k.glow,
+    packshot: k.packshot, mainPhoto: k.mainPhoto,
+    liquid: k.liquid, liquidTop: k.liquidTop,
+    volume: { pl: '500 ml · 40 porcji', en: '500 ml · 40 servings' },
+    isNew: true,
+    ean: k.ean,
+    buyUrl: MEDIA_EXPERT_URLS[k.slug] ?? MEDIA_EXPERT_SEARCH,
+    ...('vitamin' in k ? { vitamin: k.vitamin } : {}),
+    ingredients: k.ingredients,
+    storage: {
+      pl: 'Przechowuj w suchym, chłodnym i zacienionym miejscu. Przed otwarciem wstrząśnij. Po otwarciu przechowuj w temperaturze pokojowej. Spożywać rozcieńczony - bezpośrednio po przyrządzeniu.',
+      en: 'Store in a dry, cool and shaded place. Shake before opening. After opening, store at room temperature. Consume diluted - directly after preparation.',
+    },
+    energy: '4 kJ / 1 kcal',
+    nutrition: {
+      pl: [
+        { label: 'Wartość energetyczna', value: '4 kJ / 1 kcal' },
+        { label: 'Tłuszcz', value: '0 g' },
+        { label: 'w tym kwasy tłuszczowe nasycone', sub: true, value: '0 g' },
+        { label: 'Węglowodany', value: '0 g' },
+        { label: 'w tym cukry', sub: true, value: '0 g' },
+        { label: 'Białko', value: '0 g' },
+        { label: 'Sól', value: '0 g' },
+        ...('extraRows' in k ? k.extraRows.pl : []),
+      ],
+      en: [
+        { label: 'Energy', value: '4 kJ / 1 kcal' },
+        { label: 'Fat', value: '0 g' },
+        { label: 'of which saturates', sub: true, value: '0 g' },
+        { label: 'Carbohydrate', value: '0 g' },
+        { label: 'of which sugars', sub: true, value: '0 g' },
+        { label: 'Protein', value: '0 g' },
+        { label: 'Salt', value: '0 g' },
+        ...('extraRows' in k ? k.extraRows.en : []),
+      ],
+    },
+  })),
   // ── KOLEKCJA SZKOLNA (NOWOŚĆ 2026-08) - Back to School w Biedronce od 17.08.2026:
   // plecaki, plecakoworki, zeszyty i teczki z Edwardem. Produkt informacyjny - bez danych z etykiet.
   {
@@ -451,5 +598,5 @@ export const products: Product[] = [
 export const getProduct = (slug: string) => products.find((p) => p.slug === slug)
 
 // Gdzie kupić dany produkt (jawne pole `store` wygrywa; inaczej wg kategorii).
-export const storeOf = (p: Product): 'biedronka' | 'dino' | 'dino-biedronka' | 'all' =>
-  p.store ?? (p.category === 'lody' ? 'biedronka' : p.volume?.pl.includes('g') ? 'dino' : 'all')
+export const storeOf = (p: Product): 'biedronka' | 'dino' | 'dino-biedronka' | 'all' | 'mediaexpert' =>
+  p.store ?? (p.category === 'lody' ? 'biedronka' : p.category === 'koncentrat' ? 'mediaexpert' : p.volume?.pl.includes('g') ? 'dino' : 'all')

@@ -5,6 +5,7 @@ import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import StoreLogos from '../components/StoreLogos'
 import DinoLogo from '../components/DinoLogo'
+import MediaExpertLogo from '../components/MediaExpertLogo'
 import LazyVideo from '../components/LazyVideo'
 import NapojeSocial from '../components/NapojeSocial'
 import Opinie from '../components/Opinie'
@@ -33,9 +34,13 @@ export default function ProduktPage() {
   // Kategorie: lody (Edwardzik/Biedronka) vs szkoła (kolekcja Back to School) vs mus (saszetka, gramy) vs napój (butelka, ml).
   const isLody = product.category === 'lody'
   const isSzkola = product.category === 'szkola'
-  const isMus = !isLody && !isSzkola && !!product.volume?.pl.includes('g')
-  // gdzie kupić (lody + multiwitamina + kolekcja szkolna = tylko Biedronka)
+  // koncentraty do napojów (500 ml → 10 l): sprzedaż online w Media Expert, wartości odżywcze per 100 ml NAPOJU
+  const isKoncentrat = product.category === 'koncentrat'
+  const isMus = !isLody && !isSzkola && !isKoncentrat && !!product.volume?.pl.includes('g')
+  // gdzie kupić (lody + multiwitamina + kolekcja szkolna = tylko Biedronka; koncentraty = Media Expert online)
   const isBiedronka = storeOf(product) === 'biedronka'
+  const isMediaExpert = storeOf(product) === 'mediaexpert'
+  const buyUrl = product.buyUrl ?? 'https://www.mediaexpert.pl/'
   const catOf = (p: typeof product) => (p.category ?? (p.volume?.pl.includes('g') ? 'mus' : 'napoj'))
   // kolekcja szkolna jest jedna - `other` bywa undefined, sekcja "inny smak" wtedy znika
   const other = products.find((p) => p.slug !== product.slug && catOf(p) === catOf(product))
@@ -52,6 +57,12 @@ export default function ProduktPage() {
         locale === 'pl' ? 'Plecaki, plecakoworki, zeszyty i teczki' : 'Backpacks, drawstring bags, notebooks & folders',
         locale === 'pl' ? 'Akcja Back to School od 17.08.2026' : 'Back to School campaign from 17.08.2026',
         locale === 'pl' ? 'Od października: tour po polskich szkołach' : 'From October: a tour of Polish schools',
+      ]
+    : isKoncentrat
+    ? [
+        locale === 'pl' ? 'Aż do 10 litrów napoju z jednej butelki' : 'Up to 10 litres of drink from one bottle',
+        locale === 'pl' ? '40 porcji · kubeczek-miarka w zestawie' : '40 servings · measuring cup included',
+        locale === 'pl' ? 'Bez dodatku cukru · 1 kcal w 100 ml napoju' : 'No added sugar · 1 kcal per 100 ml of drink',
       ]
     : isMus
     ? [t('prodFactPasteurised'), locale === 'pl' ? '100% owoców' : '100% fruit', t('prodFactNatural')]
@@ -103,8 +114,21 @@ export default function ProduktPage() {
                 </span>
               </motion.div>
 
-              {/* dostępność: lody + multiwitamina = TYLKO Biedronka, napoje = DINO/Kaufland/Auchan/SPAR, musy = Dino i Biedronka */}
-              {isBiedronka ? (
+              {/* dostępność: lody + multiwitamina = TYLKO Biedronka, napoje = DINO/Kaufland/Auchan/SPAR, musy = Dino i Biedronka, koncentraty = Media Expert (online) */}
+              {isMediaExpert ? (
+                <motion.div {...fadeUp(0.42)} style={{ display: 'flex', flexDirection: 'column', alignItems: m ? 'center' : 'flex-start', gap: 12 }}>
+                  <div style={{ display: 'inline-flex', flexWrap: 'wrap', alignItems: 'center', gap: 12, padding: '10px 14px', borderRadius: 44, border: '1px solid rgba(255,255,255,0.12)', background: 'rgba(255,255,255,0.03)' }}>
+                    <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)' }}>
+                      {locale === 'pl' ? 'Dostępny online w' : 'Available online at'}
+                    </span>
+                    <MediaExpertLogo height={16} />
+                  </div>
+                  <a href={buyUrl} target="_blank" rel="noopener noreferrer"
+                    style={{ display: 'inline-flex', alignItems: 'center', gap: 10, padding: '14px 24px', borderRadius: 40, background: product.accent, color: '#101010', fontSize: 13, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', textDecoration: 'none', boxShadow: `0 14px 34px ${product.glow}` }}>
+                    {locale === 'pl' ? 'Kup w Media Expert' : 'Buy at Media Expert'} <span aria-hidden>→</span>
+                  </a>
+                </motion.div>
+              ) : isBiedronka ? (
                 <motion.div {...fadeUp(0.42)} style={{ display: 'flex', flexDirection: 'column', alignItems: m ? 'center' : 'flex-start', gap: 8 }}>
                   <img src="/biedronka-badge.png" alt={locale === 'pl' ? 'Dostępne tylko w Biedronce' : 'Available only at Biedronka'} loading="lazy" decoding="async" style={{ height: m ? 74 : 96, width: 'auto', filter: 'drop-shadow(0 10px 24px rgba(0,0,0,0.5))' }} />
                   <span style={{ fontSize: 11, fontWeight: 800, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)' }}>
@@ -221,7 +245,7 @@ export default function ProduktPage() {
               <div style={{ borderRadius: 16, overflow: 'hidden', border: '1px solid rgba(255,255,255,0.1)', background: 'rgba(255,255,255,0.02)' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', padding: '18px 20px', background: product.accent, color: '#101010' }}>
                   <span style={{ fontSize: 15, fontWeight: 800, letterSpacing: '-0.01em' }}>{t('prodNutritionTitle')}</span>
-                  <span style={{ fontSize: 12, fontWeight: 700 }}>{product.volume?.pl.includes('g') ? (locale === 'pl' ? 'w 100 g produktu' : 'per 100 g') : t('prodNutritionSub')}</span>
+                  <span style={{ fontSize: 12, fontWeight: 700 }}>{isKoncentrat ? (locale === 'pl' ? 'w 100 ml gotowego napoju' : 'per 100 ml of prepared drink') : product.volume?.pl.includes('g') ? (locale === 'pl' ? 'w 100 g produktu' : 'per 100 g') : t('prodNutritionSub')}</span>
                 </div>
                 <div>
                   {nutrition.map((row, i) => (
@@ -253,7 +277,7 @@ export default function ProduktPage() {
               <div style={{ display: 'grid', gridTemplateColumns: m ? '1fr' : '1fr 1fr', gap: 24 }}>
                 <div>
                   <h3 style={{ fontSize: 13, fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', color: product.accent, marginBottom: 12 }}>{t('prodBestBeforeTitle')}</h3>
-                  <p style={{ fontSize: 14, lineHeight: 1.7, color: 'rgba(255,255,255,0.55)' }}>{isLody ? (locale === 'pl' ? 'Data i numer partii: nadruk z tyłu opakowania.' : 'Date and batch number: printed on the back of the package.') : isMus ? (locale === 'pl' ? 'Data i numer partii w środkowej części opakowania.' : 'Date and batch number in the middle part of the pouch.') : t('prodBestBefore')}</p>
+                  <p style={{ fontSize: 14, lineHeight: 1.7, color: 'rgba(255,255,255,0.55)' }}>{isLody ? (locale === 'pl' ? 'Data i numer partii: nadruk z tyłu opakowania.' : 'Date and batch number: printed on the back of the package.') : isMus ? (locale === 'pl' ? 'Data i numer partii w środkowej części opakowania.' : 'Date and batch number in the middle part of the pouch.') : isKoncentrat ? (locale === 'pl' ? 'Data i numer partii na kubeczku-miarce.' : 'Date and batch number on the measuring cup.') : t('prodBestBefore')}</p>
                 </div>
                 <div>
                   <h3 style={{ fontSize: 13, fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', color: product.accent, marginBottom: 12 }}>{t('prodStorageTitle')}</h3>
@@ -261,14 +285,33 @@ export default function ProduktPage() {
                 </div>
               </div>
 
+              {/* KONCENTRAT: jak przygotować (1 szklanka 250 ml) + dozowanie + EAN */}
+              {isKoncentrat && (
+                <div style={{ borderRadius: 16, border: `1px solid ${product.accent}44`, background: `radial-gradient(120% 140% at 100% 0%, ${product.glow}, rgba(255,255,255,0.02) 55%)`, padding: m ? 20 : 26 }}>
+                  <h3 style={{ fontSize: 13, fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', color: product.accent, marginBottom: 14 }}>{locale === 'pl' ? 'Jak przygotować (1 szklanka 250 ml)' : 'How to prepare (1 glass, 250 ml)'}</h3>
+                  <ol style={{ margin: 0, paddingLeft: 22, display: 'grid', gap: 8, fontSize: 14, lineHeight: 1.6, color: 'rgba(255,255,255,0.75)' }}>
+                    {(locale === 'pl'
+                      ? ['Napełnij koncentratem załączony kubeczek do linii 0,25 l.', 'Przelej do szklanki o pojemności 250 ml.', 'Uzupełnij zimną wodą - gazowaną lub niegazowaną.', 'Delikatnie wymieszaj. Gotowe - spożyj bezpośrednio po przyrządzeniu.']
+                      : ['Fill the included cup with concentrate up to the 0.25 l line.', 'Pour into a 250 ml glass.', 'Top up with cold water - sparkling or still.', 'Stir gently. Done - drink straight after preparation.']
+                    ).map((s) => <li key={s}>{s}</li>)}
+                  </ol>
+                  <p style={{ fontSize: 13, lineHeight: 1.7, color: 'rgba(255,255,255,0.5)', marginTop: 14 }}>
+                    {locale === 'pl'
+                      ? 'Dozowanie 1:20 - 12,5 ml koncentratu na 250 ml wody. Kubeczek ma linie 0,25 / 0,5 / 0,75 l, więc dzbanek lub bidon robisz bez przeliczania. Więcej koncentratu = intensywniej, mniej = lżej.'
+                      : 'Dosage 1:20 - 12.5 ml of concentrate per 250 ml of water. The cup has 0.25 / 0.5 / 0.75 l lines, so jugs and bottles need no maths. More concentrate = stronger, less = lighter.'}
+                    {product.ean && <><br />EAN {product.ean}</>}
+                  </p>
+                </div>
+              )}
+
               {/* producer / deposit strip */}
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: m ? 16 : 32, paddingTop: 24, borderTop: '1px solid rgba(255,255,255,0.08)' }}>
                 <div style={{ flex: '1 1 220px' }}>
                   <p style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)', marginBottom: 6 }}>{t('prodProducer')}</p>
                   <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.6)', lineHeight: 1.6 }}>{isLody ? 'NORDIS Chłodnie Polskie Sp. z o.o., ul. Zimna 1a, 65-707 Zielona Góra' : t('prodProducerVal')}</p>
                 </div>
-                {/* kaucja dotyczy tylko butelek - musy/lody bez kaucji */}
-                {!isMus && !isLody && (
+                {/* kaucja dotyczy tylko butelek napojów - musy/lody/koncentraty (syrop, nie napój) bez kaucji */}
+                {!isMus && !isLody && !isKoncentrat && (
                   <div>
                     <p style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)', marginBottom: 6 }}>{t('prodDeposit')}</p>
                     <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.6)' }}>{t('prodDepositVal')}</p>
@@ -291,8 +334,10 @@ export default function ProduktPage() {
         <div style={{ maxWidth: 1400, margin: '0 auto', padding: '0 clamp(20px, 4vw, 48px)' }}>
           <div style={{ display: 'grid', gridTemplateColumns: m ? '1fr' : other ? '1fr 1fr' : '1fr', gap: 24, alignItems: 'stretch' }}>
             {/* DINO block */}
-            <motion.div {...fadeUp(0)} style={{ borderRadius: 22, padding: m ? 28 : 40, background: isBiedronka ? 'linear-gradient(135deg, rgba(255,210,60,0.16), rgba(255,255,255,0.03))' : 'linear-gradient(135deg, rgba(52,169,58,0.18), rgba(255,255,255,0.03))', border: isBiedronka ? '1px solid rgba(255,210,60,0.35)' : '1px solid rgba(95,192,101,0.3)', display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: 18 }}>
-              {isBiedronka
+            <motion.div {...fadeUp(0)} style={{ borderRadius: 22, padding: m ? 28 : 40, background: isMediaExpert ? 'linear-gradient(135deg, rgba(11,45,143,0.28), rgba(255,255,255,0.03))' : isBiedronka ? 'linear-gradient(135deg, rgba(255,210,60,0.16), rgba(255,255,255,0.03))' : 'linear-gradient(135deg, rgba(52,169,58,0.18), rgba(255,255,255,0.03))', border: isMediaExpert ? '1px solid rgba(76,116,230,0.45)' : isBiedronka ? '1px solid rgba(255,210,60,0.35)' : '1px solid rgba(95,192,101,0.3)', display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: 18 }}>
+              {isMediaExpert
+                ? <span style={{ alignSelf: 'flex-start' }}><MediaExpertLogo height={26} /></span>
+                : isBiedronka
                 ? <img src="/biedronka-badge.png" alt="Biedronka" loading="lazy" decoding="async" style={{ height: 78, width: 'auto', alignSelf: 'flex-start' }} />
                 : isMus
                 ? (
@@ -302,9 +347,11 @@ export default function ProduktPage() {
                   </span>
                 )
                 : <StoreLogos height={20} />}
-              <h3 style={{ fontSize: m ? 24 : 30, fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.15 }}>{isBiedronka ? (isLody ? (locale === 'pl' ? 'Szukaj w zamrażarkach Biedronki' : 'Find it in Biedronka freezers') : (locale === 'pl' ? 'Szukaj tylko w Biedronce' : 'Find it only at Biedronka')) : t('prodCtaTitle')}</h3>
+              <h3 style={{ fontSize: m ? 24 : 30, fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.15 }}>{isMediaExpert ? (locale === 'pl' ? 'Zamów online w Media Expert' : 'Order online at Media Expert') : isBiedronka ? (isLody ? (locale === 'pl' ? 'Szukaj w zamrażarkach Biedronki' : 'Find it in Biedronka freezers') : (locale === 'pl' ? 'Szukaj tylko w Biedronce' : 'Find it only at Biedronka')) : t('prodCtaTitle')}</h3>
               <p style={{ fontSize: 15, lineHeight: 1.7, color: 'rgba(255,255,255,0.55)' }}>
-                {isSzkola
+                {isMediaExpert
+                  ? (locale === 'pl' ? 'Koncentraty EDWARD WARCHOCKI kupisz online w Media Expert - z dostawą do domu albo odbiorem w sklepie. Pięć smaków, każda butelka to aż 10 litrów napoju bez dodatku cukru. Człowieku, jedna butelka zamiast dwudziestu.' : 'EDWARD WARCHOCKI concentrates are available online at Media Expert - home delivery or in-store pickup. Five flavours, each bottle makes up to 10 litres of no-added-sugar drink. One bottle instead of twenty.')
+                  : isSzkola
                   ? (locale === 'pl' ? 'Plecaki, plecakoworki, zeszyty i teczki z Edwardem czekają w sklepach Biedronka w całej Polsce w ramach akcji Back to School. Człowieku, bierz póki są - do szkolnej ławki tylko z Edkiem.' : 'Backpacks, drawstring bags, notebooks and folders with Edward are waiting at Biedronka stores across Poland as part of the Back to School campaign. Grab them while they last.')
                   : isLody
                   ? (locale === 'pl' ? 'Lody EDWARDZIK czekają w zamrażarkach sklepów Biedronka w całej Polsce. Człowieku, spróbuj obu smaków - zanim się rozejdą.' : 'EDWARDZIK ice creams are waiting in Biedronka freezers across Poland. Try both flavours - before they are gone.')
@@ -314,6 +361,12 @@ export default function ProduktPage() {
                   ? (locale === 'pl' ? 'Musy owocowe czekają na półkach sklepów Dino i Biedronka w całej Polsce. Sprawdź oba smaki.' : 'The fruit pouches are waiting on the shelves of Dino and Biedronka stores across Poland. Try both flavors.')
                   : t('prodCtaDesc')}
               </p>
+              {isMediaExpert && (
+                <a href={buyUrl} target="_blank" rel="noopener noreferrer"
+                  style={{ alignSelf: 'flex-start', display: 'inline-flex', alignItems: 'center', gap: 10, padding: '14px 26px', borderRadius: 40, background: '#fff', color: '#0b2d8f', fontSize: 13, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', textDecoration: 'none' }}>
+                  {locale === 'pl' ? 'Przejdź do Media Expert' : 'Go to Media Expert'} <span aria-hidden>→</span>
+                </a>
+              )}
             </motion.div>
 
             {/* Other flavor (kolekcja szkolna jest jedna - blok znika) */}
