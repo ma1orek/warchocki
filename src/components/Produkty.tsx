@@ -121,7 +121,7 @@ function ProductCard({ product, index }: { product: Product; index: number }) {
                   : storeOf(product) === 'dino-biedronka'
                   ? (locale === 'pl' ? 'Dino i Biedronka' : 'Dino & Biedronka')
                   : storeOf(product) === 'mediaexpert'
-                  ? (locale === 'pl' ? 'Kup w Media Expert' : 'Buy at Media Expert')
+                  ? (locale === 'pl' ? 'Dostępny w Media Expert' : 'Available at Media Expert')
                   : t('productsInDino')}
               </span>
             )}

@@ -43,7 +43,7 @@ export default function DinoPromo() {
     : st === 'dino'
     ? 'Dino'
     : st === 'mediaexpert'
-    ? (pl ? 'Online w Media Expert' : 'Online at Media Expert')
+    ? 'Media Expert'
     : 'Dino · Kaufland · Auchan · SPAR · POLOmarket'
 
   const chip = (label: string, color: string, solid = false) => (

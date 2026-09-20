@@ -40,7 +40,6 @@ export default function ProduktPage() {
   // gdzie kupić (lody + multiwitamina + kolekcja szkolna = tylko Biedronka; koncentraty = Media Expert online)
   const isBiedronka = storeOf(product) === 'biedronka'
   const isMediaExpert = storeOf(product) === 'mediaexpert'
-  const buyUrl = product.buyUrl ?? 'https://www.mediaexpert.pl/'
   const catOf = (p: typeof product) => (p.category ?? (p.volume?.pl.includes('g') ? 'mus' : 'napoj'))
   // kolekcja szkolna jest jedna - `other` bywa undefined, sekcja "inny smak" wtedy znika
   const other = products.find((p) => p.slug !== product.slug && catOf(p) === catOf(product))
@@ -116,17 +115,11 @@ export default function ProduktPage() {
 
               {/* dostępność: lody + multiwitamina = TYLKO Biedronka, napoje = DINO/Kaufland/Auchan/SPAR, musy = Dino i Biedronka, koncentraty = Media Expert (online) */}
               {isMediaExpert ? (
-                <motion.div {...fadeUp(0.42)} style={{ display: 'flex', flexDirection: 'column', alignItems: m ? 'center' : 'flex-start', gap: 12 }}>
-                  <div style={{ display: 'inline-flex', flexWrap: 'wrap', alignItems: 'center', gap: 12, padding: '10px 14px', borderRadius: 44, border: '1px solid rgba(255,255,255,0.12)', background: 'rgba(255,255,255,0.03)' }}>
-                    <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)' }}>
-                      {locale === 'pl' ? 'Dostępny online w' : 'Available online at'}
-                    </span>
-                    <MediaExpertLogo height={16} />
-                  </div>
-                  <a href={buyUrl} target="_blank" rel="noopener noreferrer"
-                    style={{ display: 'inline-flex', alignItems: 'center', gap: 10, padding: '14px 24px', borderRadius: 40, background: product.accent, color: '#101010', fontSize: 13, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', textDecoration: 'none', boxShadow: `0 14px 34px ${product.glow}` }}>
-                    {locale === 'pl' ? 'Kup w Media Expert' : 'Buy at Media Expert'} <span aria-hidden>→</span>
-                  </a>
+                <motion.div {...fadeUp(0.42)} style={{ display: 'inline-flex', flexWrap: 'wrap', alignItems: 'center', gap: 12, padding: '10px 14px', borderRadius: 44, border: '1px solid rgba(255,255,255,0.12)', background: 'rgba(255,255,255,0.03)' }}>
+                  <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)' }}>
+                    {locale === 'pl' ? 'Dostępny w' : 'Available at'}
+                  </span>
+                  <MediaExpertLogo height={18} />
                 </motion.div>
               ) : isBiedronka ? (
                 <motion.div {...fadeUp(0.42)} style={{ display: 'flex', flexDirection: 'column', alignItems: m ? 'center' : 'flex-start', gap: 8 }}>
@@ -347,10 +340,10 @@ export default function ProduktPage() {
                   </span>
                 )
                 : <StoreLogos height={20} />}
-              <h3 style={{ fontSize: m ? 24 : 30, fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.15 }}>{isMediaExpert ? (locale === 'pl' ? 'Zamów online w Media Expert' : 'Order online at Media Expert') : isBiedronka ? (isLody ? (locale === 'pl' ? 'Szukaj w zamrażarkach Biedronki' : 'Find it in Biedronka freezers') : (locale === 'pl' ? 'Szukaj tylko w Biedronce' : 'Find it only at Biedronka')) : t('prodCtaTitle')}</h3>
+              <h3 style={{ fontSize: m ? 24 : 30, fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.15 }}>{isMediaExpert ? (locale === 'pl' ? 'Dostępny w Media Expert' : 'Available at Media Expert') : isBiedronka ? (isLody ? (locale === 'pl' ? 'Szukaj w zamrażarkach Biedronki' : 'Find it in Biedronka freezers') : (locale === 'pl' ? 'Szukaj tylko w Biedronce' : 'Find it only at Biedronka')) : t('prodCtaTitle')}</h3>
               <p style={{ fontSize: 15, lineHeight: 1.7, color: 'rgba(255,255,255,0.55)' }}>
                 {isMediaExpert
-                  ? (locale === 'pl' ? 'Koncentraty EDWARD WARCHOCKI kupisz online w Media Expert - z dostawą do domu albo odbiorem w sklepie. Pięć smaków, każda butelka to aż 10 litrów napoju bez dodatku cukru. Człowieku, jedna butelka zamiast dwudziestu.' : 'EDWARD WARCHOCKI concentrates are available online at Media Expert - home delivery or in-store pickup. Five flavours, each bottle makes up to 10 litres of no-added-sugar drink. One bottle instead of twenty.')
+                  ? (locale === 'pl' ? 'Koncentraty EDWARD WARCHOCKI znajdziesz w Media Expert. Pięć smaków, każda butelka to aż 10 litrów napoju bez dodatku cukru. Człowieku, jedna butelka zamiast dwudziestu.' : 'EDWARD WARCHOCKI concentrates are available at Media Expert. Five flavours, each bottle makes up to 10 litres of no-added-sugar drink. One bottle instead of twenty.')
                   : isSzkola
                   ? (locale === 'pl' ? 'Plecaki, plecakoworki, zeszyty i teczki z Edwardem czekają w sklepach Biedronka w całej Polsce w ramach akcji Back to School. Człowieku, bierz póki są - do szkolnej ławki tylko z Edkiem.' : 'Backpacks, drawstring bags, notebooks and folders with Edward are waiting at Biedronka stores across Poland as part of the Back to School campaign. Grab them while they last.')
                   : isLody
@@ -361,12 +354,6 @@ export default function ProduktPage() {
                   ? (locale === 'pl' ? 'Musy owocowe czekają na półkach sklepów Dino i Biedronka w całej Polsce. Sprawdź oba smaki.' : 'The fruit pouches are waiting on the shelves of Dino and Biedronka stores across Poland. Try both flavors.')
                   : t('prodCtaDesc')}
               </p>
-              {isMediaExpert && (
-                <a href={buyUrl} target="_blank" rel="noopener noreferrer"
-                  style={{ alignSelf: 'flex-start', display: 'inline-flex', alignItems: 'center', gap: 10, padding: '14px 26px', borderRadius: 40, background: '#fff', color: '#0b2d8f', fontSize: 13, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', textDecoration: 'none' }}>
-                  {locale === 'pl' ? 'Przejdź do Media Expert' : 'Go to Media Expert'} <span aria-hidden>→</span>
-                </a>
-              )}
             </motion.div>
 
             {/* Other flavor (kolekcja szkolna jest jedna - blok znika) */}
