@@ -7,6 +7,7 @@ import Opinie from '../components/Opinie'
 import VideoCarousel from '../components/VideoCarousel'
 import TikTokGallery from '../components/TikTokGallery'
 import Articles from '../components/Articles'
+import EventsSection from '../components/EventsSection'
 import Services from '../components/Services'
 import Footer from '../components/Footer'
 
@@ -22,6 +23,7 @@ export default function Home() {
       <VideoCarousel />
       <TikTokGallery />
       <Articles />
+      <EventsSection />
       <Services />
       <Footer />
     </div>
