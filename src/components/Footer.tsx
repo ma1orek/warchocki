@@ -5,7 +5,7 @@ import { useT, localizedPath } from '../lib/i18n'
 
 export default function Footer() {
   const m = useIsMobile()
-  const { t, locale } = useT()
+  const { locale } = useT()
 
   return (
     <footer style={{ position: 'relative', padding: m ? '40px 0' : '64px 0', borderTop: '1px solid rgba(255,255,255,0.08)' }}>
@@ -25,12 +25,6 @@ export default function Footer() {
               onMouseLeave={(e) => (e.currentTarget.style.color = 'rgba(255,255,255,0.25)')}>
               MERA Robotics
             </a>
-          </div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-            <div style={{ width: 8, height: 8, borderRadius: '50%', background: '#fff', animation: 'pulse-glow 2s ease-in-out infinite' }} />
-            <span style={{ fontSize: 11, fontWeight: 500, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)' }}>
-              {t('footerCounter')}
-            </span>
           </div>
         </div>
       </div>

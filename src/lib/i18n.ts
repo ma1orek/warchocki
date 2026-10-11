@@ -11,6 +11,7 @@ export const translations = {
     navMedia: 'Media',
     navServices: 'Współpraca',
     navContact: 'Kontakt',
+    navEvents: 'Wydarzenia',
     navCTA: 'Dogadajmy się',
 
     dinoNew: 'NOWOŚĆ',
@@ -141,7 +142,6 @@ export const translations = {
     svcFormSent: '✓ Wysłano!',
     svcFormThanks: 'Dziękujemy! Odpowiemy najszybciej jak to możliwe.',
 
-    footerCounter: '1 500 000 000+ i lecę dalej',
   },
   en: {
     navAbout: 'About me',
@@ -151,6 +151,7 @@ export const translations = {
     navMedia: 'Media',
     navServices: 'Work with me',
     navContact: 'Contact',
+    navEvents: 'Events',
     navCTA: "Let's talk",
 
     dinoNew: 'NEW',
@@ -280,7 +281,6 @@ export const translations = {
     svcFormSent: '✓ Sent!',
     svcFormThanks: 'Thanks! We will reply as soon as possible.',
 
-    footerCounter: '1,500,000,000+ and counting',
   },
 } as const
 
