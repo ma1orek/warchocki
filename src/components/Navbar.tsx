@@ -134,11 +134,6 @@ export default function Navbar() {
                 </Link>
               )
             )}
-            <Link to={localizedPath('/wydarzenia', locale)} style={linkStyle}
-              onMouseEnter={(e) => (e.currentTarget.style.color = '#fff')}
-              onMouseLeave={(e) => (e.currentTarget.style.color = 'rgba(255,255,255,0.45)')}>
-              {t('navEvents')}
-            </Link>
             <LanguageSwitcher />
             {/* było: sklep warchockishop.pl (nie działa) → teraz kontakt */}
             <a
@@ -172,9 +167,6 @@ export default function Navbar() {
               {item.label}
             </a>
           ))}
-          <Link to={localizedPath('/wydarzenia', locale)} onClick={() => setMenuOpen(false)} style={linkStyle}>
-            {t('navEvents')}
-          </Link>
           <a href="/wspolpraca" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 8, fontSize: 14, fontWeight: 600, textTransform: 'uppercase' as const, padding: '12px 20px', background: '#fff', color: '#000', textAlign: 'center' }}>
             {t('navShop')}
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg>

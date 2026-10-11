@@ -11,7 +11,6 @@ export const translations = {
     navMedia: 'Media',
     navServices: 'Współpraca',
     navContact: 'Kontakt',
-    navEvents: 'Wydarzenia',
     navCTA: 'Dogadajmy się',
 
     dinoNew: 'NOWOŚĆ',
@@ -151,7 +150,6 @@ export const translations = {
     navMedia: 'Media',
     navServices: 'Work with me',
     navContact: 'Contact',
-    navEvents: 'Events',
     navCTA: "Let's talk",
 
     dinoNew: 'NEW',

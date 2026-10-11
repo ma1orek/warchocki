@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, useLocation, Navigate } from 'react-router-dom'
 import { useEffect } from 'react'
 import Home from './pages/Home'
 import WynajemEdwarda from './pages/WynajemEdwarda'
@@ -9,7 +9,6 @@ import ProduktPage from './pages/ProduktPage'
 import RaportDino from './pages/RaportDino'
 import RaportPolandRock from './pages/RaportPolandRock'
 import Wspolpraca from './pages/Wspolpraca'
-import Wydarzenia from './pages/Wydarzenia'
 
 function ScrollToTop() {
   const { pathname, hash } = useLocation()
@@ -44,8 +43,8 @@ function App() {
         <Route path="/festiwal" element={<RaportPolandRock />} />
         <Route path="/wspolpraca" element={<Wspolpraca />} />
         <Route path="/kontakt" element={<Wspolpraca />} />
-        <Route path="/wydarzenia" element={<Wydarzenia />} />
-        <Route path="/en/wydarzenia" element={<Wydarzenia />} />
+        <Route path="/wydarzenia" element={<Navigate to="/" replace />} />
+        <Route path="/en/wydarzenia" element={<Navigate to="/en" replace />} />
         <Route path="/en" element={<Home />} />
         <Route path="/en/wspolpraca" element={<Wspolpraca />} />
         <Route path="/en/wynajem-edwarda" element={<WynajemEdwarda />} />
