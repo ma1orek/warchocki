@@ -178,7 +178,7 @@ export default function RaportDino() {
         {/* STORIES z musami — fanowskie relacje, 2 przewijane rzędy */}
         <motion.div {...fadeUp(0.18)} style={{ maxWidth: 1100, margin: `${m ? 34 : 50}px auto 0`, padding: '0 clamp(20px, 4vw, 48px)' }}>
           <p style={{ fontSize: 12, fontWeight: 800, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#ffb066', textAlign: 'center' }}>
-            Stories od ludzi — musy w akcji
+            Stories od ludzi: musy w akcji
           </p>
         </motion.div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 10, marginTop: m ? 16 : 22 }}>
@@ -327,7 +327,7 @@ function MusVideoSlider({ m }: { m: boolean }) {
               {v.embed ? (
                 <iframe
                   src={v.embed}
-                  title={`Musy Edwarda — ${v.platform}`}
+                  title={`Musy Edwarda (${v.platform})`}
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
                   allowFullScreen
                   loading="lazy"

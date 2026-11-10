@@ -25,9 +25,10 @@ function ScrollToTop() {
   return null
 }
 
-function App() {
+// Trasy bez routera: BrowserRouter w przeglądarce, StaticRouter przy prerenderze (src/entry-server.tsx).
+export function AppRoutes() {
   return (
-    <BrowserRouter>
+    <>
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -53,6 +54,14 @@ function App() {
         <Route path="/en/produkty" element={<ProduktyPage />} />
         <Route path="/en/produkty/:slug" element={<ProduktPage />} />
       </Routes>
+    </>
+  )
+}
+
+function App() {
+  return (
+    <BrowserRouter>
+      <AppRoutes />
     </BrowserRouter>
   )
 }

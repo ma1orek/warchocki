@@ -14,7 +14,7 @@ export default function Hero() {
   const m = useIsMobile()
   const { t, locale } = useT()
   const stats = [
-    { value: '1.5B+', label: t('heroStatViews') },
+    { value: '~3B', label: t('heroStatViews') },
     { value: locale === 'en' ? 'MILLIONS' : 'MILIONY', label: t('heroStatPeople') },
     { value: '#1', label: t('heroStatRobot') },
   ]

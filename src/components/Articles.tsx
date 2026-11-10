@@ -6,7 +6,7 @@ import { useT } from '../lib/i18n'
 const articles = [
   // Wave 8 - CDT Cyberfest / Industriada Rybnik / „chiński szpieg" (najnowsze, lato 2026)
   { source: 'CDT', title: 'Wiemy, kto pozna Edwarda Warchockiego! Wyniki ogólnopolskiego testu z cyberbezpieczeństwa', url: 'https://cdt.pl/artykul/wiemy-kto-pozna-edwarda-warchockiego-wyniki-ogolnopolskiego-testu-wiedzy-z', domain: 'cdt.pl' },
-  { source: 'Instytut Cyfrowego Obywatelstwa', title: 'Cyberfest w Centralnym Domu Technologii — wydarzenie Fundacji PFR', url: 'https://cyfroweobywatelstwo.pl/wydarzenie/cyberfest-w-centralnym-domu-technologii-wydarzenie-fundacji-pfr/', domain: 'cyfroweobywatelstwo.pl' },
+  { source: 'Instytut Cyfrowego Obywatelstwa', title: 'Cyberfest w Centralnym Domu Technologii: wydarzenie Fundacji PFR', url: 'https://cyfroweobywatelstwo.pl/wydarzenie/cyberfest-w-centralnym-domu-technologii-wydarzenie-fundacji-pfr/', domain: 'cyfroweobywatelstwo.pl' },
   { source: 'Techoteka', title: 'Edward Warchocki idzie o krok dalej. Robot influencer z własną stroną i ofertą dla firm', url: 'https://techoteka.pl/nowe-technologie/edward-warchocki-robot-influencer-strona-oferta/', domain: 'techoteka.pl' },
   { source: 'Nadmorski24', title: 'Edward Warchocki na plaży [FILM]', url: 'https://nadmorski24.pl/aktualnosci/80853-edward-warchocki-na-plazy-film', domain: 'nadmorski24.pl' },
   { source: 'Goniec.pl', title: 'Nagranie z polskiej plaży podbija sieć. Widziało je 500 tys. osób, zjawił się niespodziewany gość', url: 'https://goniec.pl/nagranie-z-polskiej-plazy-podbija-siec-widzialo-je-500-tys-osob-zjawil-sie-niespodziewany-gosc-wk-wpd-070726', domain: 'goniec.pl' },

@@ -87,7 +87,7 @@ export default function RaportPolandRock() {
             </span>
             <span style={{ width: 1, height: 14, background: 'rgba(255,255,255,0.2)' }} />
             <span style={{ fontSize: m ? 10 : 11.5, fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.55)' }}>
-              30.07 – 1.08 · Broczyno
+              30.07-1.08 · Broczyno
             </span>
           </motion.div>
 

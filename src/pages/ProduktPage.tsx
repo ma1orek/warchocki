@@ -318,7 +318,7 @@ export default function ProduktPage() {
       )}
 
       {/* Opinie o lodach — tylko na podstronach lodów EDWARDZIK */}
-      {isLody && <Opinie heading="Opinie o lodach EDWARDZIK" sub="Prawdziwe wiadomości i komentarze od ludzi, którzy już spróbowali. Bez nazwisk — tylko to, co napisali." limit={12} />}
+      {isLody && <Opinie heading="Opinie o lodach EDWARDZIK" sub="Prawdziwe wiadomości i komentarze od ludzi, którzy już spróbowali. Bez nazwisk, tylko to, co napisali." limit={12} />}
 
       {!isSzkola && <NapojeSocial />}
 
