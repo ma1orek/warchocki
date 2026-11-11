@@ -39,9 +39,9 @@ export default function Hero() {
             {t('heroGreeting')}
           </motion.p>
 
-          {/* logo bez tła (białe litery, przezroczysty PNG), żeby nie zasłaniało filmu czarnym prostokątem */}
+          {/* logo z czarnym prostokątem (znak marki, tak ma zostać) */}
           <motion.div {...fadeUp(0.4)} style={{ marginBottom: 14, marginLeft: m ? -6 : -12 }}>
-            <img src="/edward-warchocki-logo.png" alt="EDWARD WARCHOCKI" width={949} height={311} style={{ width: '100%', maxWidth: m ? 320 : 600, height: 'auto', display: 'block' }} />
+            <img src="/Layer_1 (1) 1.png" alt="EDWARD WARCHOCKI" width={949} height={311} style={{ width: '100%', maxWidth: m ? 320 : 600, height: 'auto', display: 'block' }} />
           </motion.div>
 
           <motion.p {...fadeUp(0.5)} style={{ fontSize: m ? 'clamp(17px, 5vw, 22px)' : 'clamp(20px, 2.2vw, 30px)', fontWeight: 300, letterSpacing: '-0.02em', color: 'rgba(255,255,255,0.72)', marginBottom: m ? 24 : 32, maxWidth: 560 }}>
