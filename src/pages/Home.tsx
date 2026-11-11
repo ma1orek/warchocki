@@ -1,5 +1,4 @@
 import Navbar from '../components/Navbar'
-import MeraApp from '../components/MeraApp'
 import Hero from '../components/Hero'
 import Timeline from '../components/Timeline'
 import EdekDlaKazdego from '../components/EdekDlaKazdego'
@@ -17,7 +16,6 @@ export default function Home() {
     <div style={{ position: 'relative', minHeight: '100vh', background: '#000' }}>
       <Navbar />
       <Hero />
-      <MeraApp />
       <Timeline />
       <EdekDlaKazdego />
       <Produkty />

@@ -18,13 +18,24 @@ export default function Footer() {
         </div>
 
         <div style={{ display: 'flex', flexDirection: m ? 'column' : 'row', alignItems: m ? 'flex-start' : 'center', justifyContent: 'space-between', gap: 12, paddingTop: 20, borderTop: '1px solid rgba(255,255,255,0.06)' }}>
-          <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap' }}>
-            <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.25)' }}>&copy; 2026 WARCHOCKI.PL</p>
-            <a href="https://merarobotics.com" target="_blank" rel="noopener noreferrer" style={{ fontSize: 12, color: 'rgba(255,255,255,0.25)', transition: 'color 0.2s' }}
-              onMouseEnter={(e) => (e.currentTarget.style.color = 'rgba(255,255,255,0.6)')}
-              onMouseLeave={(e) => (e.currentTarget.style.color = 'rgba(255,255,255,0.25)')}>
-              MERA Robotics
+          <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.25)' }}>&copy; 2026 WARCHOCKI.PL</p>
+          <div style={{ display: 'flex', alignItems: 'center', gap: m ? 14 : 22, flexWrap: 'wrap' }}>
+            <a href="https://merarobotics.com" target="_blank" rel="noopener noreferrer" aria-label="MERA Robotics" style={{ display: 'flex', alignItems: 'center', gap: 10, color: '#fff', textDecoration: 'none', fontSize: 13, fontWeight: 600, letterSpacing: '.12em' }}>
+              <img src="/mera-mark.svg" alt="" width={22} height={24} style={{ height: 24, width: 'auto' }} />
+              MERA ROBOTICS
             </a>
+            {[
+              ['merarobotics.com', 'https://merarobotics.com'],
+              ['MERA OS', 'https://merarobotics.com/aplikacja/'],
+              ['MERA RENT', 'https://mera.rent'],
+              ['MERA SHOP', locale === 'pl' ? 'https://merarobotics.com/pl/sklep' : 'https://merarobotics.com/en/shop'],
+            ].map(([label, href]) => (
+              <a key={label} href={href} target="_blank" rel="noopener noreferrer" style={{ fontSize: 12, color: 'rgba(255,255,255,0.45)', transition: 'color 0.2s', textDecoration: 'none' }}
+                onMouseEnter={(e) => (e.currentTarget.style.color = 'rgba(255,255,255,0.85)')}
+                onMouseLeave={(e) => (e.currentTarget.style.color = 'rgba(255,255,255,0.45)')}>
+                {label}
+              </a>
+            ))}
           </div>
         </div>
       </div>

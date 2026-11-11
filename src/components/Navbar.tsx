@@ -13,7 +13,6 @@ export default function Navbar() {
   const isMobile = useIsMobile(1024)
 
   const navLinks = [
-    { label: locale === 'pl' ? 'Aplikacja' : 'App', href: '#aplikacja' },
     { label: t('navAbout'), href: '#o-mnie' },
     { label: t('navTimeline'), href: '#timeline' },
     { label: t('navProducts'), href: '#produkty' },
