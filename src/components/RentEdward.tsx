@@ -59,7 +59,7 @@ export default function RentEdward() {
         className="rent-edward"
         style={{
           maxWidth: 1280, margin: '0 auto', borderRadius: 32, overflow: 'hidden', position: 'relative',
-          background: 'linear-gradient(135deg, #D8FF3D 0%, #B8F000 100%)', color: '#000',
+          background: 'linear-gradient(135deg, #E3F1FF 0%, #B9DCFF 100%)', color: '#000',
           display: 'grid', gridTemplateColumns: '1.05fr 1fr', alignItems: 'stretch',
         }}
       >
@@ -94,7 +94,7 @@ export default function RentEdward() {
           <img src="/tlumy/tlum-01.webp" alt={c.altMain} width={961} height={1200} loading="lazy" decoding="async"
             style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }} />
           <img src="/tlumy/tlum-16.webp" alt={c.altSide} width={800} height={1200} loading="lazy" decoding="async" className="rent-edward-side"
-            style={{ position: 'absolute', left: 24, bottom: 24, width: '30%', height: 'auto', aspectRatio: '2 / 3', objectFit: 'cover', borderRadius: 20, border: '6px solid #D8FF3D', boxShadow: '0 24px 60px rgba(0,0,0,0.35)' }} />
+            style={{ position: 'absolute', left: 24, bottom: 24, width: '30%', height: 'auto', aspectRatio: '2 / 3', objectFit: 'cover', borderRadius: 20, border: '6px solid #E3F1FF', boxShadow: '0 24px 60px rgba(0,0,0,0.35)' }} />
           <div style={{ position: 'absolute', right: 24, top: 24, background: '#000', color: '#fff', borderRadius: 20, padding: '14px 20px', textAlign: 'right' }}>
             <b style={{ display: 'block', fontSize: 22, letterSpacing: '-0.02em' }}>{c.stat}</b>
             <span style={{ fontSize: 13, opacity: 0.7 }}>{c.statSub}</span>
