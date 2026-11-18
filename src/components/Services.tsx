@@ -304,6 +304,15 @@ export default function Services() {
           ))}
         </div>
 
+        {/* Rezerwacja Edwarda na wydarzenie: MERA RENT */}
+        <p style={{ marginTop: 40, textAlign: 'center', fontSize: 16, lineHeight: 1.7, color: 'rgba(255,255,255,0.45)' }}>
+          {locale === 'en' ? 'Looking for a robot for your conference, trade fair or gala? ' : 'Szukasz robota na konferencję, targi albo galę? '}
+          <a href={locale === 'en' ? 'https://mera.rent/en/' : 'https://mera.rent/pl/'} target="_blank" rel="noopener" style={{ color: '#fff', fontWeight: 600, textDecoration: 'underline', textUnderlineOffset: 4 }}>
+            {locale === 'en' ? 'Book Edward for your event at MERA RENT' : 'Zarezerwuj Edwarda na swoje wydarzenie w MERA RENT'}
+          </a>
+          .
+        </p>
+
         {/* Contact + pricing */}
         <ContactInline />
       </div>

@@ -159,7 +159,7 @@ function factsBlock(lang) {
   const links = [
     [`${t.book}: MERA EVENTS`, MERA_EVENTS_EDWARD],
     ['MERA EVENTS (merarobotics.com/events)', MERA_EVENTS],
-    ['MERA RENT (mera.rent)', MERA_RENT],
+    [lang === 'en' ? 'MERA RENT: robot rental for events (mera.rent)' : 'MERA RENT: wynajem robota na wydarzenie (mera.rent)', `${MERA_RENT}/${lang === 'en' ? 'en' : 'pl'}/`],
     [`${t.mera} (merarobotics.com)`, MERA],
     [t.os, MERA_OS],
     [t.reuters, REUTERS],

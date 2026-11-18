@@ -27,7 +27,7 @@ export default function Footer() {
             {[
               ['merarobotics.com', 'https://merarobotics.com'],
               ['MERA OS', 'https://merarobotics.com/aplikacja/'],
-              ['MERA RENT', 'https://mera.rent'],
+              ['MERA RENT', locale === 'pl' ? 'https://mera.rent/pl/' : 'https://mera.rent/en/'],
               ['MERA SHOP', locale === 'pl' ? 'https://merarobotics.com/pl/sklep' : 'https://merarobotics.com/en/shop'],
             ].map(([label, href]) => (
               <a key={label} href={href} target="_blank" rel="noopener noreferrer" style={{ fontSize: 12, color: 'rgba(255,255,255,0.45)', transition: 'color 0.2s', textDecoration: 'none' }}

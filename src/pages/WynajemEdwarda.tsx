@@ -61,6 +61,16 @@ export default function WynajemEdwarda() {
             1.5 miliarda wyświetleń. Pierwszy robot w polskim Sejmie. Gwiazda TikToka.
             Teraz Edward może pojawić się na Twoim evencie.
           </motion.p>
+          <motion.p
+            {...fadeUp(0.4)}
+            style={{ fontSize: 16, lineHeight: 1.7, color: 'rgba(255,255,255,0.45)', maxWidth: 600, marginTop: 16 }}
+          >
+            Rezerwacje prowadzi MERA RENT:{' '}
+            <a href="https://mera.rent/pl/" target="_blank" rel="noopener" style={{ color: '#fff', fontWeight: 600, textDecoration: 'underline', textUnderlineOffset: 4 }}>
+              wynajem robota na wydarzenie
+            </a>
+            .
+          </motion.p>
         </div>
       </section>
 
