@@ -10,12 +10,14 @@ import Articles from '../components/Articles'
 import CrowdsSection from '../components/CrowdsSection'
 import Services from '../components/Services'
 import Footer from '../components/Footer'
+import RentEdward from '../components/RentEdward'
 
 export default function Home() {
   return (
     <div style={{ position: 'relative', minHeight: '100vh', background: '#000' }}>
       <Navbar />
       <Hero />
+      <RentEdward />
       <Timeline />
       <EdekDlaKazdego />
       <Produkty />
