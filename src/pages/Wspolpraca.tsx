@@ -3,6 +3,7 @@ import { useRef, useState, type FormEvent, type FocusEvent } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
+import { sendToCrm } from '../lib/crmInquiry'
 
 const TYPES = [
   { id: 'Urodziny', emoji: '🎂', desc: 'Przyjęcia urodzinowe, imprezy' },
@@ -72,7 +73,14 @@ export default function Wspolpraca() {
         term: g('Termin / Data'),
         message: g('Opis potrzeby'),
       }),
-    }).catch(() => { /* rejestr opcjonalny — mail jest podstawą */ })
+    }).catch(() => { /* rejestr opcjonalny, mail jest podstawą */ })
+    // CRM MERA (19.11.2026): zapytania handlowe dostają rekord i zadanie w CRM ze źródłem „warchocki.pl” (lib/crmInquiry.ts).
+    // Idzie równolegle z mailem; klient widzi sukces, gdy zadziała którakolwiek z dwóch dróg. Kategoria „Fan” zostaje przy mailu.
+    const crm = sendToCrm({
+      type, company: g('Nazwa firmy / organizacji'), firstName: g('Imię'), lastName: g('Nazwisko'), position: g('Stanowisko'),
+      phone: g('Telefon'), email: g('email'), term: g('Termin / Data'), message: g('Opis potrzeby'),
+    })
+    let mailed = false
     try {
       const res = await fetch('https://formsubmit.co/ajax/edwardwarchocki@gmail.com', {
         method: 'POST',
@@ -94,15 +102,19 @@ export default function Wspolpraca() {
           'Opis potrzeby': g('Opis potrzeby'),
         }),
       })
-      if (!res.ok) throw new Error(`HTTP ${res.status}`)
+      mailed = res.ok
+    } catch {
+      mailed = false
+    }
+    const saved = await crm
+    if (mailed || saved) {
       setSent(true)
       form.reset()
       setType('')
-    } catch {
+    } else {
       setError('Coś nie zadziałało. Napisz bezpośrednio na edwardwarchocki@gmail.com')
-    } finally {
-      setSending(false)
     }
+    setSending(false)
   }
 
   return (
