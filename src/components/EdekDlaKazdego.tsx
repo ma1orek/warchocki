@@ -16,7 +16,7 @@ export default function EdekDlaKazdego() {
           {/* Image first on mobile */}
           {m && (
             <motion.div initial={{ opacity: 0, y: 20 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.8 }}>
-              <img src="/Frame 1000003012.png" alt="Edek z ludźmi" style={{ width: '100%', height: 'auto' }} />
+              <img src="/edek-dla-kazdego.webp" alt="Edek z ludźmi" width={897} height={978} loading="lazy" decoding="async" style={{ width: '100%', height: 'auto' }} />
             </motion.div>
           )}
 
@@ -52,7 +52,7 @@ export default function EdekDlaKazdego() {
           {/* Image on desktop */}
           {!m && (
             <motion.div initial={{ opacity: 0, x: 40 }} animate={isInView ? { opacity: 1, x: 0 } : {}} transition={{ duration: 0.8, delay: 0.2 }}>
-              <img src="/Frame 1000003012.png" alt="Edek z ludźmi" style={{ width: '100%', height: 'auto' }} />
+              <img src="/edek-dla-kazdego.webp" alt="Edek z ludźmi" width={897} height={978} loading="lazy" decoding="async" style={{ width: '100%', height: 'auto' }} />
             </motion.div>
           )}
         </div>
