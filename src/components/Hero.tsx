@@ -26,8 +26,8 @@ export default function Hero() {
       style={{ position: 'relative', minHeight: '100vh', display: 'flex', alignItems: 'center', overflow: 'hidden' }}
     >
       <div style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
-        <video autoPlay loop muted playsInline style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'brightness(0.28) contrast(1.1) grayscale(0.45) blur(2px)', transform: 'scale(1.03)' }}>
-          <source src="/hero-bg.mp4" type="video/mp4" />
+        <video autoPlay loop muted playsInline preload="metadata" poster="/hero-bg-poster.webp" style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'brightness(0.28) contrast(1.1) grayscale(0.45) blur(2px)', transform: 'scale(1.03)' }}>
+          <source src="/hero-bg-lekki.mp4" type="video/mp4" />
         </video>
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.35) 40%, rgba(0,0,0,0.92) 100%)' }} />
       </div>
@@ -40,9 +40,9 @@ export default function Hero() {
           </motion.p>
 
           {/* logo z czarnym prostokątem (znak marki, tak ma zostać) */}
-          <motion.div {...fadeUp(0.4)} style={{ marginBottom: 14, marginLeft: m ? -6 : -12 }}>
+          <motion.h1 {...fadeUp(0.4)} style={{ margin: 0, marginBottom: 14, marginLeft: m ? -6 : -12, fontSize: 'inherit', lineHeight: 0 }}>
             <img src="/Layer_1 (1) 1.png" alt="EDWARD WARCHOCKI" width={949} height={311} style={{ width: '100%', maxWidth: m ? 320 : 600, height: 'auto', display: 'block' }} />
-          </motion.div>
+          </motion.h1>
 
           <motion.p {...fadeUp(0.5)} style={{ fontSize: m ? 'clamp(17px, 5vw, 22px)' : 'clamp(20px, 2.2vw, 30px)', fontWeight: 300, letterSpacing: '-0.02em', color: 'rgba(255,255,255,0.72)', marginBottom: m ? 24 : 32, maxWidth: 560 }}>
             {t('heroSubtitle')}

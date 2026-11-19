@@ -16,7 +16,12 @@ export default function TikTokGallery() {
   const m = useIsMobile()
   const { t } = useT()
 
+  // embed.js TikToka (ok. 2 MB) dopiero, gdy sekcja jest blisko kadru, a nie przy wejściu na stronę
+  const nearRef = useRef(null)
+  const isNear = useInView(nearRef, { once: true, margin: '600px 0px' })
+
   useEffect(() => {
+    if (!isNear) return
     const existing = document.getElementById('tiktok-embed-script')
     if (existing) existing.remove()
     const script = document.createElement('script')
@@ -24,7 +29,7 @@ export default function TikTokGallery() {
     script.src = 'https://www.tiktok.com/embed.js'
     script.async = true
     document.body.appendChild(script)
-  }, [])
+  }, [isNear])
 
   const mediaPresence = [
     'BBC News', 'CNN', 'Reuters', 'Fox News', 'NBC News', 'ABC News',
@@ -40,7 +45,7 @@ export default function TikTokGallery() {
   ]
 
   return (
-    <section id="sociale" style={{ position: 'relative', padding: m ? '80px 0' : '120px 0', borderTop: '1px solid rgba(255,255,255,0.08)' }}>
+    <section id="sociale" ref={nearRef} style={{ position: 'relative', padding: m ? '80px 0' : '120px 0', borderTop: '1px solid rgba(255,255,255,0.08)' }}>
       <div style={{ maxWidth: 1400, margin: '0 auto', padding: m ? '0 20px' : '0 48px' }}>
         <motion.div ref={ref} initial={{ opacity: 0, y: 30 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.8 }} style={{ textAlign: 'center', marginBottom: 48 }}>
           <p style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)', marginBottom: 16 }}>{t('socialTag')}</p>

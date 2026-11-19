@@ -12,6 +12,9 @@ import { boldDino } from '../lib/boldDino'
 
 const AUTO_MS = 5000
 
+// karuzela ma najwyżej 560 px szerokości: wersja 720 px zamiast 1254 px (ok. 4x lżejsza)
+const lekkie = (u: string) => u.replace(/-main\.webp$/, '-main-720.webp')
+
 export default function DinoPromo() {
   const m = useIsMobile()
   const { t, locale } = useT()
@@ -102,7 +105,7 @@ export default function DinoPromo() {
               transition={{ duration: 0.4, ease: 'easeOut' }}
               style={{ position: 'absolute', inset: 0 }}>
               <Link to={localizedPath(`/produkty/${p.slug}`, locale)} style={{ display: 'grid', placeItems: 'center', width: '100%', height: '100%' }}>
-                <img src={p.mainPhoto ?? p.packshot} alt={p.flavor[locale]} decoding="async"
+                <img src={p.mainPhoto ? lekkie(p.mainPhoto) : p.packshot} alt={p.flavor[locale]} decoding="async"
                   style={p.mainPhoto
                     ? { width: '100%', height: '100%', objectFit: 'cover' }
                     : { width: 'auto', maxWidth: '80%', height: stageH - 36, objectFit: 'contain', filter: `drop-shadow(0 22px 40px ${p.glow})` }} />
@@ -165,7 +168,7 @@ export default function DinoPromo() {
                 opacity: active ? 1 : 0.5, transform: active ? 'scale(1)' : 'scale(0.92)', transition: 'opacity 0.25s ease, transform 0.25s ease, border-color 0.25s ease',
               }}
             >
-              <img src={sp.mainPhoto ?? sp.packshot} alt="" loading="lazy" decoding="async"
+              <img src={sp.mainPhoto ? lekkie(sp.mainPhoto) : sp.packshot} alt="" loading="lazy" decoding="async"
                 style={{ width: '100%', height: '100%', objectFit: sp.mainPhoto ? 'cover' : 'contain', padding: sp.mainPhoto ? 0 : 4 }} />
             </button>
           )
