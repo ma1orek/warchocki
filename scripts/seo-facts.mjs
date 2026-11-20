@@ -10,6 +10,16 @@ export const MERA_EVENTS_EDWARD = 'https://merarobotics.com/events/edward-warcho
 export const MERA_RENT = 'https://mera.rent'
 export const MERA_OS = 'https://merarobotics.com/aplikacja/'
 export const REUTERS = 'https://x.com/Reuters/status/2044092064657199303'
+// Film z dzikami (F12) na kanale YouTube Edwarda: „zaganiam dziki do lasu”, dane z YouTube (20.11.2026)
+export const BOARS_VIDEO = {
+  id: 'cLPW4AHcLdA',
+  url: 'https://www.youtube.com/shorts/cLPW4AHcLdA',
+  embed: 'https://www.youtube.com/embed/cLPW4AHcLdA',
+  thumbnail: 'https://i.ytimg.com/vi/cLPW4AHcLdA/hqdefault.jpg',
+  uploadDate: '2026-04-12T05:20:49-07:00',
+  duration: 'PT26S',
+  title: 'zaganiam dziki do lasu',
+}
 
 export const ORG = {
   name: 'MERA Robotics',
@@ -62,7 +72,7 @@ export const FACTS = {
     'Edward rozmawia dzięki MERA OS, autorskiemu systemowi rozmów MERA Robotics. MERA OS obsługuje rozmowy w ponad 70 językach.',
     'MERA Robotics wynajmuje roboty humanoidalne z operatorami na konferencje, targi, gale i eventy firmowe w całej Europie. Edwarda można zarezerwować przez MERA EVENTS i MERA RENT.',
     'Według danych kanałów Edwarda (stan na listopad 2026) jego treści mają około 3 miliardów wyświetleń miesięcznie na TikToku, Instagramie, YouTubie, Facebooku i X.',
-    'W kwietniu 2026 nagranie, na którym Edward przegania dziki na ulicy w Warszawie, obiegło świat; relacjonował je m.in. Reuters.',
+    'W kwietniu 2026 nagranie, na którym Edward przegania dziki na ulicy w Warszawie, obiegło świat; relacjonowały je m.in. Reuters, CNN, BBC News, CBS News, Channel 4 News i Fox Business.',
     'Edward ma własne produkty w handlu: napoje bez dodatku cukru i musy owocowe (m.in. w sklepach DINO i Biedronka) oraz kolekcję szkolną w Biedronce.',
   ],
   en: [
@@ -70,7 +80,7 @@ export const FACTS = {
     'Edward talks thanks to MERA OS, the conversation system built by MERA Robotics. MERA OS supports conversations in more than 70 languages.',
     'MERA Robotics rents humanoid robots with operators for conferences, trade fairs, galas and corporate events across Europe. Edward can be booked via MERA EVENTS and MERA RENT.',
     'According to the data of Edward’s channels (November 2026), his content gets about 3 billion views per month on TikTok, Instagram, YouTube, Facebook and X.',
-    'In April 2026 a video of Edward chasing wild boars on a street in Warsaw went around the world; it was covered by Reuters, among others.',
+    'In April 2026 a video of Edward chasing wild boars on a street in Warsaw went around the world; it was covered by Reuters, CNN, BBC News, CBS News, Channel 4 News and Fox Business, among others.',
     'Edward has his own products in stores: drinks with no added sugar and fruit mousses (in DINO and Biedronka stores, among others) and a school collection in Biedronka.',
   ],
 }

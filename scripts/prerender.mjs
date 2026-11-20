@@ -5,13 +5,19 @@
 // ludzie widzą stronę jak dotąd, a boty bez JS (GPTBot, ClaudeBot, PerplexityBot) dostają treść.
 // Pliki: / -> dist/index.html, /wynajem-edwarda -> dist/wynajem-edwarda.html (Netlify serwuje bez .html).
 // Generuje też dist/sitemap.xml. Fakty tylko z scripts/seo-facts.mjs.
-import { readFileSync, writeFileSync, mkdirSync } from 'node:fs'
+// Od 20.11.2026: strony Edwarda w 52 kolejnych językach (/<kod>/, scripts/lang/page.mjs), na / i /en pełny zestaw
+// hreflang 54 wersji (x-default: /en), FAQ i film z dzikami w bloku faktów i JSON-LD, lista wersji w dist/llms.txt.
+import { readFileSync, writeFileSync, mkdirSync, appendFileSync } from 'node:fs'
 import { dirname, join, resolve } from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
 import {
   SITE, MERA, MERA_EVENTS, MERA_EVENTS_EDWARD, MERA_RENT, MERA_OS, REUTERS,
-  ORG, ORG_ID, EDWARD_ID, EDWARD_SAME_AS, PROFILES, DEFINITION, FACTS,
+  ORG, ORG_ID, EDWARD_ID, PROFILES, DEFINITION, FACTS, BOARS_VIDEO,
 } from './seo-facts.mjs'
+import { STATIC_LANGS } from './lang/langs.mjs'
+import { texts, READY_LANGS, hreflangTags, hreflangSitemap, videoNode, faqNode, edwardNode, langPage, VIDEO_ID, abs } from './lang/page.mjs'
+
+const T = { pl: texts('pl'), en: texts('en') }
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..')
 const dist = join(root, 'dist')
@@ -26,16 +32,9 @@ const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replac
 // lang = język treści strony; canonical = adres kanoniczny (aliasy i angielskie adresy z polską treścią
 // wskazują polską wersję); alt = para pl/en dla hreflang (tylko strony przetłumaczone).
 const PAGES = [
-  {
-    path: '/', lang: 'pl', alt: '/en',
-    title: 'Edward Warchocki, robot humanoidalny MERA Robotics | warchocki.pl',
-    description: 'Edward Warchocki to robot humanoidalny (Unitree G1) prowadzony przez MERA Robotics. Rozmawia dzięki MERA OS w ponad 70 językach. Rezerwacja na eventy: MERA EVENTS i MERA RENT.',
-  },
-  {
-    path: '/en', lang: 'en', alt: '/',
-    title: 'Edward Warchocki, humanoid robot by MERA Robotics | warchocki.pl',
-    description: 'Edward Warchocki is a humanoid robot (Unitree G1) run by MERA Robotics. He talks thanks to MERA OS in more than 70 languages. Book him for events via MERA EVENTS and MERA RENT.',
-  },
+  // Strony główne: tytuł i opis z scripts/lang/pl.json i en.json (te same frazy co w pozostałych wersjach), pełny zestaw hreflang
+  { path: '/', lang: 'pl', alt: '/en', cluster: true, title: T.pl.title, description: T.pl.description },
+  { path: '/en', lang: 'en', alt: '/', cluster: true, title: T.en.title, description: T.en.description },
   {
     path: '/wynajem-edwarda', lang: 'pl',
     title: 'Wynajem Edwarda Warchockiego na event | MERA Robotics',
@@ -109,12 +108,10 @@ for (const p of PAGES) {
   p.canonical ??= p.path
 }
 
-const abs = (path) => SITE + (path === '/' ? '/' : path)
 
 // ── JSON-LD ──────────────────────────────────────────────────────────────────────────────────
-function jsonLd(page) {
-  const lang = page.lang
-  const organization = {
+function organizationNode() {
+  return {
     '@type': 'Organization', '@id': ORG_ID, name: ORG.name, legalName: ORG.legalName, alternateName: ORG.alternateName,
     url: ORG.url, email: ORG.email, logo: ORG.logo,
     address: { '@type': 'PostalAddress', streetAddress: ORG.address.street, postalCode: ORG.address.postalCode, addressLocality: ORG.address.city, addressCountry: ORG.address.country },
@@ -132,26 +129,36 @@ function jsonLd(page) {
         description: 'Conversation system for humanoid robots by MERA Robotics, more than 70 languages.' } },
     ],
   }
-  const edward = {
-    '@type': 'Brand', '@id': EDWARD_ID, name: 'Edward Warchocki', alternateName: 'Edek',
-    description: lang === 'en' ? DEFINITION.en : DEFINITION.pl,
-    url: `${SITE}/`, logo: `${SITE}/favicon.svg`, sameAs: EDWARD_SAME_AS,
-    subjectOf: [{ '@type': 'CreativeWork', name: 'Reuters: Edward Warchocki', url: REUTERS }],
-  }
-  const website = {
+}
+
+function websiteNode() {
+  return {
     '@type': 'WebSite', '@id': `${SITE}/#website`, url: `${SITE}/`, name: 'warchocki.pl',
-    alternateName: 'Edward Warchocki', inLanguage: ['pl', 'en'], publisher: { '@id': ORG_ID }, about: { '@id': EDWARD_ID },
+    alternateName: 'Edward Warchocki', inLanguage: READY_LANGS.map((L) => L.hreflang), publisher: { '@id': ORG_ID }, about: { '@id': EDWARD_ID },
   }
+}
+
+function jsonLd(page) {
+  const lang = page.lang
+  const organization = organizationNode()
+  const edward = edwardNode(lang === 'en' ? DEFINITION.en : DEFINITION.pl)
+  const website = websiteNode()
   const webpage = {
     '@type': 'WebPage', '@id': `${abs(page.canonical)}#webpage`, url: abs(page.canonical), name: page.title, description: page.description,
     inLanguage: lang, isPartOf: { '@id': `${SITE}/#website` }, about: { '@id': EDWARD_ID }, publisher: { '@id': ORG_ID },
     significantLink: [MERA_EVENTS, MERA_EVENTS_EDWARD, MERA_RENT, MERA],
   }
-  return { '@context': 'https://schema.org', '@graph': [organization, edward, website, webpage] }
+  const graph = [organization, edward, website, webpage]
+  // Strony główne: film z dzikami i FAQ (widoczne w bloku faktów #o-edwardzie)
+  if (page.cluster) {
+    webpage.video = { '@id': VIDEO_ID }
+    graph.push(videoNode(T[lang]), { ...faqNode(abs(page.canonical), T[lang]), inLanguage: lang })
+  }
+  return { '@context': 'https://schema.org', '@graph': graph }
 }
 
 // ── Blok faktów (w #root, React go podmienia; widzą go boty bez JS i ludzie bez JS) ─────────────
-function factsBlock(lang) {
+function factsBlock(lang, page) {
   const t = lang === 'en'
     ? { h: 'Edward Warchocki and MERA Robotics', book: 'Book Edward for an event', mera: 'MERA Robotics', os: 'MERA OS', profiles: 'Edward’s profiles', contact: 'Contact', reuters: 'Reuters on Edward', aria: 'About Edward Warchocki' }
     : { h: 'Edward Warchocki i MERA Robotics', book: 'Zarezerwuj Edwarda na wydarzenie', mera: 'MERA Robotics', os: 'MERA OS', profiles: 'Profile Edwarda', contact: 'Kontakt', reuters: 'Reuters o Edwardzie', aria: 'O Edwardzie Warchockim' }
@@ -169,9 +176,17 @@ function factsBlock(lang) {
     + `<h2 style="color:#fff">${esc(t.h)}</h2>`
     + `<p>${esc(lang === 'en' ? DEFINITION.en : DEFINITION.pl)}</p>`
     + `<ul>${facts}</ul><ul>${links}</ul>`
+    + (page.cluster ? factsFaq(T[lang]) : '')
     + `<p>${esc(t.profiles)}: ${profiles}</p>`
     + `<p>${esc(t.contact)}: <a href="mailto:${ORG.email}">${ORG.email}</a>, ${esc(ORG.legalName)}, KRS ${ORG.krs}, ${esc(ORG.address.street)}, ${ORG.address.postalCode} ${ORG.address.city}.</p>`
     + `</section>`
+}
+
+function factsFaq(t) {
+  return `<h3 style="color:#fff">${esc(t.videoH)}</h3><p>${esc(t.videoP)} <a href="${BOARS_VIDEO.url}">${esc(t.videoCta)}</a></p>`
+    + `<h3 style="color:#fff">${esc(t.faqH)}</h3>`
+    + t.faq.map((f) => `<h4 style="color:#fff;margin-bottom:4px">${esc(f.q)}</h4><p style="margin-top:0">${esc(f.a)}</p>`).join('')
+    + `<p>${esc(t.langsH)}: ${READY_LANGS.map((L) => `<a href="${L.path}" hreflang="${L.hreflang}" lang="${L.hreflang}">${esc(L.name)}</a>`).join(' · ')}</p>`
 }
 
 // ── Head ─────────────────────────────────────────────────────────────────────────────────────
@@ -191,7 +206,9 @@ function head(page) {
     `<meta name="twitter:site" content="@edwardwarchocki" />`,
     `<link rel="author" href="${MERA}" />`,
   ]
-  if (page.alt && page.canonical === page.path) {
+  if (page.cluster) {
+    tags.push(...hreflangTags())
+  } else if (page.alt && page.canonical === page.path) {
     const pl = page.lang === 'pl' ? page.path : page.alt
     const en = page.lang === 'en' ? page.path : page.alt
     tags.push(`<link rel="alternate" hreflang="pl" href="${abs(pl)}" />`, `<link rel="alternate" hreflang="en" href="${abs(en)}" />`, `<link rel="alternate" hreflang="x-default" href="${abs(pl)}" />`)
@@ -207,7 +224,7 @@ function pageHtml(page) {
     .replace(/<html lang="[^"]*">/, `<html lang="${page.lang}">`)
     .replace(/<title>[\s\S]*?<\/title>/, `<title>${esc(page.title)}</title>`)
     .replace(/<meta name="description" content="[^"]*"\s*\/?>/, `<meta name="description" content="${esc(page.description)}" />\n    ${head(page)}`)
-    .replace('<div id="root"></div>', `<div id="root">${app}${factsBlock(page.lang)}</div>`)
+    .replace('<div id="root"></div>', `<div id="root">${app}${factsBlock(page.lang, page)}</div>`)
   if (!html.includes(`<title>${esc(page.title)}</title>`) || !html.includes('application/ld+json') || !html.includes('id="o-edwardzie"')) {
     throw new Error(`prerender: szablon dist/index.html nie pasuje (${page.path})`)
   }
@@ -229,11 +246,30 @@ for (const page of PAGES) {
 const today = new Date().toISOString().slice(0, 10)
 const canonicalPages = PAGES.filter((p) => p.canonical === p.path)
 const urls = canonicalPages.map((p) => {
-  const alt = p.alt
+  const alt = p.cluster ? hreflangSitemap() : p.alt
     ? `\n    <xhtml:link rel="alternate" hreflang="${p.lang}" href="${abs(p.path)}"/>\n    <xhtml:link rel="alternate" hreflang="${p.lang === 'pl' ? 'en' : 'pl'}" href="${abs(p.alt)}"/>`
     : ''
   return `  <url>\n    <loc>${abs(p.path)}</loc>\n    <lastmod>${today}</lastmod>${alt}\n  </url>`
 })
+// Strony językowe /<kod>/ (statyczny HTML, każda z pełnym zestawem hreflang)
+const missing = STATIC_LANGS.filter((L) => !texts(L.code)).map((L) => L.code)
+if (missing.length) console.warn(`prerender: brak tekstów scripts/lang/<kod>.json dla: ${missing.join(', ')} (pomijam)`)
+const organization = organizationNode(), website = websiteNode()
+for (const L of STATIC_LANGS.filter((x) => texts(x.code))) {
+  const html = langPage(L, texts(L.code), organization, website)
+  if (DASHES.test(html)) throw new Error(`prerender: długi myślnik w /${L.code}/`)
+  for (const must of [`<html lang="${L.hreflang}"`, '<link rel="canonical"', 'hreflang="x-default"', 'application/ld+json', '<h1>']) {
+    if (!html.includes(must)) throw new Error(`prerender: /${L.code}/ bez ${must}`)
+  }
+  const file = join(dist, L.code, 'index.html')
+  mkdirSync(dirname(file), { recursive: true })
+  writeFileSync(file, html)
+  urls.push(`  <url>\n    <loc>${abs(L.path)}</loc>\n    <lastmod>${today}</lastmod>${hreflangSitemap()}\n  </url>`)
+}
+
+// llms.txt: lista wersji językowych
+appendFileSync(join(dist, 'llms.txt'), `\n## Edward Warchocki in ${READY_LANGS.length} languages\n\n` + READY_LANGS.map((L) => `- [${L.enName} (${L.name})](${abs(L.path)}): ${texts(L.code).title}`).join('\n') + '\n')
+
 writeFileSync(join(dist, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${urls.join('\n')}\n</urlset>\n`)
 
-console.log(`prerender: ${PAGES.length} stron, sitemap: ${canonicalPages.length} adresów`)
+console.log(`prerender: ${PAGES.length} stron React, ${READY_LANGS.length - 2} stron językowych, sitemap: ${urls.length} adresów`)
