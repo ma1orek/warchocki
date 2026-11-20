@@ -98,7 +98,7 @@ footer{border-top:1px solid var(--line);padding:32px 0 48px;color:var(--mut);fon
 const GTAG = `<script async src="https://www.googletagmanager.com/gtag/js?id=G-5WJ0SLHCZV"></script>
     <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-5WJ0SLHCZV');</script>`
 
-export function langPage(L, t, orgNode, websiteNode) {
+export function langPage(L, t, orgNode, websiteNode, subNav = '') {
   const url = abs(L.path)
   const bookUrl = MERA + (L.edward || L.events)
   const rentUrl = `${MERA_RENT}/${L.code}/`
@@ -188,7 +188,7 @@ export function langPage(L, t, orgNode, websiteNode) {
         <p>${esc(t.bookP)}</p>
         <div class="cta"><a class="btn" href="${bookUrl}">${esc(t.bookEvents)}</a><a class="btn o" href="${rentUrl}">${esc(t.bookRent)}</a></div>
       </div></section>
-      <section class="s"><div class="w">
+${subNav ? `      <section class="s"><div class="w"><p>${subNav}</p></div></section>\n` : ''}      <section class="s"><div class="w">
         <h2>${esc(t.profilesH)}</h2>
         <ul class="langs">${profiles}</ul>
       </div></section>
@@ -198,6 +198,7 @@ export function langPage(L, t, orgNode, websiteNode) {
       </div></section>
     </main>
     <footer><div class="w">
+      ${subNav ? `<p>${subNav}</p>` : ''}
       <p><a href="/">${esc(t.fullSitePl)}</a> · <a href="/en">${esc(t.fullSiteEn)}</a> · <a href="${MERA}">MERA Robotics</a> · <a href="${MERA_OS}">MERA OS</a></p>
       <p>${esc(t.contactH)}: <a href="mailto:${ORG.email}">${ORG.email}</a>, ${esc(ORG.legalName)}, KRS ${ORG.krs}, NIP ${ORG.nip}, ${esc(ORG.address.street)}, ${ORG.address.postalCode} ${ORG.address.city}.</p>
     </div></footer>
@@ -207,3 +208,62 @@ export function langPage(L, t, orgNode, websiteNode) {
 }
 
 export { STATIC_LANGS }
+
+// ── Podstrona /<kod>/<adres> (scripts/lang/sub.mjs) ─────────────────────────────────────────
+const SUB_CSS = `
+.wh{position:sticky;top:0;z-index:50;background:#000;border-bottom:1px solid #222;font-family:"Space Grotesk",system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans",sans-serif}
+.wh .w{max-width:1200px;margin:0 auto;padding:0 16px;display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:60px}
+.wh a.b{color:#fff;font-weight:700;text-decoration:none}
+.wh nav{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:14px}.wh nav a{color:#B9DCFF;text-decoration:none}
+.wh details{position:relative}.wh summary{cursor:pointer;list-style:none;color:#bbb;padding:8px 12px;border:1px solid #222}
+.wh summary::-webkit-details-marker{display:none}
+.wh details[open] ul{position:absolute;inset-inline-end:0;top:100%;z-index:60;background:#0b0b0b;border:1px solid #222;max-height:70vh;overflow:auto;width:min(260px,80vw);list-style:none;margin:0;padding:8px}
+.wh li a{display:block;padding:4px 8px;color:#B9DCFF;text-decoration:none}.wh li a[aria-current]{color:#fff;font-weight:700}
+.wf{border-top:1px solid #222;background:#000;color:#aaa;font:15px/1.6 "Space Grotesk",system-ui,sans-serif;padding:28px 0 40px}
+.wf .w{max-width:1200px;margin:0 auto;padding:0 16px}.wf a{color:#B9DCFF}
+@media (max-width:760px){.wh nav{display:none}}
+`.replace(/\n/g, '')
+
+export function subPage({ L, url, title, description, bodyHtml, hreflang, alternates, cssTags, graph, nav, homeHref, contact }) {
+  const ld = JSON.stringify({ '@context': 'https://schema.org', '@graph': graph }).replace(/</g, '\\u003c')
+  const langs = alternates.map((a) => `<li><a href="${a.path}" hreflang="${a.hreflang}" lang="${a.hreflang}"${a.current ? ' aria-current="page"' : ''}>${esc(a.name)}</a></li>`).join('')
+  return `<!doctype html>
+<html lang="${L.hreflang}" dir="${L.rtl ? 'rtl' : 'ltr'}">
+  <head>
+    <meta charset="UTF-8" />
+    ${GTAG}
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>${esc(title)}</title>
+    <meta name="description" content="${esc(description)}" />
+    <link rel="canonical" href="${url}" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    ${hreflang.join('\n    ')}
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="warchocki.pl" />
+    <meta property="og:locale" content="${L.locale}" />
+    <meta property="og:title" content="${esc(title)}" />
+    <meta property="og:description" content="${esc(description)}" />
+    <meta property="og:url" content="${url}" />
+    <meta property="og:image" content="${SITE}/tlumy/tlum-01.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="author" href="${MERA}" />
+    ${cssTags}
+    <style>${SUB_CSS}</style>
+    <script type="application/ld+json">${ld}</script>
+  </head>
+  <body style="background:#000">
+    <header class="wh"><div class="w">
+      <a class="b" href="${homeHref}">warchocki.pl</a>
+      <nav>${nav}</nav>
+      <details><summary>${esc(L.name)} ▾</summary><ul>${langs}</ul></details>
+    </div></header>
+    <main>${bodyHtml}</main>
+    <footer class="wf"><div class="w">
+      <p>${nav.replace(/<\/a><a/g, '</a> · <a')}</p>
+      <p><a href="${MERA}">MERA Robotics</a> · <a href="${MERA_OS}">MERA OS</a> · ${contact}: <a href="mailto:${ORG.email}">${ORG.email}</a>, ${esc(ORG.legalName)}, KRS ${ORG.krs}, ${esc(ORG.address.street)}, ${ORG.address.postalCode} ${ORG.address.city}.</p>
+    </div></footer>
+  </body>
+</html>
+`
+}

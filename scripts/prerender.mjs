@@ -7,6 +7,7 @@
 // Generuje też dist/sitemap.xml. Fakty tylko z scripts/seo-facts.mjs.
 // Od 20.11.2026: strony Edwarda w 52 kolejnych językach (/<kod>/, scripts/lang/page.mjs), na / i /en pełny zestaw
 // hreflang 54 wersji (x-default: /en), FAQ i film z dzikami w bloku faktów i JSON-LD, lista wersji w dist/llms.txt.
+// Od 20.11.2026 wieczorem także podstrony i produkty w 54 językach (scripts/lang/sub.mjs): /<kod>/<adres> i /en/<adres>.
 import { readFileSync, writeFileSync, mkdirSync, appendFileSync } from 'node:fs'
 import { dirname, join, resolve } from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
@@ -14,8 +15,9 @@ import {
   SITE, MERA, MERA_EVENTS, MERA_EVENTS_EDWARD, MERA_RENT, MERA_OS, REUTERS,
   ORG, ORG_ID, EDWARD_ID, PROFILES, DEFINITION, FACTS, BOARS_VIDEO,
 } from './seo-facts.mjs'
-import { STATIC_LANGS } from './lang/langs.mjs'
-import { texts, READY_LANGS, hreflangTags, hreflangSitemap, videoNode, faqNode, edwardNode, langPage, VIDEO_ID, abs } from './lang/page.mjs'
+import { LANGS, STATIC_LANGS } from './lang/langs.mjs'
+import { subPaths, mainHtml, translateHtml, localizeLinks, subTexts, langPath, EN_REACT, SUB_BASE, CONTACT_PL } from './lang/sub.mjs'
+import { texts, READY_LANGS, hreflangTags, hreflangSitemap, videoNode, faqNode, edwardNode, langPage, subPage, VIDEO_ID, abs } from './lang/page.mjs'
 
 const T = { pl: texts('pl'), en: texts('en') }
 
@@ -79,11 +81,6 @@ const PAGES = [
     description: 'Zaproś Edwarda Warchockiego na wydarzenie albo do kampanii marki. Rezerwacje przez MERA EVENTS (merarobotics.com/events) i MERA RENT (mera.rent), kontakt: contact@merarobotics.com.',
   },
   { path: '/kontakt', lang: 'pl', canonical: '/wspolpraca', sameAs: '/wspolpraca' },
-  // Angielskie adresy podstron, których treść jest po polsku: canonical na polską wersję
-  { path: '/en/wspolpraca', lang: 'pl', canonical: '/wspolpraca', sameAs: '/wspolpraca' },
-  { path: '/en/wynajem-edwarda', lang: 'pl', canonical: '/wynajem-edwarda', sameAs: '/wynajem-edwarda' },
-  { path: '/en/wynajem-robotow', lang: 'pl', canonical: '/wynajem-robotow', sameAs: '/wynajem-robotow' },
-  { path: '/en/promocja-social-media', lang: 'pl', canonical: '/promocja-social-media', sameAs: '/promocja-social-media' },
 ]
 
 for (const p of products) {
@@ -206,7 +203,9 @@ function head(page) {
     `<meta name="twitter:site" content="@edwardwarchocki" />`,
     `<link rel="author" href="${MERA}" />`,
   ]
-  if (page.cluster) {
+  if (subKey(page.path) && page.canonical === page.path) {
+    tags.push('<!--SUBHREFLANG-->')
+  } else if (page.cluster) {
     tags.push(...hreflangTags())
   } else if (page.alt && page.canonical === page.path) {
     const pl = page.lang === 'pl' ? page.path : page.alt
@@ -231,6 +230,14 @@ function pageHtml(page) {
   return html
 }
 
+const SUBS = subPaths(products)
+const SUBSET = new Set(SUBS)
+function subKey(path) {
+  if (SUBSET.has(path)) return path
+  if (path.startsWith('/en/') && SUBSET.has(path.slice(3)) && EN_REACT(path.slice(3))) return path.slice(3)
+  return null
+}
+
 // ── Zapis ────────────────────────────────────────────────────────────────────────────────────
 for (const page of PAGES) {
   for (const s of [page.title, page.description]) if (DASHES.test(s)) throw new Error(`prerender: długi myślnik w ${page.path}: ${s}`)
@@ -242,11 +249,70 @@ for (const page of PAGES) {
   writeFileSync(file, html)
 }
 
+// ── Podstrony i produkty w 54 językach ───────────────────────────────────────────────────────
+const cssTags = (template.match(/<link[^>]*rel="stylesheet"[^>]*>/g) || []).join('\n    ')
+const READY = {} // adres PL -> [{ L, path, html? }]
+const subSkipped = []
+for (const sp of SUBS) {
+  const plHtml = readFileSync(join(dist, `${sp.slice(1)}.html`), 'utf8')
+  const main = mainHtml(plHtml, { contactBlock: CONTACT_PL })
+  READY[sp] = []
+  for (const L of LANGS) {
+    if (L.code === 'pl') { READY[sp].push({ L, path: sp }); continue }
+    if (L.code === 'en' && EN_REACT(sp)) { READY[sp].push({ L, path: `/en${sp}` }); continue }
+    const tr = subTexts(L.code)
+    const res = translateHtml(main, tr)
+    if (!res.total || res.missing / res.total > 0.03) { subSkipped.push(`${L.code}${sp} (${res.missing}/${res.total})`); continue }
+    READY[sp].push({ L, path: langPath(L.code, sp), html: res.html, tr })
+  }
+}
+if (subSkipped.length) console.warn(`prerender: podstrony pominięte (brak tłumaczeń): ${subSkipped.length}, np. ${subSkipped.slice(0, 5).join(', ')}`)
+const subXDefault = (sp) => (READY[sp].find((x) => x.L.code === 'en') || READY[sp][0]).path
+const subHreflangTags = (sp) => [...READY[sp].map((x) => `<link rel="alternate" hreflang="${x.L.hreflang}" href="${abs(x.path)}" />`), `<link rel="alternate" hreflang="x-default" href="${abs(subXDefault(sp))}" />`]
+const subHreflangSitemap = (sp) => [...READY[sp].map((x) => `\n    <xhtml:link rel="alternate" hreflang="${x.L.hreflang}" href="${abs(x.path)}"/>`), `\n    <xhtml:link rel="alternate" hreflang="x-default" href="${abs(subXDefault(sp))}"/>`].join('')
+const subNavFor = (code, tr) => SUB_BASE.filter(([sp]) => READY[sp].some((x) => x.L.code === code))
+  .map(([sp, name]) => `<a href="${langPath(code, sp)}">${esc((code === 'pl' ? name : tr?.[name]) || name)}</a>`).join('')
+const orgNodeAll = organizationNode(), websiteAll = websiteNode()
+let subWritten = 0
+for (const sp of SUBS) {
+  const plPage = byPath[sp]
+  for (const x of READY[sp]) {
+    if (!x.html) continue
+    const { L, tr } = x
+    const url = abs(x.path)
+    const title = tr[plPage.title] || plPage.title
+    const description = tr[plPage.description] || plPage.description
+    const body = localizeLinks(x.html.replaceAll('{{EVENTS}}', MERA + (L.edward || L.events)).replaceAll('{{RENT}}', `${MERA_RENT}/${L.code}/`), L.code, SUBS)
+    const graph = [orgNodeAll, edwardNode(texts(L.code)?.lead || DEFINITION.en, texts(L.code)), websiteAll, {
+      '@type': 'WebPage', '@id': `${url}#webpage`, url, name: title, description, inLanguage: L.hreflang,
+      isPartOf: { '@id': `${SITE}/#website` }, about: { '@id': EDWARD_ID }, publisher: { '@id': ORG_ID },
+    }]
+    const html = subPage({
+      L, url, title, description, bodyHtml: body, hreflang: subHreflangTags(sp),
+      alternates: READY[sp].map((a) => ({ path: a.path, hreflang: a.L.hreflang, name: a.L.name, current: a.L.code === L.code })),
+      cssTags, graph, nav: subNavFor(L.code, tr), homeHref: L.path, contact: esc(tr['Kontakt'] || texts(L.code)?.contactH || 'Contact'),
+    })
+    if (DASHES.test(html)) throw new Error(`prerender: długi myślnik w ${x.path}`)
+    const file = join(dist, `${x.path.slice(1)}.html`)
+    mkdirSync(dirname(file), { recursive: true })
+    writeFileSync(file, html)
+    subWritten++
+  }
+  // pełny zestaw hreflang w polskiej (i angielskiej React) wersji
+  for (const x of READY[sp].filter((y) => !y.html)) {
+    const file = join(dist, `${x.path.slice(1)}.html`)
+    const h = readFileSync(file, 'utf8')
+    if (!h.includes('<!--SUBHREFLANG-->')) throw new Error(`prerender: brak znacznika hreflang w ${x.path}`)
+    writeFileSync(file, h.replace('<!--SUBHREFLANG-->', subHreflangTags(sp).join('\n    ')))
+  }
+}
+
 // sitemap.xml: tylko adresy kanoniczne, z parami hreflang
 const today = new Date().toISOString().slice(0, 10)
 const canonicalPages = PAGES.filter((p) => p.canonical === p.path)
 const urls = canonicalPages.map((p) => {
-  const alt = p.cluster ? hreflangSitemap() : p.alt
+  const sk = subKey(p.path)
+  const alt = sk ? subHreflangSitemap(sk) : p.cluster ? hreflangSitemap() : p.alt
     ? `\n    <xhtml:link rel="alternate" hreflang="${p.lang}" href="${abs(p.path)}"/>\n    <xhtml:link rel="alternate" hreflang="${p.lang === 'pl' ? 'en' : 'pl'}" href="${abs(p.alt)}"/>`
     : ''
   return `  <url>\n    <loc>${abs(p.path)}</loc>\n    <lastmod>${today}</lastmod>${alt}\n  </url>`
@@ -256,7 +322,7 @@ const missing = STATIC_LANGS.filter((L) => !texts(L.code)).map((L) => L.code)
 if (missing.length) console.warn(`prerender: brak tekstów scripts/lang/<kod>.json dla: ${missing.join(', ')} (pomijam)`)
 const organization = organizationNode(), website = websiteNode()
 for (const L of STATIC_LANGS.filter((x) => texts(x.code))) {
-  const html = langPage(L, texts(L.code), organization, website)
+  const html = langPage(L, texts(L.code), organization, website, subNavFor(L.code, subTexts(L.code)))
   if (DASHES.test(html)) throw new Error(`prerender: długi myślnik w /${L.code}/`)
   for (const must of [`<html lang="${L.hreflang}"`, '<link rel="canonical"', 'hreflang="x-default"', 'application/ld+json', '<h1>']) {
     if (!html.includes(must)) throw new Error(`prerender: /${L.code}/ bez ${must}`)
@@ -267,9 +333,15 @@ for (const L of STATIC_LANGS.filter((x) => texts(x.code))) {
   urls.push(`  <url>\n    <loc>${abs(L.path)}</loc>\n    <lastmod>${today}</lastmod>${hreflangSitemap()}\n  </url>`)
 }
 
+// mapa strony: podstrony w językach
+for (const sp of SUBS) for (const x of READY[sp].filter((y) => y.html)) {
+  urls.push(`  <url>\n    <loc>${abs(x.path)}</loc>\n    <lastmod>${today}</lastmod>${subHreflangSitemap(sp)}\n  </url>`)
+}
+
 // llms.txt: lista wersji językowych
 appendFileSync(join(dist, 'llms.txt'), `\n## Edward Warchocki in ${READY_LANGS.length} languages\n\n` + READY_LANGS.map((L) => `- [${L.enName} (${L.name})](${abs(L.path)}): ${texts(L.code).title}`).join('\n') + '\n')
 
 writeFileSync(join(dist, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${urls.join('\n')}\n</urlset>\n`)
 
-console.log(`prerender: ${PAGES.length} stron React, ${READY_LANGS.length - 2} stron językowych, sitemap: ${urls.length} adresów`)
+appendFileSync(join(dist, 'llms.txt'), `\nEvery page of warchocki.pl (services, campaign reports, products) is also available in these languages at https://warchocki.pl/<code>/<page>, for example https://warchocki.pl/de/wynajem-edwarda and https://warchocki.pl/de/produkty.\n`)
+console.log(`prerender: ${PAGES.length} stron React, ${READY_LANGS.length - 2} stron językowych, ${subWritten} podstron w językach, sitemap: ${urls.length} adresów`)
