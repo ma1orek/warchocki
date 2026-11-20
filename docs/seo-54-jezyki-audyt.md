@@ -79,3 +79,11 @@ Wnioski: ludzie szukają filmu z dzikami opisowo (robot + dziki + Warszawa/Polsk
 **Brave Search:** nie ma panelu ani zgłaszania adresów. Brave buduje indeks z własnego robota i z ruchu użytkowników przeglądarki Brave (Web Discovery Project), więc pomagają linki z mocnych stron i odwiedziny. W praktyce: linki do `warchocki.pl/<kod>/` z merarobotics.com i mera.rent w tych samych językach, z profili Edwarda (bio na YouTube, Instagramie, X) oraz z Wikipedii i Wikidata (np. „oficjalna strona” w Wikidata Q141129635). Stary tytuł i opis w Brave znikną, gdy jego robot odwiedzi stronę ponownie.
 
 **Do potwierdzenia:** źródło „5 miliardów wyświetleń” i obecności Edwarda w mediach w Chinach. Po potwierdzeniu trzeba je dopisać najpierw do `merarobotics/netlify/functions/lib/seo-facts.mjs`, potem do `scripts/seo-facts.mjs`, `scripts/lang/pl.json` i `en.json`, i przetłumaczyć ponownie: `node scripts/lang-fill.mjs --force`.
+
+## 9. Podstrony i produkty w 54 językach (20.11.2026 wieczorem, commit 2837022)
+
+- 20 adresów (wynajem Edwarda, wynajem robotów, kampanie w social mediach, produkty, raport DINO, raport Pol’and’Rock, współpraca i 13 produktów) w każdym z 54 języków: `/<kod>/<adres>` i `/en/<adres>`; angielskie strony produktów zostają w React.
+- Treść to przetłumaczona polska strona z prerenderu (te same zdjęcia i style), statyczny HTML bez JavaScriptu. Formularz współpracy zastępuje blok kontaktu. Kwoty tylko tam, gdzie były (kaucja 0,50 zł).
+- Każda z 1080 stron ma 55 linków hreflang; mapa strony 1134 adresy; IndexNow przyjął 1135 adresów (200 we wszystkich 5 punktach).
+- Nowa treść polskiej podstrony: `npm run build`, potem `node scripts/lang-fill-sub.mjs` (tłumaczy tylko nowe fragmenty), commit, wdrożenie, `node scripts/indexnow.mjs`.
+- Do decyzji Bartosza: polskie podstrony mają twierdzenia spoza źródeł faktów (np. „1.5 miliarda wyświetleń”, „Pierwszy robot w polskim Sejmie”, „Pierwszy robot-influencer Polski”); tłumaczenia przenoszą je 1:1. F30 mówi o ok. 3 mld wyświetleń miesięcznie.
