@@ -53,3 +53,29 @@ Wnioski: ludzie szukają filmu z dzikami opisowo (robot + dziki + Warszawa/Polsk
 - **5 miliardów wyświetleń:** w źródłach faktów jest tylko F30 („około 3 miliardów wyświetleń miesięcznie” na kanałach Edwarda, listopad 2026). Strona używa F30. Liczba 5 mld wejdzie dopiero, gdy będzie źródło (np. zrzut z paneli platform albo zestawienie) i wpis w `seo-facts.mjs`.
 - **Popularność w Chinach:** brak faktu w źródłach (w wynikach Google widać materiał South China Morning Post, ale F12 go nie wymienia). Do dopisania jako fakt, jeśli Bartosz potwierdzi konkretne media.
 - **„Najpopularniejszy” i „pierwszy”:** strona nie twierdzi tego wprost; fraza występuje tylko jako pytanie w FAQ, a odpowiedź podaje liczby i media.
+
+## 7. Wdrożenie (20.11.2026, commity bf2aff9 i b0dc0be)
+
+- Na produkcji: 54 wersje (`/`, `/en` i 52 strony `/<kod>/`), każda sprawdzona po wdrożeniu: 200, `text/html`, właściwy `<html lang>`, canonical na siebie, 55 linków hreflang (54 wersje + x-default `/en`).
+- `sitemap.xml`: 88 adresów (36 dotychczasowych + 52 nowe), strony główne i językowe z pełnym zestawem hreflang.
+- `llms.txt`: pełna lista mediów, film z dzikami, lista 54 wersji.
+- IndexNow (`node scripts/indexnow.mjs`): 89 adresów (sitemap + llms.txt) przyjęte przez api.indexnow.org, Bing, Yandex, Seznam i Naver (200/202).
+- Google Search Console (usługa `https://warchocki.pl/`, konto idzikbartosz): sitemap zgłoszona ponownie, Google od razu ją przeczytał: 88 wykrytych stron, status „Success”.
+- Razem z tym wdrożeniem poszedł commit f0a8fb8 z `main` (formularz współpracy zapisuje zapytania handlowe także w CRM MERA, mail zostaje jako zapas), który był na `main`, ale jeszcze nie na produkcji.
+
+## 8. Kroki dla Bartosza
+
+**Google Search Console** (https://search.google.com/search-console, usługa `https://warchocki.pl/`):
+1. „Sprawdzenie adresu URL” (pasek u góry): wpisz `https://warchocki.pl/`, potem „Poproś o zindeksowanie”. To samo dla `https://warchocki.pl/en`, `https://warchocki.pl/raport-polandrock` (stary opis z „500 milionów”) i kilku wersji z największych rynków: `/de/`, `/fr/`, `/es/`, `/it/`, `/en-us/`. Limit to ok. 10 próśb dziennie.
+2. Za 3-7 dni: „Strony” (indeksowanie) i „Skuteczność” z filtrem „Strona zawiera /de/” itd. Sprawdź, czy nowe wersje są zindeksowane.
+3. Opcjonalnie: dodaj usługę domenową `warchocki.pl` (weryfikacja rekordem TXT w DNS). Konto idzikbartosz ma dziś tylko usługę z prefiksem `https://warchocki.pl/`.
+
+**Bing Webmaster Tools** (https://www.bing.com/webmasters, w Chrome nie było zalogowanej sesji):
+1. Zaloguj się kontem Microsoft albo Google.
+2. Jeśli strony nie ma: „Dodaj witrynę” → „Importuj z Google Search Console” (najszybciej, bez weryfikacji DNS).
+3. „Mapy witryn” → „Prześlij mapę witryny”: `https://warchocki.pl/sitemap.xml`.
+4. IndexNow już zgłosił wszystkie adresy; w „IndexNow” w panelu zobaczysz je po kilku godzinach.
+
+**Brave Search:** nie ma panelu ani zgłaszania adresów. Brave buduje indeks z własnego robota i z ruchu użytkowników przeglądarki Brave (Web Discovery Project), więc pomagają linki z mocnych stron i odwiedziny. W praktyce: linki do `warchocki.pl/<kod>/` z merarobotics.com i mera.rent w tych samych językach, z profili Edwarda (bio na YouTube, Instagramie, X) oraz z Wikipedii i Wikidata (np. „oficjalna strona” w Wikidata Q141129635). Stary tytuł i opis w Brave znikną, gdy jego robot odwiedzi stronę ponownie.
+
+**Do potwierdzenia:** źródło „5 miliardów wyświetleń” i obecności Edwarda w mediach w Chinach. Po potwierdzeniu trzeba je dopisać najpierw do `merarobotics/netlify/functions/lib/seo-facts.mjs`, potem do `scripts/seo-facts.mjs`, `scripts/lang/pl.json` i `en.json`, i przetłumaczyć ponownie: `node scripts/lang-fill.mjs --force`.
