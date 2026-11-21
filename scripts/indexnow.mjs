@@ -19,7 +19,7 @@ if (!keyRes.ok || (await keyRes.text()).trim() !== KEY) throw new Error('indexno
 const xml = await (await fetch(`https://${HOST}/sitemap.xml`)).text()
 let urls = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1])
 if (process.argv.includes('--only-new')) urls = urls.filter((u) => STATIC_LANGS.some((L) => u === `https://${HOST}${L.path}`))
-urls.push(`https://${HOST}/llms.txt`)
+urls.push(`https://${HOST}/llms.txt`, `https://${HOST}/llms-full.txt`)
 console.log(`indexnow: ${urls.length} adresów`)
 
 const body = JSON.stringify({ host: HOST, key: KEY, keyLocation: `https://${HOST}/${KEY}.txt`, urlList: urls })
