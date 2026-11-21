@@ -48,14 +48,14 @@ function ContactCard({ href, label, cta, desc, icon, dark = false }: { href: str
         >
           {icon}
         </motion.div>
-        <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: dark ? 'rgba(0,0,0,0.68)' : 'rgba(255,255,255,0.35)' }}>
+        <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: dark ? 'rgba(0,0,0,0.68)' : 'rgba(255,255,255,0.62)' }}>
           {label}
         </p>
       </div>
       <h3 style={{ fontSize: 'clamp(24px, 3vw, 32px)', fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.1, position: 'relative', zIndex: 2 }}>
         {cta}
       </h3>
-      <p style={{ fontSize: 15, lineHeight: 1.6, color: dark ? 'rgba(0,0,0,0.6)' : 'rgba(255,255,255,0.5)', flex: 1, position: 'relative', zIndex: 2 }}>
+      <p style={{ fontSize: 15, lineHeight: 1.6, color: dark ? 'rgba(0,0,0,0.68)' : 'rgba(255,255,255,0.7)', flex: 1, position: 'relative', zIndex: 2 }}>
         {desc}
       </p>
       <div style={{ display: 'flex', alignItems: 'center', gap: 10, fontSize: 13, fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', position: 'relative', zIndex: 2 }}>

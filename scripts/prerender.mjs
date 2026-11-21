@@ -203,6 +203,8 @@ function head(page) {
     `<meta name="twitter:site" content="@edwardwarchocki" />`,
     `<link rel="author" href="${MERA}" />`,
   ]
+  // Strony główne React: obraz LCP (blok „Wynajmij mnie”) pobierany od razu, z tym samym srcset co w RentEdward.tsx
+  if (page.cluster) tags.push('<link rel="preload" as="image" href="/tlumy/tlum-01.webp" imagesrcset="/tlumy/tlum-01-480.webp 480w, /tlumy/tlum-01-600.webp 600w, /tlumy/tlum-01-720.webp 720w, /tlumy/tlum-01.webp 961w" imagesizes="(max-width: 900px) 100vw, 50vw" fetchpriority="high" />')
   if (subKey(page.path) && page.canonical === page.path) {
     tags.push('<!--SUBHREFLANG-->')
   } else if (page.cluster) {

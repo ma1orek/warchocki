@@ -245,7 +245,7 @@ function ContactCard({ href, label, cta, desc, icon, dark = false }: { href: str
           >
             {icon}
           </motion.div>
-          <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: dark ? 'rgba(0,0,0,0.68)' : 'rgba(255,255,255,0.35)' }}>
+          <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: dark ? 'rgba(0,0,0,0.68)' : 'rgba(255,255,255,0.62)' }}>
             {label}
           </p>
         </div>
@@ -255,7 +255,7 @@ function ContactCard({ href, label, cta, desc, icon, dark = false }: { href: str
         {cta}
       </h3>
 
-      <p style={{ fontSize: 15, lineHeight: 1.6, color: dark ? 'rgba(0,0,0,0.6)' : 'rgba(255,255,255,0.5)', flex: 1, position: 'relative', zIndex: 2 }}>
+      <p style={{ fontSize: 15, lineHeight: 1.6, color: dark ? 'rgba(0,0,0,0.68)' : 'rgba(255,255,255,0.7)', flex: 1, position: 'relative', zIndex: 2 }}>
         {desc}
       </p>
 
