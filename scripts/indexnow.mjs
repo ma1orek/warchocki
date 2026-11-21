@@ -1,7 +1,7 @@
 // warchocki.pl: zgłasza adresy z produkcyjnej sitemapy do IndexNow (Bing, Yandex, Seznam, Naver; api.indexnow.org
 // przekazuje zgłoszenie pozostałym wyszukiwarkom protokołu). Klucz jest publiczny: public/<klucz>.txt.
 // Uruchom po wdrożeniu: node scripts/indexnow.mjs [--only-new]   (--only-new: tylko strony językowe /<kod>/)
-import { STATIC_LANGS } from './lang/langs.mjs'
+import { STATIC_LANGS, LANGS } from './lang/langs.mjs'
 
 const HOST = 'warchocki.pl'
 const KEY = '362984f88cdaeadb00c1f030f721ead2'
@@ -19,7 +19,7 @@ if (!keyRes.ok || (await keyRes.text()).trim() !== KEY) throw new Error('indexno
 const xml = await (await fetch(`https://${HOST}/sitemap.xml`)).text()
 let urls = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1])
 if (process.argv.includes('--only-new')) urls = urls.filter((u) => STATIC_LANGS.some((L) => u === `https://${HOST}${L.path}`))
-urls.push(`https://${HOST}/llms.txt`, `https://${HOST}/llms-full.txt`)
+urls.push(`https://${HOST}/llms.txt`, `https://${HOST}/llms-full.txt`, ...LANGS.map((L) => `https://${HOST}/${L.code}/llms.txt`))
 console.log(`indexnow: ${urls.length} adresów`)
 
 const body = JSON.stringify({ host: HOST, key: KEY, keyLocation: `https://${HOST}/${KEY}.txt`, urlList: urls })

@@ -405,6 +405,49 @@ writeFileSync(join(dist, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>
     const file = join(dist, mdFile(L).slice(1))
     mkdirSync(dirname(file), { recursive: true })
     writeFileSync(file, md)
+
+    // /<kod>/llms.txt (21.11.2026, „wszystko we wszystkich językach”): to samo w formacie llms.txt, w tym języku
+    const llms = [
+      `# ${t.title}`,
+      '',
+      `> ${t.lead}`,
+      '',
+      t.videoP,
+      '',
+      t.reachP,
+      '',
+      t.mediaP,
+      '',
+      `## ${t.bookH}`,
+      '',
+      t.bookP,
+      '',
+      `- [${t.bookEvents}](${book})`,
+      `- [${t.bookRent}](${rent})`,
+      '- [MCP server MERA Robotics (AI agents)](https://merarobotics.com/mcp): https://merarobotics.com/.well-known/mcp/server-card.json',
+      `- ${t.contactH}: ${ORG.email}`,
+      '',
+      '## warchocki.pl',
+      '',
+      `- [${t.h1}](${abs(L.path)})`,
+      ...pages,
+      `- [Markdown](${SITE}${mdFile(L)})`,
+      `- [${t.videoCta}](${BOARS_VIDEO.url})`,
+      '',
+      `## ${t.faqH}`,
+      '',
+      ...t.faq.map((f) => `- ${f.q} ${f.a}`),
+      '',
+      `## ${t.profilesH}`,
+      '',
+      ...PROFILES.map(([label, href]) => `- [${label}](${href})`),
+      '- [Wikipedia](https://pl.wikipedia.org/wiki/Edward_Warchocki)',
+      '',
+    ].join('\n')
+    if (DASHES.test(llms)) throw new Error(`prerender: długi myślnik w llms.txt ${L.code}`)
+    const lf = join(dist, L.code, 'llms.txt')
+    mkdirSync(dirname(lf), { recursive: true })
+    writeFileSync(lf, llms)
   }
   // strony React (PL, EN): link do Markdown w <head>
   for (const [code, file] of [['pl', 'index.html'], ['en', 'en.html']]) {
@@ -534,6 +577,7 @@ writeFileSync(join(dist, '404.html'), `<!doctype html>
 </html>
 `)
 
+appendFileSync(join(dist, 'llms.txt'), `\n## llms.txt in every language\n\n` + READY_LANGS.map((L) => `- [${L.enName} (${L.name})](${SITE}/${L.code}/llms.txt)`).join('\n') + '\n')
 appendFileSync(join(dist, 'llms.txt'), `\nEvery page of warchocki.pl (services, campaign reports, products) is also available in these languages at https://warchocki.pl/<code>/<page>, for example https://warchocki.pl/de/wynajem-edwarda and https://warchocki.pl/de/produkty.\n`)
 console.log(`prerender: ${PAGES.length} stron React, ${READY_LANGS.length - 2} stron językowych, ${subWritten} podstron w językach, sitemap: ${urls.length} adresów`)
 
