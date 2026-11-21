@@ -33,6 +33,13 @@ warchocki.pl is Edward's own website: full site in Polish (https://warchocki.pl/
 - [Raport Pol'and'Rock 2026 (festival report)](https://warchocki.pl/raport-polandrock)
 - [Współpraca (cooperation and contact)](https://warchocki.pl/wspolpraca)
 
+## For AI agents: booking and quotes
+
+- MCP server of MERA Robotics: https://merarobotics.com/mcp (server card: https://merarobotics.com/.well-known/mcp/server-card.json). An agent can check availability, plan a robot for an event, ask for a quote and send a booking inquiry for Edward Warchocki there.
+- MERA EVENTS, Edward at your event: https://merarobotics.com/events/edward-warchocki (English: https://merarobotics.com/en/events/edward-warchocki)
+- MERA RENT, humanoid robot rental app: https://mera.rent
+- Full text about Edward in Polish and English: https://warchocki.pl/llms-full.txt
+
 ## Edward's profiles
 
 - TikTok: https://www.tiktok.com/@edwardwarchocki

@@ -1,1 +1,5 @@
-/*    /index.html   200
+# warchocki.pl: wszystkie strony są gotowymi plikami HTML z prerenderu (scripts/prerender.mjs), więc bez reguły
+# „/* /index.html 200”: nieznany adres dostaje prawdziwe 404 (dist/404.html), także /.well-known/*, *.json, *.txt, *.xml.
+# Nowa trasa w src/App.tsx = dopisz ją do PAGES w prerenderze (inaczej 404 po odświeżeniu).
+/wydarzenia     /     301
+/en/wydarzenia  /en   301

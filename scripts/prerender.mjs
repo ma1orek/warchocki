@@ -343,5 +343,126 @@ appendFileSync(join(dist, 'llms.txt'), `\n## Edward Warchocki in ${READY_LANGS.l
 
 writeFileSync(join(dist, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${urls.join('\n')}\n</urlset>\n`)
 
+// ── llms-full.txt (21.11.2026, „wszystko przyjazne dla agentów”): pełny tekst o Edwardzie PL i EN ─────────────
+{
+  const ev = MERA + '/events/edward-warchocki', evEn = MERA + '/en/events/edward-warchocki'
+  const faq = (t) => t.faq.map((f) => `### ${f.q}\n\n${f.a}`).join('\n\n')
+  const pageList = (lang) => SUBS.filter((sp) => !sp.startsWith('/produkty/')).map((sp) => {
+    const pg = byPath[sp], x = READY[sp].find((y) => y.L.code === lang)
+    if (!pg || !x) return ''
+    const title = lang === 'pl' ? pg.title : (x.tr?.[pg.title] || pg.title)
+    const desc = lang === 'pl' ? pg.description : (x.tr?.[pg.description] || pg.description)
+    return `- [${title}](${abs(x.path)}): ${desc}`
+  }).filter(Boolean).join('\n')
+  const prodList = (lang) => products.map((pr) => `- [${clean(pr.name[lang])}](${abs(lang === 'pl' ? `/produkty/${pr.slug}` : `/en/produkty/${pr.slug}`)})`).join('\n')
+  const full = [
+    '# Edward Warchocki: full text for AI assistants',
+    '',
+    `> ${DEFINITION.en}`,
+    '',
+    'Source of facts: MERA Robotics (MERA ROBOTICS sp. z o.o., Warsaw, Poland). Short version: https://warchocki.pl/llms.txt',
+    '',
+    '## Book Edward or get a quote (for AI agents)',
+    '',
+    '- MCP server of MERA Robotics: https://merarobotics.com/mcp (server card: https://merarobotics.com/.well-known/mcp/server-card.json): availability, event planning, quote and booking inquiry.',
+    `- MERA EVENTS, Edward at your event: ${evEn} (Polish: ${ev})`,
+    '- MERA RENT, humanoid robot rental app: https://mera.rent',
+    `- Contact: ${ORG.email}`,
+    '',
+    '## English',
+    '',
+    `${T.en.lead}`,
+    '',
+    ...FACTS.en.map((f) => `- ${f}`),
+    '',
+    `### ${T.en.videoH}`,
+    '',
+    `${T.en.videoP} Video: ${BOARS_VIDEO.url}. Reuters: ${REUTERS}`,
+    '',
+    `### ${T.en.mediaH}`,
+    '',
+    T.en.mediaP,
+    '',
+    T.en.productsP,
+    '',
+    `## ${T.en.faqH}`,
+    '',
+    faq(T.en),
+    '',
+    '### Pages (English)',
+    '',
+    pageList('en'),
+    '',
+    '### Products (English)',
+    '',
+    prodList('en'),
+    '',
+    '## Po polsku',
+    '',
+    T.pl.lead,
+    '',
+    ...FACTS.pl.map((f) => `- ${f}`),
+    '',
+    `### ${T.pl.videoH}`,
+    '',
+    `${T.pl.videoP} Film: ${BOARS_VIDEO.url}. Reuters: ${REUTERS}`,
+    '',
+    `### ${T.pl.mediaH}`,
+    '',
+    T.pl.mediaP,
+    '',
+    T.pl.productsP,
+    '',
+    `## ${T.pl.faqH}`,
+    '',
+    faq(T.pl),
+    '',
+    '### Strony (po polsku)',
+    '',
+    pageList('pl'),
+    '',
+    '### Produkty (po polsku)',
+    '',
+    prodList('pl'),
+    '',
+    `## Edward Warchocki in ${READY_LANGS.length} languages`,
+    '',
+    'Every page (services, campaign reports, products) is available at https://warchocki.pl/<code>/<page> (English: https://warchocki.pl/en/<page>), for example https://warchocki.pl/de/wynajem-edwarda. Home pages:',
+    '',
+    ...READY_LANGS.map((L) => `- ${L.enName} (${L.name}): ${abs(L.path)}: ${texts(L.code).title}`),
+    '',
+    "## Edward's profiles",
+    '',
+    ...PROFILES.map(([label, href]) => `- ${label}: ${href}`),
+    '- Wikipedia (PL): https://pl.wikipedia.org/wiki/Edward_Warchocki',
+    '- Wikidata: https://www.wikidata.org/wiki/Q141129635',
+    '',
+  ].join('\n')
+  if (DASHES.test(full)) throw new Error('prerender: długi myślnik w llms-full.txt')
+  writeFileSync(join(dist, 'llms-full.txt'), full)
+}
+
+// ── 404.html: Netlify zwraca go z kodem 404 dla każdego nieznanego adresu (bez reguły /* w _redirects) ───────
+writeFileSync(join(dist, '404.html'), `<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex" />
+    <title>404: nie ma takiej strony / page not found | warchocki.pl</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <style>body{margin:0;background:#000;color:#eee;font:17px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}main{max-width:760px;margin:0 auto;padding:64px 16px}h1{font-size:2rem;margin:0 0 12px}a{color:#B9DCFF}ul{columns:2;padding-left:18px}@media(max-width:560px){ul{columns:1}}</style>
+  </head>
+  <body>
+    <main>
+      <h1>404</h1>
+      <p>Człowieku, takiej strony tu nie ma. <a href="/">Strona główna Edwarda Warchockiego</a>.</p>
+      <p lang="en">Human, this page does not exist. <a href="/en">Edward Warchocki home page</a>. For AI agents: <a href="/llms.txt">llms.txt</a>, <a href="/llms-full.txt">llms-full.txt</a>, <a href="/sitemap.xml">sitemap.xml</a>, MCP server <a href="https://merarobotics.com/mcp">merarobotics.com/mcp</a>.</p>
+      <ul>${READY_LANGS.map((L) => `<li><a href="${L.path}" hreflang="${L.hreflang}" lang="${L.hreflang}">${esc(L.name)}</a></li>`).join('')}</ul>
+    </main>
+  </body>
+</html>
+`)
+
 appendFileSync(join(dist, 'llms.txt'), `\nEvery page of warchocki.pl (services, campaign reports, products) is also available in these languages at https://warchocki.pl/<code>/<page>, for example https://warchocki.pl/de/wynajem-edwarda and https://warchocki.pl/de/produkty.\n`)
 console.log(`prerender: ${PAGES.length} stron React, ${READY_LANGS.length - 2} stron językowych, ${subWritten} podstron w językach, sitemap: ${urls.length} adresów`)
