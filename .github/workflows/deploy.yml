@@ -19,8 +19,8 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
-      - run: npm run build
-      - run: npx --yes netlify-cli@17 deploy --prod --dir dist
+      # --build: CLI buduje według netlify.toml (npm run build) i pakuje funkcje brzegowe (netlify/edge-functions)
+      - run: npx --yes netlify-cli@17 deploy --prod --build
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: 31742803-3e2e-427b-acf7-7fb5a5d2f9fb
