@@ -251,8 +251,8 @@ export default function ProduktPage() {
                         borderTop: '1px solid rgba(255,255,255,0.05)',
                       }}
                     >
-                      <span style={{ fontSize: row.sub ? 12 : 13, fontWeight: row.sub ? 400 : 600, color: row.sub ? 'rgba(255,255,255,0.5)' : 'rgba(255,255,255,0.85)' }}>{row.label}</span>
-                      <span style={{ fontSize: row.sub ? 12 : 13, fontWeight: row.sub ? 400 : 700, color: row.sub ? 'rgba(255,255,255,0.55)' : '#fff', whiteSpace: 'nowrap' }}>{row.value}</span>
+                      <span style={{ fontSize: row.sub ? 12 : 13, fontWeight: row.sub ? 400 : 600, color: row.sub ? 'rgba(255,255,255,0.7)' : 'rgba(255,255,255,0.85)' }}>{row.label}</span>
+                      <span style={{ fontSize: row.sub ? 12 : 13, fontWeight: row.sub ? 400 : 700, color: row.sub ? 'rgba(255,255,255,0.7)' : '#fff', whiteSpace: 'nowrap' }}>{row.value}</span>
                     </div>
                   ))}
                 </div>

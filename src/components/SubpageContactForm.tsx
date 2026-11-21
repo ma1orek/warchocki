@@ -48,7 +48,7 @@ function ContactCard({ href, label, cta, desc, icon, dark = false }: { href: str
         >
           {icon}
         </motion.div>
-        <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: dark ? 'rgba(0,0,0,0.5)' : 'rgba(255,255,255,0.35)' }}>
+        <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: dark ? 'rgba(0,0,0,0.68)' : 'rgba(255,255,255,0.35)' }}>
           {label}
         </p>
       </div>

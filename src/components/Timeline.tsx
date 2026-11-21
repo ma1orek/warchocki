@@ -195,14 +195,14 @@ export default function Timeline() {
                 }} />
                 <p style={{
                   fontSize: 9, fontWeight: 700, letterSpacing: '0.15em',
-                  color: isActive ? 'rgba(255,255,255,0.5)' : 'rgba(255,255,255,0.15)',
+                  color: isActive ? '#fff' : 'rgba(255,255,255,0.62)',
                   marginBottom: 8, transition: 'color 0.25s ease', fontFamily: 'monospace',
                 }}>
                   {String(i + 1).padStart(2, '0')}
                 </p>
                 <p style={{
                   fontSize: 13, fontWeight: isActive ? 700 : 500, lineHeight: 1.4,
-                  color: isActive ? '#fff' : 'rgba(255,255,255,0.45)',
+                  color: isActive ? '#fff' : 'rgba(255,255,255,0.7)',
                   transition: 'all 0.25s ease', transform: isActive ? 'translateY(-2px)' : 'translateY(0)',
                 }}>
                   {event}

@@ -177,7 +177,7 @@ export default function Wspolpraca() {
                     >
                       <span style={{ fontSize: 22 }}>{t.emoji}</span>
                       <span style={{ fontSize: 14, fontWeight: 700 }}>{t.id}</span>
-                      <span style={{ fontSize: 11, lineHeight: 1.35, color: active ? 'rgba(0,0,0,0.55)' : 'rgba(255,255,255,0.4)' }}>{t.desc}</span>
+                      <span style={{ fontSize: 11, lineHeight: 1.35, color: active ? 'rgba(0,0,0,0.68)' : 'rgba(255,255,255,0.4)' }}>{t.desc}</span>
                     </button>
                   )
                 })}

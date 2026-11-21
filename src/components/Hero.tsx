@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { useEffect, useRef, useState } from 'react'
 import SocialLinks from './SocialLinks'
 import DinoPromo from './DinoPromo'
 import useIsMobile from '../hooks/useIsMobile'
@@ -9,6 +10,21 @@ export default function Hero() {
   const m = useIsMobile()
   const stacked = useIsMobile(1100)
   const { t, locale } = useT()
+  // Film tła startuje po zdarzeniu load (+1 s): do tego czasu kadr startowy (poster), treść i LCP bez konkurencji o łącze
+  const videoRef = useRef<HTMLVideoElement>(null)
+  const [videoOn, setVideoOn] = useState(false)
+  useEffect(() => {
+    const start = () => setTimeout(() => setVideoOn(true), 1000)
+    if (document.readyState === 'complete') { const id = start(); return () => clearTimeout(id) }
+    let id: ReturnType<typeof setTimeout> | undefined
+    const on = () => { id = start() }
+    window.addEventListener('load', on, { once: true })
+    return () => { window.removeEventListener('load', on); if (id) clearTimeout(id) }
+  }, [])
+  useEffect(() => {
+    const v = videoRef.current
+    if (videoOn && v) { v.load(); v.play().catch(() => {}) }
+  }, [videoOn])
   const stats = [
     { value: '~3B', label: t('heroStatViews') },
     { value: locale === 'en' ? 'MILLIONS' : 'MILIONY', label: t('heroStatPeople') },
@@ -21,8 +37,8 @@ export default function Hero() {
       style={{ position: 'relative', minHeight: '100vh', display: 'flex', alignItems: 'center', overflow: 'hidden' }}
     >
       <div style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
-        <video autoPlay loop muted playsInline preload="metadata" poster="/hero-bg-poster.webp" style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'brightness(0.28) contrast(1.1) grayscale(0.45) blur(2px)', transform: 'scale(1.03)' }}>
-          <source src="/hero-bg-lekki.mp4" type="video/mp4" />
+        <video ref={videoRef} autoPlay loop muted playsInline preload="none" poster="/hero-bg-poster.webp" style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'brightness(0.28) contrast(1.1) grayscale(0.45) blur(2px)', transform: 'scale(1.03)' }}>
+          {videoOn && <source src="/hero-bg-lekki.mp4" type="video/mp4" />}
         </video>
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.35) 40%, rgba(0,0,0,0.92) 100%)' }} />
       </div>
