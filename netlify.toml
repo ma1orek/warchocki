@@ -1,0 +1,6 @@
+# warchocki.pl: wdrożenie przez GitHub Action (netlify deploy --prod --dir dist). Plik tylko po to, żeby CLI
+# dołączało funkcje brzegowe (netlify/edge-functions/markdown.js: Markdown na Accept: text/markdown).
+# Przekierowania i nagłówki zostają w public/_redirects i public/_headers.
+[build]
+  publish = "dist"
+  edge_functions = "netlify/edge-functions"
