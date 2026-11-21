@@ -3,17 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5WJ0SLHCZV"></script>
     <script>
+      // Google Analytics po załadowaniu strony (nie konkuruje z treścią o łącze i procesor)
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'G-5WJ0SLHCZV');
+      addEventListener('load', function(){ setTimeout(function(){ var s=document.createElement('script'); s.async=true; s.src='https://www.googletagmanager.com/gtag/js?id=G-5WJ0SLHCZV'; document.head.appendChild(s); }, 1200); });
     </script>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&display=swap" rel="stylesheet" />
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&display=swap" rel="stylesheet" /></noscript>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Edward Warchocki, robot humanoidalny MERA Robotics | warchocki.pl</title>
     <meta name="description" content="Edward Warchocki to robot humanoidalny (Unitree G1) prowadzony przez MERA Robotics. Rozmawia dzięki MERA OS w ponad 70 językach. Rezerwacja na eventy: MERA EVENTS i MERA RENT." />

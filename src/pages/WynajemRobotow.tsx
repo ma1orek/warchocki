@@ -40,13 +40,13 @@ export default function WynajemRobotow() {
       {/* Hero */}
       <section style={{ padding: '120px 0 80px', borderBottom: '1px solid rgba(255,255,255,0.08)' }}>
         <div style={{ maxWidth: 1400, margin: '0 auto', padding: '0 clamp(20px, 4vw, 48px)' }}>
-          <motion.p {...fadeUp(0.1)} style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)', marginBottom: 16 }}>
+          <motion.p {...fadeUp(0.1)} style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.62)', marginBottom: 16 }}>
             Usługi
           </motion.p>
           <motion.h1 {...fadeUp(0.2)} style={{ fontSize: 'clamp(32px, 5vw, 72px)', fontWeight: 700, letterSpacing: '-0.04em', marginBottom: 24 }}>
             WYNAJEM ROBOTÓW
           </motion.h1>
-          <motion.p {...fadeUp(0.3)} style={{ fontSize: 18, lineHeight: 1.7, color: 'rgba(255,255,255,0.45)', maxWidth: 600 }}>
+          <motion.p {...fadeUp(0.3)} style={{ fontSize: 18, lineHeight: 1.7, color: 'rgba(255,255,255,0.62)', maxWidth: 600 }}>
             Dostarczamy roboty humanoidalne Unitree z autorskim oprogramowaniem MERA OS.
             Pełna konfiguracja, transport i obsługa techniczna.
           </motion.p>
@@ -63,10 +63,10 @@ export default function WynajemRobotow() {
             {robots.map((r, i) => (
               <motion.div key={r.name} {...fadeUp(i * 0.1)} style={{ padding: 40, background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.06)' }}>
                 <h3 style={{ fontSize: 22, fontWeight: 700, marginBottom: 16 }}>{r.name}</h3>
-                <p style={{ fontSize: 15, lineHeight: 1.7, color: 'rgba(255,255,255,0.4)', marginBottom: 24 }}>{r.desc}</p>
+                <p style={{ fontSize: 15, lineHeight: 1.7, color: 'rgba(255,255,255,0.62)', marginBottom: 24 }}>{r.desc}</p>
                 <ul style={{ listStyle: 'none', padding: 0 }}>
                   {r.specs.map((s) => (
-                    <li key={s} style={{ fontSize: 13, color: 'rgba(255,255,255,0.5)', padding: '6px 0', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
+                    <li key={s} style={{ fontSize: 13, color: 'rgba(255,255,255,0.62)', padding: '6px 0', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
                       {s}
                     </li>
                   ))}

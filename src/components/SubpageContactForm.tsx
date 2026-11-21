@@ -87,7 +87,7 @@ export default function SubpageContactForm({ defaultSubject: _ }: { defaultSubje
         <h3 style={{ fontSize: 'clamp(24px, 3vw, 36px)', fontWeight: 700, letterSpacing: '-0.03em', marginBottom: 14, lineHeight: 1.15 }}>
           {isEn ? 'CONTACT EDWARD' : 'KONTAKT Z EDWARDEM'}
         </h3>
-        <p style={{ fontSize: 15, lineHeight: 1.7, color: 'rgba(255,255,255,0.45)', maxWidth: 520, margin: '0 auto' }}>
+        <p style={{ fontSize: 15, lineHeight: 1.7, color: 'rgba(255,255,255,0.62)', maxWidth: 520, margin: '0 auto' }}>
           {isEn ? 'Choose your path: a quick hello as a fan, or serious business talk.' : 'Wybierz swoją ścieżkę: szybkie cześć od fana, albo poważna gadka biznesowa.'}
         </p>
       </div>
@@ -120,7 +120,7 @@ export default function SubpageContactForm({ defaultSubject: _ }: { defaultSubje
       </div>
 
       <div style={{ marginTop: 32, textAlign: 'center' }}>
-        <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.25)', marginBottom: 8 }}>
+        <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.62)', marginBottom: 8 }}>
           {isEn ? 'Or call' : 'Lub zadzwoń'}
         </p>
         <a href="tel:+48666666245" style={{ fontSize: 20, fontWeight: 700, color: '#fff' }}>

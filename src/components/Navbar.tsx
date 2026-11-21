@@ -43,7 +43,7 @@ export default function Navbar() {
     fontWeight: 500,
     letterSpacing: '0.05em',
     textTransform: 'uppercase' as const,
-    color: 'rgba(255,255,255,0.45)',
+    color: 'rgba(255,255,255,0.62)',
     transition: 'color 0.2s ease',
     whiteSpace: 'nowrap' as const,
   }
@@ -70,7 +70,7 @@ export default function Navbar() {
         e.currentTarget.style.borderColor = 'rgba(255,255,255,0.15)'
       }}
     >
-      {locale.toUpperCase()} / <span style={{ color: 'rgba(255,255,255,0.3)' }}>{otherLocale.toUpperCase()}</span>
+      {locale.toUpperCase()} / <span style={{ color: 'rgba(255,255,255,0.62)' }}>{otherLocale.toUpperCase()}</span>
     </Link>
   )
 
@@ -110,6 +110,8 @@ export default function Navbar() {
             <LanguageSwitcher />
             <button
               onClick={() => setMenuOpen(!menuOpen)}
+              aria-label={menuOpen ? 'Zamknij menu' : 'Menu'}
+              aria-expanded={menuOpen}
               style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 8 }}
             >
               <div style={{ width: 24, height: 2, background: '#fff', marginBottom: 6, transition: 'all 0.3s', transform: menuOpen ? 'rotate(45deg) translate(3px, 3px)' : 'none' }} />

@@ -91,12 +91,11 @@ section.s{padding:40px 0;border-top:1px solid var(--line)}
 .vid a.th span{position:absolute;inset:0;display:grid;place-items:center;font-size:3rem;color:#fff;text-shadow:0 2px 12px #000}
 .langs{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:4px 16px;padding:0}
 .langs a{text-decoration:none}.langs a[aria-current]{color:#fff;font-weight:700}
-footer{border-top:1px solid var(--line);padding:32px 0 48px;color:var(--mut);font-size:.92rem}
+footer{border-top:1px solid var(--line);padding:32px 0 48px;color:var(--mut);font-size:.92rem}footer a,section.s p a{display:inline-block;padding:4px 2px;min-height:24px;text-decoration:underline;text-underline-offset:3px}.langs a{display:inline-block;padding:4px 0;min-height:24px}
 @media (max-width:760px){.hero,.vid{grid-template-columns:1fr}.hero{padding:28px 0;gap:24px}.vid{gap:16px}.vid a.th{max-width:240px}}
 `.replace(/\n/g, '')
 
-const GTAG = `<script async src="https://www.googletagmanager.com/gtag/js?id=G-5WJ0SLHCZV"></script>
-    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-5WJ0SLHCZV');</script>`
+const GTAG = `<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-5WJ0SLHCZV');addEventListener('load',function(){setTimeout(function(){var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-5WJ0SLHCZV';document.head.appendChild(s);},1200);});</script>`
 
 export function langPage(L, t, orgNode, websiteNode, subNav = '') {
   const url = abs(L.path)
@@ -218,9 +217,9 @@ const SUB_CSS = `
 .wh details{position:relative}.wh summary{cursor:pointer;list-style:none;color:#bbb;padding:8px 12px;border:1px solid #222}
 .wh summary::-webkit-details-marker{display:none}
 .wh details[open] ul{position:absolute;inset-inline-end:0;top:100%;z-index:60;background:#0b0b0b;border:1px solid #222;max-height:70vh;overflow:auto;width:min(260px,80vw);list-style:none;margin:0;padding:8px}
-.wh li a{display:block;padding:4px 8px;color:#B9DCFF;text-decoration:none}.wh li a[aria-current]{color:#fff;font-weight:700}
+.wh li a{display:block;padding:6px 8px;min-height:24px;color:#B9DCFF;text-decoration:none}.wh li a[aria-current]{color:#fff;font-weight:700}
 .wf{border-top:1px solid #222;background:#000;color:#aaa;font:15px/1.6 "Space Grotesk",system-ui,sans-serif;padding:28px 0 40px}
-.wf .w{max-width:1200px;margin:0 auto;padding:0 16px}.wf a{color:#B9DCFF}
+.wf .w{max-width:1200px;margin:0 auto;padding:0 16px}.wf a{color:#B9DCFF;text-decoration:underline;text-underline-offset:3px;display:inline-block;padding:4px 2px;min-height:24px}
 @media (max-width:760px){.wh nav{display:none}}
 `.replace(/\n/g, '')
 

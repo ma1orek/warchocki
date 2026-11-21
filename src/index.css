@@ -178,3 +178,8 @@ a {
   .rent-edward-points { grid-template-columns: 1fr !important; }
   .rent-edward-media { min-height: 340px !important; }
 }
+
+/* Wejście treści hero (Hero.tsx, klasa fu): animacja CSS od pierwszego malowania, bez JavaScriptu */
+@keyframes fu-in { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: none; } }
+.fu { animation: fu-in 0.8s ease-out both; }
+@media (prefers-reduced-motion: reduce) { .fu { animation: none; } }

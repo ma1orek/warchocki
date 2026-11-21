@@ -61,7 +61,7 @@ export default function ContactForm() {
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8 }}
           >
-            <p style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)', marginBottom: 16 }}>
+            <p style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.62)', marginBottom: 16 }}>
               Kontakt
             </p>
             <h2 style={{ fontSize: 'clamp(28px, 4vw, 48px)', fontWeight: 700, letterSpacing: '-0.03em', marginBottom: 24, lineHeight: 1.1 }}>
@@ -69,20 +69,20 @@ export default function ContactForm() {
               <br />
               PRZYSZŁOŚĆ?
             </h2>
-            <p style={{ fontSize: 17, lineHeight: 1.8, color: 'rgba(255,255,255,0.45)', marginBottom: 32, maxWidth: 450 }}>
+            <p style={{ fontSize: 17, lineHeight: 1.8, color: 'rgba(255,255,255,0.62)', marginBottom: 32, maxWidth: 450 }}>
               Napisz do nas - odpowiadamy w ciągu 24 godzin. Opowiedz nam
               o swoim projekcie, a przygotujemy spersonalizowaną ofertę.
             </p>
 
             <div style={{ marginBottom: 24 }}>
-              <p style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.25)', marginBottom: 8 }}>Email</p>
+              <p style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.62)', marginBottom: 8 }}>Email</p>
               <a href="mailto:edwardwarchocki@gmail.com" style={{ fontSize: 16, fontWeight: 500, color: 'rgba(255,255,255,0.7)' }}>
                 edwardwarchocki@gmail.com
               </a>
             </div>
 
             <div>
-              <p style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.25)', marginBottom: 8 }}>Technologia</p>
+              <p style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.62)', marginBottom: 8 }}>Technologia</p>
               <a href="https://merarobotics.com" target="_blank" rel="noopener noreferrer" style={{ fontSize: 16, fontWeight: 500, color: 'rgba(255,255,255,0.7)' }}>
                 merarobotics.com
               </a>
@@ -163,7 +163,7 @@ export default function ContactForm() {
                 {sending ? 'Wysyłanie...' : sent ? 'Wysłano!' : 'Wyślij zapytanie'}
               </button>
               {sent && (
-                <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.5)', textAlign: 'center' }}>
+                <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.62)', textAlign: 'center' }}>
                   Dziękujemy! Odpowiemy najszybciej jak to możliwe.
                 </p>
               )}

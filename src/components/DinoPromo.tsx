@@ -115,7 +115,7 @@ export default function DinoPromo() {
           <div aria-hidden style={{ position: 'absolute', left: 0, right: 0, bottom: 0, height: 90, background: 'linear-gradient(to bottom, rgba(10,10,10,0) 0%, rgba(10,10,10,0.92) 100%)', pointerEvents: 'none', zIndex: 2 }} />
           {arrow(-1)}
           {arrow(1)}
-          {p.isNew && <span style={{ position: 'absolute', top: 14, left: 14, zIndex: 3, fontSize: 10, fontWeight: 800, letterSpacing: '0.12em', color: '#fff', background: '#e23b3b', borderRadius: 14, padding: '5px 11px' }}>{t('dinoNew')}</span>}
+          {p.isNew && <span style={{ position: 'absolute', top: 14, left: 14, zIndex: 3, fontSize: 10, fontWeight: 800, letterSpacing: '0.12em', color: '#fff', background: '#c62828', borderRadius: 14, padding: '5px 11px' }}>{t('dinoNew')}</span>}
           <div style={{ position: 'absolute', top: 14, right: 14, zIndex: 3, fontSize: 11, fontWeight: 700, letterSpacing: '0.12em', color: 'rgba(255,255,255,0.75)', background: 'rgba(0,0,0,0.45)', borderRadius: 14, padding: '5px 11px', fontVariantNumeric: 'tabular-nums' }}>
             {String(index + 1).padStart(2, '0')} / {String(count).padStart(2, '0')}
           </div>
@@ -126,9 +126,9 @@ export default function DinoPromo() {
           <AnimatePresence mode="wait" initial={false}>
             <motion.div key={p.slug + '-txt'} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }} transition={{ duration: 0.3 }}>
               <div style={{ fontSize: 11, fontWeight: 800, letterSpacing: '0.12em', textTransform: 'uppercase', color: p.accent, marginBottom: 8 }}>{boldDino(store)}</div>
-              <h3 style={{ fontSize: m ? 22 : 28, fontWeight: 800, color: '#fff', letterSpacing: '-0.02em', lineHeight: 1.12, marginBottom: 4 }}>
+              <h2 style={{ fontSize: m ? 22 : 28, fontWeight: 800, color: '#fff', letterSpacing: '-0.02em', lineHeight: 1.12, marginBottom: 4 }}>
                 {p.name[locale]}
-              </h3>
+              </h2>
               <p style={{ fontFamily: "'Caveat', cursive", fontSize: m ? 24 : 28, fontWeight: 700, color: p.accent, lineHeight: 1.05, marginBottom: 14 }}>
                 {isLody ? (pl ? 'człowieku, to jest smak lata!' : 'the taste of summer!') : isSzkola ? (pl ? 'człowieku, do szkoły z Edkiem!' : 'back to school with Edek!') : p.flavor[locale].toLowerCase()}
               </p>

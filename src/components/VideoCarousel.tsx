@@ -102,7 +102,7 @@ export default function VideoCarousel({ heading, sub, standalone = false, items 
           <h2 style={{ fontSize: m ? 30 : 'clamp(28px, 4vw, 52px)', fontWeight: 800, letterSpacing: '-0.03em', marginBottom: 16 }}>
             {heading ?? (pl ? 'Ludzie kręcą filmiki z produktami' : 'People film clips with the products')}
           </h2>
-          <p style={{ fontSize: m ? 15 : 17, lineHeight: 1.7, color: 'rgba(255,255,255,0.45)', maxWidth: 620, margin: '0 auto' }}>
+          <p style={{ fontSize: m ? 15 : 17, lineHeight: 1.7, color: 'rgba(255,255,255,0.62)', maxWidth: 620, margin: '0 auto' }}>
             {sub ?? (pl
               ? 'Prawdziwe stories i TikToki fanów z lodami EDWARDZIK, musami i napojami. Kliknij, żeby włączyć dźwięk.'
               : 'Real fan stories and TikToks with EDWARDZIK ice cream, pouches and drinks. Tap for sound.')}
@@ -141,7 +141,7 @@ export default function VideoCarousel({ heading, sub, standalone = false, items 
           </div>
         )}
 
-        <p style={{ fontSize: 11, color: 'rgba(255,255,255,0.28)', textAlign: 'center', marginTop: 22 }}>
+        <p style={{ fontSize: 11, color: 'rgba(255,255,255,0.62)', textAlign: 'center', marginTop: 22 }}>
           {pl ? 'Filmiki opublikowane przez fanów, oznaczające @edwardwarchocki.' : 'Clips published by fans, tagging @edwardwarchocki.'}
         </p>
       </div>

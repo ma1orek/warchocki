@@ -252,13 +252,13 @@ function ArticleCard({ article, index, isMobile }: { article: (typeof articles)[
         border: `1px solid ${hovered ? 'rgba(255,255,255,0.15)' : 'rgba(255,255,255,0.06)'}`,
         transition: 'all 0.2s ease',
       }}>
-      <img src={`https://www.google.com/s2/favicons?domain=${article.domain}&sz=64`} alt=""
+      <img src={`https://www.google.com/s2/favicons?domain=${article.domain}&sz=64`} alt="" loading="lazy" decoding="async" width={28} height={28} onError={(e) => { e.currentTarget.style.visibility = 'hidden' }}
         style={{ width: isMobile ? 22 : 28, height: isMobile ? 22 : 28, borderRadius: 4, flexShrink: 0, filter: hovered ? 'brightness(1.2)' : 'brightness(0.8)', transition: 'filter 0.2s ease' }} />
       <div style={{ flex: 1, minWidth: 0 }}>
-        <p style={{ fontSize: 9, fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)', marginBottom: 3 }}>{article.source}</p>
+        <p style={{ fontSize: 9, fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.62)', marginBottom: 3 }}>{article.source}</p>
         <h3 style={{ fontSize: isMobile ? 13 : 14, fontWeight: 600, lineHeight: 1.4, color: hovered ? '#fff' : 'rgba(255,255,255,0.7)' }}>{article.title}</h3>
       </div>
-      <span style={{ fontSize: 16, color: 'rgba(255,255,255,0.15)', flexShrink: 0 }}>&rarr;</span>
+      <span style={{ fontSize: 16, color: 'rgba(255,255,255,0.62)', flexShrink: 0 }}>&rarr;</span>
     </motion.a>
   )
 }
@@ -273,9 +273,9 @@ export default function Articles() {
     <section id="media" style={{ position: 'relative', padding: m ? '80px 0' : '120px 0', borderTop: '1px solid rgba(255,255,255,0.08)' }}>
       <div style={{ maxWidth: 1400, margin: '0 auto', padding: m ? '0 20px' : '0 48px' }}>
         <motion.div ref={ref} initial={{ opacity: 0, y: 30 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.8 }} style={{ textAlign: 'center', marginBottom: m ? 40 : 64 }}>
-          <p style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)', marginBottom: 16 }}>{t('articlesTag')}</p>
+          <p style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.62)', marginBottom: 16 }}>{t('articlesTag')}</p>
           <h2 style={{ fontSize: m ? 28 : 'clamp(28px, 4vw, 56px)', fontWeight: 700, letterSpacing: '-0.03em', marginBottom: 16 }}>{t('articlesTitle')}</h2>
-          <p style={{ fontSize: m ? 15 : 17, lineHeight: 1.7, color: 'rgba(255,255,255,0.4)', maxWidth: 600, margin: '0 auto' }}>
+          <p style={{ fontSize: m ? 15 : 17, lineHeight: 1.7, color: 'rgba(255,255,255,0.62)', maxWidth: 600, margin: '0 auto' }}>
             {t('articlesDesc')}
           </p>
         </motion.div>
@@ -287,7 +287,7 @@ export default function Articles() {
         </div>
 
         <motion.div initial={{ opacity: 0 }} animate={isInView ? { opacity: 1 } : {}} transition={{ delay: 0.5, duration: 0.6 }} style={{ textAlign: 'center', marginTop: 24 }}>
-          <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.25)', fontStyle: 'italic' }}>{t('articlesMore')}</p>
+          <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.62)', fontStyle: 'italic' }}>{t('articlesMore')}</p>
         </motion.div>
       </div>
     </section>

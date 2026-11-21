@@ -52,10 +52,6 @@ export default function RentEdward() {
   return (
     <section id="wynajmij-mnie" aria-labelledby="wynajmij-mnie-h" style={{ background: '#000', padding: 'clamp(56px, 8vw, 120px) 24px' }}>
       <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: '-80px' }}
-        transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
         className="rent-edward"
         style={{
           maxWidth: 1280, margin: '0 auto', borderRadius: 32, overflow: 'hidden', position: 'relative',
@@ -91,7 +87,7 @@ export default function RentEdward() {
           <p style={{ fontSize: 13, margin: '16px 0 0', opacity: 0.65 }}>{c.ctaNote}</p>
         </div>
         <div className="rent-edward-media" style={{ position: 'relative', minHeight: 520 }}>
-          <img src="/tlumy/tlum-01.webp" srcSet="/tlumy/tlum-01-600.webp 600w, /tlumy/tlum-01.webp 961w" sizes="(max-width: 900px) 100vw, 50vw" alt={c.altMain} width={961} height={1200} decoding="async"
+          <img src="/tlumy/tlum-01.webp" srcSet="/tlumy/tlum-01-600.webp 600w, /tlumy/tlum-01.webp 961w" sizes="(max-width: 900px) 100vw, 50vw" alt={c.altMain} width={961} height={1200} decoding="async" fetchPriority="high"
             style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }} />
           <img src="/tlumy/tlum-16.webp" alt={c.altSide} width={800} height={1200} loading="lazy" decoding="async" className="rent-edward-side"
             style={{ position: 'absolute', left: 24, bottom: 24, width: '30%', height: 'auto', aspectRatio: '2 / 3', objectFit: 'cover', borderRadius: 20, border: '6px solid #E3F1FF', boxShadow: '0 24px 60px rgba(0,0,0,0.35)' }} />

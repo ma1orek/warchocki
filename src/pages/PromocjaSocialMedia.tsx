@@ -34,13 +34,13 @@ export default function PromocjaSocialMedia() {
       {/* Hero */}
       <section style={{ padding: '120px 0 80px', borderBottom: '1px solid rgba(255,255,255,0.08)' }}>
         <div style={{ maxWidth: 1400, margin: '0 auto', padding: '0 clamp(20px, 4vw, 48px)' }}>
-          <motion.p {...fadeUp(0.1)} style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)', marginBottom: 16 }}>
+          <motion.p {...fadeUp(0.1)} style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.62)', marginBottom: 16 }}>
             Usługi
           </motion.p>
           <motion.h1 {...fadeUp(0.2)} style={{ fontSize: 'clamp(32px, 5vw, 72px)', fontWeight: 700, letterSpacing: '-0.04em', marginBottom: 24 }}>
             PROMOCJA SOCIAL MEDIA
           </motion.h1>
-          <motion.p {...fadeUp(0.3)} style={{ fontSize: 18, lineHeight: 1.7, color: 'rgba(255,255,255,0.45)', maxWidth: 600, marginBottom: 32 }}>
+          <motion.p {...fadeUp(0.3)} style={{ fontSize: 18, lineHeight: 1.7, color: 'rgba(255,255,255,0.62)', maxWidth: 600, marginBottom: 32 }}>
             Edward to influencer nowej ery. Około 3 miliardów wyświetleń miesięcznie mówi samo za siebie.
             Zasięgi, których nie da się kupić - ale można wynająć.
           </motion.p>
@@ -60,7 +60,7 @@ export default function PromocjaSocialMedia() {
             {platforms.map((p, i) => (
               <motion.div key={p.name} {...fadeUp(i * 0.1)} style={{ padding: 40, background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.06)' }}>
                 <h3 style={{ fontSize: 22, fontWeight: 700, marginBottom: 12 }}>{p.name}</h3>
-                <p style={{ fontSize: 15, lineHeight: 1.7, color: 'rgba(255,255,255,0.4)' }}>{p.desc}</p>
+                <p style={{ fontSize: 15, lineHeight: 1.7, color: 'rgba(255,255,255,0.62)' }}>{p.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -76,7 +76,7 @@ export default function PromocjaSocialMedia() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 2 }}>
             {services.map((s, i) => (
               <motion.div key={s} {...fadeUp(i * 0.05)} style={{ padding: '24px 40px', background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.06)', display: 'flex', alignItems: 'center', gap: 16 }}>
-                <span style={{ color: 'rgba(255,255,255,0.2)', fontSize: 20 }}>&#x2192;</span>
+                <span style={{ color: 'rgba(255,255,255,0.62)', fontSize: 20 }}>&#x2192;</span>
                 <p style={{ fontSize: 16, fontWeight: 500 }}>{s}</p>
               </motion.div>
             ))}

@@ -122,13 +122,13 @@ export default function Timeline() {
           transition={{ duration: 0.8 }}
           style={{ marginBottom: 64 }}
         >
-          <p style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)', marginBottom: 16 }}>
+          <p style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.62)', marginBottom: 16 }}>
             {t('timelineTag')}
           </p>
           <h2 style={{ fontSize: 'clamp(28px, 4vw, 56px)', fontWeight: 700, letterSpacing: '-0.03em' }}>
             {t('timelineTitle')}
           </h2>
-          <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.35)', marginTop: 12 }}>
+          <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.62)', marginTop: 12 }}>
             {t('timelineIntro')}
           </p>
         </motion.div>
@@ -221,13 +221,13 @@ export default function Timeline() {
           style={{ display: 'flex', alignItems: 'center', gap: 12 }}
         >
           <div style={{ height: 1, flex: 1, maxWidth: 40, background: 'rgba(255,255,255,0.15)' }} />
-          <p style={{ fontSize: 11, color: 'rgba(255,255,255,0.2)', letterSpacing: '0.15em', textTransform: 'uppercase' }}>
+          <p style={{ fontSize: 11, color: 'rgba(255,255,255,0.62)', letterSpacing: '0.15em', textTransform: 'uppercase' }}>
             {t('timelineHint')}
           </p>
           <motion.span
             animate={{ x: [0, 6, 0] }}
             transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
-            style={{ color: 'rgba(255,255,255,0.25)', fontSize: 16 }}
+            style={{ color: 'rgba(255,255,255,0.62)', fontSize: 16 }}
           >
             →
           </motion.span>

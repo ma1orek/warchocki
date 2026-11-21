@@ -45,13 +45,13 @@ export default function CrowdsSection() {
           transition={{ duration: 0.7, ease: 'easeOut' }}
           style={{ textAlign: 'center', marginBottom: m ? 36 : 56 }}
         >
-          <p style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)', marginBottom: 16 }}>
+          <p style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.62)', marginBottom: 16 }}>
             {isEn ? 'Edward live' : 'Edward na żywo'}
           </p>
           <h2 style={{ fontSize: m ? 28 : 'clamp(28px, 4vw, 56px)', fontWeight: 700, letterSpacing: '-0.03em', marginBottom: 16 }}>
             {isEn ? 'CROWDS' : 'TŁUMY'}
           </h2>
-          <p style={{ fontSize: m ? 15 : 17, lineHeight: 1.7, color: 'rgba(255,255,255,0.4)', maxWidth: 640, margin: '0 auto' }}>
+          <p style={{ fontSize: m ? 15 : 17, lineHeight: 1.7, color: 'rgba(255,255,255,0.62)', maxWidth: 640, margin: '0 auto' }}>
             {isEn
               ? 'Schools, shopping malls, embassies, picnics and sports events: wherever I show up, people gather.'
               : 'Szkoły, galerie, ambasady, pikniki i zawody sportowe: gdzie się pojawię, tam zbierają się ludzie.'}

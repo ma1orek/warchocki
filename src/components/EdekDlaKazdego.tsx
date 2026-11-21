@@ -21,17 +21,17 @@ export default function EdekDlaKazdego() {
           )}
 
           <motion.div initial={{ opacity: 0, x: m ? 0 : -40 }} animate={isInView ? { opacity: 1, x: 0 } : {}} transition={{ duration: 0.8 }}>
-            <p style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)', marginBottom: 16 }}>{t('edekTag')}</p>
+            <p style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.62)', marginBottom: 16 }}>{t('edekTag')}</p>
             <h2 style={{ fontSize: m ? 32 : 'clamp(28px, 4vw, 52px)', fontWeight: 700, letterSpacing: '-0.03em', marginBottom: 24, lineHeight: 1.1 }}>
               {t('edekTitle1')}<br />{t('edekTitle2')}
             </h2>
-            <p style={{ fontSize: m ? 15 : 17, lineHeight: 1.8, color: 'rgba(255,255,255,0.45)', marginBottom: 24, maxWidth: 500 }}>
+            <p style={{ fontSize: m ? 15 : 17, lineHeight: 1.8, color: 'rgba(255,255,255,0.62)', marginBottom: 24, maxWidth: 500 }}>
               {t('edekP1')}
             </p>
-            <p style={{ fontSize: m ? 15 : 17, lineHeight: 1.8, color: 'rgba(255,255,255,0.45)', marginBottom: 24, maxWidth: 500 }}>
+            <p style={{ fontSize: m ? 15 : 17, lineHeight: 1.8, color: 'rgba(255,255,255,0.62)', marginBottom: 24, maxWidth: 500 }}>
               {t('edekP2')}
             </p>
-            <p style={{ fontSize: m ? 15 : 17, lineHeight: 1.8, color: 'rgba(255,255,255,0.45)', maxWidth: 500 }}>
+            <p style={{ fontSize: m ? 15 : 17, lineHeight: 1.8, color: 'rgba(255,255,255,0.62)', maxWidth: 500 }}>
               {t('edekP3')}
             </p>
 
@@ -43,7 +43,7 @@ export default function EdekDlaKazdego() {
               ].map((s) => (
                 <div key={s.label}>
                   <div style={{ fontSize: m ? 22 : 28, fontWeight: 700, color: '#fff' }}>{s.val}</div>
-                  <div style={{ fontSize: 10, fontWeight: 500, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.25)', marginTop: 4 }}>{s.label}</div>
+                  <div style={{ fontSize: 10, fontWeight: 500, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.62)', marginTop: 4 }}>{s.label}</div>
                 </div>
               ))}
             </div>

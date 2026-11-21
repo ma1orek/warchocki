@@ -86,7 +86,7 @@ export default function RaportPolandRock() {
               Pol'and'Rock Festival 2026
             </span>
             <span style={{ width: 1, height: 14, background: 'rgba(255,255,255,0.2)' }} />
-            <span style={{ fontSize: m ? 10 : 11.5, fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.55)' }}>
+            <span style={{ fontSize: m ? 10 : 11.5, fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.62)' }}>
               30.07-1.08 · Broczyno
             </span>
           </motion.div>
@@ -101,7 +101,7 @@ export default function RaportPolandRock() {
             trzy dni na polu, jeden robot, cała Polska w telefonach
           </motion.p>
 
-          <motion.p {...fadeUp(0.18)} style={{ fontSize: m ? 16 : 20, lineHeight: 1.65, color: 'rgba(255,255,255,0.55)', maxWidth: 720, marginBottom: m ? 34 : 46 }}>
+          <motion.p {...fadeUp(0.18)} style={{ fontSize: m ? 16 : 20, lineHeight: 1.65, color: 'rgba(255,255,255,0.62)', maxWidth: 720, marginBottom: m ? 34 : 46 }}>
             Robot-influencer Edward Warchocki pojechał na Pol’and’Rock Festival i wszedł prosto w tłum.
             Bez sceny, bez barierek - między namiotami, w kolejce po jedzenie, na polu.
             Efekt: <strong style={{ color: '#fff' }}>ponad 20 mln wyświetleń</strong> z jednej wizyty,
@@ -116,7 +116,7 @@ export default function RaportPolandRock() {
             <div style={{ fontSize: m ? 13 : 17, fontWeight: 800, letterSpacing: '0.07em', textTransform: 'uppercase', color: '#fff', marginTop: m ? 14 : 18 }}>
               wyświetleń z jednej wizyty
             </div>
-            <div style={{ fontSize: m ? 13 : 15.5, lineHeight: 1.6, color: 'rgba(255,255,255,0.55)', marginTop: 6, maxWidth: 420 }}>
+            <div style={{ fontSize: m ? 13 : 15.5, lineHeight: 1.6, color: 'rgba(255,255,255,0.62)', marginTop: 6, maxWidth: 420 }}>
               łączny wynik na wszystkich socialach Edwarda - TikTok, Instagram, YouTube, Facebook i X
             </div>
           </motion.div>
@@ -153,7 +153,7 @@ export default function RaportPolandRock() {
             <h2 style={{ fontSize: m ? 30 : 'clamp(32px, 5vw, 62px)', fontWeight: 800, letterSpacing: '-0.04em', lineHeight: 1, marginBottom: 16 }}>
               Co się działo, kiedy robot<br />wszedł w tłum
             </h2>
-            <p style={{ fontSize: m ? 15 : 18, lineHeight: 1.65, color: 'rgba(255,255,255,0.5)', maxWidth: 660 }}>
+            <p style={{ fontSize: m ? 15 : 18, lineHeight: 1.65, color: 'rgba(255,255,255,0.62)', maxWidth: 660 }}>
               Kliknij w kadr, żeby obejrzeć film. Te same materiały żyją równolegle na TikToku,
               Instagramie, YouTubie, Facebooku i X - i to razem daje
               <strong style={{ color: SUN }}> ponad 20 mln wyświetleń</strong>.
@@ -174,7 +174,7 @@ export default function RaportPolandRock() {
           <motion.p {...fadeUp(0)} style={{ fontFamily: "'Caveat', cursive", fontSize: m ? 30 : 52, fontWeight: 700, color: '#fff', lineHeight: 1.15, transform: 'rotate(-1.2deg)' }}>
             „byłem tam, człowieku - i mam na to jakieś kilka tysięcy dowodów"
           </motion.p>
-          <motion.p {...fadeUp(0.1)} style={{ fontSize: 12, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.35)', marginTop: 16 }}>
+          <motion.p {...fadeUp(0.1)} style={{ fontSize: 12, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.62)', marginTop: 16 }}>
             Edward Warchocki
           </motion.p>
         </div>
@@ -191,7 +191,7 @@ export default function RaportPolandRock() {
             <h2 style={{ fontSize: m ? 30 : 'clamp(32px, 5vw, 62px)', fontWeight: 800, letterSpacing: '-0.04em', lineHeight: 1, marginBottom: 16 }}>
               Tysiące telefonów<br />wycelowanych w Edwarda
             </h2>
-            <p style={{ fontSize: m ? 15 : 18, lineHeight: 1.7, color: 'rgba(255,255,255,0.5)', maxWidth: 700 }}>
+            <p style={{ fontSize: m ? 15 : 18, lineHeight: 1.7, color: 'rgba(255,255,255,0.62)', maxWidth: 700 }}>
               Na festiwalu każdy ma telefon w kieszeni - i każdy chciał mieć Edwarda u siebie na relacji.
               Stories, TikToki, rolki, wspólne zdjęcia, oznaczenia <strong style={{ color: '#fff' }}>@edwardwarchocki</strong>.
               To <strong style={{ color: '#fff' }}>tysiące filmików</strong> nagranych przez ludzi
@@ -232,7 +232,7 @@ export default function RaportPolandRock() {
               <motion.div key={b.h} {...fadeUp(i * 0.08)} style={{ padding: m ? 22 : 28, borderRadius: 16, background: 'rgba(255,255,255,0.03)', border: `1px solid ${b.c}44` }}>
                 <div style={{ width: 34, height: 4, borderRadius: 3, background: b.c, marginBottom: 16 }} />
                 <h3 style={{ fontSize: m ? 19 : 22, fontWeight: 800, letterSpacing: '-0.02em', marginBottom: 10 }}>{b.h}</h3>
-                <p style={{ fontSize: m ? 14 : 15.5, lineHeight: 1.7, color: 'rgba(255,255,255,0.5)' }}>{b.p}</p>
+                <p style={{ fontSize: m ? 14 : 15.5, lineHeight: 1.7, color: 'rgba(255,255,255,0.62)' }}>{b.p}</p>
               </motion.div>
             ))}
           </div>
@@ -245,15 +245,15 @@ export default function RaportPolandRock() {
           <motion.h3 {...fadeUp(0)} style={{ fontSize: m ? 26 : 40, fontWeight: 800, letterSpacing: '-0.03em', marginBottom: 14 }}>
             Chcesz Edwarda na swoim evencie?
           </motion.h3>
-          <motion.p {...fadeUp(0.08)} style={{ fontSize: m ? 15 : 17, lineHeight: 1.7, color: 'rgba(255,255,255,0.5)', marginBottom: 28 }}>
+          <motion.p {...fadeUp(0.08)} style={{ fontSize: m ? 15 : 17, lineHeight: 1.7, color: 'rgba(255,255,255,0.62)', marginBottom: 28 }}>
             Festiwal, targi, otwarcie sklepu, konferencja - Edward wchodzi w tłum i robi z tego kontent.
           </motion.p>
           <motion.a {...fadeUp(0.14)} href="/wspolpraca" target="_blank" rel="noopener noreferrer"
-            style={{ display: 'inline-flex', alignItems: 'center', gap: 10, padding: '15px 28px', borderRadius: 12, background: RED, color: '#fff', fontSize: 14, fontWeight: 800, letterSpacing: '0.06em', textTransform: 'uppercase' }}>
+            style={{ display: 'inline-flex', alignItems: 'center', gap: 10, padding: '15px 28px', borderRadius: 12, background: '#c8102e', color: '#fff', fontSize: 14, fontWeight: 800, letterSpacing: '0.06em', textTransform: 'uppercase' }}>
             Porozmawiajmy o współpracy
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
           </motion.a>
-          <p style={{ fontSize: 11, color: 'rgba(255,255,255,0.28)', margin: '26px auto 0', lineHeight: 1.65, maxWidth: 780 }}>
+          <p style={{ fontSize: 11, color: 'rgba(255,255,255,0.62)', margin: '26px auto 0', lineHeight: 1.65, maxWidth: 780 }}>
             Liczby przy filmach to liczniki TikToka z 3.08.2026. Łączny zasięg (20 mln+) obejmuje wszystkie kanały Edwarda:
             TikTok, Instagram, YouTube, Facebook i X. Materiały UGC opublikowane przez uczestników festiwalu,
             oznaczające @edwardwarchocki. Pol'and'Rock Festival to znak towarowy Fundacji Wielka Orkiestra Świątecznej Pomocy -
@@ -282,7 +282,7 @@ function Stat({ big, label, sub, color, m }: { big: string; label: string; sub?:
     <div style={{ flex: '1 1 190px', padding: m ? '18px 16px' : '26px 24px', borderRadius: 16, background: 'rgba(255,255,255,0.03)', border: `1px solid ${color}44` }}>
       <div style={{ fontSize: m ? 30 : 44, fontWeight: 800, letterSpacing: '-0.04em', color, lineHeight: 1 }}>{big}</div>
       <div style={{ fontSize: 11.5, fontWeight: 800, letterSpacing: '0.09em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.7)', marginTop: 10 }}>{label}</div>
-      {sub && <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.34)', marginTop: 4 }}>{sub}</div>}
+      {sub && <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.62)', marginTop: 4 }}>{sub}</div>}
     </div>
   )
 }
@@ -427,7 +427,7 @@ function ClipCarousel({ clips, m }: { clips: string[]; m: boolean }) {
           <h3 style={{ fontSize: m ? 24 : 34, fontWeight: 800, letterSpacing: '-0.03em', marginBottom: 12 }}>
             Kliknij i posłuchaj, jak to brzmiało
           </h3>
-          <p style={{ fontSize: m ? 14.5 : 16.5, lineHeight: 1.7, color: 'rgba(255,255,255,0.45)', maxWidth: 640 }}>
+          <p style={{ fontSize: m ? 14.5 : 16.5, lineHeight: 1.7, color: 'rgba(255,255,255,0.62)', maxWidth: 640 }}>
             Tysiące zdjęć i relacji uczestników - prosto z pola. Przewijaj w bok, kliknij kadr, żeby odtworzyć z dźwiękiem.
             To, co widzisz, to tylko wycinek.
           </p>

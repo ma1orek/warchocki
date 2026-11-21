@@ -60,7 +60,7 @@ export default function Opinie({
           <h2 style={{ fontSize: m ? 30 : 'clamp(28px, 4vw, 52px)', fontWeight: 800, letterSpacing: '-0.03em', marginBottom: 16 }}>
             {heading ?? (pl ? 'Co ludzie piszą do Edwarda' : 'What people write to Edward')}
           </h2>
-          <p style={{ fontSize: m ? 15 : 17, lineHeight: 1.7, color: 'rgba(255,255,255,0.45)', maxWidth: 620, margin: '0 auto' }}>
+          <p style={{ fontSize: m ? 15 : 17, lineHeight: 1.7, color: 'rgba(255,255,255,0.62)', maxWidth: 620, margin: '0 auto' }}>
             {sub ?? (pl
               ? 'Prawdziwe wiadomości i komentarze od ludzi. Bez nazwisk - tylko to, co napisali o produktach. No i elegancko.'
               : 'Real messages and comments from people. No names - just what they wrote about the products.')}
@@ -83,7 +83,7 @@ export default function Opinie({
           ))}
         </div>
 
-        <p style={{ fontSize: 11, color: 'rgba(255,255,255,0.28)', textAlign: 'center', marginTop: 22, lineHeight: 1.6 }}>
+        <p style={{ fontSize: 11, color: 'rgba(255,255,255,0.62)', textAlign: 'center', marginTop: 22, lineHeight: 1.6 }}>
           {pl
             ? 'Autentyczne wiadomości i komentarze od odbiorców. Dane identyfikujące (nicki, zdjęcia) zostały usunięte.'
             : 'Authentic messages and comments from the audience. Identifying data (handles, photos) has been removed.'}

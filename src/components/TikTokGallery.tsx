@@ -48,24 +48,24 @@ export default function TikTokGallery() {
     <section id="sociale" ref={nearRef} style={{ position: 'relative', padding: m ? '80px 0' : '120px 0', borderTop: '1px solid rgba(255,255,255,0.08)' }}>
       <div style={{ maxWidth: 1400, margin: '0 auto', padding: m ? '0 20px' : '0 48px' }}>
         <motion.div ref={ref} initial={{ opacity: 0, y: 30 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.8 }} style={{ textAlign: 'center', marginBottom: 48 }}>
-          <p style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)', marginBottom: 16 }}>{t('socialTag')}</p>
+          <p style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.62)', marginBottom: 16 }}>{t('socialTag')}</p>
           <h2 style={{ fontSize: m ? 28 : 'clamp(28px, 4vw, 56px)', fontWeight: 700, letterSpacing: '-0.03em', marginBottom: 16 }}>{t('socialTitle')}</h2>
-          <p style={{ fontSize: m ? 15 : 17, lineHeight: 1.7, color: 'rgba(255,255,255,0.4)', maxWidth: 600, margin: '0 auto 32px' }}>
+          <p style={{ fontSize: m ? 15 : 17, lineHeight: 1.7, color: 'rgba(255,255,255,0.62)', maxWidth: 600, margin: '0 auto 32px' }}>
             {t('socialDesc')}
           </p>
           <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 40 }}>
             <SocialLinks size={m ? 'normal' : 'large'} />
           </div>
           <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '8px 16px', paddingTop: 24, borderTop: '1px solid rgba(255,255,255,0.06)' }}>
-            <p style={{ width: '100%', fontSize: 10, fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.2)', marginBottom: 8 }}>{t('socialMediaLabel')}</p>
+            <p style={{ width: '100%', fontSize: 10, fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.62)', marginBottom: 8 }}>{t('socialMediaLabel')}</p>
             {mediaPresence.map((media) => (
-              <span key={media} style={{ fontSize: 11, color: 'rgba(255,255,255,0.3)', fontWeight: 500 }}>{media}</span>
+              <span key={media} style={{ fontSize: 11, color: 'rgba(255,255,255,0.62)', fontWeight: 500 }}>{media}</span>
             ))}
           </div>
         </motion.div>
 
         <motion.p initial={{ opacity: 0 }} animate={isInView ? { opacity: 1 } : {}} transition={{ duration: 0.6, delay: 0.3 }}
-          style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.25)', marginBottom: 24, textAlign: 'center' }}>
+          style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.62)', marginBottom: 24, textAlign: 'center' }}>
           {t('socialTikTokLabel')}
         </motion.p>
 
@@ -77,7 +77,7 @@ export default function TikTokGallery() {
                 style={{ maxWidth: 605, minWidth: 250, margin: 0, borderLeft: 'none', padding: 0 }}>
                 <section>
                   <a target="_blank" rel="noopener noreferrer" href={`https://www.tiktok.com/@edwardwarchocki/video/${videoId}`}
-                    style={{ display: 'block', textAlign: 'center', paddingTop: 160, color: 'rgba(255,255,255,0.3)', fontSize: 14 }}>
+                    style={{ display: 'block', textAlign: 'center', paddingTop: 160, color: 'rgba(255,255,255,0.62)', fontSize: 14 }}>
                     {t('socialLoading')}
                   </a>
                 </section>

@@ -44,7 +44,7 @@ export default function WynajemEdwarda() {
         <div style={{ maxWidth: 1400, margin: '0 auto', padding: '0 clamp(20px, 4vw, 48px)' }}>
           <motion.p
             {...fadeUp(0.1)}
-            style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)', marginBottom: 16 }}
+            style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.62)', marginBottom: 16 }}
           >
             Usługi
           </motion.p>
@@ -56,14 +56,14 @@ export default function WynajemEdwarda() {
           </motion.h1>
           <motion.p
             {...fadeUp(0.3)}
-            style={{ fontSize: 18, lineHeight: 1.7, color: 'rgba(255,255,255,0.45)', maxWidth: 600 }}
+            style={{ fontSize: 18, lineHeight: 1.7, color: 'rgba(255,255,255,0.62)', maxWidth: 600 }}
           >
             Około 3 miliardów wyświetleń miesięcznie na kanałach Edwarda. Gość konferencji prasowej w Sejmie. Gwiazda TikToka.
             Teraz Edward może pojawić się na Twoim evencie.
           </motion.p>
           <motion.p
             {...fadeUp(0.4)}
-            style={{ fontSize: 16, lineHeight: 1.7, color: 'rgba(255,255,255,0.45)', maxWidth: 600, marginTop: 16 }}
+            style={{ fontSize: 16, lineHeight: 1.7, color: 'rgba(255,255,255,0.62)', maxWidth: 600, marginTop: 16 }}
           >
             Rezerwacje prowadzi MERA RENT:{' '}
             <a href="https://mera.rent/pl/" target="_blank" rel="noopener" style={{ color: '#fff', fontWeight: 600, textDecoration: 'underline', textUnderlineOffset: 4 }}>
@@ -95,7 +95,7 @@ export default function WynajemEdwarda() {
                 }}
               >
                 <h3 style={{ fontSize: 20, fontWeight: 700, marginBottom: 12 }}>{f.title}</h3>
-                <p style={{ fontSize: 15, lineHeight: 1.7, color: 'rgba(255,255,255,0.4)' }}>{f.desc}</p>
+                <p style={{ fontSize: 15, lineHeight: 1.7, color: 'rgba(255,255,255,0.62)' }}>{f.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -122,11 +122,11 @@ export default function WynajemEdwarda() {
                   border: '1px solid rgba(255,255,255,0.06)',
                 }}
               >
-                <p style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)', marginBottom: 12 }}>
+                <p style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.62)', marginBottom: 12 }}>
                   {p.name}
                 </p>
                 <h3 style={{ fontSize: 24, fontWeight: 700, marginBottom: 16 }}>{p.price}</h3>
-                <p style={{ fontSize: 15, lineHeight: 1.7, color: 'rgba(255,255,255,0.4)' }}>{p.details}</p>
+                <p style={{ fontSize: 15, lineHeight: 1.7, color: 'rgba(255,255,255,0.62)' }}>{p.details}</p>
               </motion.div>
             ))}
           </div>

@@ -30,8 +30,8 @@ const inputStyle = {
 const focusOn = (e: FocusEvent<HTMLElement>) => { e.currentTarget.style.borderColor = 'rgba(255,255,255,0.35)' }
 const focusOff = (e: FocusEvent<HTMLElement>) => { e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)' }
 
-const label = { fontSize: 12, fontWeight: 600, color: 'rgba(255,255,255,0.55)', marginBottom: 7, display: 'block' }
-const sectionTitle = { fontSize: 12, fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase' as const, color: 'rgba(255,255,255,0.35)', marginBottom: 18 }
+const label = { fontSize: 12, fontWeight: 600, color: 'rgba(255,255,255,0.62)', marginBottom: 7, display: 'block' }
+const sectionTitle = { fontSize: 12, fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase' as const, color: 'rgba(255,255,255,0.62)', marginBottom: 18 }
 
 export default function Wspolpraca() {
   const [params] = useSearchParams()
@@ -127,13 +127,13 @@ export default function Wspolpraca() {
           transition={{ duration: 0.7, ease: 'easeOut' as const }}
           style={{ textAlign: 'center', marginBottom: 48 }}
         >
-          <p style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)', marginBottom: 14 }}>
+          <p style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.62)', marginBottom: 14 }}>
             Współpraca
           </p>
           <h1 style={{ fontSize: 'clamp(32px, 6vw, 56px)', fontWeight: 700, letterSpacing: '-0.03em', lineHeight: 1.05, marginBottom: 18 }}>
             WSPÓŁPRACA<br />Z EDWARDEM
           </h1>
-          <p style={{ fontSize: 16, lineHeight: 1.7, color: 'rgba(255,255,255,0.5)' }}>
+          <p style={{ fontSize: 16, lineHeight: 1.7, color: 'rgba(255,255,255,0.62)' }}>
             Napisz do nas, a wrócimy w ciągu 24 godzin.
           </p>
         </motion.div>
@@ -248,7 +248,7 @@ export default function Wspolpraca() {
               >
                 {sending ? 'Wysyłanie...' : 'Wyślij zapytanie 💼'}
               </button>
-              <p style={{ fontSize: 12, lineHeight: 1.5, color: 'rgba(255,255,255,0.35)', textAlign: 'center', marginTop: 14 }}>
+              <p style={{ fontSize: 12, lineHeight: 1.5, color: 'rgba(255,255,255,0.62)', textAlign: 'center', marginTop: 14 }}>
                 Wysyłając zapytanie zgadzasz się na kontakt zwrotny i przetwarzanie podanych danych w celu jego obsługi.
               </p>
             </div>

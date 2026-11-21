@@ -87,7 +87,7 @@ function ProductCard({ product, index }: { product: Product; index: number }) {
         <div style={{ position: 'relative', zIndex: 2, flex: 1, textAlign: m ? 'center' : 'left' }}>
           <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: product.accent, marginBottom: 10, display: 'flex', alignItems: 'center', gap: 8, justifyContent: m ? 'center' : 'flex-start', flexWrap: 'wrap' }}>
             {product.isNew && (
-              <span style={{ fontSize: 9.5, fontWeight: 800, letterSpacing: '0.12em', color: '#fff', background: '#e23b3b', borderRadius: 14, padding: '4px 10px' }}>
+              <span style={{ fontSize: 9.5, fontWeight: 800, letterSpacing: '0.12em', color: '#fff', background: '#c62828', borderRadius: 14, padding: '4px 10px' }}>
                 {t('dinoNew')}
               </span>
             )}
@@ -155,13 +155,13 @@ export default function Produkty({ showStoreLogos = false, standalone = false }:
           transition={{ duration: 0.8 }}
           style={{ textAlign: 'center', marginBottom: m ? 48 : 64 }}
         >
-          <p style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)', marginBottom: 16 }}>
+          <p style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.62)', marginBottom: 16 }}>
             {t('productsTag')}
           </p>
           <h2 style={{ fontSize: m ? 32 : 'clamp(28px, 4vw, 56px)', fontWeight: 700, letterSpacing: '-0.03em', marginBottom: 20 }}>
             {t('productsTitle')}
           </h2>
-          <p style={{ fontSize: m ? 15 : 17, lineHeight: 1.8, color: 'rgba(255,255,255,0.45)', maxWidth: 620, margin: '0 auto 22px' }}>
+          <p style={{ fontSize: m ? 15 : 17, lineHeight: 1.8, color: 'rgba(255,255,255,0.62)', maxWidth: 620, margin: '0 auto 22px' }}>
             {boldDino(t('productsIntro'))}
           </p>
 

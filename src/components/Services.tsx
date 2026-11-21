@@ -83,13 +83,13 @@ function ServiceCard({ service, index, learnMore }: { service: Service; index: n
     >
       <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 1, background: 'linear-gradient(to right, transparent, rgba(255,255,255,0.3), transparent)' }} />
       <div style={{ marginBottom: 24 }}>{service.icon}</div>
-      <p style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.25)', marginBottom: 12 }}>
+      <p style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.62)', marginBottom: 12 }}>
         {service.tag}
       </p>
       <h3 style={{ fontSize: 22, fontWeight: 700, letterSpacing: '-0.02em', marginBottom: 16 }}>
         {service.title}
       </h3>
-      <p style={{ fontSize: 15, lineHeight: 1.7, color: 'rgba(255,255,255,0.4)', marginBottom: 32, flex: 1 }}>
+      <p style={{ fontSize: 15, lineHeight: 1.7, color: 'rgba(255,255,255,0.62)', marginBottom: 32, flex: 1 }}>
         {service.desc}
       </p>
       {'external' in service && service.external ? (
@@ -143,7 +143,7 @@ function ContactInline() {
         <h3 style={{ fontSize: 'clamp(28px, 4vw, 48px)', fontWeight: 700, letterSpacing: '-0.03em', marginBottom: 16, lineHeight: 1.1 }}>
           {isEn ? 'CONTACT EDWARD' : 'KONTAKT Z EDWARDEM'}
         </h3>
-        <p style={{ fontSize: 16, lineHeight: 1.7, color: 'rgba(255,255,255,0.45)', maxWidth: 600, margin: '0 auto' }}>
+        <p style={{ fontSize: 16, lineHeight: 1.7, color: 'rgba(255,255,255,0.62)', maxWidth: 600, margin: '0 auto' }}>
           {isEn
             ? "Choose your path: a quick hello as a fan, or serious business talk."
             : "Wybierz swoją ścieżkę: szybkie cześć od fana, albo poważna gadka biznesowa."}
@@ -178,7 +178,7 @@ function ContactInline() {
       </div>
 
       <div style={{ marginTop: 40, textAlign: 'center' }}>
-        <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.25)', marginBottom: 10 }}>
+        <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.62)', marginBottom: 10 }}>
           {isEn ? 'Or call' : 'Lub zadzwoń'}
         </p>
         <a
@@ -289,7 +289,7 @@ export default function Services() {
           transition={{ duration: 0.8 }}
           style={{ textAlign: 'center', marginBottom: 80 }}
         >
-          <p style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)', marginBottom: 16 }}>
+          <p style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.62)', marginBottom: 16 }}>
             {t('servicesTag')}
           </p>
           <h2 style={{ fontSize: 'clamp(28px, 4vw, 56px)', fontWeight: 700, letterSpacing: '-0.03em' }}>
@@ -305,7 +305,7 @@ export default function Services() {
         </div>
 
         {/* Rezerwacja Edwarda na wydarzenie: MERA RENT */}
-        <p style={{ marginTop: 40, textAlign: 'center', fontSize: 16, lineHeight: 1.7, color: 'rgba(255,255,255,0.45)' }}>
+        <p style={{ marginTop: 40, textAlign: 'center', fontSize: 16, lineHeight: 1.7, color: 'rgba(255,255,255,0.62)' }}>
           {locale === 'en' ? 'Looking for a robot for your conference, trade fair or gala? ' : 'Szukasz robota na konferencję, targi albo galę? '}
           <a href={locale === 'en' ? 'https://mera.rent/en/' : 'https://mera.rent/pl/'} target="_blank" rel="noopener" style={{ color: '#fff', fontWeight: 600, textDecoration: 'underline', textUnderlineOffset: 4 }}>
             {locale === 'en' ? 'Book Edward for your event at MERA RENT' : 'Zarezerwuj Edwarda na swoje wydarzenie w MERA RENT'}

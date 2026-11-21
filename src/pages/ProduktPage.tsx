@@ -79,7 +79,7 @@ export default function ProduktPage() {
       <section ref={heroRef} style={{ position: 'relative', padding: m ? '110px 0 40px' : '140px 0 80px' }}>
         <div style={{ maxWidth: 1400, margin: '0 auto', padding: '0 clamp(20px, 4vw, 48px)' }}>
           <motion.div {...fadeUp(0.05)} style={{ marginBottom: m ? 24 : 36 }}>
-            <Link to={localizedPath('/produkty', locale)} style={{ display: 'inline-flex', alignItems: 'center', gap: 8, fontSize: 12, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.45)' }}
+            <Link to={localizedPath('/produkty', locale)} style={{ display: 'inline-flex', alignItems: 'center', gap: 8, fontSize: 12, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.62)' }}
               onMouseEnter={(e) => (e.currentTarget.style.color = '#fff')}
               onMouseLeave={(e) => (e.currentTarget.style.color = 'rgba(255,255,255,0.45)')}>
               <span style={{ fontSize: 16 }}>←</span> {t('prodBack')}
@@ -95,7 +95,7 @@ export default function ProduktPage() {
               <motion.h1 {...fadeUp(0.18)} style={{ fontSize: m ? 30 : 'clamp(34px, 4.5vw, 64px)', fontWeight: 700, letterSpacing: '-0.03em', lineHeight: 1.08, marginBottom: 22 }}>
                 {product.name[locale]}
               </motion.h1>
-              <motion.p {...fadeUp(0.26)} style={{ fontSize: m ? 15 : 18, lineHeight: 1.8, color: 'rgba(255,255,255,0.5)', maxWidth: 540, marginBottom: 28 }}>
+              <motion.p {...fadeUp(0.26)} style={{ fontSize: m ? 15 : 18, lineHeight: 1.8, color: 'rgba(255,255,255,0.62)', maxWidth: 540, marginBottom: 28 }}>
                 {product.intro[locale]}
               </motion.p>
 
@@ -214,12 +214,12 @@ export default function ProduktPage() {
                 <motion.div key={it.pl} {...fadeUp(0.08 + i * 0.07)} style={{ borderRadius: 18, padding: m ? '22px 16px' : '30px 24px', textAlign: 'center', background: `radial-gradient(130% 130% at 50% 0%, ${product.glow} 0%, rgba(255,255,255,0.02) 55%)`, border: '1px solid rgba(255,255,255,0.1)' }}>
                   <div style={{ fontSize: m ? 30 : 38, marginBottom: 12 }}>{it.e}</div>
                   <p style={{ fontSize: m ? 15 : 17, fontWeight: 700, color: '#fff', marginBottom: 8 }}>{locale === 'pl' ? it.pl : it.en}</p>
-                  <p style={{ fontSize: m ? 12 : 13, lineHeight: 1.6, color: 'rgba(255,255,255,0.5)' }}>{it.d[locale]}</p>
+                  <p style={{ fontSize: m ? 12 : 13, lineHeight: 1.6, color: 'rgba(255,255,255,0.62)' }}>{it.d[locale]}</p>
                 </motion.div>
               ))}
             </div>
 
-            <motion.p {...fadeUp(0.2)} style={{ fontSize: m ? 14 : 15, lineHeight: 1.8, color: 'rgba(255,255,255,0.45)', maxWidth: 700, margin: `${m ? 32 : 48}px auto 0`, textAlign: 'center' }}>
+            <motion.p {...fadeUp(0.2)} style={{ fontSize: m ? 14 : 15, lineHeight: 1.8, color: 'rgba(255,255,255,0.62)', maxWidth: 700, margin: `${m ? 32 : 48}px auto 0`, textAlign: 'center' }}>
               {locale === 'pl'
                 ? 'Kolekcja dostępna w sklepach Biedronka w całej Polsce od 17.08.2026, do wyczerpania zapasów. Edward prowadzi też edukacyjne live’y dla dzieci - nauka języków, matematyki, technologii i ciekawostek ze świata - a od października odwiedza wybrane szkoły w całej Polsce.'
                 : 'The collection is available at Biedronka stores across Poland from 17.08.2026, while stocks last. Edward also hosts educational live streams for kids - languages, maths, technology and fun facts - and from October he visits selected schools across Poland.'}
@@ -257,38 +257,38 @@ export default function ProduktPage() {
                   ))}
                 </div>
               </div>
-              <p style={{ fontSize: 11, lineHeight: 1.6, color: 'rgba(255,255,255,0.35)', marginTop: 12 }}>{t('prodNutritionNote')}</p>
+              <p style={{ fontSize: 11, lineHeight: 1.6, color: 'rgba(255,255,255,0.62)', marginTop: 12 }}>{t('prodNutritionNote')}</p>
             </motion.div>
 
             {/* Ingredients + storage */}
             <motion.div {...fadeUp(0.12)} style={{ display: 'flex', flexDirection: 'column', gap: 28 }}>
               <div>
-                <h3 style={{ fontSize: 13, fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', color: product.accent, marginBottom: 12 }}>{t('prodIngredientsTitle')}</h3>
+                <h2 style={{ fontSize: 13, fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', color: product.accent, marginBottom: 12 }}>{t('prodIngredientsTitle')}</h2>
                 <p style={{ fontSize: m ? 15 : 16, lineHeight: 1.8, color: 'rgba(255,255,255,0.6)' }}>{product.ingredients?.[locale]}</p>
               </div>
 
               <div style={{ display: 'grid', gridTemplateColumns: m ? '1fr' : '1fr 1fr', gap: 24 }}>
                 <div>
-                  <h3 style={{ fontSize: 13, fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', color: product.accent, marginBottom: 12 }}>{t('prodBestBeforeTitle')}</h3>
-                  <p style={{ fontSize: 14, lineHeight: 1.7, color: 'rgba(255,255,255,0.55)' }}>{isLody ? (locale === 'pl' ? 'Data i numer partii: nadruk z tyłu opakowania.' : 'Date and batch number: printed on the back of the package.') : isMus ? (locale === 'pl' ? 'Data i numer partii w środkowej części opakowania.' : 'Date and batch number in the middle part of the pouch.') : isKoncentrat ? (locale === 'pl' ? 'Data i numer partii na kubeczku-miarce.' : 'Date and batch number on the measuring cup.') : t('prodBestBefore')}</p>
+                  <h2 style={{ fontSize: 13, fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', color: product.accent, marginBottom: 12 }}>{t('prodBestBeforeTitle')}</h2>
+                  <p style={{ fontSize: 14, lineHeight: 1.7, color: 'rgba(255,255,255,0.62)' }}>{isLody ? (locale === 'pl' ? 'Data i numer partii: nadruk z tyłu opakowania.' : 'Date and batch number: printed on the back of the package.') : isMus ? (locale === 'pl' ? 'Data i numer partii w środkowej części opakowania.' : 'Date and batch number in the middle part of the pouch.') : isKoncentrat ? (locale === 'pl' ? 'Data i numer partii na kubeczku-miarce.' : 'Date and batch number on the measuring cup.') : t('prodBestBefore')}</p>
                 </div>
                 <div>
-                  <h3 style={{ fontSize: 13, fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', color: product.accent, marginBottom: 12 }}>{t('prodStorageTitle')}</h3>
-                  <p style={{ fontSize: 14, lineHeight: 1.7, color: 'rgba(255,255,255,0.55)' }}>{product.storage?.[locale]}</p>
+                  <h2 style={{ fontSize: 13, fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', color: product.accent, marginBottom: 12 }}>{t('prodStorageTitle')}</h2>
+                  <p style={{ fontSize: 14, lineHeight: 1.7, color: 'rgba(255,255,255,0.62)' }}>{product.storage?.[locale]}</p>
                 </div>
               </div>
 
               {/* KONCENTRAT: jak przygotować (1 szklanka 250 ml) + dozowanie + EAN */}
               {isKoncentrat && (
                 <div style={{ borderRadius: 16, border: `1px solid ${product.accent}44`, background: `radial-gradient(120% 140% at 100% 0%, ${product.glow}, rgba(255,255,255,0.02) 55%)`, padding: m ? 20 : 26 }}>
-                  <h3 style={{ fontSize: 13, fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', color: product.accent, marginBottom: 14 }}>{locale === 'pl' ? 'Jak przygotować (1 szklanka 250 ml)' : 'How to prepare (1 glass, 250 ml)'}</h3>
+                  <h2 style={{ fontSize: 13, fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', color: product.accent, marginBottom: 14 }}>{locale === 'pl' ? 'Jak przygotować (1 szklanka 250 ml)' : 'How to prepare (1 glass, 250 ml)'}</h2>
                   <ol style={{ margin: 0, paddingLeft: 22, display: 'grid', gap: 8, fontSize: 14, lineHeight: 1.6, color: 'rgba(255,255,255,0.75)' }}>
                     {(locale === 'pl'
                       ? ['Napełnij koncentratem załączony kubeczek do linii 0,25 l.', 'Przelej do szklanki o pojemności 250 ml.', 'Uzupełnij zimną wodą - gazowaną lub niegazowaną.', 'Delikatnie wymieszaj. Gotowe - spożyj bezpośrednio po przyrządzeniu.']
                       : ['Fill the included cup with concentrate up to the 0.25 l line.', 'Pour into a 250 ml glass.', 'Top up with cold water - sparkling or still.', 'Stir gently. Done - drink straight after preparation.']
                     ).map((s) => <li key={s}>{s}</li>)}
                   </ol>
-                  <p style={{ fontSize: 13, lineHeight: 1.7, color: 'rgba(255,255,255,0.5)', marginTop: 14 }}>
+                  <p style={{ fontSize: 13, lineHeight: 1.7, color: 'rgba(255,255,255,0.62)', marginTop: 14 }}>
                     {locale === 'pl'
                       ? 'Dozowanie 1:20 - 12,5 ml koncentratu na 250 ml wody. Kubeczek ma linie 0,25 / 0,5 / 0,75 l, więc dzbanek lub bidon robisz bez przeliczania. Więcej koncentratu = intensywniej, mniej = lżej.'
                       : 'Dosage 1:20 - 12.5 ml of concentrate per 250 ml of water. The cup has 0.25 / 0.5 / 0.75 l lines, so jugs and bottles need no maths. More concentrate = stronger, less = lighter.'}
@@ -300,13 +300,13 @@ export default function ProduktPage() {
               {/* producer / deposit strip */}
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: m ? 16 : 32, paddingTop: 24, borderTop: '1px solid rgba(255,255,255,0.08)' }}>
                 <div style={{ flex: '1 1 220px' }}>
-                  <p style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)', marginBottom: 6 }}>{t('prodProducer')}</p>
+                  <p style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.62)', marginBottom: 6 }}>{t('prodProducer')}</p>
                   <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.6)', lineHeight: 1.6 }}>{isLody ? 'NORDIS Chłodnie Polskie Sp. z o.o., ul. Zimna 1a, 65-707 Zielona Góra' : t('prodProducerVal')}</p>
                 </div>
                 {/* kaucja dotyczy tylko butelek napojów - musy/lody/koncentraty (syrop, nie napój) bez kaucji */}
                 {!isMus && !isLody && !isKoncentrat && (
                   <div>
-                    <p style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)', marginBottom: 6 }}>{t('prodDeposit')}</p>
+                    <p style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.62)', marginBottom: 6 }}>{t('prodDeposit')}</p>
                     <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.6)' }}>{t('prodDepositVal')}</p>
                   </div>
                 )}
@@ -341,7 +341,7 @@ export default function ProduktPage() {
                 )
                 : <StoreLogos height={20} />}
               <h3 style={{ fontSize: m ? 24 : 30, fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.15 }}>{isMediaExpert ? (locale === 'pl' ? 'Dostępny w Media Expert' : 'Available at Media Expert') : isBiedronka ? (isLody ? (locale === 'pl' ? 'Szukaj w zamrażarkach Biedronki' : 'Find it in Biedronka freezers') : (locale === 'pl' ? 'Szukaj tylko w Biedronce' : 'Find it only at Biedronka')) : t('prodCtaTitle')}</h3>
-              <p style={{ fontSize: 15, lineHeight: 1.7, color: 'rgba(255,255,255,0.55)' }}>
+              <p style={{ fontSize: 15, lineHeight: 1.7, color: 'rgba(255,255,255,0.62)' }}>
                 {isMediaExpert
                   ? (locale === 'pl' ? 'Koncentraty EDWARD WARCHOCKI znajdziesz w Media Expert. Pięć smaków, każda butelka to aż 10 litrów napoju bez dodatku cukru. Człowieku, jedna butelka zamiast dwudziestu.' : 'EDWARD WARCHOCKI concentrates are available at Media Expert. Five flavours, each bottle makes up to 10 litres of no-added-sugar drink. One bottle instead of twenty.')
                   : isSzkola
@@ -368,7 +368,7 @@ export default function ProduktPage() {
                   ? { width: m ? 130 : 150, height: m ? 130 : 150, objectFit: 'cover', borderRadius: 14, transition: 'transform 0.4s ease', boxShadow: `0 18px 34px ${other.glow}`, flexShrink: 0 }
                   : { height: m ? 130 : 170, width: 'auto', objectFit: 'contain', borderRadius: 12, transition: 'transform 0.4s ease', filter: `drop-shadow(0 18px 30px ${other.glow})` }} />
                 <div>
-                  <p style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.35)', marginBottom: 8 }}>{t('prodOther')}</p>
+                  <p style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.62)', marginBottom: 8 }}>{t('prodOther')}</p>
                   <p style={{ fontSize: m ? 18 : 22, fontWeight: 700, letterSpacing: '-0.01em', color: '#fff', marginBottom: 12 }}>{other.flavor[locale]}</p>
                   <span style={{ display: 'inline-flex', alignItems: 'center', gap: 8, fontSize: 12, fontWeight: 700, letterSpacing: '0.06em', textTransform: 'uppercase', color: other.accent }}>
                     {t('productsCardCta')} →

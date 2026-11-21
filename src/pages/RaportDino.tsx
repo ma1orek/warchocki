@@ -1,6 +1,7 @@
 import { motion, AnimatePresence } from 'framer-motion'
 import { useState, useEffect } from 'react'
 import Navbar from '../components/Navbar'
+import LazyIframe from '../components/LazyIframe'
 import Footer from '../components/Footer'
 import DinoLogo from '../components/DinoLogo'
 import LazyVideo from '../components/LazyVideo'
@@ -62,7 +63,7 @@ export default function RaportDino() {
     <div style={{ flex: '1 1 170px', padding: m ? '20px 16px' : '28px 24px', borderRadius: 16, background: accent ? 'linear-gradient(150deg, rgba(52,169,58,0.16), rgba(255,255,255,0.02))' : 'rgba(255,255,255,0.03)', border: `1px solid ${accent ? 'rgba(95,192,101,0.35)' : 'rgba(255,255,255,0.08)'}` }}>
       <div style={{ fontSize: m ? 30 : 42, fontWeight: 800, letterSpacing: '-0.03em', color: accent ? '#7dd17f' : '#fff', lineHeight: 1 }}>{big}</div>
       <div style={{ fontSize: 12, fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)', marginTop: 10 }}>{label}</div>
-      {sub && <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.35)', marginTop: 4 }}>{sub}</div>}
+      {sub && <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.62)', marginTop: 4 }}>{sub}</div>}
     </div>
   )
 
@@ -84,7 +85,7 @@ export default function RaportDino() {
           <motion.h1 {...fadeUp(0.08)} style={{ fontSize: m ? 34 : 'clamp(40px, 6vw, 76px)', fontWeight: 800, letterSpacing: '-0.04em', lineHeight: 1.02, marginBottom: 20 }}>
             EDWARD WARCHOCKI<br /><span style={{ color: '#7dd17f' }}>×</span> DINO
           </motion.h1>
-          <motion.p {...fadeUp(0.16)} style={{ fontSize: m ? 16 : 20, lineHeight: 1.6, color: 'rgba(255,255,255,0.5)', maxWidth: 660, marginBottom: 40 }}>
+          <motion.p {...fadeUp(0.16)} style={{ fontSize: m ? 16 : 20, lineHeight: 1.6, color: 'rgba(255,255,255,0.62)', maxWidth: 660, marginBottom: 40 }}>
             Robot-influencer Edward Warchocki i jego produkty bez dodatku cukru. Kampania wystartowała w <strong style={{ color: '#fff' }}>DINO</strong>,
             a napoje są już także w sieciach <strong style={{ color: '#fff' }}>Kaufland, Auchan, SPAR i POLOmarket</strong> - do tego <strong style={{ color: '#7dd17f' }}>NOWOŚĆ: musy owocowe</strong>, dostępne w <strong style={{ color: '#fff' }}>Dino</strong> i <strong style={{ color: '#fff' }}>Biedronce</strong>. A to dopiero początek.
           </motion.p>
@@ -102,7 +103,7 @@ export default function RaportDino() {
         <div style={{ maxWidth: 1100, margin: '0 auto', padding: '0 clamp(20px, 4vw, 48px)' }}>
           <motion.div {...fadeUp(0)} style={{ marginBottom: m ? 28 : 44 }}>
             <h2 style={{ fontSize: m ? 28 : 'clamp(28px, 4vw, 52px)', fontWeight: 800, letterSpacing: '-0.03em', marginBottom: 14 }}>A to dopiero początek</h2>
-            <p style={{ fontSize: m ? 15 : 18, lineHeight: 1.6, color: 'rgba(255,255,255,0.5)', maxWidth: 640 }}>
+            <p style={{ fontSize: m ? 15 : 18, lineHeight: 1.6, color: 'rgba(255,255,255,0.62)', maxWidth: 640 }}>
               Kilkanaście filmów i takie liczby. Łącznie <strong style={{ color: '#7dd17f' }}>ponad 20 mln</strong> wyświetleń - a licznik dalej bije. Najlepsze wciąż przed nami.
             </p>
           </motion.div>
@@ -112,12 +113,11 @@ export default function RaportDino() {
               <motion.div key={f.tiktokId || f.src || i} {...fadeUp((i % 3) * 0.1)} style={{ position: 'relative', borderRadius: 18, overflow: 'hidden', border: '1px solid rgba(255,255,255,0.1)', background: 'rgba(255,255,255,0.02)' }}>
                 <div style={{ position: 'relative', background: '#000', overflow: 'hidden' }}>
                   {f.tiktokId ? (
-                    <iframe
+                    <LazyIframe
                       src={`https://www.tiktok.com/embed/v2/${f.tiktokId}`}
-                      title={f.title}
+                      href={`https://www.tiktok.com/@edwardwarchocki/video/${f.tiktokId}`}
+                      title={f.title || 'TikTok'}
                       allow="encrypted-media; fullscreen"
-                      loading="lazy"
-                      scrolling="no"
                       style={{ display: 'block', width: '100%', aspectRatio: '9 / 16', maxWidth: m ? 320 : '100%', margin: '0 auto', border: 'none', background: '#000', overflow: 'hidden' }}
                     />
                   ) : (
@@ -148,7 +148,7 @@ export default function RaportDino() {
           <motion.div {...fadeUp(0)} style={{ marginBottom: m ? 26 : 40 }}>
             <span style={{ fontSize: 11, fontWeight: 800, letterSpacing: '0.16em', textTransform: 'uppercase', color: '#ffb066' }}>NOWOŚĆ · MUSY OWOCOWE · DINO I BIEDRONKA</span>
             <h2 style={{ fontSize: m ? 28 : 'clamp(28px, 4vw, 52px)', fontWeight: 800, letterSpacing: '-0.03em', margin: '12px 0 14px' }}>Musy wjechały do <span style={{ color: '#7dd17f' }}>Dino</span></h2>
-            <p style={{ fontSize: m ? 15 : 18, lineHeight: 1.6, color: 'rgba(255,255,255,0.5)', maxWidth: 640 }}>
+            <p style={{ fontSize: m ? 15 : 18, lineHeight: 1.6, color: 'rgba(255,255,255,0.62)', maxWidth: 640 }}>
               100% owoców, bez dodatku cukru - dwa smaki na start. Do kupienia w <strong style={{ color: '#fff' }}>Dino</strong> i w <strong style={{ color: '#fff' }}>Biedronce</strong>.
               Zobacz premierowe filmiki z musami na wszystkich platformach Edka.
             </p>
@@ -212,11 +212,11 @@ export default function RaportDino() {
       <section style={{ position: 'relative', padding: m ? '40px 0' : '70px 0', borderTop: '1px solid rgba(255,255,255,0.08)' }}>
         <div style={{ maxWidth: 1100, margin: '0 auto', padding: '0 clamp(20px, 4vw, 48px)' }}>
           <motion.div {...fadeUp(0)}>
-            <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)', marginBottom: 12 }}>Fala UGC</p>
+            <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.62)', marginBottom: 12 }}>Fala UGC</p>
             <h2 style={{ fontSize: m ? 24 : 'clamp(24px, 3.2vw, 40px)', fontWeight: 700, letterSpacing: '-0.03em', marginBottom: 18, maxWidth: 820 }}>
               Tysiące filmików tworzonych przez fanów z napojami Edwarda Warchockiego
             </h2>
-            <p style={{ fontSize: m ? 15 : 17, lineHeight: 1.75, color: 'rgba(255,255,255,0.5)', maxWidth: 720 }}>
+            <p style={{ fontSize: m ? 15 : 17, lineHeight: 1.75, color: 'rgba(255,255,255,0.62)', maxWidth: 720 }}>
               Klienci i fani sami nagrywają napoje Edwarda - przy półce w sklepie, taniec przed <strong style={{ color: '#fff' }}>Dino</strong>, wspólne zdjęcia -
               bardzo często <strong style={{ color: '#fff' }}>z oznaczeniami DINO</strong>. Każdy taki klip to darmowa reklama marki
               trafiająca do tysięcy ludzi. Poniżej realne komentarze i pełna lista mediów, które napisały o napojach.
@@ -325,13 +325,11 @@ function MusVideoSlider({ m }: { m: boolean }) {
               </div>
 
               {v.embed ? (
-                <iframe
+                <LazyIframe
                   src={v.embed}
                   title={`Musy Edwarda (${v.platform})`}
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
                   allowFullScreen
-                  loading="lazy"
-                  scrolling="no"
                   style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', border: 'none', background: '#000' }}
                 />
               ) : (
@@ -352,10 +350,10 @@ function MusVideoSlider({ m }: { m: boolean }) {
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 12, marginTop: 14 }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
           {m && <button aria-label="Poprzedni" onClick={() => go(i - 1)} style={arrow}>‹</button>}
-          <div style={{ display: 'flex', gap: 7 }}>
+          <div style={{ display: 'flex', gap: 0 }}>
             {MUS_VIDS.map((sv, k) => (
               <button key={sv.platform} aria-label={sv.platform} onClick={() => go(k)}
-                style={{ width: k === i ? 22 : 7, height: 7, borderRadius: 8, border: 'none', cursor: 'pointer', background: k === i ? sv.accent : 'rgba(255,255,255,0.25)', transition: 'all 0.3s ease', padding: 0 }} />
+                style={{ width: k === i ? 22 : 7, height: 7, borderRadius: 8, border: 'none', cursor: 'pointer', background: k === i ? sv.accent : 'rgba(255,255,255,0.25)', transition: 'all 0.3s ease', padding: 9, boxSizing: 'content-box', backgroundClip: 'content-box' }} />
             ))}
           </div>
           {m && <button aria-label="Następny" onClick={() => go(i + 1)} style={arrow}>›</button>}
@@ -374,13 +372,13 @@ function Chip({ icon, val, label }: { icon: string; val: string; label: string }
     <div style={{ display: 'inline-flex', alignItems: 'center', gap: 6, background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: 20, padding: '7px 12px' }}>
       <span style={{ fontSize: 12 }}>{icon}</span>
       <span style={{ fontSize: 13, fontWeight: 800, color: '#fff' }}>{val}</span>
-      <span style={{ fontSize: 10, color: 'rgba(255,255,255,0.4)' }}>{label}</span>
+      <span style={{ fontSize: 10, color: 'rgba(255,255,255,0.62)' }}>{label}</span>
     </div>
   )
 }
 
 function Tag({ children }: { children: React.ReactNode }) {
-  return <span style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.06em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.5)', border: '1px solid rgba(255,255,255,0.14)', borderRadius: 6, padding: '3px 7px' }}>{children}</span>
+  return <span style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.06em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.62)', border: '1px solid rgba(255,255,255,0.14)', borderRadius: 6, padding: '3px 7px' }}>{children}</span>
 }
 
 function UgcRow({ items, dir, duration, h }: { items: string[]; dir: 'left' | 'right'; duration: number; h: number }) {

@@ -250,7 +250,7 @@ for (const page of PAGES) {
 }
 
 // ── Podstrony i produkty w 54 językach ───────────────────────────────────────────────────────
-const cssTags = (template.match(/<link[^>]*rel="stylesheet"[^>]*>/g) || []).join('\n    ')
+const cssTags = (template.match(/<link[^>]*rel="stylesheet"[^>]*>|<link rel="preload" as="style"[^>]*>/g) || []).join('\n    ')
 const READY = {} // adres PL -> [{ L, path, html? }]
 const subSkipped = []
 for (const sp of SUBS) {
