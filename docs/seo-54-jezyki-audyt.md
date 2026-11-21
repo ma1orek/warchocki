@@ -87,3 +87,13 @@ Wnioski: ludzie szukają filmu z dzikami opisowo (robot + dziki + Warszawa/Polsk
 - Każda z 1080 stron ma 55 linków hreflang; mapa strony 1134 adresy; IndexNow przyjął 1135 adresów (200 we wszystkich 5 punktach).
 - Nowa treść polskiej podstrony: `npm run build`, potem `node scripts/lang-fill-sub.mjs` (tłumaczy tylko nowe fragmenty), commit, wdrożenie, `node scripts/indexnow.mjs`.
 - Do decyzji Bartosza: polskie podstrony mają twierdzenia spoza źródeł faktów (np. „1.5 miliarda wyświetleń”, „Pierwszy robot w polskim Sejmie”, „Pierwszy robot-influencer Polski”); tłumaczenia przenoszą je 1:1. F30 mówi o ok. 3 mld wyświetleń miesięcznie.
+
+## 10. Audyt „tip-top” i innowacje dla agentów (21.11.2026, commity 887b1a9 do bieżącego)
+
+- 404: bez reguły `/* /index.html 200`; nieznany adres (także `/.well-known/*`, `*.json`, `*.txt`, `*.xml`) = 404 z `dist/404.html`. Wszystkie 1134 adresy z mapy strony = 200.
+- `llms-full.txt` (PL i EN, text/plain), `llms.txt` z serwerem MCP MERA, Markdown 54 stron głównych (`/index.md`, `/en.md`, `/<kod>/index.md`, `<link rel="alternate" type="text/markdown">`, funkcja brzegowa na `Accept: text/markdown`), karta A2A `/.well-known/agent-card.json` (rezerwacja przez `https://merarobotics.com/mcp`).
+- Nagłówki: HSTS, nosniff, Referrer-Policy, X-Frame-Options, Permissions-Policy, CSP w trybie report-only, Link (llms.txt, MCP, karta agenta). Wdrożenie przez `netlify deploy --build` (pakuje funkcje brzegowe).
+- Twierdzenia spoza faktów usunięte ze strony („pierwszy robot influencer”, „1.5 miliarda”, „najpopularniejszy robot”, „#1 Robot w Polsce”); zostają tylko tytuły artykułów prasowych na liście publikacji (cytaty z mediów).
+- JSON-LD: 1086 grafów bez błędów, Organization `https://merarobotics.com/#organization`, Edward z Wikipedią, Wikidata i kanałami.
+- Lighthouse na telefonie (produkcja): strony w językach i podstrony 90-99 / 100 / 100 / 100; strona główna PL 77 / 100 / 100 / 100, EN 73 / 100 / 100 / 100 (było 61 i 47).
+- Strona główna React nie osiąga 90 bez przebudowy: 425 KB HTML (m.in. ok. 190 publikacji na liście), pełny render React po starcie (createRoot, nie hydratacja), układ zależny od szerokości ekranu. Propozycja: lista publikacji stronicowana lub na osobnej podstronie i strona główna statyczna jak wersje językowe.
