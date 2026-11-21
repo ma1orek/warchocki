@@ -195,8 +195,8 @@ export const products: Product[] = [
       en: 'EDWARD WARCHOCKI school collection',
     },
     intro: {
-      pl: 'Edward idzie do szkoły! Plecaki, plecakoworki, zeszyty i teczki z najpopularniejszym robotem internetu - od 17 sierpnia w sklepach Biedronka w całej Polsce, w ramach akcji Back to School. A to dopiero początek: Edward już prowadzi edukacyjne transmisje na żywo dla dzieci, a od października rusza w tour po polskich szkołach. No i elegancko człowieku.',
-      en: "Edward goes to school! Backpacks, drawstring bags, notebooks and folders featuring the internet's most popular robot - from August 17 at Biedronka stores across Poland as part of the Back to School campaign. And that's just the beginning: Edward already hosts educational live streams for kids, and in October he sets off on a tour of Polish schools. Elegant.",
+      pl: 'Edward idzie do szkoły! Plecaki, plecakoworki, zeszyty i teczki z Edwardem Warchockim, robotem humanoidalnym i influencerem - od 17 sierpnia w sklepach Biedronka w całej Polsce, w ramach akcji Back to School. A to dopiero początek: Edward już prowadzi edukacyjne transmisje na żywo dla dzieci, a od października rusza w tour po polskich szkołach. No i elegancko człowieku.',
+      en: "Edward goes to school! Backpacks, drawstring bags, notebooks and folders featuring Edward Warchocki, the humanoid robot influencer - from August 17 at Biedronka stores across Poland as part of the Back to School campaign. And that's just the beginning: Edward already hosts educational live streams for kids, and in October he sets off on a tour of Polish schools. Elegant.",
     },
     accent: '#35dfe0',
     accent2: '#2b6bd8',

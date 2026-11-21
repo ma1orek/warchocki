@@ -85,7 +85,7 @@ export default function RaportDino() {
             EDWARD WARCHOCKI<br /><span style={{ color: '#7dd17f' }}>×</span> DINO
           </motion.h1>
           <motion.p {...fadeUp(0.16)} style={{ fontSize: m ? 16 : 20, lineHeight: 1.6, color: 'rgba(255,255,255,0.5)', maxWidth: 660, marginBottom: 40 }}>
-            Pierwszy w Polsce robot-influencer i jego produkty bez dodatku cukru. Kampania wystartowała w <strong style={{ color: '#fff' }}>DINO</strong>,
+            Robot-influencer Edward Warchocki i jego produkty bez dodatku cukru. Kampania wystartowała w <strong style={{ color: '#fff' }}>DINO</strong>,
             a napoje są już także w sieciach <strong style={{ color: '#fff' }}>Kaufland, Auchan, SPAR i POLOmarket</strong> - do tego <strong style={{ color: '#7dd17f' }}>NOWOŚĆ: musy owocowe</strong>, dostępne w <strong style={{ color: '#fff' }}>Dino</strong> i <strong style={{ color: '#fff' }}>Biedronce</strong>. A to dopiero początek.
           </motion.p>
 

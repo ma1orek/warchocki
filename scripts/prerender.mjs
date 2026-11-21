@@ -322,7 +322,7 @@ const missing = STATIC_LANGS.filter((L) => !texts(L.code)).map((L) => L.code)
 if (missing.length) console.warn(`prerender: brak tekstów scripts/lang/<kod>.json dla: ${missing.join(', ')} (pomijam)`)
 const organization = organizationNode(), website = websiteNode()
 for (const L of STATIC_LANGS.filter((x) => texts(x.code))) {
-  const html = langPage(L, texts(L.code), organization, website, subNavFor(L.code, subTexts(L.code)))
+  const html = withMdLink(langPage(L, texts(L.code), organization, website, subNavFor(L.code, subTexts(L.code))), L)
   if (DASHES.test(html)) throw new Error(`prerender: długi myślnik w /${L.code}/`)
   for (const must of [`<html lang="${L.hreflang}"`, '<link rel="canonical"', 'hreflang="x-default"', 'application/ld+json', '<h1>']) {
     if (!html.includes(must)) throw new Error(`prerender: /${L.code}/ bez ${must}`)
@@ -342,6 +342,74 @@ for (const sp of SUBS) for (const x of READY[sp].filter((y) => y.html)) {
 appendFileSync(join(dist, 'llms.txt'), `\n## Edward Warchocki in ${READY_LANGS.length} languages\n\n` + READY_LANGS.map((L) => `- [${L.enName} (${L.name})](${abs(L.path)}): ${texts(L.code).title}`).join('\n') + '\n')
 
 writeFileSync(join(dist, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${urls.join('\n')}\n</urlset>\n`)
+
+// ── Markdown stron głównych (21.11.2026, dla agentów): /index.md, /en.md, /<kod>/index.md ─────────────────
+// Ten sam tekst co strona (scripts/lang/<kod>.json), w <head> <link rel="alternate" type="text/markdown">,
+// a funkcja brzegowa netlify/edge-functions/markdown.js oddaje go na Accept: text/markdown.
+{
+  for (const L of READY_LANGS) {
+    const t = texts(L.code)
+    const book = MERA + (L.edward || L.events), rent = `${MERA_RENT}/${L.code}/`
+    const pages = SUB_BASE.filter(([sp]) => READY[sp].some((x) => x.L.code === L.code)).map(([sp, name]) => {
+      const tr = L.code === 'pl' ? null : subTexts(L.code)
+      return `- [${(tr && tr[name]) || name}](${abs(langPath(L.code, sp))})`
+    })
+    const md = [
+      `# ${t.title}`,
+      '',
+      `> ${t.lead}`,
+      '',
+      `Canonical: ${abs(L.path)}`,
+      '',
+      `## ${t.videoH}`,
+      '',
+      t.videoP,
+      '',
+      `[${t.videoCta}](${BOARS_VIDEO.url})`,
+      '',
+      `## ${t.reachH}`,
+      '',
+      t.reachP,
+      '',
+      `## ${t.mediaH}`,
+      '',
+      t.mediaP,
+      '',
+      t.productsP,
+      '',
+      `## ${t.faqH}`,
+      '',
+      ...t.faq.flatMap((f) => [`### ${f.q}`, '', f.a, '']),
+      `## ${t.bookH}`,
+      '',
+      t.bookP,
+      '',
+      `- [${t.bookEvents}](${book})`,
+      `- [${t.bookRent}](${rent})`,
+      '- MCP (AI agents): https://merarobotics.com/mcp (https://merarobotics.com/.well-known/mcp/server-card.json)',
+      `- ${t.contactH}: ${ORG.email}`,
+      '',
+      ...(pages.length ? ['## warchocki.pl', '', ...pages, ''] : []),
+      `## ${t.profilesH}`,
+      '',
+      ...PROFILES.map(([label, href]) => `- ${label}: ${href}`),
+      '',
+      `## ${t.langsH}`,
+      '',
+      ...READY_LANGS.map((x) => `- [${x.name}](${abs(x.path)})`),
+      '',
+    ].join('\n')
+    if (DASHES.test(md)) throw new Error(`prerender: długi myślnik w Markdown ${L.code}`)
+    const file = join(dist, mdFile(L).slice(1))
+    mkdirSync(dirname(file), { recursive: true })
+    writeFileSync(file, md)
+  }
+  // strony React (PL, EN): link do Markdown w <head>
+  for (const [code, file] of [['pl', 'index.html'], ['en', 'en.html']]) {
+    const f = join(dist, file)
+    writeFileSync(f, withMdLink(readFileSync(f, 'utf8'), READY_LANGS.find((x) => x.code === code)))
+  }
+}
 
 // ── llms-full.txt (21.11.2026, „wszystko przyjazne dla agentów”): pełny tekst o Edwardzie PL i EN ─────────────
 {
@@ -466,3 +534,12 @@ writeFileSync(join(dist, '404.html'), `<!doctype html>
 
 appendFileSync(join(dist, 'llms.txt'), `\nEvery page of warchocki.pl (services, campaign reports, products) is also available in these languages at https://warchocki.pl/<code>/<page>, for example https://warchocki.pl/de/wynajem-edwarda and https://warchocki.pl/de/produkty.\n`)
 console.log(`prerender: ${PAGES.length} stron React, ${READY_LANGS.length - 2} stron językowych, ${subWritten} podstron w językach, sitemap: ${urls.length} adresów`)
+
+function mdFile(L) { return L.code === 'pl' ? '/index.md' : L.code === 'en' ? '/en.md' : `/${L.code}/index.md` }
+function withMdLink(html, L) {
+  const tag = `<link rel="alternate" type="text/markdown" href="${SITE}${mdFile(L)}" />`
+  if (html.includes(tag)) return html
+  const out = html.replace(/(<link rel="canonical" href="[^"]*" \/>)/, `$1\n    ${tag}`)
+  if (out === html) throw new Error(`prerender: brak canonical przy wstawianiu Markdown (${L.code})`)
+  return out
+}

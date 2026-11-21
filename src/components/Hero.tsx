@@ -17,7 +17,7 @@ export default function Hero() {
   const stats = [
     { value: '~3B', label: t('heroStatViews') },
     { value: locale === 'en' ? 'MILLIONS' : 'MILIONY', label: t('heroStatPeople') },
-    { value: '#1', label: t('heroStatRobot') },
+    { value: '70+', label: t('heroStatRobot') },
   ]
 
   return (

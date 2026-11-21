@@ -46,7 +46,7 @@ export const translations = {
     heroScroll: 'Leć niżej',
     heroStatViews: 'Wyświetleń w miesiąc',
     heroStatPeople: 'ludzi',
-    heroStatRobot: 'Robot w Polsce',
+    heroStatRobot: 'języków rozmowy',
 
     timelineTag: 'Moje przygody',
     timelineTitle: 'CIEKAWE ŻYCIE EDKA',
@@ -184,7 +184,7 @@ export const translations = {
     heroScroll: 'Scroll',
     heroStatViews: 'Views per month',
     heroStatPeople: 'people',
-    heroStatRobot: 'Robot in Poland',
+    heroStatRobot: 'conversation languages',
 
     timelineTag: 'My adventures',
     timelineTitle: "EDEK'S WILD LIFE",

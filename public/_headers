@@ -1,0 +1,24 @@
+# warchocki.pl: nagłówki (21.11.2026). CSP najpierw tylko w trybie raportowania (Content-Security-Policy-Report-Only):
+# nic nie blokuje, przeglądarka zgłasza naruszenia w konsoli. Po sprawdzeniu zamienić na Content-Security-Policy.
+/*
+  Strict-Transport-Security: max-age=31536000
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  X-Frame-Options: SAMEORIGIN
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()
+  Content-Security-Policy-Report-Only: default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.tiktok.com https://www.instagram.com https://connect.facebook.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: blob: https:; media-src 'self' blob: https:; connect-src 'self' https://formsubmit.co https://merarobotics.com https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com; frame-src https://www.youtube.com https://www.youtube-nocookie.com https://www.tiktok.com https://www.facebook.com https://www.instagram.com; object-src 'none'; base-uri 'self'; form-action 'self' https://formsubmit.co; frame-ancestors 'self'
+  Link: </llms.txt>; rel="describedby"; type="text/plain", <https://merarobotics.com/mcp>; rel="service"; type="application/json", </.well-known/agent-card.json>; rel="describedby"; type="application/json"
+
+/*.md
+  Content-Type: text/markdown; charset=utf-8
+  Access-Control-Allow-Origin: *
+
+/llms.txt
+  Access-Control-Allow-Origin: *
+
+/llms-full.txt
+  Access-Control-Allow-Origin: *
+
+/.well-known/agent-card.json
+  Content-Type: application/json; charset=utf-8
+  Access-Control-Allow-Origin: *

@@ -1,0 +1,53 @@
+{
+  "protocolVersion": "0.3.0",
+  "name": "Edward Warchocki booking (MERA Robotics)",
+  "description": "Books Edward Warchocki, a humanoid robot (Unitree G1) and influencer run by MERA Robotics, for events across Europe: availability, event planning, quotes and booking inquiries. This agent is served by the MERA Robotics MCP server (Streamable HTTP, no A2A JSON-RPC endpoint): connect an MCP client to https://merarobotics.com/mcp. Server card: https://merarobotics.com/.well-known/mcp/server-card.json.",
+  "url": "https://merarobotics.com/mcp",
+  "preferredTransport": "MCP",
+  "version": "1.0.0",
+  "documentationUrl": "https://warchocki.pl/llms-full.txt",
+  "iconUrl": "https://warchocki.pl/favicon.svg",
+  "provider": {
+    "organization": "MERA Robotics (MERA ROBOTICS sp. z o.o.)",
+    "url": "https://merarobotics.com"
+  },
+  "capabilities": {
+    "streaming": false,
+    "pushNotifications": false,
+    "stateTransitionHistory": false
+  },
+  "defaultInputModes": ["text/plain", "application/json"],
+  "defaultOutputModes": ["text/plain", "application/json"],
+  "skills": [
+    {
+      "id": "check_availability",
+      "name": "Check Edward's availability",
+      "description": "Checks whether Edward Warchocki or another MERA humanoid robot is available on a date and in a country (MCP tool check_availability).",
+      "tags": ["edward-warchocki", "humanoid-robot", "event", "availability"]
+    },
+    {
+      "id": "plan_event_robot",
+      "name": "Plan a robot for an event",
+      "description": "Suggests how Edward can take part in a conference, trade fair, gala or corporate event (MCP tool plan_event_robot).",
+      "tags": ["event-planning", "robot-host", "edward-warchocki"]
+    },
+    {
+      "id": "get_rental_quote",
+      "name": "Get a rental quote",
+      "description": "Returns a quote for renting a humanoid robot with operators from MERA RENT (MCP tool get_rental_quote). Edward Warchocki is quoted individually through an inquiry.",
+      "tags": ["quote", "rental", "mera-rent"]
+    },
+    {
+      "id": "request_quote",
+      "name": "Send a booking inquiry for Edward",
+      "description": "Sends an inquiry to the MERA Robotics team after the user has confirmed the details (MCP tools request_quote, open_inquiry_form, start_booking).",
+      "tags": ["booking", "inquiry", "edward-warchocki", "mera-events"]
+    },
+    {
+      "id": "get_media_and_proof",
+      "name": "Media coverage and references",
+      "description": "Lists media coverage and references of Edward Warchocki and MERA Robotics (MCP tool get_media_and_proof).",
+      "tags": ["media", "references"]
+    }
+  ]
+}

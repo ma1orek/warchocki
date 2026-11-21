@@ -102,7 +102,7 @@ export default function RaportPolandRock() {
           </motion.p>
 
           <motion.p {...fadeUp(0.18)} style={{ fontSize: m ? 16 : 20, lineHeight: 1.65, color: 'rgba(255,255,255,0.55)', maxWidth: 720, marginBottom: m ? 34 : 46 }}>
-            Pierwszy polski robot-influencer pojechał na największy festiwal w kraju i wszedł prosto w tłum.
+            Robot-influencer Edward Warchocki pojechał na Pol’and’Rock Festival i wszedł prosto w tłum.
             Bez sceny, bez barierek - między namiotami, w kolejce po jedzenie, na polu.
             Efekt: <strong style={{ color: '#fff' }}>ponad 20 mln wyświetleń</strong> z jednej wizyty,
             w naszych social mediach, na wszystkich platformach.
